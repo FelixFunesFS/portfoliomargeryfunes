@@ -69,10 +69,11 @@ export const caseStudiesData: CaseStudy[] = [
       responsibilities: [
         "Conducted empathy interviews",
         "Prototyped a streamlined UI",
-        "Built an app using C#, JavaScript, and VBA"
+        "Built an app using C#, JavaScript, and VBA",
+        "Developed with Visual Studio for IDE and debugging"
       ]
     },
-    tools: ["C#", "JavaScript", "Excel VBA", "PowerPoint"],
+    tools: ["C#", "JavaScript", "Excel VBA", "PowerPoint", "Visual Studio"],
     problem: "Slide decks took ~25 minutes each to update manually (totaling ~9.6 hours/week). Manual entry often caused errors and delays.",
     solution: "Created a form-driven app to auto-generate PowerPoint slides with real-time event data.",
     keyOutcomes: [
