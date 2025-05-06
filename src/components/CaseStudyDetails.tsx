@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, ChevronRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
+import AnimatedMetric from '@/components/AnimatedMetric';
 import { CaseStudy } from '@/types/caseStudy';
 
 interface CaseStudyDetailsProps {
@@ -132,13 +132,13 @@ const CaseStudyDetails: React.FC<CaseStudyDetailsProps> = ({ study, onClose }) =
               <h3 className="text-lg font-medium mb-3">Impact Metrics</h3>
               <div className="space-y-3">
                 {study.metrics.map((metric, index) => (
-                  <div key={index}>
-                    <div className="flex justify-between text-sm mb-1">
-                      <span>{metric.label}</span>
-                      <span className="font-medium">{metric.value}</span>
-                    </div>
-                    <Progress value={metric.percentage} className="h-2" />
-                  </div>
+                  <AnimatedMetric
+                    key={index}
+                    label={metric.label}
+                    value={metric.value}
+                    percentage={metric.percentage}
+                    delay={index * 200}
+                  />
                 ))}
               </div>
             </section>

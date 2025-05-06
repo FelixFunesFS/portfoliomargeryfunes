@@ -6,6 +6,7 @@ import Projects from '@/components/Projects';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import CaseStudySummary from '@/components/CaseStudySummary';
 
 const Index = () => {
   useEffect(() => {
@@ -18,6 +19,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Projects />
+      <CaseStudySummary />
       <About />
       <Contact />
       <Footer />
