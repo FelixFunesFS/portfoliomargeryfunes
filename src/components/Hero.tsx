@@ -121,7 +121,7 @@ const Hero = () => {
       <div className="container-custom relative z-10 flex flex-col items-center md:items-start text-center md:text-left">
         <h3 className="text-white/80 text-xl mb-3 animate-slide-in">Hello, I'm</h3>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          Jake Anderson
+          Margery Funes
         </h1>
         <h2 className="text-2xl md:text-4xl font-medium text-purple-light mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           UX/UI Designer & Developer
@@ -131,11 +131,11 @@ const Hero = () => {
           functional design, focused on solving user problems through intuitive interfaces.
         </p>
         <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-          <Button className="bg-purple hover:bg-purple-light transition-colors text-white px-8 py-6">
-            View Projects
+          <Button className="bg-purple hover:bg-purple-light transition-colors text-white px-8 py-6" asChild>
+            <a href="#projects">View Projects</a>
           </Button>
-          <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6">
-            Contact Me
+          <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6" asChild>
+            <a href="#contact">Contact Me</a>
           </Button>
         </div>
       </div>

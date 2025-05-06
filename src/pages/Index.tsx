@@ -10,7 +10,7 @@ import Footer from '@/components/Footer';
 const Index = () => {
   useEffect(() => {
     // Update page title
-    document.title = "Jake Anderson | UX/UI Designer & Developer";
+    document.title = "Margery Funes | UX/UI Designer & Developer";
   }, []);
 
   return (

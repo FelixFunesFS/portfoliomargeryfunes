@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
 import { Button } from '@/components/ui/button';
-import { Layout, PenTool, Smartphone, Code } from 'lucide-react';
+import { Layout, PenTool, Smartphone, Code, FileText } from 'lucide-react';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
@@ -107,7 +108,7 @@ const Projects = () => {
           ))}
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {filteredProjects.map((project) => (
             <ProjectCard
               key={project.id}
@@ -119,6 +120,15 @@ const Projects = () => {
               caseStudyUrl={project.caseStudyUrl}
             />
           ))}
+        </div>
+        
+        <div className="text-center">
+          <Link to="/case-studies">
+            <Button className="bg-purple hover:bg-purple-light transition-colors px-8 py-6 flex items-center gap-2">
+              <FileText size={20} />
+              View Detailed Case Studies
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
