@@ -547,6 +547,287 @@ const AltHome2 = () => {
         </div>
       </section>
 
+      {/* Journey: Bridging the Gap */}
+      <section className="section bg-background relative overflow-hidden">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <Badge variant="outline" className="mb-4 border-copper text-copper">
+              Bridging Worlds
+            </Badge>
+            <h2 className="text-4xl font-bold mb-6">
+              From Military Precision to <span className="text-primary-glow">User-Centered Innovation</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              My unique journey positions me as a translator between technical complexity and human needs, 
+              bridging the gap between military discipline, enterprise systems, and modern user experience.
+            </p>
+          </motion.div>
+
+          {/* Bridge Visual Metaphor */}
+          <div className="relative mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              {/* Bridge Connection Line */}
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-success via-primary-glow to-accent transform -translate-y-1/2 z-0"></div>
+              
+              {/* Bridge Pillars */}
+              <div className="grid lg:grid-cols-3 gap-8 relative z-10">
+                {/* Military Foundation */}
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                  className="text-center"
+                >
+                  <Card className="glass border-success/20 shadow-systems hover:shadow-success/30 transition-all duration-300">
+                    <CardContent className="p-8">
+                      <div className="w-20 h-20 mx-auto rounded-full bg-success/20 flex items-center justify-center mb-6">
+                        <Shield className="w-10 h-10 text-success" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-success mb-4">Military Foundation</h3>
+                      <p className="text-muted-foreground mb-6">
+                        Systematic thinking, process optimization, and mission-critical reliability
+                      </p>
+                      <div className="space-y-2">
+                        <Badge variant="outline" className="border-success text-success mr-2 mb-2">
+                          Strategic Planning
+                        </Badge>
+                        <Badge variant="outline" className="border-success text-success mr-2 mb-2">
+                          Risk Management
+                        </Badge>
+                        <Badge variant="outline" className="border-success text-success mr-2 mb-2">
+                          Process Excellence
+                        </Badge>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+
+                {/* Enterprise Bridge */}
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                  className="text-center"
+                >
+                  <Card className="glass border-primary-glow/20 shadow-systems hover:shadow-primary-glow/30 transition-all duration-300">
+                    <CardContent className="p-8">
+                      <div className="w-20 h-20 mx-auto rounded-full bg-primary-glow/20 flex items-center justify-center mb-6">
+                        <GitBranch className="w-10 h-10 text-primary-glow" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-primary-glow mb-4">Enterprise Translation</h3>
+                      <p className="text-muted-foreground mb-6">
+                        Converting complex technical requirements into scalable business solutions
+                      </p>
+                      <div className="space-y-2">
+                        <Badge variant="outline" className="border-primary-glow text-primary-glow mr-2 mb-2">
+                          Systems Integration
+                        </Badge>
+                        <Badge variant="outline" className="border-primary-glow text-primary-glow mr-2 mb-2">
+                          Stakeholder Alignment
+                        </Badge>
+                        <Badge variant="outline" className="border-primary-glow text-primary-glow mr-2 mb-2">
+                          Technical Leadership
+                        </Badge>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+
+                {/* User Experience Innovation */}
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6, duration: 0.6 }}
+                  className="text-center"
+                >
+                  <Card className="glass border-accent/20 shadow-systems hover:shadow-accent/30 transition-all duration-300">
+                    <CardContent className="p-8">
+                      <div className="w-20 h-20 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-6">
+                        <Brain className="w-10 h-10 text-accent" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-accent mb-4">User-Centered Innovation</h3>
+                      <p className="text-muted-foreground mb-6">
+                        Transforming complex systems into intuitive, human-centered experiences
+                      </p>
+                      <div className="space-y-2">
+                        <Badge variant="outline" className="border-accent text-accent mr-2 mb-2">
+                          Design Thinking
+                        </Badge>
+                        <Badge variant="outline" className="border-accent text-accent mr-2 mb-2">
+                          User Research
+                        </Badge>
+                        <Badge variant="outline" className="border-accent text-accent mr-2 mb-2">
+                          Agile Innovation
+                        </Badge>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* The Bridge Value Proposition */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="max-w-5xl mx-auto"
+          >
+            <Card className="glass border-copper/20 shadow-military">
+              <CardContent className="p-12">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 mx-auto rounded-full bg-copper/20 flex items-center justify-center mb-4">
+                    <TrendingUp className="w-8 h-8 text-copper" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-foreground mb-4">
+                    The Bridge Effect
+                  </h3>
+                  <p className="text-lg text-muted-foreground">
+                    Where technical expertise meets human understanding
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center">
+                      <Database className="w-5 h-5 text-systems-blue mr-2" />
+                      Technical Translation
+                    </h4>
+                    <ul className="space-y-3 text-muted-foreground">
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Convert complex technical requirements into user-friendly solutions</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Bridge communication gaps between developers and end users</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Ensure technical solutions align with business objectives</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center">
+                      <Users className="w-5 h-5 text-agile-primary mr-2" />
+                      Human-Centered Impact
+                    </h4>
+                    <ul className="space-y-3 text-muted-foreground">
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Design with military precision but user empathy at the core</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Create solutions that are both powerful and accessible</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Deliver measurable results through systematic user research</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <Separator className="my-8" />
+
+                <div className="text-center">
+                  <p className="text-lg text-muted-foreground italic">
+                    "I don't just build systems or design interfaces — I create bridges between 
+                    complex technology and human needs, ensuring solutions are both technically 
+                    sound and genuinely useful."
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* Unique Value Metrics */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1, duration: 0.6 }}
+            className="mt-16"
+          >
+            <div className="grid md:grid-cols-4 gap-6">
+              {[
+                { 
+                  metric: "3 Domains", 
+                  label: "Military • Enterprise • UX", 
+                  icon: Shield,
+                  color: "success"
+                },
+                { 
+                  metric: "15+ Years", 
+                  label: "Systems Experience", 
+                  icon: Clock,
+                  color: "primary-glow"
+                },
+                { 
+                  metric: "100%", 
+                  label: "User Adoption Rate", 
+                  icon: Target,
+                  color: "agile-primary"
+                },
+                { 
+                  metric: "∞", 
+                  label: "Translation Capability", 
+                  icon: GitBranch,
+                  color: "accent"
+                }
+              ].map((item, index) => (
+                <Card key={index} className="glass border-none shadow-card text-center">
+                  <CardContent className="p-6">
+                    <div className={`w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4 ${
+                      item.color === 'success' ? 'bg-success/20' :
+                      item.color === 'primary-glow' ? 'bg-primary-glow/20' :
+                      item.color === 'agile-primary' ? 'bg-agile-primary/20' :
+                      'bg-accent/20'
+                    }`}>
+                      <item.icon className={`w-6 h-6 ${
+                        item.color === 'success' ? 'text-success' :
+                        item.color === 'primary-glow' ? 'text-primary-glow' :
+                        item.color === 'agile-primary' ? 'text-agile-primary' :
+                        'text-accent'
+                      }`} />
+                    </div>
+                    <div className={`text-3xl font-bold mb-1 ${
+                      item.color === 'success' ? 'text-success' :
+                      item.color === 'primary-glow' ? 'text-primary-glow' :
+                      item.color === 'agile-primary' ? 'text-agile-primary' :
+                      'text-accent'
+                    }`}>
+                      {item.metric}
+                    </div>
+                    <div className="text-sm text-muted-foreground">{item.label}</div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Skills Arsenal */}
       <section className="section gradient-subtle">
         <div className="container-custom">
