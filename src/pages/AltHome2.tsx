@@ -272,12 +272,12 @@ const AltHome2 = () => {
           </div>
         </motion.div>
 
-        <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="container-custom relative z-10 px-3 sm:px-4 lg:px-6 xl:px-8">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-center">
             {/* Hero Content */}
             <motion.div variants={itemVariants} className="text-center lg:text-left">
-              <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
-                <Badge variant="outline" className="mb-4 text-sm sm:text-base lg:text-lg py-1.5 sm:py-2 px-3 sm:px-4 border-primary-glow text-primary-glow">
+              <motion.div variants={itemVariants} className="mb-3 sm:mb-4 lg:mb-6">
+                <Badge variant="outline" className="mb-3 sm:mb-4 text-xs sm:text-sm lg:text-base py-1 sm:py-1.5 lg:py-2 px-2 sm:px-3 lg:px-4 border-primary-glow text-primary-glow">
                   Systems Analyst • UX Researcher • Agile Problem Solver
                 </Badge>
               </motion.div>
@@ -307,13 +307,13 @@ const AltHome2 = () => {
 
               <motion.div 
                 variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12"
+                className="flex flex-col gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10"
               >
-                <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[44px] text-base">
+                <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4">
                   View Case Studies
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
-                <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[44px] text-base">
+                <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4">
                   Download Resume
                 </Button>
               </motion.div>
@@ -321,47 +321,47 @@ const AltHome2 = () => {
               {/* Key Metrics */}
               <motion.div 
                 variants={itemVariants}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center"
+                className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 text-center max-w-sm sm:max-w-md lg:max-w-none mx-auto lg:mx-0"
               >
-                <div className="sm:border-r sm:border-border/20 last:border-r-0">
-                  <div className="text-2xl sm:text-3xl font-bold text-primary-glow">26K+</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground">Hours Saved Annually</div>
+                <div className="py-3 sm:py-4">
+                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-primary-glow">26K+</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Hours Saved Annually</div>
                 </div>
-                <div className="sm:border-r sm:border-border/20 last:border-r-0">
-                  <div className="text-2xl sm:text-3xl font-bold text-agile-primary">23</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground">Global Bases Unified</div>
+                <div className="py-3 sm:py-4 border-x border-border/20">
+                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-agile-primary">23</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Global Bases Unified</div>
                 </div>
-                <div>
-                  <div className="text-2xl sm:text-3xl font-bold text-accent">340%</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground">Max Conversion Increase</div>
+                <div className="py-3 sm:py-4">
+                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-accent">340%</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Max Conversion Increase</div>
                 </div>
               </motion.div>
             </motion.div>
 
             {/* Interactive Systems Diagram */}
-            <motion.div variants={itemVariants} className="relative">
+            <motion.div variants={itemVariants} className="relative mt-6 lg:mt-0">
               <Card className="glass border-primary-glow/20 shadow-systems">
-                <CardHeader>
-                  <CardTitle className="text-center text-primary-glow">
+                <CardHeader className="p-4 sm:p-6">
+                  <CardTitle className="text-center text-primary-glow text-lg sm:text-xl">
                     Systems Analysis Framework
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="space-y-3 sm:space-y-4">
                     {['User Problems', 'Systems Analysis', 'Agile Solutions', 'Measurable Results'].map((step, index) => (
                       <motion.div
                         key={step}
-                        initial={{ opacity: 0, x: 50 }}
+                        initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.2 + 1 }}
-                        className="flex items-center space-x-3"
+                        className="flex items-center space-x-2 sm:space-x-3"
                       >
-                        <div className="w-8 h-8 rounded-full bg-primary-glow/20 flex items-center justify-center">
-                          <span className="text-sm font-bold text-primary-glow">{index + 1}</span>
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary-glow/20 flex items-center justify-center flex-shrink-0">
+                          <span className="text-xs sm:text-sm font-bold text-primary-glow">{index + 1}</span>
                         </div>
-                        <span className="text-foreground">{step}</span>
+                        <span className="text-sm sm:text-base text-foreground">{step}</span>
                         {index < 3 && (
-                          <ArrowRight className="w-4 h-4 text-muted-foreground" />
+                          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground ml-auto" />
                         )}
                       </motion.div>
                     ))}
@@ -382,28 +382,28 @@ const AltHome2 = () => {
       </motion.section>
 
       {/* Problem-Solution Matrix */}
-      <section className="section bg-background">
-        <div className="container-custom">
+      <section className="section bg-background py-12 sm:py-16 lg:py-20">
+        <div className="container-custom px-3 sm:px-4 lg:px-6">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <Badge variant="outline" className="mb-4 border-agile-primary text-agile-primary">
+            <Badge variant="outline" className="mb-3 sm:mb-4 border-agile-primary text-agile-primary text-xs sm:text-sm">
               Research Stories
             </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
               User Problems, <span className="text-agile-primary">Research-Driven Solutions</span>
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto px-2 sm:px-4 lg:px-0 leading-relaxed">
               Each project tells a story of user challenges, research insights, and meaningful impact. 
               Here's how I approach complex problems through systematic UX research.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
             {researchStories.map((story, index) => (
               <motion.div
                 key={index}
@@ -415,16 +415,16 @@ const AltHome2 = () => {
                 className="h-full"
               >
                 <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full">
-                  <CardContent className="p-4 sm:p-6">
+                  <CardContent className="p-4 sm:p-5 lg:p-6">
                     {/* Research Story Header */}
                     <div className="text-center mb-4">
-                      <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full flex items-center justify-center mb-3 ${
+                      <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto rounded-full flex items-center justify-center mb-3 ${
                         story.color === 'systems' ? 'bg-systems-blue/20' :
                         story.color === 'agile' ? 'bg-agile-primary/20' :
                         story.color === 'success' ? 'bg-success/20' :
                         'bg-accent/20'
                       }`}>
-                        <story.icon className={`w-6 h-6 sm:w-8 sm:h-8 ${
+                        <story.icon className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 ${
                           story.color === 'systems' ? 'text-systems-blue' :
                           story.color === 'agile' ? 'text-agile-primary' :
                           story.color === 'success' ? 'text-success' :
@@ -434,31 +434,31 @@ const AltHome2 = () => {
                     </div>
 
                     {/* Challenge */}
-                    <div className="mb-4">
+                    <div className="mb-3 sm:mb-4">
                       <Badge variant="outline" className="text-xs text-muted-foreground mb-2">
                         USER CHALLENGE
                       </Badge>
-                      <p className="text-sm text-foreground leading-tight mb-3">
+                      <p className="text-xs sm:text-sm text-foreground leading-tight mb-2 sm:mb-3">
                         {story.challenge}
                       </p>
                     </div>
 
                     {/* Research Method */}
-                    <div className="mb-4">
+                    <div className="mb-3 sm:mb-4">
                       <Badge variant="outline" className="text-xs text-primary-glow mb-2">
                         RESEARCH METHOD
                       </Badge>
-                      <p className="text-sm text-muted-foreground leading-tight mb-3">
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-tight mb-2 sm:mb-3">
                         {story.researchMethod}
                       </p>
                     </div>
 
                     {/* Key Insight */}
-                    <div className="mb-4 p-3 bg-accent/10 rounded-lg">
+                    <div className="mb-3 sm:mb-4 p-2 sm:p-3 bg-accent/10 rounded-lg">
                       <Badge variant="outline" className="text-xs text-accent mb-2">
                         KEY INSIGHT
                       </Badge>
-                      <p className="text-sm text-accent font-medium leading-tight">
+                      <p className="text-xs sm:text-sm text-accent font-medium leading-tight">
                         "{story.keyInsight}"
                       </p>
                     </div>
@@ -523,29 +523,29 @@ const AltHome2 = () => {
       </section>
 
       {/* Military to Agile Journey */}
-      <section className="section gradient-subtle">
-        <div className="container-custom">
+      <section className="section gradient-subtle py-12 sm:py-16 lg:py-20">
+        <div className="container-custom px-3 sm:px-4 lg:px-6">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <Badge variant="outline" className="mb-4 border-success text-success">
+            <Badge variant="outline" className="mb-3 sm:mb-4 border-success text-success text-xs sm:text-sm">
               Professional Evolution
             </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
               From Military Precision to <span className="text-agile-primary">Agile Innovation</span>
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto px-2 sm:px-4 lg:px-0 leading-relaxed">
               My passion for understanding how people interact with complex systems began in the Air Force, 
               where I witnessed the gap between technical capabilities and user needs. This drives my systematic 
               approach to UX research, always asking "Why?" before building "What."
             </p>
           </motion.div>
 
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {journeyMilestones.map((milestone, index) => (
               <motion.div
                 key={index}
@@ -1161,12 +1161,12 @@ const AltHome2 = () => {
                   Let's discuss how systematic analysis and agile UX research can transform 
                   your user experience and business outcomes.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                  <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[44px] text-base">
+                <div className="flex flex-col gap-3 sm:gap-4 justify-center">
+                  <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8">
                     Start a Project
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
-                  <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[44px] text-base">
+                  <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8">
                     Schedule Consultation
                   </Button>
                 </div>
