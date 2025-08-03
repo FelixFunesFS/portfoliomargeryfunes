@@ -44,7 +44,8 @@ const Journey = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div className="space-y-8">
-            {milestones.map((milestone, index) => <div key={index} className="flex gap-4">
+            {milestones.filter((_, index) => index % 2 === 0).map((milestone, index) => 
+              <div key={index * 2} className="flex gap-4">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     {milestone.icon}
@@ -57,10 +58,28 @@ const Journey = () => {
                   </Badge>
                   <p className="text-muted-foreground">{milestone.description}</p>
                 </div>
-              </div>)}
+              </div>
+            )}
           </div>
 
-          
+          <div className="space-y-8">
+            {milestones.filter((_, index) => index % 2 === 1).map((milestone, index) => 
+              <div key={index * 2 + 1} className="flex gap-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    {milestone.icon}
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold mb-1">{milestone.title}</h3>
+                  <Badge variant="secondary" className="mb-2">
+                    {milestone.subtitle}
+                  </Badge>
+                  <p className="text-muted-foreground">{milestone.description}</p>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="text-center">
