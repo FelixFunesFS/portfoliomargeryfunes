@@ -7,44 +7,52 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 217 91% 8%;
-    --card: 0 0% 100%;
-    --card-foreground: 217 91% 8%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 217 91% 8%;
+    /* Deep Blue Color System - Light Mode (60/30/10 Method) */
     
-    /* New Military-Tech Color System */
-    --primary: 217 91% 8%;        /* Deep Navy */
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 213 100% 55%; /* Steel Blue */
+    /* 60% - Dominant neutrals and backgrounds */
+    --background: 220 15% 97%;
+    --foreground: 220 30% 15%;
+    --card: 220 10% 98%;
+    --card-foreground: 220 30% 15%;
+    --popover: 220 10% 98%;
+    --popover-foreground: 220 30% 15%;
     
-    --secondary: 217 33% 17%;     /* Dark Steel */
-    --secondary-foreground: 0 0% 98%;
+    /* 30% - Primary Deep Blue (supporting color) */
+    --primary: 215 85% 25%;
+    --primary-foreground: 220 10% 98%;
+    --primary-glow: 215 75% 45%;
     
-    --accent: 43 96% 56%;         /* Warm Gold */
-    --accent-foreground: 217 91% 8%;
+    /* Secondary - Lighter blue variation */
+    --secondary: 215 25% 88%;
+    --secondary-foreground: 215 85% 25%;
     
-    --success: 160 84% 20%;       /* Military Green */
-    --success-foreground: 0 0% 98%;
+    /* 10% - Accent Complementary Orange (pop color) */
+    --accent: 25 90% 55%;
+    --accent-foreground: 220 30% 15%;
     
-    --agile-primary: 262 83% 58%; /* Purple for Agile */
-    --agile-secondary: 20 91% 48%; /* Orange for iterations */
+    /* Success - Complementary teal */
+    --success: 175 70% 35%;
+    --success-foreground: 220 10% 98%;
     
-    --muted: 217 10% 96%;
-    --muted-foreground: 217 10% 46%;
-    --border: 217 10% 90%;
-    --input: 217 10% 90%;
-    --ring: 217 91% 8%;
+    /* Agile - Mid-tone blue variations */
+    --agile-primary: 215 70% 45%;
+    --agile-secondary: 25 80% 60%;
+    
+    /* Muted - Soft blue-gray (60% palette) */
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 20% 50%;
+    --border: 220 20% 88%;
+    --input: 220 20% 90%;
+    --ring: 215 85% 25%;
     
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 220 10% 98%;
     
-    /* System Colors */
-    --systems-blue: 210 100% 50%;
-    --systems-cyan: 190 95% 50%;
-    --copper: 25 95% 40%;
-    --mint: 160 84% 39%;
+    /* System Colors - Deep Blue Theme */
+    --systems-blue: 215 85% 35%;
+    --systems-cyan: 190 75% 45%;
+    --copper: 25 90% 55%;
+    --mint: 175 70% 40%;
 
     /* Enhanced Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
