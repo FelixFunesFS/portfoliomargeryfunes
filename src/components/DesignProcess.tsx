@@ -91,16 +91,16 @@ const DesignProcess = () => {
         animate={isInView ? "visible" : "hidden"}
       >
         <motion.div variants={slideUpVariants} className="text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-primary">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
             My Design Process
           </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base lg:text-lg">
+          <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
             A systematic, military-informed approach to user-centered design that ensures every solution 
             is built for real-world effectiveness and long-term success.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {processSteps.map((step, index) => (
             <motion.div
               key={index}
@@ -109,9 +109,9 @@ const DesignProcess = () => {
               transition={{ duration: 0.2 }}
             >
               <Card className="glass border-none h-full hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-4 sm:p-6">
+                <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center ${step.color}`}>
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center ${step.color}`}>
                       {step.icon}
                     </div>
                     <Badge variant="outline" className="text-xs">
@@ -119,11 +119,11 @@ const DesignProcess = () => {
                     </Badge>
                   </div>
                   
-                  <h3 className="text-lg sm:text-xl font-semibold mb-3 text-foreground">{step.title}</h3>
-                  <p className="text-muted-foreground mb-4 text-xs sm:text-sm">{step.description}</p>
+                  <h3 className="text-xl font-semibold mb-3 text-foreground">{step.title}</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">{step.description}</p>
                   
                   <div className="space-y-2">
-                    <h4 className="font-medium text-xs sm:text-sm text-foreground">Key Deliverables:</h4>
+                    <h4 className="font-medium text-sm text-foreground">Key Deliverables:</h4>
                     <div className="flex flex-wrap gap-1">
                       {step.deliverables.map((deliverable, idx) => (
                         <Badge key={idx} variant="secondary" className="text-xs">
@@ -139,38 +139,38 @@ const DesignProcess = () => {
         </div>
 
         {/* Process Philosophy */}
-        <motion.div variants={slideUpVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <motion.div variants={slideUpVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Card className="glass border-none">
-            <CardContent className="p-4 sm:p-6 text-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <Search className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+            <CardContent className="p-6 text-center">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Search className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-2 text-foreground">Research-Driven</h3>
-              <p className="text-muted-foreground text-xs sm:text-sm">
+              <h3 className="text-lg font-semibold mb-2 text-foreground">Research-Driven</h3>
+              <p className="text-muted-foreground text-sm">
                 Every decision is backed by real user data and operational context, not assumptions.
               </p>
             </CardContent>
           </Card>
 
           <Card className="glass border-none">
-            <CardContent className="p-4 sm:p-6 text-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <Users className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
+            <CardContent className="p-6 text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-accent" />
               </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-2 text-foreground">Collaborative</h3>
-              <p className="text-muted-foreground text-xs sm:text-sm">
+              <h3 className="text-lg font-semibold mb-2 text-foreground">Collaborative</h3>
+              <p className="text-muted-foreground text-sm">
                 Bringing together stakeholders, users, and developers for aligned solutions.
               </p>
             </CardContent>
           </Card>
 
           <Card className="glass border-none">
-            <CardContent className="p-4 sm:p-6 text-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <TestTube className="w-6 h-6 sm:w-8 sm:h-8 text-success" />
+            <CardContent className="p-6 text-center">
+              <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <TestTube className="w-8 h-8 text-success" />
               </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-2 text-foreground">Iterative</h3>
-              <p className="text-muted-foreground text-xs sm:text-sm">
+              <h3 className="text-lg font-semibold mb-2 text-foreground">Iterative</h3>
+              <p className="text-muted-foreground text-sm">
                 Continuous testing and refinement ensure optimal performance and user satisfaction.
               </p>
             </CardContent>
