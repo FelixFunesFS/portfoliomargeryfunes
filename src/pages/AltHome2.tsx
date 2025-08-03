@@ -1362,6 +1362,164 @@ const AltHome2 = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Footer Section */}
+      <footer className="section bg-muted/30 border-t border-border/20">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-8"
+          >
+            {/* Contact Information */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-foreground mb-4">Contact</h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-primary-glow/20 flex items-center justify-center">
+                    <Users className="w-4 h-4 text-primary-glow" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-foreground">Professional Consultation</p>
+                    <p className="text-xs text-muted-foreground">Schedule a strategic discussion</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-agile-primary/20 flex items-center justify-center">
+                    <Settings className="w-4 h-4 text-agile-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-foreground">Systems Analysis</p>
+                    <p className="text-xs text-muted-foreground">Complex problem solving</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
+                    <Brain className="w-4 h-4 text-accent" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-foreground">UX Research</p>
+                    <p className="text-xs text-muted-foreground">User-centered solutions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Services */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-foreground mb-4">Services</h3>
+              <ul className="space-y-2">
+                <li className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                  Systems Analysis & Architecture
+                </li>
+                <li className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                  UX Research & User Testing
+                </li>
+                <li className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                  Agile Process Implementation
+                </li>
+                <li className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                  Digital Transformation
+                </li>
+                <li className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                  Technical Documentation
+                </li>
+                <li className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                  Stakeholder Alignment
+                </li>
+              </ul>
+            </div>
+
+            {/* Methodologies */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-foreground mb-4">Methodologies</h3>
+              <div className="space-y-3">
+                <Badge variant="outline" className="w-full justify-start border-primary-glow text-primary-glow">
+                  Sprint-Based Research
+                </Badge>
+                <Badge variant="outline" className="w-full justify-start border-agile-primary text-agile-primary">
+                  Agile Development
+                </Badge>
+                <Badge variant="outline" className="w-full justify-start border-systems-blue text-systems-blue">
+                  Systems Thinking
+                </Badge>
+                <Badge variant="outline" className="w-full justify-start border-accent text-accent">
+                  Design Thinking
+                </Badge>
+                <Badge variant="outline" className="w-full justify-start border-success text-success">
+                  Military Precision
+                </Badge>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-foreground mb-4">Navigation</h3>
+              <div className="space-y-3">
+                <Button variant="ghost" size="sm" className="w-full justify-start p-0 h-auto text-sm text-muted-foreground hover:text-foreground">
+                  Research Stories
+                </Button>
+                <Button variant="ghost" size="sm" className="w-full justify-start p-0 h-auto text-sm text-muted-foreground hover:text-foreground">
+                  Military Journey
+                </Button>
+                <Button variant="ghost" size="sm" className="w-full justify-start p-0 h-auto text-sm text-muted-foreground hover:text-foreground">
+                  Agile Toolkit
+                </Button>
+                <Button variant="ghost" size="sm" className="w-full justify-start p-0 h-auto text-sm text-muted-foreground hover:text-foreground">
+                  Research Artifacts
+                </Button>
+                <Button variant="ghost" size="sm" className="w-full justify-start p-0 h-auto text-sm text-muted-foreground hover:text-foreground">
+                  Skills Arsenal
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Footer Bottom */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="pt-8 border-t border-border/20"
+          >
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-primary-glow/20 flex items-center justify-center">
+                  <Shield className="w-4 h-4 text-primary-glow" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Systems Analyst & UX Researcher</p>
+                  <p className="text-xs text-muted-foreground">Military Precision • Agile Innovation • User-Centered Design</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-6">
+                <div className="text-center">
+                  <div className="text-lg font-bold text-primary-glow">26K+</div>
+                  <div className="text-xs text-muted-foreground">Hours Saved</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg font-bold text-agile-primary">23</div>
+                  <div className="text-xs text-muted-foreground">Global Bases</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg font-bold text-accent">340%</div>
+                  <div className="text-xs text-muted-foreground">Max Conversion</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-6 pt-6 border-t border-border/10 text-center">
+              <p className="text-xs text-muted-foreground">
+                © 2024 Systems Analysis & UX Research Portfolio. Bridging military precision with modern innovation.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </footer>
     </div>
   );
 };
