@@ -17,11 +17,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 35% 15%;
 
-    /* Primary Colors - Deep Metal Blue (10% Accent) */
-    --primary: 210 60% 25%;  /* #1e3a5f - deep metal blue */
+    /* Primary Colors - Vibrant Electric Blue (10% Accent) */
+    --primary: 210 100% 50%;  /* #0080FF - vibrant electric blue */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 210 50% 35%; /* #2d4a6b */
-    --primary-dark: 210 70% 15%; /* #0f1f2f */
+    --primary-light: 210 90% 60%; /* #3399FF */
+    --primary-dark: 210 100% 40%; /* #0066CC */
 
     /* 30% - Secondary Colors (Professional Gray) */
     --secondary: 215 25% 27%; /* #4a5568 */
@@ -32,7 +32,7 @@
     --muted-foreground: 215 20% 45%;
 
     /* Complementary accent colors (10% Distribution) */
-    --accent: 12 100% 64%; /* #FF6B47 - vibrant coral orange */
+    --accent: 175 100% 40%; /* #00CC99 - vibrant teal */
     --accent-foreground: 0 0% 100%;
     --success: 140 55% 45%; /* #38a169 - military green */
 
@@ -84,7 +84,7 @@
     --muted: 210 25% 15%;
     --muted-foreground: 210 15% 60%;
 
-    --accent: 15 100% 68%; /* #FF7A5C - lighter coral orange for dark mode */
+    --accent: 175 85% 55%; /* #40E0D0 - lighter vibrant teal for dark mode */
     --accent-foreground: 210 30% 8%;
 
     --border: 210 20% 20%;
