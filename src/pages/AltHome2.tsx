@@ -23,7 +23,14 @@ import {
   Clock,
   Award,
   ChevronDown,
-  Eye
+  Eye,
+  MapPin,
+  ExternalLink,
+  Globe,
+  Monitor,
+  Smartphone,
+  Heart,
+  Home
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -259,6 +266,100 @@ const AltHome2 = () => {
       skills: ["React/JavaScript", "SQL/NoSQL", "VBA/Automation", "SharePoint"],
       icon: Code,
       proficiency: 92
+    }
+  ];
+
+  // Web Design Portfolio Data
+  const webDesigns = [
+    {
+      title: "Soul Train's Eatery",
+      client: "Charleston Catering Company",
+      location: "Charleston, SC",
+      platform: "Lovable",
+      description: "Digital transformation for a local catering business, streamlining order management and customer experience.",
+      challenge: "Manual order taking causing errors, missed orders, and inefficient kitchen workflow during peak catering seasons.",
+      solution: "Intuitive ordering system with real-time inventory, automated notifications, and streamlined kitchen dashboard.",
+      assumptions: "Mobile-first usage by customers, staff comfortable with digital tools, integration with existing POS systems.",
+      limitations: "Limited budget for extensive customization, tight timeline for catering season launch, legacy payment system constraints.",
+      outcomes: "40% reduction in order errors, 60% faster order processing, improved customer satisfaction and repeat business.",
+      features: ["Online Ordering", "Inventory Management", "Customer Dashboard", "Mobile Optimization", "Payment Integration"],
+      tools: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Stripe"],
+      category: "catering",
+      icon: Smartphone,
+      color: "emerald-500",
+      link: null
+    },
+    {
+      title: "Souls Feeding Souls",
+      client: "Community Nonprofit",
+      location: "North Charleston, SC",
+      platform: "Lovable",
+      description: "Volunteer coordination platform helping organize food distribution to underserved communities.",
+      challenge: "Inefficient volunteer scheduling, food waste due to poor coordination, and lack of community impact visibility.",
+      solution: "Comprehensive volunteer portal with scheduling, resource tracking, and impact metrics dashboard.",
+      assumptions: "Volunteers have basic smartphone access, consistent internet connectivity, willingness to adopt new technology.",
+      limitations: "Volunteer tech literacy varies, limited staff for training, dependency on donations for hosting costs.",
+      outcomes: "75% improvement in volunteer coordination efficiency, 50% reduction in food waste, increased community engagement.",
+      features: ["Volunteer Scheduling", "Resource Tracking", "Impact Dashboard", "Communication Tools", "Donation Management"],
+      tools: ["React", "Node.js", "PostgreSQL", "Tailwind CSS", "SendGrid"],
+      category: "nonprofit",
+      icon: Heart,
+      color: "rose-500",
+      link: null
+    },
+    {
+      title: "Visions of Hope",
+      client: "Youth Services Organization",
+      location: "Chicago, IL",
+      platform: "Webflow",
+      description: "Professional website showcasing comprehensive services and group homes for underserved youth.",
+      challenge: "Complex service offerings difficult to communicate, lack of professional online presence affecting funding opportunities.",
+      solution: "Clear service architecture with client journey mapping, professional design building trust with stakeholders.",
+      assumptions: "Professional appearance crucial for grant applications, staff need easy content management, mobile access important.",
+      limitations: "Compliance requirements for youth services, content approval workflows, budget constraints for ongoing maintenance.",
+      outcomes: "200% increase in service inquiries, improved grant application success rate, enhanced community trust and partnerships.",
+      features: ["Service Portfolios", "Staff Profiles", "Resource Center", "Contact Forms", "Accessibility Compliance"],
+      tools: ["Webflow", "Custom CSS", "JavaScript", "Form Integrations", "CMS"],
+      category: "youth-services",
+      icon: Home,
+      color: "blue-500",
+      link: null
+    },
+    {
+      title: "Veteran's Benefits Beyond the VA Wall",
+      client: "Veterans Support Services",
+      location: "Worldwide",
+      platform: "Webflow",
+      description: "Comprehensive resource portal helping veterans navigate complex benefit systems beyond traditional VA services.",
+      challenge: "Veterans struggling to find and access benefits due to complex bureaucracy and scattered information sources.",
+      solution: "Intuitive resource portal with guided navigation, benefit calculators, and step-by-step application processes.",
+      assumptions: "Veterans have varying tech comfort levels, mobile access important, need for clear simple language over jargon.",
+      limitations: "Compliance with veteran service regulations, frequent policy changes requiring updates, limited marketing budget.",
+      outcomes: "500+ veterans successfully guided to benefits, 80% user satisfaction rate, partnerships with 15+ veteran organizations.",
+      features: ["Benefit Calculator", "Resource Library", "Application Guides", "Success Stories", "Community Forum"],
+      tools: ["Webflow", "JavaScript", "API Integrations", "Form Processing", "Analytics"],
+      category: "veterans",
+      icon: Shield,
+      color: "amber-500",
+      link: null
+    },
+    {
+      title: "Discover El Salvador",
+      client: "Personal Tour Guide Services",
+      location: "El Salvador",
+      platform: "Lovable",
+      description: "Immersive travel experience platform showcasing personalized jungle and volcano beach adventures.",
+      challenge: "Generic travel sites don't capture unique local experiences, difficulty communicating personalized tour value.",
+      solution: "Visual storytelling platform with immersive galleries, custom itinerary builder, and authentic local experiences.",
+      assumptions: "Visual appeal drives booking decisions, international travelers have good internet, social proof influences choices.",
+      limitations: "Content updates needed from non-technical tour guides, seasonal booking patterns, weather-dependent activities.",
+      outcomes: "300% increase in direct bookings, expanded international client base, featured in travel publications.",
+      features: ["Interactive Maps", "Photo Galleries", "Custom Itineraries", "Booking System", "Weather Integration"],
+      tools: ["React", "TypeScript", "Mapbox", "Cloudinary", "Payment APIs"],
+      category: "travel",
+      icon: Globe,
+      color: "teal-500",
+      link: null
     }
   ];
 
@@ -1365,6 +1466,142 @@ const AltHome2 = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Web Design Portfolio */}
+      <section className="section bg-gradient-subtle">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <Badge variant="outline" className="mb-4 sm:mb-6 border-accent text-accent text-xs sm:text-sm">
+              Web Design Portfolio
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
+              Transforming <span className="text-accent">user needs</span> into 
+              <br className="hidden sm:block" />
+              digital solutions
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+              Real-world applications of systematic UX research and agile methodologies, 
+              solving complex challenges for diverse organizations across platforms.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12"
+          >
+            {webDesigns.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+              >
+                <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full">
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-center space-x-3">
+                        <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-${project.color}/20 flex items-center justify-center`}>
+                          <project.icon className={`w-5 h-5 sm:w-6 sm:h-6 text-${project.color}`} />
+                        </div>
+                        <div>
+                          <CardTitle className="text-foreground text-lg sm:text-xl">{project.title}</CardTitle>
+                          <p className="text-sm text-muted-foreground">{project.client}</p>
+                        </div>
+                      </div>
+                      <Badge variant="outline" className={`border-${project.color} text-${project.color} text-xs`}>
+                        {project.platform}
+                      </Badge>
+                    </div>
+                    
+                    <div className="mb-4">
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <MapPin className="w-3 h-3 inline mr-1" />
+                        {project.location}
+                      </p>
+                      <p className="text-sm text-foreground">{project.description}</p>
+                    </div>
+
+                    <div className="space-y-3 mb-4">
+                      <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-3">
+                        <h4 className="text-sm font-semibold text-destructive mb-1">Challenge</h4>
+                        <p className="text-xs text-foreground">{project.challenge}</p>
+                      </div>
+                      <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-3">
+                        <h4 className="text-sm font-semibold text-emerald-600 mb-1">Solution</h4>
+                        <p className="text-xs text-foreground">{project.solution}</p>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                      <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3">
+                        <h4 className="text-xs font-semibold text-amber-600 mb-1">Assumptions</h4>
+                        <p className="text-xs text-foreground">{project.assumptions}</p>
+                      </div>
+                      <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-3">
+                        <h4 className="text-xs font-semibold text-blue-600 mb-1">Limitations</h4>
+                        <p className="text-xs text-foreground">{project.limitations}</p>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="p-4 sm:p-6 pt-0">
+                    <div className="space-y-3">
+                      <div>
+                        <h4 className="text-sm font-semibold text-foreground mb-2">Key Features</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.features.map((feature, featureIndex) => (
+                            <Badge key={featureIndex} variant="secondary" className="text-xs">
+                              {feature}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="text-sm font-semibold text-foreground mb-2">Tools & Technologies</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tools.map((tool, toolIndex) => (
+                            <Badge key={toolIndex} variant="outline" className="text-xs">
+                              {tool}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="bg-primary/10 border border-primary/20 rounded-lg p-3">
+                        <h4 className="text-sm font-semibold text-primary mb-1">Outcomes</h4>
+                        <p className="text-xs text-foreground">{project.outcomes}</p>
+                      </div>
+
+                      {project.link && (
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className={`w-full mt-3 border-${project.color} text-${project.color} hover:bg-${project.color}/10`}
+                          onClick={() => window.open(project.link, '_blank')}
+                        >
+                          View Live Site
+                          <ExternalLink className="ml-2 w-3 h-3" />
+                        </Button>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
