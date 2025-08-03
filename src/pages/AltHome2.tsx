@@ -893,15 +893,17 @@ const AltHome2 = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
+            {/* Two Column Layout */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="prose prose-lg mx-auto"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12"
             >
-              <div className="backdrop-blur-sm bg-card/60 rounded-2xl p-8 sm:p-12 border border-border/50 shadow-2xl">
+              {/* Left Column */}
+              <div className="backdrop-blur-sm bg-card/60 rounded-2xl p-6 sm:p-8 border border-border/50 shadow-2xl">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   While serving in the U.S. Air Force and later at Boeing, I began noticing a recurring issue: 
                   the systems we relied on often didn't align with how people actually worked. Applications 
@@ -915,14 +917,17 @@ const AltHome2 = () => {
                   workflows, and started bridging the gap between users and the technology they depended on.
                 </p>
 
-                <div className="my-8 p-6 bg-primary/10 rounded-xl border-l-4 border-primary">
+                <div className="my-6 p-6 bg-primary/10 rounded-xl border-l-4 border-primary">
                   <p className="text-lg font-semibold text-primary mb-2">Leadership took notice.</p>
                   <p className="text-muted-foreground">
                     Recognizing the value of my technical skills and user perspective, they began rotating 
                     me into new roles every six months — not to fill gaps, but to improve them.
                   </p>
                 </div>
+              </div>
 
+              {/* Right Column */}
+              <div className="backdrop-blur-sm bg-card/60 rounded-2xl p-6 sm:p-8 border border-border/50 shadow-2xl">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   Each rotation became an opportunity to assess, modernize, and automate core systems. 
                   Once every area had been optimized, I helped establish documentation and continuous 
@@ -936,7 +941,7 @@ const AltHome2 = () => {
                   communication and alignment problem.
                 </p>
 
-                <div className="my-8 p-6 bg-accent/10 rounded-xl border-l-4 border-accent">
+                <div className="my-6 p-6 bg-accent/10 rounded-xl border-l-4 border-accent">
                   <p className="text-lg font-semibold text-accent mb-2">The Realization</p>
                   <p className="text-muted-foreground">
                     That realization led me to formally pursue User Research and Experience Design. 
@@ -945,17 +950,26 @@ const AltHome2 = () => {
                   </p>
                 </div>
 
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   I earned certifications, refined my design practice, and expanded into full stack 
                   development — fully stepping into the role of a translator between users and developers.
                 </p>
+              </div>
+            </motion.div>
 
-                <div className="mt-8 p-6 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl text-center">
-                  <p className="text-xl font-bold text-foreground">
-                    Today, I create research-driven, human-centered solutions that help teams 
-                    build the right products — the first time.
-                  </p>
-                </div>
+            {/* Conclusion Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-center"
+            >
+              <div className="backdrop-blur-sm bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl p-8 sm:p-12 border border-border/50 shadow-2xl max-w-4xl mx-auto">
+                <p className="text-2xl sm:text-3xl font-bold text-foreground leading-tight">
+                  Today, I create research-driven, human-centered solutions that help teams 
+                  build the right products — the first time.
+                </p>
               </div>
             </motion.div>
           </div>
