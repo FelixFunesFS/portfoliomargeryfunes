@@ -32,7 +32,7 @@
     --muted-foreground: 215 20% 45%;
 
     /* Complementary accent colors (10% Distribution) */
-    --accent: 200 70% 45%; /* #3182ce - complementary blue */
+    --accent: 205 90% 55%; /* #1e90ff - vibrant dodger blue */
     --accent-foreground: 0 0% 100%;
     --success: 140 55% 45%; /* #38a169 - military green */
 
@@ -84,7 +84,7 @@
     --muted: 210 25% 15%;
     --muted-foreground: 210 15% 60%;
 
-    --accent: 200 70% 55%;
+    --accent: 205 85% 65%; /* Lighter vibrant blue for dark mode */
     --accent-foreground: 210 30% 8%;
 
     --border: 210 20% 20%;

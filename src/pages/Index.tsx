@@ -3,6 +3,8 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import Navbar from '@/components/Navbar';
 import OptimizedHero from '@/components/OptimizedHero';
 import MilitaryExperience from '@/components/MilitaryExperience';
+import Journey from '@/components/Journey';
+import DesignProcess from '@/components/DesignProcess';
 import OptimizedCaseStudySummary from '@/components/OptimizedCaseStudySummary';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
@@ -23,6 +25,8 @@ const Index = () => {
       <Navbar />
       <OptimizedHero />
       <MilitaryExperience />
+      <Journey />
+      <DesignProcess />
       <OptimizedCaseStudySummary />
       <Suspense fallback={
         <section className="section">
