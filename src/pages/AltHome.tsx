@@ -1,10 +1,131 @@
 import React from 'react';
-import { ArrowRight, Search, Users, Lightbulb, Target, CheckCircle, Mail, ExternalLink, Zap, TrendingUp, Shield } from 'lucide-react';
+import { ArrowRight, Search, Users, Lightbulb, Target, CheckCircle, Mail, ExternalLink, Zap, TrendingUp, Shield, 
+         Plane, Building2, MapPin, Clock, Award, BarChart3, FileText, Eye, TestTube, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 const AltHome = () => {
+  const journeySteps = [
+    {
+      phase: "Military Foundation",
+      location: "U.S. Air Force",
+      timeline: "2008-2012",
+      problem: "Complex military systems with poor user interfaces causing operational delays",
+      insight: "Technology fails when it doesn't serve the user's real needs",
+      skills: ["Systems Analysis", "Process Optimization", "User Training"],
+      icon: <Plane className="h-6 w-6" />,
+      color: "bg-primary/10 text-primary"
+    },
+    {
+      phase: "Corporate Systems",
+      location: "Boeing",
+      timeline: "2012-2018",
+      problem: "Enterprise software that engineers avoided using, leading to inefficiencies",
+      insight: "User adoption depends on solving real workflow problems, not just features",
+      skills: ["Enterprise UX", "Stakeholder Management", "Change Management"],
+      icon: <Building2 className="h-6 w-6" />,
+      color: "bg-accent/10 text-accent"
+    },
+    {
+      phase: "UX Research Focus",
+      location: "Freelance & Agencies",
+      timeline: "2018-Present",
+      problem: "Businesses making product decisions without understanding user behavior",
+      insight: "Data-driven UX research eliminates guesswork and drives measurable results",
+      skills: ["User Research", "Behavioral Analysis", "Conversion Optimization"],
+      icon: <Search className="h-6 w-6" />,
+      color: "bg-coral/10 text-coral"
+    }
+  ];
+
+  const militaryTransferableSkills = [
+    {
+      skill: "Mission-Critical Problem Solving",
+      description: "Trained to identify root causes quickly and implement solutions under pressure",
+      uxApplication: "Rapid user problem diagnosis and systematic solution development",
+      icon: <Target className="h-5 h-5" />
+    },
+    {
+      skill: "Systems Thinking",
+      description: "Understanding how complex systems interact and affect each other",
+      uxApplication: "Mapping user journeys across touchpoints and identifying friction points",
+      icon: <BarChart3 className="h-5 h-5" />
+    },
+    {
+      skill: "Attention to Detail",
+      description: "Military precision in documentation and process adherence",
+      uxApplication: "Thorough user research documentation and data analysis",
+      icon: <FileText className="h-5 h-5" />
+    },
+    {
+      skill: "User Training & Communication",
+      description: "Teaching complex technical concepts to diverse audiences",
+      uxApplication: "Translating user insights into actionable business recommendations",
+      icon: <Users className="h-5 h-5" />
+    }
+  ];
+
+  const detailedCaseStudies = [
+    {
+      title: "Military Training Platform Redesign",
+      client: "Defense Contractor",
+      problem: "90% of new recruits failed to complete online training modules, causing delays in deployment readiness",
+      researchMethods: ["User Interviews", "Task Analysis", "Cognitive Load Testing"],
+      keyFindings: [
+        "Information overload in single sessions",
+        "No progress tracking or motivation",
+        "Technical jargon without context"
+      ],
+      solution: "Microlearning approach with gamification and progressive skill building",
+      metrics: {
+        before: "10% completion rate",
+        after: "87% completion rate",
+        impact: "6 weeks faster deployment readiness"
+      },
+      tags: ["Government", "Training", "Behavioral Design"],
+      timeline: "3 months"
+    },
+    {
+      title: "Enterprise Software Adoption Crisis",
+      client: "Fortune 500 Manufacturing",
+      problem: "New ERP system had 23% adoption rate after 6 months, costing $2M in lost productivity",
+      researchMethods: ["Shadowing Sessions", "Workflow Analysis", "Stakeholder Interviews"],
+      keyFindings: [
+        "Software didn't match actual work processes",
+        "No training for edge cases",
+        "Fear of making mistakes in new system"
+      ],
+      solution: "Contextual help system and workflow-based interface redesign",
+      metrics: {
+        before: "23% adoption rate",
+        after: "91% adoption rate", 
+        impact: "$2.3M productivity recovery"
+      },
+      tags: ["Enterprise", "Change Management", "Productivity"],
+      timeline: "4 months"
+    },
+    {
+      title: "Healthcare Patient Portal Crisis",
+      client: "Regional Health System",
+      problem: "Patients couldn't access test results, leading to 40% increase in support calls",
+      researchMethods: ["Usability Testing", "Accessibility Audit", "Patient Journey Mapping"],
+      keyFindings: [
+        "Complex navigation for stressed patients",
+        "Medical terminology without explanations", 
+        "Poor mobile experience for older adults"
+      ],
+      solution: "Simplified information architecture with plain language and mobile-first design",
+      metrics: {
+        before: "40% increase in support calls",
+        after: "65% reduction in support calls",
+        impact: "4.8/5 patient satisfaction score"
+      },
+      tags: ["Healthcare", "Accessibility", "Mobile-first"],
+      timeline: "5 months"
+    }
+  ];
+
   const problemSolutions = [
     {
       problem: "Users abandon your product after first use",
@@ -212,6 +333,242 @@ const AltHome = () => {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Journey Section - Problem-Solving Evolution */}
+      <section className="py-20 bg-muted/30">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+              My Problem-Solving Evolution
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              From military systems to enterprise software to user research—each phase taught me 
+              new ways to identify and solve complex user problems
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {journeySteps.map((step, index) => (
+              <Card key={index} className="border-0 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all">
+                <CardContent className="p-8">
+                  <div className="grid md:grid-cols-12 gap-6 items-start">
+                    <div className="md:col-span-2">
+                      <div className={`w-16 h-16 ${step.color} rounded-lg flex items-center justify-center mb-4`}>
+                        {step.icon}
+                      </div>
+                      <Badge variant="outline" className="text-xs">
+                        {step.timeline}
+                      </Badge>
+                    </div>
+                    
+                    <div className="md:col-span-6">
+                      <h3 className="text-xl font-semibold text-foreground mb-2">{step.phase}</h3>
+                      <p className="text-muted-foreground mb-4 flex items-center">
+                        <MapPin className="h-4 w-4 mr-2" />
+                        {step.location}
+                      </p>
+                      
+                      <div className="space-y-3">
+                        <div>
+                          <p className="text-sm font-medium text-destructive mb-1">Problem Encountered:</p>
+                          <p className="text-sm text-muted-foreground">{step.problem}</p>
+                        </div>
+                        
+                        <div>
+                          <p className="text-sm font-medium text-primary mb-1">Key Insight:</p>
+                          <p className="text-sm text-muted-foreground">{step.insight}</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="md:col-span-4">
+                      <p className="text-sm font-medium text-foreground mb-3">Skills Developed:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {step.skills.map((skill, skillIndex) => (
+                          <Badge key={skillIndex} variant="secondary" className="text-xs">
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Military & Boeing Problem-Solving Foundation */}
+      <section className="py-20">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+              Military & Aerospace Foundation
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              How military precision and aerospace systems thinking shaped my approach to solving user problems
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {militaryTransferableSkills.map((item, index) => (
+              <Card key={index} className="border-0 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all">
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mt-1">
+                      {item.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-foreground mb-2">{item.skill}</h3>
+                      <p className="text-sm text-muted-foreground mb-3">{item.description}</p>
+                      <div className="border-l-2 border-primary/20 pl-4">
+                        <p className="text-sm text-primary font-medium">UX Application:</p>
+                        <p className="text-sm text-muted-foreground">{item.uxApplication}</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <Card className="border-0 bg-gradient-primary text-primary-foreground">
+            <CardContent className="p-8 text-center">
+              <div className="flex items-center justify-center mb-4">
+                <Award className="h-8 w-8 mr-3" />
+                <h3 className="text-xl font-semibold">The Military Advantage in UX Research</h3>
+              </div>
+              <p className="text-primary-foreground/90 leading-relaxed max-w-3xl mx-auto">
+                Military training taught me that user error is often system error. When a pilot makes a mistake, 
+                we don't blame the pilot—we redesign the interface. This mindset is invaluable in UX research: 
+                when users struggle with your product, the problem is usually in the design, not the user.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Detailed Case Studies */}
+      <section className="py-20 bg-muted/30">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+              Deep-Dive Problem-Solving Case Studies
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Detailed breakdowns of complex user problems and the research-driven solutions that delivered results
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            {detailedCaseStudies.map((study, index) => (
+              <Card key={index} className="border-0 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all">
+                <CardContent className="p-8">
+                  <div className="grid lg:grid-cols-12 gap-8">
+                    <div className="lg:col-span-8">
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {study.tags.map((tag, tagIndex) => (
+                          <Badge key={tagIndex} variant="secondary" className="text-xs">
+                            {tag}
+                          </Badge>
+                        ))}
+                        <Badge variant="outline" className="text-xs">
+                          <Clock className="h-3 w-3 mr-1" />
+                          {study.timeline}
+                        </Badge>
+                      </div>
+                      
+                      <h3 className="text-2xl font-semibold text-foreground mb-2">{study.title}</h3>
+                      <p className="text-muted-foreground mb-6">{study.client}</p>
+                      
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="font-semibold text-destructive mb-2 flex items-center">
+                            <Target className="h-4 w-4 mr-2" />
+                            The Problem
+                          </h4>
+                          <p className="text-muted-foreground">{study.problem}</p>
+                        </div>
+                        
+                        <div>
+                          <h4 className="font-semibold text-primary mb-2 flex items-center">
+                            <Eye className="h-4 w-4 mr-2" />
+                            Research Methods Used
+                          </h4>
+                          <div className="flex flex-wrap gap-2">
+                            {study.researchMethods.map((method, methodIndex) => (
+                              <Badge key={methodIndex} variant="outline" className="text-xs">
+                                {method}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <h4 className="font-semibold text-accent mb-2 flex items-center">
+                            <Lightbulb className="h-4 w-4 mr-2" />
+                            Key Research Findings
+                          </h4>
+                          <ul className="space-y-1">
+                            {study.keyFindings.map((finding, findingIndex) => (
+                              <li key={findingIndex} className="text-sm text-muted-foreground flex items-start">
+                                <CheckCircle className="h-4 w-4 text-accent mr-2 mt-0.5 flex-shrink-0" />
+                                {finding}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h4 className="font-semibold text-foreground mb-2 flex items-center">
+                            <Rocket className="h-4 w-4 mr-2" />
+                            Solution Implemented
+                          </h4>
+                          <p className="text-muted-foreground">{study.solution}</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="lg:col-span-4">
+                      <Card className="border-0 bg-success/5">
+                        <CardHeader>
+                          <CardTitle className="text-lg text-success flex items-center">
+                            <TrendingUp className="h-5 w-5 mr-2" />
+                            Measured Impact
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="space-y-4">
+                            <div>
+                              <p className="text-sm text-muted-foreground">Before:</p>
+                              <p className="font-semibold text-destructive">{study.metrics.before}</p>
+                            </div>
+                            <div>
+                              <p className="text-sm text-muted-foreground">After:</p>
+                              <p className="font-semibold text-success">{study.metrics.after}</p>
+                            </div>
+                            <div className="pt-4 border-t border-border">
+                              <p className="text-sm text-muted-foreground">Business Impact:</p>
+                              <p className="font-semibold text-foreground">{study.metrics.impact}</p>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                      
+                      <Button variant="outline" className="w-full mt-4 group">
+                        <TestTube className="mr-2 h-4 w-4" />
+                        View Full Research Report
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
