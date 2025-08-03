@@ -869,23 +869,6 @@ const AltHome2 = () => {
             ))}
           </div>
           
-          {/* My Journey Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center mt-12 sm:mt-16"
-          >
-            <Button
-              onClick={() => navigate('/journey')}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300"
-              size="lg"
-            >
-              <ArrowRight className="w-5 h-5 mr-2" />
-              Read My Full Journey
-            </Button>
-          </motion.div>
         </div>
       </section>
 

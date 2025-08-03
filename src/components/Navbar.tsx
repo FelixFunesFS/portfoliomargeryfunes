@@ -25,9 +25,6 @@ const Navbar = () => {
     name: 'Case Studies',
     href: '/case-studies'
   }, {
-    name: 'My Journey',
-    href: '/journey'
-  }, {
     name: 'About',
     href: '#about'
   }, {
