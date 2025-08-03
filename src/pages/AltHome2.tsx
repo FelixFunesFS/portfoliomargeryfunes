@@ -284,7 +284,7 @@ const AltHome2 = () => {
               
               <motion.h1 
                 variants={itemVariants}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-foreground leading-tight"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-4 sm:mb-6 text-foreground leading-tight"
               >
                 I analyze{' '}
                 <span className="bg-gradient-to-r from-primary-glow to-accent bg-clip-text text-transparent">
@@ -298,7 +298,7 @@ const AltHome2 = () => {
 
               <motion.p 
                 variants={itemVariants}
-                className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed"
+                className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0"
               >
                 Military precision meets modern product development. I bridge the gap between 
                 complex technical systems and user needs through systematic analysis and 
@@ -394,16 +394,16 @@ const AltHome2 = () => {
             <Badge variant="outline" className="mb-4 border-agile-primary text-agile-primary">
               Research Stories
             </Badge>
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
               User Problems, <span className="text-agile-primary">Research-Driven Solutions</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
               Each project tells a story of user challenges, research insights, and meaningful impact. 
               Here's how I approach complex problems through systematic UX research.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {researchStories.map((story, index) => (
               <motion.div
                 key={index}
@@ -535,10 +535,10 @@ const AltHome2 = () => {
             <Badge variant="outline" className="mb-4 border-success text-success">
               Professional Evolution
             </Badge>
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
               From Military Precision to <span className="text-agile-primary">Agile Innovation</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
               My passion for understanding how people interact with complex systems began in the Air Force, 
               where I witnessed the gap between technical capabilities and user needs. This drives my systematic 
               approach to UX research, always asking "Why?" before building "What."
@@ -607,16 +607,16 @@ const AltHome2 = () => {
             <Badge variant="outline" className="mb-4 border-agile-primary text-agile-primary">
               Agile Research Methodology
             </Badge>
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
               Sprint-Based <span className="text-agile-primary">Problem Solving</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
               My systematic approach to UX research combines agile methodologies with 
               systems analysis for rapid, iterative problem solving.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
             {researchToolkit.map((phase, index) => (
               <motion.div
                 key={index}
@@ -688,16 +688,16 @@ const AltHome2 = () => {
             <Badge variant="outline" className="mb-4 border-accent text-accent">
               Research Artifacts
             </Badge>
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
               Visualizing <span className="text-accent">User Insights</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
               From user interviews to system architecture, I create visual artifacts that communicate 
               complex insights and drive informed design decisions.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
             {researchArtifacts.map((artifact, index) => (
               <motion.div
                 key={index}
@@ -799,10 +799,10 @@ const AltHome2 = () => {
             <Badge variant="outline" className="mb-4 border-copper text-copper">
               Bridging Worlds
             </Badge>
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
               From Military Precision to <span className="text-primary-glow">User-Centered Innovation</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-4 sm:px-0">
               My unique journey positions me as a translator between technical complexity and human needs, 
               bridging the gap between military discipline, enterprise systems, and modern user experience.
             </p>
@@ -818,10 +818,10 @@ const AltHome2 = () => {
               className="relative"
             >
               {/* Bridge Connection Line */}
-              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-success via-primary-glow to-accent transform -translate-y-1/2 z-0"></div>
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-success via-primary-glow to-accent transform -translate-y-1/2 z-0 hidden md:block"></div>
               
               {/* Bridge Pillars */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 relative z-10">
                 {/* Military Foundation */}
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
@@ -1008,7 +1008,7 @@ const AltHome2 = () => {
             transition={{ delay: 1, duration: 0.6 }}
             className="mt-16"
           >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {[
                 { 
                   metric: "3 Domains", 
@@ -1080,16 +1080,16 @@ const AltHome2 = () => {
             <Badge variant="outline" className="mb-4 border-accent text-accent">
               Skills Arsenal
             </Badge>
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
               Technical Expertise Meets <span className="text-accent">User Focus</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
               A unique combination of technical systems knowledge and user experience expertise, 
               honed through military service and enterprise development.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {skillsArsenal.map((category, index) => (
               <motion.div
                 key={index}
@@ -1154,10 +1154,10 @@ const AltHome2 = () => {
                 <Badge variant="outline" className="mb-4 sm:mb-6 border-primary-glow text-primary-glow text-xs sm:text-sm">
                   Mission Briefing
                 </Badge>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
                   Ready to solve your next <span className="text-primary-glow">complex challenge</span>?
                 </h2>
-                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
+                <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
                   Let's discuss how systematic analysis and agile UX research can transform 
                   your user experience and business outcomes.
                 </p>
