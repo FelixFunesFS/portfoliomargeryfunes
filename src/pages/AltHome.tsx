@@ -2,6 +2,11 @@ import React from 'react';
 import { ArrowRight, Code, Palette, Users, Mail, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import MilitaryExperience from '@/components/MilitaryExperience';
+import Journey from '@/components/Journey';
+import DesignProcess from '@/components/DesignProcess';
+import OptimizedCaseStudySummary from '@/components/OptimizedCaseStudySummary';
+import About from '@/components/About';
 
 const AltHome = () => {
   return (
@@ -168,6 +173,21 @@ const AltHome = () => {
           </div>
         </div>
       </section>
+
+      {/* Journey Section */}
+      <Journey />
+
+      {/* Military Experience Section */}
+      <MilitaryExperience />
+
+      {/* Design Process Section */}
+      <DesignProcess />
+
+      {/* Case Studies Section */}
+      <OptimizedCaseStudySummary />
+
+      {/* About Section with UX/Systems Analysis Info */}
+      <About />
 
       {/* CTA Section */}
       <section id="contact" className="py-20 bg-muted/30">
