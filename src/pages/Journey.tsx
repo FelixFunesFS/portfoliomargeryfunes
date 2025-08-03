@@ -117,7 +117,7 @@ const Journey = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <motion.section 
-        className="relative py-20 px-4 md:px-8 lg:px-16 bg-gradient-to-br from-primary/10 to-accent/10 border-b border-border"
+        className="section gradient-subtle py-20 px-4 md:px-8 lg:px-16 border-b border-primary-glow/20"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -125,9 +125,9 @@ const Journey = () => {
         <div className="container-custom max-w-4xl">
           <motion.div className="flex items-center gap-4 mb-8" variants={itemVariants}>
             <Button
-              variant="ghost"
+              variant="outline"
               onClick={() => navigate(-1)}
-              className="text-muted-foreground hover:text-foreground"
+              className="glass border-primary-glow/30 text-primary-glow hover:bg-primary-glow/20 shadow-systems"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back
@@ -137,7 +137,7 @@ const Journey = () => {
           <motion.div className="text-center" variants={itemVariants}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               My Journey into{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              <span className="text-gradient bg-gradient-to-r from-primary-glow to-systems-blue bg-clip-text text-transparent">
                 User Research
               </span>
             </h1>
@@ -150,7 +150,7 @@ const Journey = () => {
 
       {/* Journey Timeline */}
       <motion.section 
-        className="py-20 px-4 md:px-8 lg:px-16"
+        className="section bg-background py-20 px-4 md:px-8 lg:px-16"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -169,16 +169,32 @@ const Journey = () => {
           <div className="space-y-8">
             {journeyMilestones.map((milestone, index) => (
               <motion.div key={index} variants={itemVariants}>
-                <Card className="relative overflow-hidden border-l-4 border-l-primary hover:shadow-lg transition-all duration-300">
+                <Card className={`glass border-none shadow-card hover:shadow-military transition-all duration-300 relative overflow-hidden border-l-4 ${
+                  milestone.color === 'military' ? 'border-l-military-primary' :
+                  milestone.color === 'technical' ? 'border-l-systems-blue' :
+                  milestone.color === 'leadership' ? 'border-l-agile-primary' :
+                  milestone.color === 'systems' ? 'border-l-primary-glow' :
+                  milestone.color === 'insight' ? 'border-l-accent' :
+                  milestone.color === 'research' ? 'border-l-systems-blue' :
+                  'border-l-primary-glow'
+                }`}>
                   <CardHeader className="pb-4">
                     <div className="flex items-start gap-4">
-                      <div className="p-3 rounded-lg bg-primary/10 text-primary">
+                      <div className={`p-3 rounded-lg ${
+                        milestone.color === 'military' ? 'bg-military-primary/20 text-military-primary' :
+                        milestone.color === 'technical' ? 'bg-systems-blue/20 text-systems-blue' :
+                        milestone.color === 'leadership' ? 'bg-agile-primary/20 text-agile-primary' :
+                        milestone.color === 'systems' ? 'bg-primary-glow/20 text-primary-glow' :
+                        milestone.color === 'insight' ? 'bg-accent/20 text-accent' :
+                        milestone.color === 'research' ? 'bg-systems-blue/20 text-systems-blue' :
+                        'bg-primary-glow/20 text-primary-glow'
+                      }`}>
                         <milestone.icon className="w-6 h-6" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
                           <CardTitle className="text-xl">{milestone.title}</CardTitle>
-                          <Badge variant="outline" className="text-xs">
+                          <Badge variant="secondary" className="text-xs border-primary-glow/30">
                             {milestone.period}
                           </Badge>
                         </div>
@@ -197,7 +213,7 @@ const Journey = () => {
 
       {/* Core Values */}
       <motion.section 
-        className="py-20 px-4 md:px-8 lg:px-16 bg-muted/30"
+        className="section gradient-subtle py-20 px-4 md:px-8 lg:px-16"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -216,10 +232,10 @@ const Journey = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {coreValues.map((value, index) => (
               <motion.div key={index} variants={itemVariants}>
-                <Card className="h-full hover:shadow-lg transition-all duration-300 border-border/50">
+                <Card className="glass border-none shadow-card hover:shadow-systems transition-all duration-300 h-full">
                   <CardHeader>
                     <div className="flex items-start gap-4">
-                      <div className="p-3 rounded-lg bg-accent/10 text-accent">
+                      <div className="p-3 rounded-lg bg-primary-glow/20 text-primary-glow">
                         <value.icon className="w-6 h-6" />
                       </div>
                       <div>
@@ -237,7 +253,7 @@ const Journey = () => {
 
       {/* Current Mission */}
       <motion.section 
-        className="py-20 px-4 md:px-8 lg:px-16"
+        className="section bg-background py-20 px-4 md:px-8 lg:px-16"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -245,7 +261,7 @@ const Journey = () => {
       >
         <div className="container-custom max-w-4xl">
           <motion.div variants={itemVariants}>
-            <Card className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
+            <Card className="glass border-none shadow-card relative overflow-hidden bg-gradient-to-br from-primary-glow/10 to-systems-blue/10 border-primary-glow/20">
               <CardHeader className="text-center">
                 <CardTitle className="text-2xl md:text-3xl font-bold text-foreground mb-6">
                   Today's Mission
@@ -263,7 +279,7 @@ const Journey = () => {
 
       {/* Call to Action */}
       <motion.section 
-        className="py-20 px-4 md:px-8 lg:px-16 border-t border-border"
+        className="section gradient-subtle py-20 px-4 md:px-8 lg:px-16 border-t border-primary-glow/20"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -282,7 +298,7 @@ const Journey = () => {
               <Button 
                 size="lg" 
                 onClick={() => navigate('/case-studies')}
-                className="bg-primary text-primary-foreground hover:bg-primary/90"
+                className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow"
               >
                 View Case Studies
               </Button>
@@ -290,6 +306,7 @@ const Journey = () => {
                 variant="outline" 
                 size="lg"
                 onClick={() => navigate('/#contact')}
+                className="border-primary-glow text-primary-glow hover:bg-primary-glow/20 shadow-systems"
               >
                 Get In Touch
               </Button>
