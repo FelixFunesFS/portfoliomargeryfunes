@@ -44,6 +44,10 @@ import circuitBoard from '@/assets/circuit-board.jpg';
 import robotInnovation from '@/assets/robot-innovation.jpg';
 import researchDesk from '@/assets/research-desk.jpg';
 import abstractNight from '@/assets/abstract-night.jpg';
+import caseStudy1Dashboard from '@/assets/case-study-1-dashboard.jpg';
+import caseStudy5Automation from '@/assets/case-study-5-automation.jpg';
+import caseStudy3Slides from '@/assets/case-study-3-slides.jpg';
+import caseStudy4Workspace from '@/assets/case-study-4-workspace.jpg';
 
 const AltHome2 = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -112,6 +116,9 @@ const AltHome2 = () => {
   // Research Stories Data
   const researchStories = [
     {
+      title: "Engine Logistics Tracking System",
+      briefSummary: "Modernized tracking for F117 engines across 23 global bases with 45% faster reporting.",
+      visual: caseStudy1Dashboard,
       challenge: "Engine maintenance teams across 23 bases struggled with manual tracking systems",
       researchMethod: "Conducted 15+ user interviews and workflow observations across multiple sites",
       keyInsight: "Users needed familiar interfaces with minimal training, not complex new systems",
@@ -125,6 +132,9 @@ const AltHome2 = () => {
       caseStudyId: 1
     },
     {
+      title: "Data Entry Automation System",
+      briefSummary: "Automated DOD/Boeing GUI systems saving 26,000+ hours annually with 90% error reduction.",
+      visual: caseStudy5Automation,
       challenge: "Data entry specialists experienced fatigue and errors from repetitive 2.5-hour daily tasks",
       researchMethod: "Empathy mapping, task analysis, and error pattern identification with 12 users",
       keyInsight: "Errors occurred due to cognitive overload, not lack of skill or attention",
@@ -138,6 +148,9 @@ const AltHome2 = () => {
       caseStudyId: 5
     },
     {
+      title: "Weekly Engine Removal Automation", 
+      briefSummary: "Automated slide deck generation saving 12+ weeks per year with 98% faster process.",
+      visual: caseStudy3Slides,
       challenge: "Analysts spent 9.6 hours weekly creating repetitive slide decks, causing burnout",
       researchMethod: "Journey mapping and pain point analysis with operations teams",
       keyInsight: "Manual slide creation was a barrier to timely decision-making at leadership level",
@@ -151,6 +164,9 @@ const AltHome2 = () => {
       caseStudyId: 3
     },
     {
+      title: "SharePoint Workspace System",
+      briefSummary: "Scaled team collaboration across 23 bases with 90% faster document finding.",
+      visual: caseStudy4Workspace,
       challenge: "Growing teams faced communication breakdowns and document chaos",
       researchMethod: "Organizational analysis and collaborative workflow studies",
       keyInsight: "Information architecture needed to match team mental models and role hierarchies",
@@ -587,24 +603,39 @@ const AltHome2 = () => {
                 whileHover={{ y: -10 }}
                 className="h-full"
               >
-                <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full flex flex-col">
-                  <CardContent className="p-4 sm:p-5 lg:p-6 flex-1 flex flex-col">
-                    {/* Research Story Header */}
-                    <div className="text-center mb-4">
-                      <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto rounded-full flex items-center justify-center mb-3 ${
-                        story.color === 'systems' ? 'bg-systems-blue/20' :
-                        story.color === 'agile' ? 'bg-agile-primary/20' :
-                        story.color === 'success' ? 'bg-success/20' :
-                        'bg-accent/20'
-                      }`}>
-                        <story.icon className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 ${
-                          story.color === 'systems' ? 'text-systems-blue' :
-                          story.color === 'agile' ? 'text-agile-primary' :
-                          story.color === 'success' ? 'text-success' :
-                          'text-accent'
-                        }`} />
-                      </div>
+                <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full flex flex-col overflow-hidden">
+                  {/* Visual Preview */}
+                  <div className="relative h-48 sm:h-56 overflow-hidden">
+                    <img 
+                      src={story.visual} 
+                      alt={`${story.title} preview`}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-1 leading-tight">
+                        {story.title}
+                      </h3>
+                      <p className="text-sm text-white/90 leading-tight">
+                        {story.briefSummary}
+                      </p>
                     </div>
+                    <div className={`absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center ${
+                      story.color === 'systems' ? 'bg-systems-blue/20 backdrop-blur-sm' :
+                      story.color === 'agile' ? 'bg-agile-primary/20 backdrop-blur-sm' :
+                      story.color === 'success' ? 'bg-success/20 backdrop-blur-sm' :
+                      'bg-accent/20 backdrop-blur-sm'
+                    }`}>
+                      <story.icon className={`w-5 h-5 ${
+                        story.color === 'systems' ? 'text-systems-blue' :
+                        story.color === 'agile' ? 'text-agile-primary' :
+                        story.color === 'success' ? 'text-success' :
+                        'text-accent'
+                      }`} />
+                    </div>
+                  </div>
+
+                  <CardContent className="p-4 sm:p-5 lg:p-6 flex-1 flex flex-col">
 
                     {/* Challenge */}
                     <div className="mb-3 sm:mb-4">
