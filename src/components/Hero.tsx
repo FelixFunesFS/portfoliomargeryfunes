@@ -216,7 +216,7 @@ const Hero = () => {
 
           <motion.h1 
             variants={scaleVariants}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gradient mb-4 sm:mb-6 leading-tight tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-4 sm:mb-6 leading-tight tracking-tight"
           >
             Margery Funes
           </motion.h1>
