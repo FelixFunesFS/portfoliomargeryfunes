@@ -65,24 +65,7 @@ const Hero = () => {
     };
     
     const connect = () => {
-      if (!ctx) return;
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < connectionDistance) {
-            const opacity = 1 - (distance / connectionDistance);
-            ctx.strokeStyle = `hsl(var(--primary) / ${opacity * 0.1})`; // Much more subtle
-            ctx.lineWidth = 0.5;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
+      // Line connections removed for cleaner look
     };
     
     const animate = () => {
