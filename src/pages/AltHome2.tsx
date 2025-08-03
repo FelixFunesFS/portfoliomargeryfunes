@@ -307,13 +307,13 @@ const AltHome2 = () => {
 
               <motion.div 
                 variants={itemVariants}
-                className="flex flex-col gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10 justify-center lg:justify-start"
               >
-                <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4">
+                <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
                   View Case Studies
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
-                <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4">
+                <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
                   Download Resume
                 </Button>
               </motion.div>
@@ -1161,12 +1161,12 @@ const AltHome2 = () => {
                   Let's discuss how systematic analysis and agile UX research can transform 
                   your user experience and business outcomes.
                 </p>
-                <div className="flex flex-col gap-3 sm:gap-4 justify-center">
-                  <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                  <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
                     Start a Project
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
-                  <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8">
+                  <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
                     Schedule Consultation
                   </Button>
                 </div>
