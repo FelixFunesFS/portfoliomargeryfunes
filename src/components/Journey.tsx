@@ -60,45 +60,7 @@ const Journey = () => {
               </div>)}
           </div>
 
-          <div className="lg:pl-8">
-            <Card className="glass border-none h-full">
-              <CardContent className="p-8">
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-2xl font-semibold mb-4 text-primary">The Realization</h3>
-                    <p className="text-muted-foreground mb-4">
-                      Through this work, I uncovered a deeper problem: most users couldn't clearly 
-                      express their needs in technical terms, and development teams didn't always 
-                      have access to the full context of daily operations.
-                    </p>
-                    <p className="text-muted-foreground">
-                      <strong>It wasn't a people problem — it was a communication and alignment problem.</strong>
-                    </p>
-                  </div>
-
-                  <Separator />
-
-                  <div>
-                    <h3 className="text-2xl font-semibold mb-4 text-primary">Today's Mission</h3>
-                    <p className="text-muted-foreground mb-4">
-                      I create research-driven, human-centered solutions that help teams build 
-                      the right products — the first time.
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      <Badge variant="outline">User Research</Badge>
-                      <Badge variant="outline">Experience Design</Badge>
-                      <Badge variant="outline">Full Stack Development</Badge>
-                      <Badge variant="outline">Systems Analysis</Badge>
-                      <Badge variant="outline">Process Improvement</Badge>
-                      <Badge variant="outline">Automation</Badge>
-                      <Badge variant="outline">Agile</Badge>
-                      
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+          
         </div>
 
         <div className="text-center">
