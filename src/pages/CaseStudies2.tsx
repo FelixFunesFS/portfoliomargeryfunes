@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowLeft, 
@@ -30,6 +31,7 @@ import { caseStudiesData } from '@/data/caseStudies';
 import { CaseStudy } from '@/types/caseStudy';
 
 const CaseStudies2 = () => {
+  const location = useLocation();
   const [selectedStudy, setSelectedStudy] = useState<number | null>(null);
   const [filteredStudies, setFilteredStudies] = useState<CaseStudy[]>(caseStudiesData);
   const [searchTerm, setSearchTerm] = useState('');
@@ -40,7 +42,17 @@ const CaseStudies2 = () => {
     document.title = "Case Studies - Systems Analysis & Agile UX Research";
     window.scrollTo(0, 0);
     setIsLoaded(true);
-  }, []);
+
+    // Handle incoming navigation state for auto-selecting case study
+    if (location.state?.selectedStudyId) {
+      const studyId = location.state.selectedStudyId;
+      setSelectedStudy(studyId);
+      // Delay scroll to ensure the component is rendered
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
+    }
+  }, [location.state]);
 
   useEffect(() => {
     let filtered = caseStudiesData;

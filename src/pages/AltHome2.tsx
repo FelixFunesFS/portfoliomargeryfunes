@@ -563,7 +563,7 @@ const AltHome2 = () => {
                     {/* View Case Study Button */}
                     <div className="mt-auto">
                       <Button 
-                        onClick={() => navigate('/case-studies', { state: { selectedStudyId: story.caseStudyId } })}
+                        onClick={() => navigate('/case-studies2', { state: { selectedStudyId: story.caseStudyId } })}
                         className={`w-full ${
                           story.color === 'systems' ? 'bg-systems-blue hover:bg-systems-blue/90' :
                           story.color === 'agile' ? 'bg-agile-primary hover:bg-agile-primary/90' :
@@ -591,7 +591,7 @@ const AltHome2 = () => {
             className="text-center mt-12 sm:mt-16"
           >
             <Button 
-              onClick={() => navigate('/case-studies')}
+              onClick={() => navigate('/case-studies2')}
               size="lg"
               className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow px-8 py-4"
             >
