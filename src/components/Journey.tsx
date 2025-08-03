@@ -1,35 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Plane, Building, Users, Target, Lightbulb, Code } from 'lucide-react';
-import useInView from '@/hooks/useInView';
 
 const Journey = () => {
-  const { ref, isInView } = useInView({ threshold: 0.1 });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const slideUpVariants = {
-    hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
 
   const milestones = [
     {
@@ -65,14 +39,9 @@ const Journey = () => {
   ];
 
   return (
-    <section ref={ref} id="journey" className="section bg-accent/10">
-      <motion.div 
-        className="container-custom"
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <motion.div variants={slideUpVariants} className="text-center mb-16">
+    <section id="journey" className="section bg-accent/10">
+      <div className="container-custom">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
             My Journey into User Research: Bridging the Gap
           </h2>
@@ -80,9 +49,9 @@ const Journey = () => {
             From military service to user-centered design — discovering the power of bridging 
             the gap between users and technology.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div variants={slideUpVariants} className="mb-12">
+        <div className="mb-12">
           <Card className="glass border-none">
             <CardContent className="p-8">
               <p className="text-lg text-muted-foreground mb-6">
@@ -98,16 +67,12 @@ const Journey = () => {
               </p>
             </CardContent>
           </Card>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           <div className="space-y-8">
             {milestones.filter((_, index) => index % 2 === 0).map((milestone, index) => (
-              <motion.div 
-                key={index * 2} 
-                variants={slideUpVariants}
-                className="flex gap-4"
-              >
+              <div key={index * 2} className="flex gap-4">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     {milestone.icon}
@@ -120,17 +85,13 @@ const Journey = () => {
                   </Badge>
                   <p className="text-muted-foreground">{milestone.description}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
           <div className="space-y-8">
             {milestones.filter((_, index) => index % 2 === 1).map((milestone, index) => (
-              <motion.div 
-                key={index * 2 + 1} 
-                variants={slideUpVariants}
-                className="flex gap-4"
-              >
+              <div key={index * 2 + 1} className="flex gap-4">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     {milestone.icon}
@@ -143,14 +104,14 @@ const Journey = () => {
                   </Badge>
                   <p className="text-muted-foreground">{milestone.description}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Outcome Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <motion.div variants={slideUpVariants}>
+          <div>
             <Card className="glass border-none">
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-4">
@@ -168,9 +129,9 @@ const Journey = () => {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
 
-          <motion.div variants={slideUpVariants}>
+          <div>
             <Card className="glass border-none">
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-4">
@@ -192,10 +153,10 @@ const Journey = () => {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div variants={slideUpVariants} className="text-center">
+        <div className="text-center">
           <Card className="glass border-none inline-block">
             <CardContent className="p-6">
               <Building className="w-8 h-8 text-primary mx-auto mb-3" />
@@ -207,8 +168,8 @@ const Journey = () => {
               </p>
             </CardContent>
           </Card>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };

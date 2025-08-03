@@ -1,14 +1,10 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Progress } from '@/components/ui/progress';
 import { Layout, PenTool, Code, Shield, Users, Target } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import useInView from '@/hooks/useInView';
 
 const About = () => {
-  const { ref, isInView } = useInView({ threshold: 0.1 });
-
   const skills = [
     { name: 'Systems Analysis', level: 98 },
     { name: 'UX Research', level: 92 },
@@ -42,38 +38,10 @@ const About = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const slideUpVariants = {
-    hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
   return (
-    <section ref={ref} id="about" className="section bg-gradient-to-br from-accent/30 via-background to-muted/20">
-      <motion.div 
-        className="container-custom"
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <motion.div variants={slideUpVariants} className="text-center mb-16">
+    <section id="about" className="section bg-gradient-to-br from-accent/30 via-background to-muted/20">
+      <div className="container-custom">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
             Mission-Driven Design Philosophy
           </h2>
@@ -81,10 +49,10 @@ const About = () => {
             Combining 8 years of military precision with advanced UX methodologies to create 
             systems that perform under pressure and deliver exceptional user outcomes.
           </p>
-        </motion.div>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
-          <motion.div variants={slideUpVariants}>
+          <div>
             <h3 className="text-2xl font-semibold mb-6">From Air Force to Innovation</h3>
             <p className="mb-4 text-muted-foreground">
               My unique background combines 8 years of U.S. Air Force systems operations with advanced 
@@ -100,39 +68,29 @@ const About = () => {
               Today, I apply this same precision and systems thinking to digital product design, creating 
               solutions that are not just beautiful, but built for reliability, scalability, and mission success.
             </p>
-          </motion.div>
+          </div>
           
-          <motion.div variants={slideUpVariants}>
+          <div>
             <h3 className="text-2xl font-semibold mb-6">Core Competencies</h3>
             <div className="space-y-4">
               {skills.map((skill, index) => (
-                <motion.div 
-                  key={skill.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: index * 0.1 }}
-                >
+                <div key={skill.name}>
                   <div className="flex justify-between mb-1">
                     <span className="font-medium">{skill.name}</span>
                     <span className="text-muted-foreground">{skill.level}%</span>
                   </div>
                   <Progress value={skill.level} className="h-2" />
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
         
-        <motion.div variants={slideUpVariants}>
+        <div>
           <h3 className="text-2xl font-semibold mb-8 text-center">Mission Capabilities</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <motion.div
-                key={index}
-                variants={slideUpVariants}
-                whileHover={{ y: -5, scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
+              <div key={index}>
                 <Card className="glass border-none hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-6 text-center">
                     <div className="flex justify-center mb-4">{service.icon}</div>
@@ -140,11 +98,11 @@ const About = () => {
                     <p className="text-muted-foreground text-sm">{service.description}</p>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };

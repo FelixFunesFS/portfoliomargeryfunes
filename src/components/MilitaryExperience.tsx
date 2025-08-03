@@ -1,36 +1,10 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Shield, Target, Users, Zap, Award, Clock } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import useInView from '@/hooks/useInView';
 
 const MilitaryExperience = () => {
-  const { ref, isInView } = useInView({ threshold: 0.1 });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const slideUpVariants = {
-    hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
 
   const transferableSkills = [
     {
@@ -69,14 +43,9 @@ const MilitaryExperience = () => {
   ];
 
   return (
-    <section ref={ref} className="section bg-gradient-to-br from-background via-muted/10 to-accent/20">
-      <motion.div 
-        className="container-custom"
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <motion.div variants={slideUpVariants} className="text-center mb-16">
+    <section className="section bg-gradient-to-br from-background via-muted/10 to-accent/20">
+      <div className="container-custom">
+        <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
             <Shield className="w-8 h-8 text-primary" />
             <Badge variant="outline" className="px-4 py-2 text-primary border-primary/30">
@@ -90,11 +59,11 @@ const MilitaryExperience = () => {
             8 years of Air Force service provided exceptional training in leadership, decision-making under pressure, 
             and systems thinking - all of which inform my approach to design and systems analysis.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Service Details */}
-          <motion.div variants={slideUpVariants}>
+          <div>
             <Card className="glass border-none h-full">
               <CardContent className="p-4 sm:p-6 lg:p-8">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
@@ -129,10 +98,10 @@ const MilitaryExperience = () => {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
 
           {/* Military Design Vision */}
-          <motion.div variants={slideUpVariants}>
+          <div>
             <h3 className="text-2xl font-bold mb-6">Military-Influenced Design Vision</h3>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -163,20 +132,15 @@ const MilitaryExperience = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Transferable Skills */}
-        <motion.div variants={slideUpVariants} className="mb-16">
+        <div className="mb-16">
           <h3 className="text-2xl font-bold text-center mb-8">Key Transferable Skills</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
             {transferableSkills.map((skill, index) => (
-              <motion.div
-                key={index}
-                variants={slideUpVariants}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.2 }}
-              >
+              <div key={index}>
                 <Card className="glass border-none h-full hover:shadow-lg transition-shadow">
                   <CardContent className="p-4 sm:p-6 text-center">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
@@ -186,22 +150,17 @@ const MilitaryExperience = () => {
                     <p className="text-muted-foreground text-xs sm:text-sm">{skill.description}</p>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Military Case Studies Highlight */}
-        <motion.div variants={slideUpVariants} className="text-center">
+        <div className="text-center">
           <h3 className="text-2xl font-bold mb-8">Military/Design Case Studies</h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8">
             {militaryCaseStudies.map((study, index) => (
-              <motion.div
-                key={index}
-                variants={slideUpVariants}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
+              <div key={index}>
                 <Card className="glass border-none h-full">
                   <CardContent className="p-6">
                     <h4 className="font-semibold text-lg mb-2">{study.title}</h4>
@@ -212,11 +171,11 @@ const MilitaryExperience = () => {
                     </Button>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };

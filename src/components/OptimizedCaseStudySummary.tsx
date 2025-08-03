@@ -1,16 +1,12 @@
-import React, { useState, Suspense, lazy } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Skeleton } from '@/components/ui/skeleton';
 import { caseStudiesData } from '@/data/caseStudies';
-import useInView from '@/hooks/useInView';
 
 const OptimizedCaseStudySummary = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const { ref, isInView } = useInView({ threshold: 0.1 });
 
   // Filter to prioritize military-related case studies
   const militaryFirst = [...caseStudiesData].sort((a, b) => {
@@ -22,34 +18,6 @@ const OptimizedCaseStudySummary = () => {
   });
 
   const currentStudy = militaryFirst[activeIndex];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const slideVariants = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    },
-    exit: {
-      opacity: 0,
-      x: -50,
-      transition: { duration: 0.3 }
-    }
-  };
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % militaryFirst.length);
@@ -64,35 +32,19 @@ const OptimizedCaseStudySummary = () => {
   };
 
   return (
-    <section ref={ref} id="case-studies" className="section bg-gradient-to-br from-muted/20 via-background to-accent/10">
-      <motion.div 
-        className="container-custom"
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <motion.div 
-          variants={slideVariants}
-          className="text-center mb-12"
-        >
+    <section id="case-studies" className="section bg-gradient-to-br from-muted/20 via-background to-accent/10">
+      <div className="container-custom">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
             Mission-Critical Case Studies
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Real-world solutions combining military precision with innovative design thinking
           </p>
-        </motion.div>
+        </div>
 
         <div className="relative max-w-6xl mx-auto">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeIndex}
-              variants={slideVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
-            >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               {/* Case Study Content */}
               <Card className="glass border-none">
                 <CardContent className="p-8">
@@ -160,16 +112,10 @@ const OptimizedCaseStudySummary = () => {
                     <h4 className="font-semibold mb-4 text-primary">KEY OUTCOMES</h4>
                     <div className="space-y-3">
                       {currentStudy.keyOutcomes.map((outcome, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.1 }}
-                          className="flex items-center gap-3"
-                        >
+                        <div key={index} className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
                           <span className="text-sm">{outcome}</span>
-                        </motion.div>
+                        </div>
                       ))}
                     </div>
                   </CardContent>
@@ -181,20 +127,14 @@ const OptimizedCaseStudySummary = () => {
                       <h4 className="font-semibold mb-4 text-primary">IMPACT METRICS</h4>
                       <div className="grid grid-cols-1 gap-4">
                         {currentStudy.metrics.map((metric, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: index * 0.1 }}
-                            className="text-center p-4 bg-accent/20 rounded-lg"
-                          >
+                          <div key={index} className="text-center p-4 bg-accent/20 rounded-lg">
                             <div className="text-2xl font-bold text-primary mb-1">
                               {metric.value}
                             </div>
                             <div className="text-xs text-muted-foreground">
                               {metric.label}
                             </div>
-                          </motion.div>
+                          </div>
                         ))}
                       </div>
                     </CardContent>
@@ -210,8 +150,7 @@ const OptimizedCaseStudySummary = () => {
                   </CardContent>
                 </Card>
               </div>
-            </motion.div>
-          </AnimatePresence>
+            </div>
 
           {/* Navigation Controls */}
           <div className="flex items-center justify-between mt-8">
@@ -251,7 +190,7 @@ const OptimizedCaseStudySummary = () => {
             </Button>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

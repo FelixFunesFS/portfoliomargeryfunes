@@ -1,35 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Search, Users, PenTool, TestTube, Rocket, RotateCcw } from 'lucide-react';
-import useInView from '@/hooks/useInView';
 
 const DesignProcess = () => {
-  const { ref, isInView } = useInView({ threshold: 0.1 });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const slideUpVariants = {
-    hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
 
   const processSteps = [
     {
@@ -83,14 +57,9 @@ const DesignProcess = () => {
   ];
 
   return (
-    <section ref={ref} id="design-process" className="section bg-gradient-to-br from-muted/20 via-background to-accent/10">
-      <motion.div 
-        className="container-custom"
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <motion.div variants={slideUpVariants} className="text-center mb-16">
+    <section id="design-process" className="section bg-gradient-to-br from-muted/20 via-background to-accent/10">
+      <div className="container-custom">
+        <div className="text-center mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-primary">
             My Design Process
           </h2>
@@ -98,16 +67,11 @@ const DesignProcess = () => {
             A systematic, military-informed approach to user-centered design that ensures every solution 
             is built for real-world effectiveness and long-term success.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {processSteps.map((step, index) => (
-            <motion.div
-              key={index}
-              variants={slideUpVariants}
-              whileHover={{ y: -5, scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-            >
+            <div key={index}>
               <Card className="glass border-none h-full hover:shadow-lg transition-all duration-300">
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center gap-3 mb-4">
@@ -133,13 +97,13 @@ const DesignProcess = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+                </Card>
+              </div>
+            ))}
+          </div>
 
-        {/* Process Philosophy */}
-        <motion.div variants={slideUpVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {/* Process Philosophy */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <Card className="glass border-none">
             <CardContent className="p-4 sm:p-6 text-center">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
@@ -175,8 +139,8 @@ const DesignProcess = () => {
               </p>
             </CardContent>
           </Card>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };
