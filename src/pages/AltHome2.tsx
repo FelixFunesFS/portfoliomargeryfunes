@@ -522,43 +522,6 @@ const AltHome2 = () => {
         </motion.div>
       </motion.section>
 
-      {/* Recent Work Section */}
-      <section className="section gradient-subtle py-12 sm:py-16 lg:py-20">
-        <div className="container-custom px-3 sm:px-4 lg:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12 sm:mb-16"
-          >
-            <Badge variant="outline" className="mb-4 sm:mb-6 border-accent text-accent text-xs sm:text-sm">
-              Recent Projects
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
-              Proven results through <span className="text-accent">systematic UX research</span>
-              <br className="hidden sm:block" />
-              and digital solutions
-            </h2>
-            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-              Real-world applications demonstrating how systematic analysis and agile methodologies 
-              solve complex challenges and deliver measurable business impact.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
-            {webDesigns.map((project, index) => (
-              <WebDesignCard
-                key={index}
-                project={project}
-                index={index}
-                onViewCaseStudy={() => handleViewCaseStudy(project.title)}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Problem-Solution Matrix */}
       <section className="section bg-background py-12 sm:py-16 lg:py-20">
         <div className="container-custom px-3 sm:px-4 lg:px-6">
@@ -693,7 +656,7 @@ const AltHome2 = () => {
                       story.color === 'success' ? 'bg-success/10' :
                       'bg-accent/10'
                     }`}>
-                      <div className={`text-lg font-bold ${
+                      <div className={`text-lg sm:text-xl lg:text-2xl font-bold ${
                         story.color === 'systems' ? 'text-systems-blue' :
                         story.color === 'agile' ? 'text-agile-primary' :
                         story.color === 'success' ? 'text-success' :
@@ -764,6 +727,43 @@ const AltHome2 = () => {
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Recent Work Section */}
+      <section className="section gradient-subtle py-12 sm:py-16 lg:py-20">
+        <div className="container-custom px-3 sm:px-4 lg:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <Badge variant="outline" className="mb-4 sm:mb-6 border-accent text-accent text-xs sm:text-sm">
+              Recent Projects
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
+              Proven results through <span className="text-accent">systematic UX research</span>
+              <br className="hidden sm:block" />
+              and digital solutions
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+              Real-world applications demonstrating how systematic analysis and agile methodologies 
+              solve complex challenges and deliver measurable business impact.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
+            {webDesigns.map((project, index) => (
+              <WebDesignCard
+                key={index}
+                project={project}
+                index={index}
+                onViewCaseStudy={() => handleViewCaseStudy(project.title)}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
