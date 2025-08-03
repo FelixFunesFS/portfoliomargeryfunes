@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { 
   Target, 
   Zap, 
@@ -21,7 +22,8 @@ import {
   Brain,
   Clock,
   Award,
-  ChevronDown
+  ChevronDown,
+  Eye
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -39,6 +41,7 @@ const AltHome2 = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const heroRef = useRef(null);
   const isHeroInView = useInView(heroRef, { once: true });
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = "Systems Analyst | UX Researcher | Agile Problem Solver";
@@ -94,7 +97,8 @@ const AltHome2 = () => {
       icon: Database,
       tools: ["User Interviews", "Workflow Analysis", "SharePoint", "Tableau"],
       reflection: "I'd conduct more cross-site usability testing to validate the interface earlier",
-      color: "systems"
+      color: "systems",
+      caseStudyId: 1
     },
     {
       challenge: "Data entry specialists experienced fatigue and errors from repetitive 2.5-hour daily tasks",
@@ -106,7 +110,8 @@ const AltHome2 = () => {
       icon: Clock,
       tools: ["Task Analysis", "Empathy Mapping", "VBA", "SQL"],
       reflection: "I'd include more stakeholders in the design process to ensure broader organizational buy-in",
-      color: "agile"
+      color: "agile",
+      caseStudyId: 5
     },
     {
       challenge: "Analysts spent 9.6 hours weekly creating repetitive slide decks, causing burnout",
@@ -118,7 +123,8 @@ const AltHome2 = () => {
       icon: TrendingUp,
       tools: ["Journey Mapping", "C#", "JavaScript", "VBA"],
       reflection: "I'd prototype multiple interface options to better understand user preferences",
-      color: "success"
+      color: "success",
+      caseStudyId: 3
     },
     {
       challenge: "Growing teams faced communication breakdowns and document chaos",
@@ -130,7 +136,8 @@ const AltHome2 = () => {
       icon: Users,
       tools: ["Information Architecture", "SharePoint", "Power Automate"],
       reflection: "I'd implement more iterative feedback loops during the workspace design phase",
-      color: "accent"
+      color: "accent",
+      caseStudyId: 4
     }
   ];
 
@@ -452,8 +459,8 @@ const AltHome2 = () => {
                 whileHover={{ y: -10 }}
                 className="h-full"
               >
-                <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full">
-                  <CardContent className="p-4 sm:p-5 lg:p-6">
+                <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full flex flex-col">
+                  <CardContent className="p-4 sm:p-5 lg:p-6 flex-1 flex flex-col">
                     {/* Research Story Header */}
                     <div className="text-center mb-4">
                       <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto rounded-full flex items-center justify-center mb-3 ${
@@ -544,7 +551,7 @@ const AltHome2 = () => {
                     </div>
 
                     {/* Reflection */}
-                    <div className="border-t pt-3">
+                    <div className="border-t pt-3 mb-4">
                       <Badge variant="outline" className="text-xs text-copper mb-2">
                         WHAT I'D DO DIFFERENTLY
                       </Badge>
@@ -552,11 +559,46 @@ const AltHome2 = () => {
                         {story.reflection}
                       </p>
                     </div>
+
+                    {/* View Case Study Button */}
+                    <div className="mt-auto">
+                      <Button 
+                        onClick={() => navigate('/case-studies', { state: { selectedStudyId: story.caseStudyId } })}
+                        className={`w-full ${
+                          story.color === 'systems' ? 'bg-systems-blue hover:bg-systems-blue/90' :
+                          story.color === 'agile' ? 'bg-agile-primary hover:bg-agile-primary/90' :
+                          story.color === 'success' ? 'bg-success hover:bg-success/90' :
+                          'bg-accent hover:bg-accent/90'
+                        } text-white shadow-sm`}
+                        size="sm"
+                      >
+                        <Eye className="w-4 h-4 mr-2" />
+                        View Case Study
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </div>
+
+          {/* View All Case Studies Button */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center mt-12 sm:mt-16"
+          >
+            <Button 
+              onClick={() => navigate('/case-studies')}
+              size="lg"
+              className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow px-8 py-4"
+            >
+              View All Case Studies
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </motion.div>
         </div>
       </section>
 
