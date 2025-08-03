@@ -52,7 +52,7 @@ const Hero = () => {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(139, 92, 246, 0.3)';
+        ctx.fillStyle = 'hsl(262, 83%, 66%, 0.4)';
         ctx.fill();
       }
     }
@@ -73,7 +73,7 @@ const Hero = () => {
           
           if (distance < connectionDistance) {
             const opacity = 1 - (distance / connectionDistance);
-            ctx.strokeStyle = `rgba(139, 92, 246, ${opacity * 0.2})`;
+            ctx.strokeStyle = `hsl(262, 83%, 66%, ${opacity * 0.3})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
@@ -115,26 +115,26 @@ const Hero = () => {
     <section id="home" className="relative flex items-center justify-center min-h-screen overflow-hidden">
       <canvas 
         ref={canvasRef} 
-        className="absolute inset-0 bg-gradient-to-b from-charcoal to-purple/50 z-0"
+        className="absolute inset-0 bg-gradient-to-b from-background to-accent z-0"
       />
       
       <div className="container-custom relative z-10 flex flex-col items-center md:items-start text-center md:text-left">
-        <h3 className="text-white/80 text-xl mb-3 animate-slide-in">Hello, I'm</h3>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <h3 className="text-foreground/80 text-xl mb-3 animate-slide-in">Hello, I'm</h3>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           Margery Funes
         </h1>
-        <h2 className="text-2xl md:text-4xl font-medium text-purple-light mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+        <h2 className="text-2xl md:text-4xl font-medium text-primary mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           UX/UI Designer & Developer
         </h2>
-        <p className="text-white/80 max-w-xl mb-10 text-lg animate-fade-in" style={{ animationDelay: '0.6s' }}>
+        <p className="text-foreground/70 max-w-xl mb-10 text-lg animate-fade-in" style={{ animationDelay: '0.6s' }}>
           I create engaging digital experiences that combine aesthetic appeal with 
           functional design, focused on solving user problems through intuitive interfaces.
         </p>
         <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-          <Button className="bg-purple hover:bg-purple-light transition-colors text-white px-8 py-6" asChild>
+          <Button className="bg-primary hover:bg-primary/90 transition-colors text-primary-foreground px-8 py-6" asChild>
             <a href="#projects">View Projects</a>
           </Button>
-          <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6" asChild>
+          <Button variant="outline" className="border-primary text-primary hover:bg-primary/10 px-8 py-6" asChild>
             <a href="#contact">Contact Me</a>
           </Button>
         </div>
@@ -142,7 +142,7 @@ const Hero = () => {
       
       <a 
         href="#projects" 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-primary animate-bounce"
         aria-label="Scroll to projects"
       >
         <ArrowDown size={32} />
