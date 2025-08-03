@@ -3,43 +3,34 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Plane, Building, Users, Target, Lightbulb, Code } from 'lucide-react';
-
 const Journey = () => {
-  const milestones = [
-    {
-      icon: <Plane className="w-6 h-6" />,
-      title: "U.S. Air Force & Boeing",
-      subtitle: "Identifying the Problem",
-      description: "Noticed systems didn't align with how people actually worked. Applications were clunky, workflows inefficient."
-    },
-    {
-      icon: <Code className="w-6 h-6" />,
-      title: "Taking Action",
-      subtitle: "Learning & Building",
-      description: "Began learning automation, programming, and systems analysis to improve processes and bridge the user-technology gap."
-    },
-    {
-      icon: <Target className="w-6 h-6" />,
-      title: "Leadership Recognition",
-      subtitle: "Continuous Improvement",
-      description: "Rotated into new roles every six months to assess, modernize, and automate core systems."
-    },
-    {
-      icon: <Lightbulb className="w-6 h-6" />,
-      title: "The Real Problem",
-      subtitle: "Communication & Alignment",
-      description: "Discovered the gap between users who couldn't express technical needs and developers lacking operational context."
-    },
-    {
-      icon: <Users className="w-6 h-6" />,
-      title: "Formal Pursuit",
-      subtitle: "User Research & Experience Design",
-      description: "Earned certifications, refined design practice, and expanded into full stack development."
-    }
-  ];
-
-  return (
-    <section id="journey" className="section bg-accent/20">
+  const milestones = [{
+    icon: <Plane className="w-6 h-6" />,
+    title: "U.S. Air Force & Boeing",
+    subtitle: "Identifying the Problem",
+    description: "Noticed systems didn't align with how people actually worked. Applications were clunky, workflows inefficient."
+  }, {
+    icon: <Code className="w-6 h-6" />,
+    title: "Taking Action",
+    subtitle: "Learning & Building",
+    description: "Began learning automation, programming, and systems analysis to improve processes and bridge the user-technology gap."
+  }, {
+    icon: <Target className="w-6 h-6" />,
+    title: "Leadership Recognition",
+    subtitle: "Continuous Improvement",
+    description: "Rotated into new roles every six months to assess, modernize, and automate core systems."
+  }, {
+    icon: <Lightbulb className="w-6 h-6" />,
+    title: "The Real Problem",
+    subtitle: "Communication & Alignment",
+    description: "Discovered the gap between users who couldn't express technical needs and developers lacking operational context."
+  }, {
+    icon: <Users className="w-6 h-6" />,
+    title: "Formal Pursuit",
+    subtitle: "User Research & Experience Design",
+    description: "Earned certifications, refined design practice, and expanded into full stack development."
+  }];
+  return <section id="journey" className="section bg-accent/20">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
@@ -53,8 +44,7 @@ const Journey = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div className="space-y-8">
-            {milestones.map((milestone, index) => (
-              <div key={index} className="flex gap-4">
+            {milestones.map((milestone, index) => <div key={index} className="flex gap-4">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     {milestone.icon}
@@ -67,8 +57,7 @@ const Journey = () => {
                   </Badge>
                   <p className="text-muted-foreground">{milestone.description}</p>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
 
           <div className="lg:pl-8">
@@ -103,7 +92,7 @@ const Journey = () => {
                       <Badge variant="outline">Process Improvement</Badge>
                       <Badge variant="outline">Automation</Badge>
                       <Badge variant="outline">Agile</Badge>
-                      <Badge variant="outline">Lean</Badge>
+                      
                     </div>
                   </div>
                 </div>
@@ -126,8 +115,6 @@ const Journey = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Journey;
