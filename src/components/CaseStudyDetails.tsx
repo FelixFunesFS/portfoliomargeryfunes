@@ -77,7 +77,7 @@ const CaseStudyDetails: React.FC<CaseStudyDetailsProps> = ({ study, onClose }) =
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   className="flex items-start"
                 >
-                  <span className="bg-green-500/10 text-green-500 p-1 rounded-full mr-2 mt-0.5">
+                  <span className="bg-accent/10 text-accent p-1 rounded-full mr-2 mt-0.5">
                     <Check size={12} />
                   </span>
                   <span className="text-muted-foreground">{outcome}</span>

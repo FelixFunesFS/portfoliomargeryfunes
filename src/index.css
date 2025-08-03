@@ -37,8 +37,8 @@
     --muted-foreground: 215 20% 45%;
     --cool-gray: 210 15% 91%; /* #E2E8F0 - borders & dividers */
 
-    /* Modern Teal Accent System */
-    --accent: 174 100% 35%; /* #00B4A6 - modern teal */
+    /* Modern Steel Accent System */
+    --accent: 210 25% 55%; /* #718096 - steel blue-gray */
     --accent-foreground: 0 0% 100%;
     --accent-warm: 210 25% 55%; /* #718096 - steel blue-gray */
     --accent-mint: 174 71% 64%; /* #64E6D1 - mint fresh */
@@ -111,8 +111,8 @@
     --muted-foreground: 210 15% 60%;
     --cool-gray: 210 20% 25%; /* Darker borders for dark mode */
 
-    /* Enhanced Teal Accent System - Dark Mode */
-    --accent: 175 85% 55%; /* #40E0D0 - lighter vibrant teal */
+    /* Enhanced Steel Accent System - Dark Mode */
+    --accent: 210 30% 65%; /* #8CA3B8 - lighter steel blue-gray */
     --accent-foreground: 210 30% 8%;
     --accent-warm: 210 30% 65%; /* #8CA3B8 - lighter steel blue-gray */
     --accent-mint: 174 60% 70%; /* Lighter mint */

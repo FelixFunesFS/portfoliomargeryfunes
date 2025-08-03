@@ -27,7 +27,7 @@ const JourneyAlternative = () => {
       insight: "Technical skills + user perspective = value",
       action: "Rotated every 6 months to improve core systems",
       icon: <Target className="w-5 h-5" />,
-      color: "bg-green-500"
+      color: "bg-accent"
     },
     {
       phase: "Revelation",
