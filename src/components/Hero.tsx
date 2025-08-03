@@ -112,83 +112,139 @@ const Hero = () => {
     };
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const slideUpVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 40,
+      filter: "blur(4px)"
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
+  const scaleVariants = {
+    hidden: { 
+      opacity: 0, 
+      scale: 0.8,
+      rotateX: -15 
+    },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      rotateX: 0,
+      transition: {
+        duration: 0.9,
+        ease: [0.175, 0.885, 0.32, 1.275],
+      },
+    },
+  };
+
+  const floatVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+        repeat: Infinity,
+        repeatType: "reverse" as const,
+        repeatDelay: 3,
+      },
+    },
+  };
+
   return (
-    <section id="home" className="relative flex items-center justify-center min-h-screen overflow-hidden">
+    <section id="home" className="relative flex items-center justify-center min-h-screen overflow-hidden px-4 sm:px-6">
       <canvas 
         ref={canvasRef} 
         className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-muted/20 z-0"
       />
       
-      <div className="container-custom relative z-10 flex flex-col items-center md:items-start text-center md:text-left max-w-6xl">
+      <motion.div 
+        className="container-custom relative z-10 flex flex-col items-center text-center max-w-7xl w-full"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex items-center gap-2 mb-4"
+          variants={slideUpVariants}
+          className="flex items-center gap-2 mb-4 sm:mb-6"
         >
-          <div className="h-px w-12 bg-primary/60"></div>
-          <span className="text-foreground/70 text-sm tracking-wider uppercase">Portfolio</span>
+          <div className="h-px w-8 sm:w-12 bg-primary/60"></div>
+          <span className="text-foreground/70 text-xs sm:text-sm tracking-wider uppercase">Portfolio</span>
+          <div className="h-px w-8 sm:w-12 bg-primary/60"></div>
         </motion.div>
 
         <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-tight"
+          variants={scaleVariants}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-4 sm:mb-6 leading-tight tracking-tight"
         >
           Margery Funes
         </motion.h1>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-          className="flex flex-wrap items-center gap-6 mb-8"
+          variants={slideUpVariants}
+          className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8"
         >
-          <h2 className="text-2xl md:text-3xl font-medium text-primary">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-primary">
             UX/UI Designer & Developer
           </h2>
-          <div className="hidden md:flex gap-4">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Code className="w-5 h-5" />
-              <span className="text-sm">Frontend</span>
+          <div className="flex justify-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-1.5 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full">
+              <Code className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="text-xs sm:text-sm">Code</span>
             </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Palette className="w-5 h-5" />
-              <span className="text-sm">Design</span>
+            <div className="flex items-center gap-1.5 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full">
+              <Palette className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="text-xs sm:text-sm">Design</span>
             </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Users className="w-5 h-5" />
-              <span className="text-sm">Research</span>
+            <div className="flex items-center gap-1.5 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full">
+              <Users className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="text-xs sm:text-sm">Research</span>
             </div>
           </div>
         </motion.div>
 
         <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
-          className="text-foreground/80 max-w-2xl mb-10 text-lg md:text-xl leading-relaxed"
+          variants={slideUpVariants}
+          className="text-foreground/80 max-w-xl lg:max-w-2xl mb-8 sm:mb-10 text-base sm:text-lg md:text-xl leading-relaxed px-4 sm:px-0"
         >
           I bridge the gap between users and technology, creating research-driven digital 
           experiences that solve real problems through elegant design and thoughtful development.
         </motion.p>
 
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.7, ease: "easeOut" }}
-          className="flex flex-wrap gap-4"
+          variants={slideUpVariants}
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto"
         >
           <Button 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg hover:scale-105 transition-all duration-300" 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25" 
             asChild
           >
             <a href="#projects">View My Work</a>
           </Button>
           <Button 
             variant="outline" 
-            className="border-primary text-primary hover:bg-primary/10 px-8 py-6 text-lg hover:scale-105 transition-all duration-300" 
+            className="border-primary text-primary hover:bg-primary/10 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover:scale-105 transition-all duration-300" 
             asChild
           >
             <a href="#contact">Let's Connect</a>
@@ -196,35 +252,51 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1, ease: "easeOut" }}
-          className="mt-16 grid grid-cols-3 gap-8 text-center"
+          variants={slideUpVariants}
+          className="mt-12 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 w-full max-w-md sm:max-w-lg"
         >
-          <div>
-            <div className="text-2xl font-bold text-primary">5+</div>
-            <div className="text-sm text-muted-foreground">Years Experience</div>
+          <div className="text-center">
+            <motion.div 
+              className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary"
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              5+
+            </motion.div>
+            <div className="text-xs sm:text-sm text-muted-foreground mt-1">Years Experience</div>
           </div>
-          <div>
-            <div className="text-2xl font-bold text-primary">50+</div>
-            <div className="text-sm text-muted-foreground">Projects Delivered</div>
+          <div className="text-center">
+            <motion.div 
+              className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary"
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              50+
+            </motion.div>
+            <div className="text-xs sm:text-sm text-muted-foreground mt-1">Projects Delivered</div>
           </div>
-          <div>
-            <div className="text-2xl font-bold text-primary">100%</div>
-            <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+          <div className="text-center">
+            <motion.div 
+              className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary"
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              100%
+            </motion.div>
+            <div className="text-xs sm:text-sm text-muted-foreground mt-1">Client Satisfaction</div>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
       
       <motion.a 
         href="#projects" 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-primary/60 hover:text-primary transition-colors duration-300"
+        className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 text-primary/60 hover:text-primary transition-colors duration-300"
         aria-label="Scroll to projects"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 1.2, ease: "easeOut", repeat: Infinity, repeatType: "reverse", repeatDelay: 2 }}
+        variants={floatVariants}
+        initial="hidden"
+        animate="visible"
       >
-        <ArrowDown size={24} />
+        <ArrowDown size={20} className="sm:w-6 sm:h-6" />
       </motion.a>
     </section>
   );
