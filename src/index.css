@@ -17,12 +17,12 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 35% 15%;
 
-    /* Primary Colors - Vibrant Electric Blue Spectrum */
-    --primary: 210 100% 50%;  /* #0080FF - vibrant electric blue */
+    /* Primary Colors - Deep Electric Blue Spectrum */
+    --primary: 220 100% 50%;  /* #0066FF - sophisticated electric blue */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 210 90% 60%; /* #3399FF */
-    --primary-dark: 210 100% 40%; /* #0066CC */
-    --primary-warm: 213 100% 50%; /* #007BFF - warmer variant */
+    --primary-light: 210 100% 60%; /* #3399FF - bright sky blue */
+    --primary-dark: 213 56% 23%; /* #1a365d - navy professional */
+    --primary-warm: 213 100% 50%; /* #007BFF - azure blue variant */
 
     /* Navy & Professional Blues */
     --navy: 220 39% 11%; /* #1B365D - deep navy */
@@ -37,17 +37,19 @@
     --muted-foreground: 215 20% 45%;
     --cool-gray: 210 15% 91%; /* #E2E8F0 - borders & dividers */
 
-    /* Enhanced Teal Accent System */
-    --accent: 175 100% 40%; /* #00CC99 - vibrant teal */
+    /* Modern Teal Accent System */
+    --accent: 174 100% 35%; /* #00B4A6 - modern teal */
     --accent-foreground: 0 0% 100%;
-    --accent-warm: 174 62% 47%; /* #20B2AA - warmer teal */
-    --accent-mint: 174 71% 64%; /* #64E6D1 - mint highlight */
+    --accent-warm: 162 73% 46%; /* #20C997 - seafoam green */
+    --accent-mint: 174 71% 64%; /* #64E6D1 - mint fresh */
 
-    /* Strategic Warm Accents */
-    --coral: 9 100% 64%; /* #FF6B47 - action CTAs */
+    /* Strategic Personality Colors */
+    --coral: 9 100% 64%; /* #FF6B47 - vibrant orange-red CTAs */
     --coral-foreground: 0 0% 100%;
-    --gold: 51 100% 50%; /* #FFD700 - achievements */
+    --gold: 45 93% 50%; /* #F59E0B - professional yellow */
     --gold-foreground: 220 39% 11%;
+    --purple: 258 90% 66%; /* #8B5CF6 - creative accent */
+    --purple-foreground: 0 0% 100%;
 
     /* Military & Professional Touches */
     --success: 140 55% 45%; /* #38a169 - military green */
@@ -115,11 +117,13 @@
     --accent-warm: 174 70% 60%; /* Lighter warm teal */
     --accent-mint: 174 60% 70%; /* Lighter mint */
 
-    /* Strategic Warm Accents - Dark Mode */
+    /* Strategic Personality Colors - Dark Mode */
     --coral: 9 85% 70%; /* Softer coral for dark mode */
     --coral-foreground: 210 30% 8%;
-    --gold: 51 80% 60%; /* Softer gold */
+    --gold: 45 80% 60%; /* Softer professional gold */
     --gold-foreground: 210 30% 8%;
+    --purple: 258 75% 70%; /* Softer creative purple */
+    --purple-foreground: 210 30% 8%;
 
     /* Military & Professional Touches - Dark Mode */
     --success: 140 50% 55%; /* Lighter military green */
