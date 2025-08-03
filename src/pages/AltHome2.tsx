@@ -76,34 +76,54 @@ const AltHome2 = () => {
     }
   };
 
-  // Problem-Solution Matrix Data
-  const problemSolutionMatrix = [
+  // Research Stories Data
+  const researchStories = [
     {
-      problem: "Legacy Systems Integration",
-      solution: "Modern API Development",
+      challenge: "Engine maintenance teams across 23 bases struggled with manual tracking systems",
+      researchMethod: "Conducted 15+ user interviews and workflow observations across multiple sites",
+      keyInsight: "Users needed familiar interfaces with minimal training, not complex new systems",
+      solution: "Designed SharePoint CMS leveraging existing user mental models with Tableau dashboards",
+      userImpact: "Teams could find engine data in seconds instead of hours, reducing stress and improving accuracy",
+      metric: "45% faster reporting",
       icon: Database,
-      metrics: "26K+ hours saved",
+      tools: ["User Interviews", "Workflow Analysis", "SharePoint", "Tableau"],
+      reflection: "I'd conduct more cross-site usability testing to validate the interface earlier",
       color: "systems"
     },
     {
-      problem: "Manual Process Inefficiencies", 
-      solution: "Automation & Workflow Design",
-      icon: RefreshCw,
-      metrics: "80-98% time reduction",
+      challenge: "Data entry specialists experienced fatigue and errors from repetitive 2.5-hour daily tasks",
+      researchMethod: "Empathy mapping, task analysis, and error pattern identification with 12 users",
+      keyInsight: "Errors occurred due to cognitive overload, not lack of skill or attention",
+      solution: "Built VBA automation tool that preserved user control while eliminating repetition",
+      userImpact: "Users shifted from monotonous data entry to strategic analysis work, boosting job satisfaction",
+      metric: "80% time reduction, 90% error reduction",
+      icon: Clock,
+      tools: ["Task Analysis", "Empathy Mapping", "VBA", "SQL"],
+      reflection: "I'd include more stakeholders in the design process to ensure broader organizational buy-in",
       color: "agile"
     },
     {
-      problem: "Poor User Adoption",
-      solution: "Human-Centered Design",
-      icon: Users,
-      metrics: "340% conversion increase",
+      challenge: "Analysts spent 9.6 hours weekly creating repetitive slide decks, causing burnout",
+      researchMethod: "Journey mapping and pain point analysis with operations teams",
+      keyInsight: "Manual slide creation was a barrier to timely decision-making at leadership level",
+      solution: "Designed form-driven automation that maintained presentation quality while saving time",
+      userImpact: "Analysts could focus on analysis instead of formatting, improving strategic insights",
+      metric: "98% faster process",
+      icon: TrendingUp,
+      tools: ["Journey Mapping", "C#", "JavaScript", "VBA"],
+      reflection: "I'd prototype multiple interface options to better understand user preferences",
       color: "success"
     },
     {
-      problem: "Data Silos & Inconsistency",
-      solution: "Enterprise Architecture",
-      icon: Layers,
-      metrics: "23 global bases unified",
+      challenge: "Growing teams faced communication breakdowns and document chaos",
+      researchMethod: "Organizational analysis and collaborative workflow studies",
+      keyInsight: "Information architecture needed to match team mental models and role hierarchies",
+      solution: "Created role-based SharePoint workspaces with intuitive navigation structures",
+      userImpact: "Team members could onboard faster and collaborate more effectively",
+      metric: "90% faster document finding, 70% faster onboarding",
+      icon: Users,
+      tools: ["Information Architecture", "SharePoint", "Power Automate"],
+      reflection: "I'd implement more iterative feedback loops during the workspace design phase",
       color: "accent"
     }
   ];
@@ -133,35 +153,71 @@ const AltHome2 = () => {
     }
   ];
 
-  // Agile Research Toolkit
-  const agileToolkit = [
+  // Research-First Agile Toolkit
+  const researchToolkit = [
     {
       phase: "Discovery Sprint",
-      methods: ["User Interviews", "Systems Analysis", "Stakeholder Mapping"],
-      deliverables: ["Problem Definition", "User Journey Maps", "Technical Requirements"],
+      methods: ["User Interviews", "Contextual Inquiry", "Stakeholder Mapping", "Journey Mapping"],
+      deliverables: ["User Personas", "Journey Maps", "Problem Definition", "Research Plan"],
       duration: "1-2 weeks",
-      icon: Target
+      icon: Target,
+      insight: "Why are users struggling? What are their real needs vs. stated needs?"
     },
     {
       phase: "Analysis Sprint", 
-      methods: ["Data Analysis", "Workflow Mapping", "Solution Architecture"],
-      deliverables: ["System Design", "Process Flows", "Technical Specifications"],
+      methods: ["Affinity Mapping", "Behavioral Analysis", "Task Analysis", "Systems Thinking"],
+      deliverables: ["Insight Synthesis", "Opportunity Map", "Design Principles", "Requirements"],
       duration: "1-2 weeks",
-      icon: BarChart3
+      icon: BarChart3,
+      insight: "What patterns emerge? How do user needs connect to business goals?"
     },
     {
       phase: "Solution Sprint",
-      methods: ["Rapid Prototyping", "Iterative Development", "User Testing"],
-      deliverables: ["MVP", "Code Implementation", "User Feedback"],
+      methods: ["Co-design Sessions", "Rapid Prototyping", "Concept Testing", "Iterative Design"],
+      deliverables: ["Validated Concepts", "Interactive Prototypes", "Test Results", "Design System"],
       duration: "2-4 weeks", 
-      icon: Code
+      icon: Code,
+      insight: "Which solutions resonate? How do users actually interact with our ideas?"
     },
     {
       phase: "Validation Sprint",
-      methods: ["A/B Testing", "Performance Metrics", "Retrospectives"],
-      deliverables: ["Impact Report", "Optimization Plan", "Process Improvements"],
+      methods: ["Usability Testing", "A/B Testing", "Post-Launch Research", "Impact Measurement"],
+      deliverables: ["Usability Report", "Impact Metrics", "Iteration Plan", "Success Stories"],
       duration: "1-2 weeks",
-      icon: CheckCircle
+      icon: CheckCircle,
+      insight: "Did we solve the right problem? What should we optimize next?"
+    }
+  ];
+
+  // Research Artifacts Showcase
+  const researchArtifacts = [
+    {
+      title: "User Journey Maps",
+      description: "End-to-end visualization of user experiences, pain points, and opportunities",
+      tools: ["Miro", "Figma", "User Research"],
+      icon: Target,
+      color: "agile"
+    },
+    {
+      title: "Affinity Diagrams", 
+      description: "Pattern identification and insight synthesis from user research data",
+      tools: ["Post-it Clustering", "Thematic Analysis", "Insight Extraction"],
+      icon: Brain,
+      color: "accent"
+    },
+    {
+      title: "Systems Architecture",
+      description: "Technical flow diagrams connecting user needs to system capabilities",
+      tools: ["Lucidchart", "Systems Analysis", "Information Architecture"],
+      icon: Database,
+      color: "systems"
+    },
+    {
+      title: "Usability Test Reports",
+      description: "Structured findings with actionable recommendations and design implications",
+      tools: ["User Testing", "Video Analysis", "Behavioral Metrics"],
+      icon: CheckCircle,
+      color: "success"
     }
   ];
 
@@ -336,19 +392,19 @@ const AltHome2 = () => {
             className="text-center mb-16"
           >
             <Badge variant="outline" className="mb-4 border-agile-primary text-agile-primary">
-              Problem-Solution Matrix
+              Research Stories
             </Badge>
             <h2 className="text-4xl font-bold mb-6">
-              Complex Problems, <span className="text-agile-primary">Systematic Solutions</span>
+              User Problems, <span className="text-agile-primary">Research-Driven Solutions</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              I specialize in identifying systemic issues and implementing scalable solutions 
-              through agile methodologies and user-centered design.
+              Each project tells a story of user challenges, research insights, and meaningful impact. 
+              Here's how I approach complex problems through systematic UX research.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {problemSolutionMatrix.map((item, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            {researchStories.map((story, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
@@ -360,40 +416,103 @@ const AltHome2 = () => {
               >
                 <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full">
                   <CardContent className="p-4 sm:p-6">
-                    <div className="text-center">
-                      <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full flex items-center justify-center mb-3 sm:mb-4 ${
-                        item.color === 'systems' ? 'bg-systems-blue/20' :
-                        item.color === 'agile' ? 'bg-agile-primary/20' :
-                        item.color === 'success' ? 'bg-success/20' :
+                    {/* Research Story Header */}
+                    <div className="text-center mb-4">
+                      <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full flex items-center justify-center mb-3 ${
+                        story.color === 'systems' ? 'bg-systems-blue/20' :
+                        story.color === 'agile' ? 'bg-agile-primary/20' :
+                        story.color === 'success' ? 'bg-success/20' :
                         'bg-accent/20'
                       }`}>
-                        <item.icon className={`w-6 h-6 sm:w-8 sm:h-8 ${
-                          item.color === 'systems' ? 'text-systems-blue' :
-                          item.color === 'agile' ? 'text-agile-primary' :
-                          item.color === 'success' ? 'text-success' :
+                        <story.icon className={`w-6 h-6 sm:w-8 sm:h-8 ${
+                          story.color === 'systems' ? 'text-systems-blue' :
+                          story.color === 'agile' ? 'text-agile-primary' :
+                          story.color === 'success' ? 'text-success' :
                           'text-accent'
                         }`} />
                       </div>
+                    </div>
+
+                    {/* Challenge */}
+                    <div className="mb-4">
                       <Badge variant="outline" className="text-xs text-muted-foreground mb-2">
-                        PROBLEM
+                        USER CHALLENGE
                       </Badge>
-                      <h3 className="font-semibold text-sm sm:text-base text-foreground mb-3 sm:mb-4 leading-tight">{item.problem}</h3>
-                      
-                      <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 mx-auto text-muted-foreground mb-3 sm:mb-4" />
-                      
+                      <p className="text-sm text-foreground leading-tight mb-3">
+                        {story.challenge}
+                      </p>
+                    </div>
+
+                    {/* Research Method */}
+                    <div className="mb-4">
                       <Badge variant="outline" className="text-xs text-primary-glow mb-2">
-                        SOLUTION
+                        RESEARCH METHOD
                       </Badge>
-                      <h4 className="font-semibold text-sm sm:text-base text-primary-glow mb-3 sm:mb-4 leading-tight">{item.solution}</h4>
-                      
-                      <div className={`text-lg sm:text-2xl font-bold ${
-                        item.color === 'systems' ? 'text-systems-blue' :
-                        item.color === 'agile' ? 'text-agile-primary' :
-                        item.color === 'success' ? 'text-success' :
+                      <p className="text-sm text-muted-foreground leading-tight mb-3">
+                        {story.researchMethod}
+                      </p>
+                    </div>
+
+                    {/* Key Insight */}
+                    <div className="mb-4 p-3 bg-accent/10 rounded-lg">
+                      <Badge variant="outline" className="text-xs text-accent mb-2">
+                        KEY INSIGHT
+                      </Badge>
+                      <p className="text-sm text-accent font-medium leading-tight">
+                        "{story.keyInsight}"
+                      </p>
+                    </div>
+
+                    {/* Solution & Impact */}
+                    <div className="mb-4">
+                      <Badge variant="outline" className="text-xs text-success mb-2">
+                        SOLUTION & IMPACT
+                      </Badge>
+                      <p className="text-sm text-foreground leading-tight mb-2">
+                        {story.solution}
+                      </p>
+                      <p className="text-sm text-muted-foreground leading-tight">
+                        {story.userImpact}
+                      </p>
+                    </div>
+
+                    {/* Metric */}
+                    <div className={`text-center p-3 rounded-lg mb-4 ${
+                      story.color === 'systems' ? 'bg-systems-blue/10' :
+                      story.color === 'agile' ? 'bg-agile-primary/10' :
+                      story.color === 'success' ? 'bg-success/10' :
+                      'bg-accent/10'
+                    }`}>
+                      <div className={`text-lg font-bold ${
+                        story.color === 'systems' ? 'text-systems-blue' :
+                        story.color === 'agile' ? 'text-agile-primary' :
+                        story.color === 'success' ? 'text-success' :
                         'text-accent'
                       }`}>
-                        {item.metrics}
+                        {story.metric}
                       </div>
+                    </div>
+
+                    {/* Tools Used */}
+                    <div className="mb-4">
+                      <h4 className="text-xs font-semibold text-muted-foreground mb-2">TOOLS USED</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {story.tools.map((tool, toolIndex) => (
+                          <Badge key={toolIndex} variant="secondary" className="text-xs">
+                            {tool}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Reflection */}
+                    <div className="border-t pt-3">
+                      <Badge variant="outline" className="text-xs text-copper mb-2">
+                        WHAT I'D DO DIFFERENTLY
+                      </Badge>
+                      <p className="text-xs text-copper italic leading-tight">
+                        {story.reflection}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
@@ -420,8 +539,9 @@ const AltHome2 = () => {
               From Military Precision to <span className="text-agile-primary">Agile Innovation</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              My journey from Air Force systems operations to agile UX research, 
-              combining military discipline with modern product development methodologies.
+              My passion for understanding how people interact with complex systems began in the Air Force, 
+              where I witnessed the gap between technical capabilities and user needs. This drives my systematic 
+              approach to UX research, always asking "Why?" before building "What."
             </p>
           </motion.div>
 
@@ -497,7 +617,7 @@ const AltHome2 = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {agileToolkit.map((phase, index) => (
+            {researchToolkit.map((phase, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
@@ -517,8 +637,16 @@ const AltHome2 = () => {
                       {phase.duration}
                     </Badge>
                   </CardHeader>
-                  <CardContent>
+                   <CardContent>
                     <div className="space-y-4">
+                      {/* Key Research Question */}
+                      <div className="bg-agile-primary/10 p-3 rounded-lg">
+                        <h4 className="font-semibold text-agile-primary mb-2 text-sm">Key Question</h4>
+                        <p className="text-sm text-agile-primary font-medium italic">
+                          {phase.insight}
+                        </p>
+                      </div>
+
                       <div>
                         <h4 className="font-semibold text-foreground mb-2">Methods</h4>
                         <ul className="text-sm text-muted-foreground space-y-1">
@@ -539,11 +667,122 @@ const AltHome2 = () => {
                         </ul>
                       </div>
                     </div>
+                   </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Research Artifacts Showcase */}
+      <section className="section gradient-subtle">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <Badge variant="outline" className="mb-4 border-accent text-accent">
+              Research Artifacts
+            </Badge>
+            <h2 className="text-4xl font-bold mb-6">
+              Visualizing <span className="text-accent">User Insights</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              From user interviews to system architecture, I create visual artifacts that communicate 
+              complex insights and drive informed design decisions.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {researchArtifacts.map((artifact, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ y: -5 }}
+                className="h-full"
+              >
+                <Card className="glass border-none shadow-card hover:shadow-accent/20 transition-all duration-300 h-full">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="text-center">
+                      <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full flex items-center justify-center mb-3 sm:mb-4 ${
+                        artifact.color === 'systems' ? 'bg-systems-blue/20' :
+                        artifact.color === 'agile' ? 'bg-agile-primary/20' :
+                        artifact.color === 'success' ? 'bg-success/20' :
+                        'bg-accent/20'
+                      }`}>
+                        <artifact.icon className={`w-6 h-6 sm:w-8 sm:h-8 ${
+                          artifact.color === 'systems' ? 'text-systems-blue' :
+                          artifact.color === 'agile' ? 'text-agile-primary' :
+                          artifact.color === 'success' ? 'text-success' :
+                          'text-accent'
+                        }`} />
+                      </div>
+                      
+                      <h3 className="font-semibold text-sm sm:text-base text-foreground mb-2 sm:mb-3 leading-tight">
+                        {artifact.title}
+                      </h3>
+                      
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-3 sm:mb-4">
+                        {artifact.description}
+                      </p>
+                      
+                      {/* Tools Used */}
+                      <div className="space-y-2">
+                        <h4 className="text-xs font-semibold text-muted-foreground">CREATED WITH</h4>
+                        <div className="flex flex-wrap gap-1 justify-center">
+                          {artifact.tools.map((tool, toolIndex) => (
+                            <Badge key={toolIndex} variant="secondary" className="text-xs">
+                              {tool}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </div>
+
+          {/* Research Philosophy */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="mt-12 max-w-4xl mx-auto"
+          >
+            <Card className="glass border-accent/20 shadow-card">
+              <CardContent className="p-6 sm:p-8">
+                <div className="text-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-4 sm:mb-6">
+                    <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-4">
+                    Research Philosophy
+                  </h3>
+                  <p className="text-base sm:text-lg text-muted-foreground italic leading-relaxed">
+                    "Every artifact tells a story. Whether it's a journey map revealing user pain points 
+                    or a systems diagram showing technical constraints, I believe in making the invisible visible. 
+                    Good research isn't just about gathering data—it's about creating shared understanding 
+                    that transforms how teams think about problems."
+                  </p>
+                  <div className="mt-6">
+                    <Badge variant="outline" className="border-accent text-accent">
+                      Always ask "Why?" before "How?"
+                    </Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
