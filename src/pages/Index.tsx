@@ -1,14 +1,16 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import Projects from '@/components/Projects';
-import Journey from '@/components/Journey';
-import JourneyAlternative from '@/components/JourneyAlternative';
+import OptimizedHero from '@/components/OptimizedHero';
+import MilitaryExperience from '@/components/MilitaryExperience';
+import OptimizedCaseStudySummary from '@/components/OptimizedCaseStudySummary';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import CaseStudySummary from '@/components/CaseStudySummary';
+import { Skeleton } from '@/components/ui/skeleton';
+
+// Lazy load less critical components for better performance
+const Projects = lazy(() => import('@/components/Projects'));
 
 const Index = () => {
   useEffect(() => {
@@ -19,11 +21,23 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Hero />
-      <Projects />
-      <CaseStudySummary />
-      <Journey />
-      <JourneyAlternative />
+      <OptimizedHero />
+      <MilitaryExperience />
+      <OptimizedCaseStudySummary />
+      <Suspense fallback={
+        <section className="section">
+          <div className="container-custom">
+            <Skeleton className="h-8 w-64 mx-auto mb-8" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {Array.from({ length: 6 }, (_, i) => (
+                <Skeleton key={i} className="h-64 w-full" />
+              ))}
+            </div>
+          </div>
+        </section>
+      }>
+        <Projects />
+      </Suspense>
       <About />
       <Contact />
       <Footer />
