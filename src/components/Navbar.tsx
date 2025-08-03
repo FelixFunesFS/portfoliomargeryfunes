@@ -31,7 +31,7 @@ const Navbar = () => {
   return <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
       <div className="container-custom flex justify-between items-center">
         <a href="#home" className="flex items-center">
-          <h1 className={`text-2xl font-bold ${isScrolled ? 'text-gradient' : 'text-white'}`}>MF</h1>
+          <h1 className="text-2xl font-bold text-gradient">MF</h1>
         </a>
 
         {/* Desktop Menu */}

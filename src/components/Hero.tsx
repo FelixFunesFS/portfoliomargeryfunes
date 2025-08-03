@@ -216,7 +216,7 @@ const Hero = () => {
 
           <motion.h1 
             variants={scaleVariants}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-4 sm:mb-6 leading-tight tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gradient mb-4 sm:mb-6 leading-tight tracking-tight"
           >
             Margery Funes
           </motion.h1>
@@ -225,7 +225,7 @@ const Hero = () => {
             variants={slideUpVariants}
             className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8"
           >
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-primary">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gradient">
               UX/UI Designer & Developer
             </h2>
             <div className="flex justify-center lg:justify-start gap-3 sm:gap-4">
