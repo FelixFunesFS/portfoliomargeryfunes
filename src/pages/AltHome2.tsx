@@ -36,6 +36,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import WebDesignCard from '@/components/WebDesignCard';
 
 // Import images
 import codingWorkspace from '@/assets/coding-workspace.jpg';
@@ -49,6 +50,22 @@ const AltHome2 = () => {
   const heroRef = useRef(null);
   const isHeroInView = useInView(heroRef, { once: true });
   const navigate = useNavigate();
+
+  const handleViewCaseStudy = (projectTitle: string) => {
+    // Map project titles to case study IDs
+    const projectToCaseStudyMap: { [key: string]: number } = {
+      "Soul Train's Eatery": 8,
+      "Souls Feeding Souls": 9,
+      "Visions of Hope": 10,
+      "Veteran's Benefits Beyond the VA Wall": 11,
+      "Discover El Salvador": 12
+    };
+    
+    const caseStudyId = projectToCaseStudyMap[projectTitle];
+    if (caseStudyId) {
+      navigate('/case-studies2', { state: { selectedStudyId: caseStudyId } });
+    }
+  };
 
   useEffect(() => {
     document.title = "Systems Analyst | UX Researcher | Agile Problem Solver";
@@ -287,7 +304,8 @@ const AltHome2 = () => {
       category: "catering",
       icon: Smartphone,
       color: "emerald-500",
-      link: null
+      image: "photo-1488590528505-98d2b5aba04b",
+      link: "https://placeholder.com/website/soultrainseatery"
     },
     {
       title: "Souls Feeding Souls",
@@ -305,7 +323,8 @@ const AltHome2 = () => {
       category: "nonprofit",
       icon: Heart,
       color: "rose-500",
-      link: null
+      image: "photo-1498050108023-c5249f4df085",
+      link: "https://placeholder.com/website/soulsfeedingsouls"
     },
     {
       title: "Visions of Hope",
@@ -323,7 +342,8 @@ const AltHome2 = () => {
       category: "youth-services",
       icon: Home,
       color: "blue-500",
-      link: null
+      image: "photo-1483058712412-4245e9b90334",
+      link: "https://placeholder.com/website/visionsofhope"
     },
     {
       title: "Veteran's Benefits Beyond the VA Wall",
@@ -341,7 +361,8 @@ const AltHome2 = () => {
       category: "veterans",
       icon: Shield,
       color: "amber-500",
-      link: null
+      image: "photo-1461749280684-dccba630e2f6",
+      link: "https://placeholder.com/website/veteransbenefits"
     },
     {
       title: "Discover El Salvador",
@@ -359,7 +380,8 @@ const AltHome2 = () => {
       category: "travel",
       icon: Globe,
       color: "teal-500",
-      link: null
+      image: "photo-1487058792275-0ad4aaf24ca7",
+      link: "https://placeholder.com/website/discoverelsalvador"
     }
   ];
 
@@ -1493,115 +1515,16 @@ const AltHome2 = () => {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
             {webDesigns.map((project, index) => (
-              <motion.div
+              <WebDesignCard
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-              >
-                <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full">
-                  <CardHeader className="p-4 sm:p-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary-glow/20 flex items-center justify-center">
-                          <project.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-glow" />
-                        </div>
-                        <div>
-                          <CardTitle className="text-foreground text-lg sm:text-xl">{project.title}</CardTitle>
-                          <p className="text-sm text-muted-foreground">{project.client}</p>
-                        </div>
-                      </div>
-                      <Badge variant="outline" className={`border-${project.color} text-${project.color} text-xs`}>
-                        {project.platform}
-                      </Badge>
-                    </div>
-                    
-                    <div className="mb-4">
-                      <p className="text-sm text-muted-foreground mb-2">
-                        <MapPin className="w-3 h-3 inline mr-1" />
-                        {project.location}
-                      </p>
-                      <p className="text-sm text-foreground">{project.description}</p>
-                    </div>
-
-                    <div className="space-y-3 mb-4">
-                      <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-3">
-                        <h4 className="text-sm font-semibold text-destructive mb-1">Challenge</h4>
-                        <p className="text-xs text-foreground">{project.challenge}</p>
-                      </div>
-                      <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-3">
-                        <h4 className="text-sm font-semibold text-emerald-600 mb-1">Solution</h4>
-                        <p className="text-xs text-foreground">{project.solution}</p>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-                      <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3">
-                        <h4 className="text-xs font-semibold text-amber-600 mb-1">Assumptions</h4>
-                        <p className="text-xs text-foreground">{project.assumptions}</p>
-                      </div>
-                      <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-3">
-                        <h4 className="text-xs font-semibold text-blue-600 mb-1">Limitations</h4>
-                        <p className="text-xs text-foreground">{project.limitations}</p>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  
-                  <CardContent className="p-4 sm:p-6 pt-0">
-                    <div className="space-y-3">
-                      <div>
-                        <h4 className="text-sm font-semibold text-foreground mb-2">Key Features</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.features.map((feature, featureIndex) => (
-                            <Badge key={featureIndex} variant="secondary" className="text-xs">
-                              {feature}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <h4 className="text-sm font-semibold text-foreground mb-2">Tools & Technologies</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.tools.map((tool, toolIndex) => (
-                            <Badge key={toolIndex} variant="outline" className="text-xs">
-                              {tool}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="bg-primary/10 border border-primary/20 rounded-lg p-3">
-                        <h4 className="text-sm font-semibold text-primary mb-1">Outcomes</h4>
-                        <p className="text-xs text-foreground">{project.outcomes}</p>
-                      </div>
-
-                      {project.link && (
-                        <Button 
-                          variant="outline" 
-                          size="sm" 
-                          className={`w-full mt-3 border-${project.color} text-${project.color} hover:bg-${project.color}/10`}
-                          onClick={() => window.open(project.link, '_blank')}
-                        >
-                          View Live Site
-                          <ExternalLink className="ml-2 w-3 h-3" />
-                        </Button>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                project={project}
+                index={index}
+                onViewCaseStudy={() => handleViewCaseStudy(project.title)}
+              />
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
