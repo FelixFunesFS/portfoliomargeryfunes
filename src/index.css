@@ -7,96 +7,93 @@
 
 @layer base {
   :root {
-    /* 60% - Base/Neutral Colors (Deep Metal Blue System) */
-    --background: 210 20% 98%;
-    --foreground: 210 40% 12%;
-
+    --background: 0 0% 100%;
+    --foreground: 217 91% 8%;
     --card: 0 0% 100%;
-    --card-foreground: 210 35% 15%;
-
+    --card-foreground: 217 91% 8%;
     --popover: 0 0% 100%;
-    --popover-foreground: 210 35% 15%;
-
-    /* Primary Colors - Deep Electric Blue Spectrum */
-    --primary: 220 100% 50%;  /* #0066FF - sophisticated electric blue */
-    --primary-foreground: 0 0% 100%;
-    --primary-light: 210 100% 60%; /* #3399FF - bright sky blue */
-    --primary-dark: 213 56% 23%; /* #1a365d - navy professional */
-    --primary-warm: 213 100% 50%; /* #007BFF - azure blue variant */
-
-    /* Navy & Professional Blues */
-    --navy: 220 39% 11%; /* #1B365D - deep navy */
-    --navy-foreground: 0 0% 100%;
-
-    /* Secondary Colors (Professional Gray Foundation) */
-    --secondary: 215 25% 27%; /* #4a5568 */
-    --secondary-foreground: 0 0% 100%;
-
-    /* Sophisticated Neutrals */
-    --muted: 210 15% 96%; /* #F8F9FB - warmer background */
-    --muted-foreground: 215 20% 45%;
-    --cool-gray: 210 15% 91%; /* #E2E8F0 - borders & dividers */
-
-    /* Modern Steel Accent System */
-    --accent: 210 25% 55%; /* #718096 - steel blue-gray */
-    --accent-foreground: 0 0% 100%;
-    --accent-warm: 210 25% 55%; /* #718096 - steel blue-gray */
-    --accent-mint: 174 71% 64%; /* #64E6D1 - mint fresh */
-
-    /* Strategic Personality Colors */
-    --coral: 9 100% 64%; /* #FF6B47 - vibrant orange-red CTAs */
-    --coral-foreground: 0 0% 100%;
-    --gold: 45 93% 50%; /* #F59E0B - professional yellow */
-    --gold-foreground: 220 39% 11%;
-    --purple: 258 90% 66%; /* #8B5CF6 - creative accent */
-    --purple-foreground: 0 0% 100%;
-
-    /* Military & Professional Touches */
-    --success: 140 55% 45%; /* #38a169 - military green */
-    --silver: 215 20% 65%; /* #94A3B8 - technical certifications */
-
+    --popover-foreground: 217 91% 8%;
+    
+    /* New Military-Tech Color System */
+    --primary: 217 91% 8%;        /* Deep Navy */
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 213 100% 55%; /* Steel Blue */
+    
+    --secondary: 217 33% 17%;     /* Dark Steel */
+    --secondary-foreground: 0 0% 98%;
+    
+    --accent: 43 96% 56%;         /* Warm Gold */
+    --accent-foreground: 217 91% 8%;
+    
+    --success: 160 84% 20%;       /* Military Green */
+    --success-foreground: 0 0% 98%;
+    
+    --agile-primary: 262 83% 58%; /* Purple for Agile */
+    --agile-secondary: 20 91% 48%; /* Orange for iterations */
+    
+    --muted: 217 10% 96%;
+    --muted-foreground: 217 10% 46%;
+    --border: 217 10% 90%;
+    --input: 217 10% 90%;
+    --ring: 217 91% 8%;
+    
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* System Colors */
+    --systems-blue: 210 100% 50%;
+    --systems-cyan: 190 95% 50%;
+    --copper: 25 95% 40%;
+    --mint: 160 84% 39%;
 
-    --border: 210 20% 90%;
-    --input: 210 20% 92%;
-    --ring: 210 60% 25%;
-
-    /* Professional gradients for backgrounds only */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-    --gradient-military: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)));
+    /* Enhanced Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-systems: linear-gradient(135deg, hsl(var(--systems-blue)), hsl(var(--systems-cyan)));
+    --gradient-agile: linear-gradient(135deg, hsl(var(--agile-primary)), hsl(var(--agile-secondary)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(var(--mint)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--copper)));
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
-
-    /* Professional shadows with better contrast */
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.2);
-    --shadow-strong: 0 20px 40px -15px hsl(var(--primary) / 0.3);
-    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.15);
-
-    /* Enhanced transitions */
+    --gradient-radar: conic-gradient(from 0deg, transparent, hsl(var(--primary-glow) / 0.3), transparent);
+    
+    /* Enhanced Shadows */
+    --shadow-military: 0 10px 30px -10px hsl(var(--primary) / 0.4);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
+    --shadow-systems: 0 8px 25px -5px hsl(var(--systems-blue) / 0.25);
+    --shadow-agile: 0 6px 20px -3px hsl(var(--agile-primary) / 0.25);
+    --shadow-card: 0 4px 20px -2px hsl(var(--primary) / 0.08);
+    
+    /* Enhanced Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-elastic: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-radar: all 2s linear infinite;
 
     --radius: 0.75rem;
   }
 
   .dark {
-    /* Dark mode colors for accessibility */
-    --background: 210 30% 8%;
-    --foreground: 210 20% 92%;
-
-    --card: 210 25% 10%;
-    --card-foreground: 210 20% 90%;
-
-    --popover: 210 25% 10%;
-    --popover-foreground: 210 20% 90%;
-
-    /* Softened primary for dark backgrounds */
-    --primary: 200 80% 60%; /* #4a9eff */
-    --primary-foreground: 210 30% 8%;
-    --primary-light: 200 70% 70%;
-    --primary-dark: 200 90% 50%;
-    --primary-warm: 213 80% 60%; /* Softer warm variant */
+    --background: 217 91% 4%;
+    --foreground: 0 0% 98%;
+    --card: 217 50% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 217 50% 6%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Dark Military-Tech Colors */
+    --primary: 213 100% 55%;      /* Bright Steel Blue for dark mode */
+    --primary-foreground: 217 91% 4%;
+    --primary-glow: 220 100% 70%;
+    
+    --secondary: 217 20% 12%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --accent: 43 96% 56%;         /* Gold remains vibrant */
+    --accent-foreground: 217 91% 4%;
+    
+    --success: 160 84% 30%;       /* Brighter green for dark */
+    --success-foreground: 0 0% 98%;
+    
+    --agile-primary: 262 83% 65%; /* Brighter purple */
+    --agile-secondary: 20 91% 55%; /* Brighter orange */
 
     /* Navy & Professional Blues - Dark Mode */
     --navy: 220 50% 20%; /* Lighter navy for dark mode */

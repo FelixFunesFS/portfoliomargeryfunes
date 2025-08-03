@@ -68,18 +68,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				purple: {
-					DEFAULT: '#8B5CF6',
-					light: '#9b87f5',
-					dark: '#7E69AB'
-				},
-				blue: {
-					DEFAULT: '#0EA5E9',
-					light: '#1EAEDB',
-					dark: '#0c83b9'
-				},
-				charcoal: '#1A1F2C',
-				coolGray: '#aaadb0',
+				'primary-glow': 'hsl(var(--primary-glow))',
+				'agile-primary': 'hsl(var(--agile-primary))',
+				'agile-secondary': 'hsl(var(--agile-secondary))',
+				'systems-blue': 'hsl(var(--systems-blue))',
+				'systems-cyan': 'hsl(var(--systems-cyan))',
+				copper: 'hsl(var(--copper))',
+				mint: 'hsl(var(--mint))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
