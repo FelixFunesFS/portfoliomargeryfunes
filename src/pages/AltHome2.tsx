@@ -1348,7 +1348,7 @@ const AltHome2 = () => {
       </section>
 
       {/* Journey: Bridging the Gap */}
-      <section id="about" className="section bg-background relative overflow-hidden">
+      <section id="about" className="section bg-gradient-to-br from-background via-background/95 to-military-primary/5 relative overflow-hidden">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -1357,11 +1357,11 @@ const AltHome2 = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <Badge variant="outline" className="mb-4 border-copper text-copper">
+            <Badge variant="outline" className="mb-4 border-military-primary text-military-primary backdrop-blur-sm bg-background/50">
               Bridging Worlds
             </Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-              From Military Precision to <span className="text-primary-glow">User-Centered Innovation</span>
+              From Military Precision to <span className="text-gradient bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary bg-clip-text text-transparent">User-Centered Innovation</span>
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-4 sm:px-0">
               My unique journey positions me as a translator between technical complexity and human needs, 
@@ -1386,17 +1386,17 @@ const AltHome2 = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center max-w-2xl px-4">
-                  <motion.div
+                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3, duration: 0.6 }}
                   >
-                    <Badge variant="outline" className="mb-4 border-primary-glow text-primary-glow bg-background/50 backdrop-blur-sm">
+                    <Badge variant="outline" className="mb-4 border-agile-primary text-agile-primary bg-background/50 backdrop-blur-sm">
                       Bridging Infinite Possibilities
                     </Badge>
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                      Connecting <span className="text-primary-glow">Complex Systems</span> with Human Needs
+                      Connecting <span className="text-gradient bg-gradient-to-r from-systems-blue to-agile-primary bg-clip-text text-transparent">Complex Systems</span> with Human Needs
                     </h3>
                     <p className="text-sm sm:text-base text-muted-foreground">
                       Every challenge is an opportunity to create meaningful connections between technology and users.
@@ -1417,7 +1417,7 @@ const AltHome2 = () => {
               className="relative"
             >
               {/* Bridge Connection Line */}
-              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-success via-primary-glow to-accent transform -translate-y-1/2 z-0 hidden md:block"></div>
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary transform -translate-y-1/2 z-0 hidden md:block opacity-60"></div>
               
               {/* Bridge Pillars */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 relative z-10">
@@ -1429,23 +1429,23 @@ const AltHome2 = () => {
                   transition={{ delay: 0.2, duration: 0.6 }}
                   className="text-center"
                 >
-                  <Card className="glass border-success/20 shadow-systems hover:shadow-success/30 transition-all duration-300">
+                  <Card className="glass border-military-primary/20 shadow-systems hover:shadow-military-primary/30 transition-all duration-300">
                     <CardContent className="p-6 sm:p-8">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-success/20 flex items-center justify-center mb-4 sm:mb-6">
-                        <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-success" />
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-military-primary/20 flex items-center justify-center mb-4 sm:mb-6">
+                        <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-military-primary" />
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-success mb-3 sm:mb-4">Military Foundation</h3>
+                      <h3 className="text-xl sm:text-2xl font-bold text-military-primary mb-3 sm:mb-4">Military Foundation</h3>
                       <p className="text-muted-foreground mb-6">
                         Systematic thinking, process optimization, and mission-critical reliability
                       </p>
                       <div className="space-y-2">
-                        <Badge variant="outline" className="border-success text-success mr-2 mb-2">
+                        <Badge variant="outline" className="border-military-primary text-military-primary mr-2 mb-2">
                           Strategic Planning
                         </Badge>
-                        <Badge variant="outline" className="border-success text-success mr-2 mb-2">
+                        <Badge variant="outline" className="border-military-primary text-military-primary mr-2 mb-2">
                           Risk Management
                         </Badge>
-                        <Badge variant="outline" className="border-success text-success mr-2 mb-2">
+                        <Badge variant="outline" className="border-military-primary text-military-primary mr-2 mb-2">
                           Process Excellence
                         </Badge>
                       </div>
@@ -1461,23 +1461,23 @@ const AltHome2 = () => {
                   transition={{ delay: 0.4, duration: 0.6 }}
                   className="text-center"
                 >
-                  <Card className="glass border-primary-glow/20 shadow-systems hover:shadow-primary-glow/30 transition-all duration-300">
+                  <Card className="glass border-systems-blue/20 shadow-systems hover:shadow-systems-blue/30 transition-all duration-300">
                     <CardContent className="p-6 sm:p-8">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-primary-glow/20 flex items-center justify-center mb-4 sm:mb-6">
-                        <GitBranch className="w-8 h-8 sm:w-10 sm:h-10 text-primary-glow" />
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-systems-blue/20 flex items-center justify-center mb-4 sm:mb-6">
+                        <GitBranch className="w-8 h-8 sm:w-10 sm:h-10 text-systems-blue" />
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-primary-glow mb-3 sm:mb-4">Enterprise Translation</h3>
+                      <h3 className="text-xl sm:text-2xl font-bold text-systems-blue mb-3 sm:mb-4">Enterprise Translation</h3>
                       <p className="text-muted-foreground mb-6">
                         Converting complex technical requirements into scalable business solutions
                       </p>
                       <div className="space-y-2">
-                        <Badge variant="outline" className="border-primary-glow text-primary-glow mr-2 mb-2">
+                        <Badge variant="outline" className="border-systems-blue text-systems-blue mr-2 mb-2">
                           Systems Integration
                         </Badge>
-                        <Badge variant="outline" className="border-primary-glow text-primary-glow mr-2 mb-2">
+                        <Badge variant="outline" className="border-systems-blue text-systems-blue mr-2 mb-2">
                           Stakeholder Alignment
                         </Badge>
-                        <Badge variant="outline" className="border-primary-glow text-primary-glow mr-2 mb-2">
+                        <Badge variant="outline" className="border-systems-blue text-systems-blue mr-2 mb-2">
                           Technical Leadership
                         </Badge>
                       </div>
@@ -1493,26 +1493,26 @@ const AltHome2 = () => {
                   transition={{ delay: 0.6, duration: 0.6 }}
                   className="text-center"
                 >
-                  <Card className="glass border-accent/20 shadow-systems hover:shadow-accent/30 transition-all duration-300">
-                    <CardContent className="p-6 sm:p-8">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-4 sm:mb-6">
-                        <Brain className="w-8 h-8 sm:w-10 sm:h-10 text-accent" />
-                      </div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-accent mb-3 sm:mb-4">User-Centered Innovation</h3>
-                      <p className="text-muted-foreground mb-6">
-                        Transforming complex systems into intuitive, human-centered experiences
-                      </p>
-                      <div className="space-y-2">
-                        <Badge variant="outline" className="border-accent text-accent mr-2 mb-2">
-                          Design Thinking
-                        </Badge>
-                        <Badge variant="outline" className="border-accent text-accent mr-2 mb-2">
-                          User Research
-                        </Badge>
-                        <Badge variant="outline" className="border-accent text-accent mr-2 mb-2">
-                          Agile Innovation
-                        </Badge>
-                      </div>
+                <Card className="glass border-agile-primary/20 shadow-systems hover:shadow-agile-primary/30 transition-all duration-300">
+                  <CardContent className="p-6 sm:p-8">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-agile-primary/20 flex items-center justify-center mb-4 sm:mb-6">
+                      <Brain className="w-8 h-8 sm:w-10 sm:h-10 text-agile-primary" />
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-agile-primary mb-3 sm:mb-4">User-Centered Innovation</h3>
+                    <p className="text-muted-foreground mb-6">
+                      Transforming complex systems into intuitive, human-centered experiences
+                    </p>
+                    <div className="space-y-2">
+                      <Badge variant="outline" className="border-agile-primary text-agile-primary mr-2 mb-2">
+                        Design Thinking
+                      </Badge>
+                      <Badge variant="outline" className="border-agile-primary text-agile-primary mr-2 mb-2">
+                        User Research
+                      </Badge>
+                      <Badge variant="outline" className="border-agile-primary text-agile-primary mr-2 mb-2">
+                        Agile Innovation
+                      </Badge>
+                    </div>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -1528,11 +1528,11 @@ const AltHome2 = () => {
             transition={{ delay: 0.8, duration: 0.6 }}
             className="max-w-5xl mx-auto"
           >
-            <Card className="glass border-copper/20 shadow-military">
+            <Card className="glass border-accent/20 shadow-accent">
               <CardContent className="p-6 sm:p-8 lg:p-12">
                 <div className="text-center mb-6 sm:mb-8">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full bg-copper/20 flex items-center justify-center mb-3 sm:mb-4">
-                    <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-copper" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-3 sm:mb-4">
+                    <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
                     The Bridge Effect
@@ -1613,13 +1613,13 @@ const AltHome2 = () => {
                   metric: "3 Domains", 
                   label: "Military • Enterprise • UX", 
                   icon: Shield,
-                  color: "success"
+                  color: "military-primary"
                 },
                 { 
                   metric: "15+ Years", 
                   label: "Systems Experience", 
                   icon: Clock,
-                  color: "primary-glow"
+                  color: "systems-blue"
                 },
                 { 
                   metric: "100%", 
@@ -1637,14 +1637,14 @@ const AltHome2 = () => {
                 <Card key={index} className="glass border-none shadow-card text-center">
                   <CardContent className="p-4 sm:p-6">
                     <div className={`w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4 ${
-                      item.color === 'success' ? 'bg-success/20' :
-                      item.color === 'primary-glow' ? 'bg-primary-glow/20' :
+                      item.color === 'military-primary' ? 'bg-military-primary/20' :
+                      item.color === 'systems-blue' ? 'bg-systems-blue/20' :
                       item.color === 'agile-primary' ? 'bg-agile-primary/20' :
                       'bg-accent/20'
                     }`}>
                       <item.icon className={`w-6 h-6 ${
-                        item.color === 'success' ? 'text-success' :
-                        item.color === 'primary-glow' ? 'text-primary-glow' :
+                        item.color === 'military-primary' ? 'text-military-primary' :
+                        item.color === 'systems-blue' ? 'text-systems-blue' :
                         item.color === 'agile-primary' ? 'text-agile-primary' :
                         'text-accent'
                       }`} />
