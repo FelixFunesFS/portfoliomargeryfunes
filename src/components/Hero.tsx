@@ -200,108 +200,183 @@ const Hero = () => {
       />
       
       <motion.div 
-        className="container-custom relative z-10 flex flex-col items-center text-center max-w-7xl w-full"
+        className="container-custom relative z-10 flex flex-col lg:flex-row items-center text-center lg:text-left max-w-7xl w-full gap-8 lg:gap-16"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div
-          variants={slideUpVariants}
-          className="mb-4 sm:mb-6"
-        >
-          <span className="text-foreground/70 text-xs sm:text-sm tracking-wider uppercase">Portfolio</span>
-        </motion.div>
+        {/* Left Content */}
+        <div className="flex-1 order-2 lg:order-1">
+          <motion.div
+            variants={slideUpVariants}
+            className="mb-4 sm:mb-6"
+          >
+            <span className="text-foreground/70 text-xs sm:text-sm tracking-wider uppercase">Portfolio</span>
+          </motion.div>
 
-        <motion.h1 
-          variants={scaleVariants}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-4 sm:mb-6 leading-tight tracking-tight"
-        >
-          Margery Funes
-        </motion.h1>
+          <motion.h1 
+            variants={scaleVariants}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-4 sm:mb-6 leading-tight tracking-tight"
+          >
+            Margery Funes
+          </motion.h1>
 
-        <motion.div
-          variants={slideUpVariants}
-          className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8"
-        >
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-primary">
-            UX/UI Designer & Developer
-          </h2>
-          <div className="flex justify-center gap-3 sm:gap-4">
-            <div className="flex items-center gap-1.5 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full">
-              <Code className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="text-xs sm:text-sm">Code</span>
+          <motion.div
+            variants={slideUpVariants}
+            className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8"
+          >
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-primary">
+              UX/UI Designer & Developer
+            </h2>
+            <div className="flex justify-center lg:justify-start gap-3 sm:gap-4">
+              <div className="flex items-center gap-1.5 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full">
+                <Code className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="text-xs sm:text-sm">Code</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full">
+                <Palette className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="text-xs sm:text-sm">Design</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full">
+                <Users className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="text-xs sm:text-sm">Research</span>
+              </div>
             </div>
-            <div className="flex items-center gap-1.5 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full">
-              <Palette className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="text-xs sm:text-sm">Design</span>
-            </div>
-            <div className="flex items-center gap-1.5 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full">
-              <Users className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="text-xs sm:text-sm">Research</span>
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        <motion.p 
-          variants={slideUpVariants}
-          className="text-foreground/80 max-w-xl lg:max-w-2xl mb-8 sm:mb-10 text-base sm:text-lg md:text-xl leading-relaxed px-4 sm:px-0"
-        >
-          I bridge the gap between users and technology, creating research-driven digital 
-          experiences that solve real problems through elegant design and thoughtful development.
-        </motion.p>
+          <motion.p 
+            variants={slideUpVariants}
+            className="text-foreground/80 max-w-xl lg:max-w-2xl mb-8 sm:mb-10 text-base sm:text-lg md:text-xl leading-relaxed px-4 sm:px-0 lg:px-0"
+          >
+            I bridge the gap between users and technology, creating research-driven digital 
+            experiences that solve real problems through elegant design and thoughtful development.
+          </motion.p>
 
+          <motion.div 
+            variants={slideUpVariants}
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto"
+          >
+            <Button 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25" 
+              asChild
+            >
+              <a href="#projects">View My Work</a>
+            </Button>
+            <Button 
+              variant="outline" 
+              className="border-primary text-primary hover:bg-primary/10 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover:scale-105 transition-all duration-300" 
+              asChild
+            >
+              <a href="#contact">Let's Connect</a>
+            </Button>
+          </motion.div>
+
+          <motion.div
+            variants={slideUpVariants}
+            className="mt-12 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 w-full max-w-md sm:max-w-lg lg:max-w-none"
+          >
+            <div className="text-center lg:text-left">
+              <motion.div 
+                className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                5+
+              </motion.div>
+              <div className="text-xs sm:text-sm text-muted-foreground mt-1">Years Experience</div>
+            </div>
+            <div className="text-center lg:text-left">
+              <motion.div 
+                className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                50+
+              </motion.div>
+              <div className="text-xs sm:text-sm text-muted-foreground mt-1">Projects Delivered</div>
+            </div>
+            <div className="text-center lg:text-left">
+              <motion.div 
+                className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                100%
+              </motion.div>
+              <div className="text-xs sm:text-sm text-muted-foreground mt-1">Client Satisfaction</div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Profile Picture */}
         <motion.div 
-          variants={slideUpVariants}
-          className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto"
+          className="flex-shrink-0 order-1 lg:order-2 relative"
+          variants={scaleVariants}
         >
-          <Button 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25" 
-            asChild
-          >
-            <a href="#projects">View My Work</a>
-          </Button>
-          <Button 
-            variant="outline" 
-            className="border-primary text-primary hover:bg-primary/10 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover:scale-105 transition-all duration-300" 
-            asChild
-          >
-            <a href="#contact">Let's Connect</a>
-          </Button>
-        </motion.div>
-
-        <motion.div
-          variants={slideUpVariants}
-          className="mt-12 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 w-full max-w-md sm:max-w-lg"
-        >
-          <div className="text-center">
-            <motion.div 
-              className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              5+
-            </motion.div>
-            <div className="text-xs sm:text-sm text-muted-foreground mt-1">Years Experience</div>
-          </div>
-          <div className="text-center">
-            <motion.div 
-              className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              50+
-            </motion.div>
-            <div className="text-xs sm:text-sm text-muted-foreground mt-1">Projects Delivered</div>
-          </div>
-          <div className="text-center">
-            <motion.div 
-              className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              100%
-            </motion.div>
-            <div className="text-xs sm:text-sm text-muted-foreground mt-1">Client Satisfaction</div>
+          <div className="relative">
+            {/* Decorative Elements */}
+            <motion.div
+              className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/30 to-primary/20 rounded-full blur-xl"
+              animate={{
+                rotate: [0, 180, 360],
+                scale: [1, 1.1, 1],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            />
+            <motion.div
+              className="absolute -inset-2 bg-gradient-to-r from-accent/30 to-primary/30 rounded-full"
+              animate={{
+                rotate: [360, 180, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            />
+            
+            {/* Profile Image */}
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-background shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face"
+                alt="Margery Funes - UX/UI Designer & Developer"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700 ease-out"
+              />
+              
+              {/* Overlay gradient for depth */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/10 rounded-full" />
+            </div>
+            
+            {/* Floating Elements */}
+            <motion.div
+              className="absolute top-8 -right-4 w-4 h-4 bg-primary rounded-full shadow-lg"
+              animate={{
+                y: [0, -10, 0],
+                x: [0, 5, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+            <motion.div
+              className="absolute bottom-12 -left-6 w-6 h-6 bg-accent rounded-full shadow-lg"
+              animate={{
+                y: [0, 8, 0],
+                x: [0, -3, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
+            />
           </div>
         </motion.div>
       </motion.div>
