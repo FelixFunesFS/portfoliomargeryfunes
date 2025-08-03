@@ -102,6 +102,8 @@ const Journey = () => {
                       <Badge variant="outline">Systems Analysis</Badge>
                       <Badge variant="outline">Process Improvement</Badge>
                       <Badge variant="outline">Automation</Badge>
+                      <Badge variant="outline">Agile</Badge>
+                      <Badge variant="outline">Lean</Badge>
                     </div>
                   </div>
                 </div>
