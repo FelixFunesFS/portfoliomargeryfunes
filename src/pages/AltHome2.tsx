@@ -299,6 +299,7 @@ const AltHome2 = () => {
       assumptions: "Mobile-first usage by customers, staff comfortable with digital tools, integration with existing POS systems.",
       limitations: "Limited budget for extensive customization, tight timeline for catering season launch, legacy payment system constraints.",
       outcomes: "40% reduction in order errors, 60% faster order processing, improved customer satisfaction and repeat business.",
+      keyOutcomes: ["Automated catering operations, reducing order errors by 40% and processing time by 60%"],
       features: ["Online Ordering", "Inventory Management", "Customer Dashboard", "Mobile Optimization", "Payment Integration"],
       tools: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Stripe"],
       category: "catering",
@@ -318,6 +319,7 @@ const AltHome2 = () => {
       assumptions: "Volunteers have basic smartphone access, consistent internet connectivity, willingness to adopt new technology.",
       limitations: "Volunteer tech literacy varies, limited staff for training, dependency on donations for hosting costs.",
       outcomes: "75% improvement in volunteer coordination efficiency, 50% reduction in food waste, increased community engagement.",
+      keyOutcomes: ["Streamlined volunteer coordination, improving efficiency by 75% and reducing food waste by 50%"],
       features: ["Volunteer Scheduling", "Resource Tracking", "Impact Dashboard", "Communication Tools", "Donation Management"],
       tools: ["React", "Node.js", "PostgreSQL", "Tailwind CSS", "SendGrid"],
       category: "nonprofit",
@@ -337,6 +339,7 @@ const AltHome2 = () => {
       assumptions: "Professional appearance crucial for grant applications, staff need easy content management, mobile access important.",
       limitations: "Compliance requirements for youth services, content approval workflows, budget constraints for ongoing maintenance.",
       outcomes: "200% increase in service inquiries, improved grant application success rate, enhanced community trust and partnerships.",
+      keyOutcomes: ["Professional redesign increased service inquiries by 200% and improved grant success rates"],
       features: ["Service Portfolios", "Staff Profiles", "Resource Center", "Contact Forms", "Accessibility Compliance"],
       tools: ["Webflow", "Custom CSS", "JavaScript", "Form Integrations", "CMS"],
       category: "youth-services",
@@ -356,6 +359,7 @@ const AltHome2 = () => {
       assumptions: "Veterans have varying tech comfort levels, mobile access important, need for clear simple language over jargon.",
       limitations: "Compliance with veteran service regulations, frequent policy changes requiring updates, limited marketing budget.",
       outcomes: "500+ veterans successfully guided to benefits, 80% user satisfaction rate, partnerships with 15+ veteran organizations.",
+      keyOutcomes: ["Guided 500+ veterans to benefits with 80% user satisfaction through intuitive navigation"],
       features: ["Benefit Calculator", "Resource Library", "Application Guides", "Success Stories", "Community Forum"],
       tools: ["Webflow", "JavaScript", "API Integrations", "Form Processing", "Analytics"],
       category: "veterans",
@@ -375,6 +379,7 @@ const AltHome2 = () => {
       assumptions: "Visual appeal drives booking decisions, international travelers have good internet, social proof influences choices.",
       limitations: "Content updates needed from non-technical tour guides, seasonal booking patterns, weather-dependent activities.",
       outcomes: "300% increase in direct bookings, expanded international client base, featured in travel publications.",
+      keyOutcomes: ["Immersive storytelling drove 300% increase in direct bookings for personalized tours"],
       features: ["Interactive Maps", "Photo Galleries", "Custom Itineraries", "Booking System", "Weather Integration"],
       tools: ["React", "TypeScript", "Mapbox", "Cloudinary", "Payment APIs"],
       category: "travel",
@@ -516,6 +521,43 @@ const AltHome2 = () => {
           <ChevronDown className="w-6 h-6 text-primary-glow animate-bounce" />
         </motion.div>
       </motion.section>
+
+      {/* Recent Work Section */}
+      <section className="section gradient-subtle py-12 sm:py-16 lg:py-20">
+        <div className="container-custom px-3 sm:px-4 lg:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <Badge variant="outline" className="mb-4 sm:mb-6 border-accent text-accent text-xs sm:text-sm">
+              Recent Projects
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
+              Proven results through <span className="text-accent">systematic UX research</span>
+              <br className="hidden sm:block" />
+              and digital solutions
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+              Real-world applications demonstrating how systematic analysis and agile methodologies 
+              solve complex challenges and deliver measurable business impact.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
+            {webDesigns.map((project, index) => (
+              <WebDesignCard
+                key={index}
+                project={project}
+                index={index}
+                onViewCaseStudy={() => handleViewCaseStudy(project.title)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Problem-Solution Matrix */}
       <section className="section bg-background py-12 sm:py-16 lg:py-20">
@@ -1491,42 +1533,6 @@ const AltHome2 = () => {
         </div>
       </section>
 
-      {/* Web Design Portfolio */}
-      <section className="section bg-gradient-subtle">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12 sm:mb-16"
-          >
-            <Badge variant="outline" className="mb-4 sm:mb-6 border-accent text-accent text-xs sm:text-sm">
-              Web Design Portfolio
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
-              Transforming <span className="text-accent">user needs</span> into 
-              <br className="hidden sm:block" />
-              digital solutions
-            </h2>
-            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-              Real-world applications of systematic UX research and agile methodologies, 
-              solving complex challenges for diverse organizations across platforms.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
-            {webDesigns.map((project, index) => (
-              <WebDesignCard
-                key={index}
-                project={project}
-                index={index}
-                onViewCaseStudy={() => handleViewCaseStudy(project.title)}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Mission Briefing CTA */}
       <section className="section bg-background">

@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { ChevronDown, ExternalLink, Eye, MapPin } from 'lucide-react';
+import { ChevronDown, ExternalLink, Eye, MapPin, TrendingUp, Target } from 'lucide-react';
 
 interface WebDesignProject {
   title: string;
@@ -24,6 +24,7 @@ interface WebDesignProject {
   color: string;
   link: string | null;
   image: string;
+  keyOutcomes: string[];
 }
 
 interface WebDesignCardProps {
@@ -74,6 +75,17 @@ const WebDesignCard: React.FC<WebDesignCardProps> = ({ project, index, onViewCas
         </div>
 
         <CardHeader className="p-4 sm:p-6">
+          {/* Impact Metric Callout */}
+          <div className="mb-4 p-3 bg-gradient-to-r from-primary-glow/10 to-accent/10 rounded-lg border border-primary-glow/20">
+            <div className="flex items-start gap-2 text-sm">
+              <TrendingUp className="w-4 h-4 text-primary-glow mt-0.5 flex-shrink-0" />
+              <div>
+                <span className="font-semibold text-primary-glow">Key Impact: </span>
+                <span className="text-foreground">{project.keyOutcomes[0]}</span>
+              </div>
+            </div>
+          </div>
+
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary-glow/20 flex items-center justify-center">
@@ -164,19 +176,18 @@ const WebDesignCard: React.FC<WebDesignCardProps> = ({ project, index, onViewCas
 
           <div className="flex gap-2 mt-4">
             <Button 
-              variant="outline" 
               size="sm" 
-              className="flex-1"
+              className="flex-1 bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow"
               onClick={onViewCaseStudy}
             >
-              <Eye className="w-3 h-3 mr-2" />
+              <Target className="w-3 h-3 mr-2" />
               View Case Study
             </Button>
             {project.link && (
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="flex-1"
+                className="flex-1 border-accent text-accent hover:bg-accent/10"
                 onClick={() => window.open(project.link!, '_blank')}
               >
                 <ExternalLink className="w-3 h-3 mr-2" />

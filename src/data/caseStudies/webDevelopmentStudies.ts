@@ -19,10 +19,10 @@ export const webDevelopmentStudies: CaseStudy[] = [
     problem: "Manual order taking was causing a 40% error rate during peak catering seasons, leading to missed orders, incorrect deliveries, and inefficient kitchen workflow. Customers had no way to track orders or access previous order history.",
     solution: "Developed an intuitive digital ordering system with real-time inventory tracking, automated kitchen notifications, customer order history, and streamlined payment processing. The solution included a customer-facing app and internal kitchen dashboard.",
     keyOutcomes: [
-      "40% reduction in order errors within first month",
-      "60% faster order processing during peak times",
+      "Automated catering operations, reducing order errors by 40% and processing time by 60%",
       "Improved customer satisfaction scores from 3.2 to 4.8/5",
-      "Increased repeat business by 35% through order history feature"
+      "Increased repeat business by 35% through order history feature",
+      "Enabled scalable growth during peak catering seasons"
     ],
     assumptions: "Customers would prefer mobile-first experience, kitchen staff would adapt to digital workflow, existing POS system could be integrated",
     limitations: "Limited budget required rapid development using low-code platform, tight timeline for catering season launch, constraints with legacy payment processing system",
@@ -62,10 +62,10 @@ export const webDevelopmentStudies: CaseStudy[] = [
     problem: "Inefficient volunteer scheduling was causing 50% food waste due to poor coordination. Community impact was invisible to stakeholders, making fundraising difficult. Manual processes created communication gaps between volunteers.",
     solution: "Created a comprehensive platform with volunteer scheduling, resource tracking, impact metrics dashboard, and integrated communication tools. The system provided real-time visibility into operations and automated coordination workflows.",
     keyOutcomes: [
-      "75% improvement in volunteer coordination efficiency",
-      "50% reduction in food waste through better planning",
-      "Increased volunteer retention by 40%",
-      "Enhanced fundraising success with visible impact metrics"
+      "Streamlined volunteer coordination, improving efficiency by 75% and reducing food waste by 50%",
+      "Increased volunteer retention by 40% through better communication",
+      "Enhanced fundraising success with visible impact metrics",
+      "Eliminated coordination bottlenecks during peak distribution periods"
     ],
     assumptions: "Volunteers have basic smartphone access, consistent internet connectivity available, willingness to adopt new technology for community benefit",
     limitations: "Volunteer tech literacy varies significantly, limited staff time for training, dependency on donations for hosting and maintenance costs",
@@ -105,7 +105,7 @@ export const webDevelopmentStudies: CaseStudy[] = [
     problem: "Complex service offerings were difficult to communicate online, lack of professional web presence was affecting grant application success rates. Stakeholders couldn't easily understand the organization's impact and service scope.",
     solution: "Designed a professional website with clear service architecture, client journey mapping, staff profiles, and impact stories. Implemented easy content management for ongoing updates and compliance requirements.",
     keyOutcomes: [
-      "200% increase in service inquiries within 6 months",
+      "Professional redesign increased service inquiries by 200% and improved grant success rates",
       "Improved grant application success rate from 30% to 65%",
       "Enhanced community trust measured through partnership growth",
       "Streamlined intake process reducing administrative time by 25%"
@@ -148,10 +148,10 @@ export const webDevelopmentStudies: CaseStudy[] = [
     problem: "Veterans were struggling to find and access benefits due to complex bureaucracy, scattered information sources, and confusing application processes. Many eligible veterans were missing out on available support.",
     solution: "Built an intuitive resource portal with guided navigation, benefit calculators, step-by-step application processes, and community support features. Used plain language and clear visual hierarchy to reduce cognitive load.",
     keyOutcomes: [
-      "500+ veterans successfully guided to benefits in first year",
-      "80% user satisfaction rate with resource clarity",
+      "Guided 500+ veterans to benefits with 80% user satisfaction through intuitive navigation",
       "Partnerships established with 15+ veteran organizations",
-      "Average benefit application success rate increased by 45%"
+      "Average benefit application success rate increased by 45%",
+      "Created trusted resource that veterans recommend to peers"
     ],
     assumptions: "Veterans have varying tech comfort levels, mobile access critical, need for clear simple language over bureaucratic jargon",
     limitations: "Compliance requirements with veteran service regulations, frequent policy changes requiring updates, limited marketing budget for outreach",
@@ -191,7 +191,7 @@ export const webDevelopmentStudies: CaseStudy[] = [
     problem: "Generic travel sites couldn't capture unique local experiences, making it difficult to communicate the value of personalized tours. International travelers had no way to understand or book authentic local adventures.",
     solution: "Developed a visual storytelling platform with immersive photo galleries, interactive maps, custom itinerary builder, and integrated booking system. Emphasized authentic local experiences through compelling visual narrative.",
     keyOutcomes: [
-      "300% increase in direct bookings within 8 months",
+      "Immersive storytelling drove 300% increase in direct bookings for personalized tours",
       "Expanded international client base from 3 to 15 countries",
       "Featured in 5 major travel publications",
       "Average booking value increased by 150% through upselling"
