@@ -179,6 +179,63 @@ const Hero = () => {
         className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-muted/20 z-0"
       />
       
+      {/* Animated Gradient Spots */}
+      <motion.div
+        className="absolute top-20 left-1/4 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-accent/30 to-accent/10 rounded-full blur-3xl"
+        animate={{
+          x: [0, 30, -20, 0],
+          y: [0, -20, 30, 0],
+          scale: [1, 1.2, 0.8, 1],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.div
+        className="absolute bottom-32 right-1/4 w-24 h-24 sm:w-36 sm:h-36 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl"
+        animate={{
+          x: [0, -25, 15, 0],
+          y: [0, 25, -15, 0],
+          scale: [1, 0.7, 1.3, 1],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+      />
+      <motion.div
+        className="absolute top-1/2 right-10 w-20 h-20 sm:w-28 sm:h-28 bg-gradient-to-br from-accent/25 to-primary/15 rounded-full blur-xl"
+        animate={{
+          x: [0, 20, -30, 0],
+          y: [0, -30, 20, 0],
+          scale: [1, 1.4, 0.6, 1],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+      />
+      <motion.div
+        className="absolute top-1/3 left-10 w-16 h-16 sm:w-24 sm:h-24 bg-gradient-to-br from-primary/30 to-accent/20 rounded-full blur-2xl"
+        animate={{
+          x: [0, -15, 25, 0],
+          y: [0, 20, -25, 0],
+          scale: [1, 0.8, 1.2, 1],
+        }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5,
+        }}
+      />
+      
       <motion.div 
         className="container-custom relative z-10 flex flex-col items-center text-center max-w-7xl w-full"
         variants={containerVariants}
@@ -187,11 +244,9 @@ const Hero = () => {
       >
         <motion.div
           variants={slideUpVariants}
-          className="flex items-center gap-2 mb-4 sm:mb-6"
+          className="mb-4 sm:mb-6"
         >
-          <div className="h-px w-8 sm:w-12 bg-primary/60"></div>
           <span className="text-foreground/70 text-xs sm:text-sm tracking-wider uppercase">Portfolio</span>
-          <div className="h-px w-8 sm:w-12 bg-primary/60"></div>
         </motion.div>
 
         <motion.h1 
