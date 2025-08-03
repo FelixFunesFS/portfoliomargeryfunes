@@ -594,14 +594,14 @@ const AltHome2 = () => {
           </motion.div>
 
           <Carousel 
-            opts={{ align: "center", loop: true }}
-            className="w-full max-w-6xl mx-auto"
+            opts={{ align: "start", loop: true }}
+            className="w-full max-w-7xl mx-auto"
           >
-            <CarouselContent className="-ml-2 md:-ml-4">
+            <CarouselContent className="-ml-1 md:-ml-2 lg:-ml-3">
               {researchStories.map((story, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 basis-full">
+                <CarouselItem key={index} className="pl-1 md:pl-2 lg:pl-3 basis-full md:basis-1/2 lg:basis-1/2 xl:basis-1/3">
                   <div className="p-1">
-                    <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full flex flex-col overflow-hidden max-w-4xl mx-auto">
+                    <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full flex flex-col overflow-hidden">
                       {/* Visual Preview */}
                       <div className="relative h-48 sm:h-56 overflow-hidden">
                         <img 
@@ -739,8 +739,8 @@ const AltHome2 = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="glass border-none shadow-card hover:shadow-military -left-12 h-12 w-12" />
-            <CarouselNext className="glass border-none shadow-card hover:shadow-military -right-12 h-12 w-12" />
+            <CarouselPrevious className="glass border-none shadow-card hover:shadow-military -left-4 md:-left-8 lg:-left-12 h-12 w-12" />
+            <CarouselNext className="glass border-none shadow-card hover:shadow-military -right-4 md:-right-8 lg:-right-12 h-12 w-12" />
           </Carousel>
 
           {/* View All Case Studies Button */}
