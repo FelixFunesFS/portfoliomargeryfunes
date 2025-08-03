@@ -17,9 +17,8 @@ const Hero = () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    // Particles removed for cleaner background
     const particles: Particle[] = [];
-    const particleCount = 60; // Reduced for subtlety
-    const connectionDistance = 120; // Smaller connections
     
     class Particle {
       x: number;
@@ -29,39 +28,24 @@ const Hero = () => {
       speedY: number;
       
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.5; // Smaller particles
-        this.speedX = Math.random() * 0.8 - 0.4; // Slower movement
-        this.speedY = Math.random() * 0.8 - 0.4;
+        this.x = 0;
+        this.y = 0;
+        this.size = 0;
+        this.speedX = 0;
+        this.speedY = 0;
       }
       
       update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        
-        if (this.x > canvas.width || this.x < 0) {
-          this.speedX = -this.speedX;
-        }
-        
-        if (this.y > canvas.height || this.y < 0) {
-          this.speedY = -this.speedY;
-        }
+        // No animation needed
       }
       
       draw() {
-        if (!ctx) return;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'hsl(var(--primary) / 0.15)'; // More subtle
-        ctx.fill();
+        // No drawing needed
       }
     }
     
     const init = () => {
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
+      // No particles to initialize
     };
     
     const connect = () => {
@@ -72,12 +56,8 @@ const Hero = () => {
       if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-      }
+      // No particles to animate
       
-      connect();
       requestAnimationFrame(animate);
     };
     
