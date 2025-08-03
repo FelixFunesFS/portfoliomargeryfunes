@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowLeft, 
@@ -28,14 +27,11 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import { caseStudiesData } from '@/data/caseStudies';
-import { webDevelopmentStudies } from '@/data/caseStudies/webDevelopmentStudies';
 import { CaseStudy } from '@/types/caseStudy';
 
 const CaseStudies2 = () => {
-  const location = useLocation();
   const [selectedStudy, setSelectedStudy] = useState<number | null>(null);
-  const allStudies = [...caseStudiesData, ...webDevelopmentStudies];
-  const [filteredStudies, setFilteredStudies] = useState<CaseStudy[]>(allStudies);
+  const [filteredStudies, setFilteredStudies] = useState<CaseStudy[]>(caseStudiesData);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('all');
   const [isLoaded, setIsLoaded] = useState(false);
@@ -44,20 +40,10 @@ const CaseStudies2 = () => {
     document.title = "Case Studies - Systems Analysis & Agile UX Research";
     window.scrollTo(0, 0);
     setIsLoaded(true);
-
-    // Handle incoming navigation state for auto-selecting case study
-    if (location.state?.selectedStudyId) {
-      const studyId = location.state.selectedStudyId;
-      setSelectedStudy(studyId);
-      // Delay scroll to ensure the component is rendered
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 100);
-    }
-  }, [location.state]);
+  }, []);
 
   useEffect(() => {
-    let filtered = allStudies;
+    let filtered = caseStudiesData;
     
     if (searchTerm) {
       filtered = filtered.filter(study => 
@@ -82,10 +68,6 @@ const CaseStudies2 = () => {
             return study.tools.some(tool => 
               ['Figma', 'Lovable.dev', 'Excel'].includes(tool)
             );
-          case 'webdev':
-            return study.tools.some(tool => 
-              ['React', 'TypeScript', 'Webflow', 'Node.js'].includes(tool)
-            );
           default:
             return true;
         }
@@ -93,7 +75,7 @@ const CaseStudies2 = () => {
     }
     
     setFilteredStudies(filtered);
-  }, [searchTerm, filterCategory, allStudies]);
+  }, [searchTerm, filterCategory]);
 
   const handleStudySelect = (id: number) => {
     setSelectedStudy(id);
@@ -133,7 +115,7 @@ const CaseStudies2 = () => {
   const dashboardMetrics = [
     {
       label: "Total Projects",
-      value: allStudies.length.toString(),
+      value: caseStudiesData.length.toString(),
       icon: Target,
       color: "primary"
     },
@@ -186,7 +168,7 @@ const CaseStudies2 = () => {
   ];
 
   if (selectedStudy) {
-    const study = allStudies.find(s => s.id === selectedStudy);
+    const study = caseStudiesData.find(s => s.id === selectedStudy);
     if (!study) return null;
 
     return (
@@ -426,28 +408,18 @@ const CaseStudies2 = () => {
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => {
-                              const currentIndex = allStudies.findIndex(s => s.id === study.id);
-                              if (currentIndex > 0) {
-                                handleStudySelect(allStudies[currentIndex - 1].id);
-                              }
-                            }}
+                            onClick={() => handleStudySelect(study.id - 1)}
                             className="border-primary-glow text-primary-glow hover:bg-primary-glow/10"
                           >
                             <ArrowLeft className="w-4 h-4 mr-1" />
                             Previous
                           </Button>
                         )}
-                        {study.id < allStudies[allStudies.length - 1].id && (
+                        {study.id < caseStudiesData.length && (
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => {
-                              const currentIndex = allStudies.findIndex(s => s.id === study.id);
-                              if (currentIndex < allStudies.length - 1) {
-                                handleStudySelect(allStudies[currentIndex + 1].id);
-                              }
-                            }}
+                            onClick={() => handleStudySelect(study.id + 1)}
                             className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 ml-auto"
                           >
                             Next
@@ -544,7 +516,6 @@ const CaseStudies2 = () => {
                 <SelectItem value="automation">Automation</SelectItem>
                 <SelectItem value="systems">Systems</SelectItem>
                 <SelectItem value="ux">UX Design</SelectItem>
-                <SelectItem value="webdev">Web Development</SelectItem>
               </SelectContent>
             </Select>
           </motion.div>
