@@ -741,7 +741,7 @@ const AltHome2 = () => {
             className="text-center mb-12 sm:mb-16"
           >
             <Badge variant="outline" className="mb-4 sm:mb-6 border-accent text-accent text-xs sm:text-sm">
-              Recent Projects
+              Web Development
             </Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
               Proven results through <span className="text-accent">systematic UX research</span>
