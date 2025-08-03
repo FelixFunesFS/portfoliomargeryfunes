@@ -29,6 +29,13 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { useRef } from 'react';
 
+// Import images
+import codingWorkspace from '@/assets/coding-workspace.jpg';
+import circuitBoard from '@/assets/circuit-board.jpg';
+import robotInnovation from '@/assets/robot-innovation.jpg';
+import researchDesk from '@/assets/research-desk.jpg';
+import abstractNight from '@/assets/abstract-night.jpg';
+
 const AltHome2 = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const heroRef = useRef(null);
@@ -403,6 +410,38 @@ const AltHome2 = () => {
             </p>
           </motion.div>
 
+          {/* Research Stories Visual Intro */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-12 relative overflow-hidden rounded-xl"
+          >
+            <div className="relative h-48 sm:h-64 lg:h-80">
+              <img 
+                src={researchDesk} 
+                alt="UX Research workspace with code and analysis" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent flex items-center">
+                <div className="container-custom">
+                  <div className="max-w-lg">
+                    <Badge variant="outline" className="mb-3 border-primary-glow text-primary-glow">
+                      Research Process
+                    </Badge>
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-3">
+                      Where Analysis Meets <span className="text-primary-glow">Innovation</span>
+                    </h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">
+                      Every insight starts with systematic investigation and ends with meaningful user impact.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
             {researchStories.map((story, index) => (
               <motion.div
@@ -616,6 +655,44 @@ const AltHome2 = () => {
             </p>
           </motion.div>
 
+          {/* Agile Methodology Visual */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center"
+          >
+            <div className="relative overflow-hidden rounded-xl order-2 lg:order-1">
+              <div className="h-48 sm:h-64 lg:h-80">
+                <img 
+                  src={circuitBoard} 
+                  alt="Complex systems and interconnected processes" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+              </div>
+            </div>
+            <div className="order-1 lg:order-2">
+              <Badge variant="outline" className="mb-4 border-agile-primary text-agile-primary">
+                Systematic Approach
+              </Badge>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
+                Precision in <span className="text-agile-primary">Every Sprint</span>
+              </h3>
+              <p className="text-sm sm:text-base text-muted-foreground mb-6">
+                Just like complex circuit boards require methodical design, every research sprint follows 
+                a structured approach to ensure reliable, actionable insights.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline" className="border-agile-primary text-agile-primary">Plan</Badge>
+                <Badge variant="outline" className="border-agile-primary text-agile-primary">Research</Badge>
+                <Badge variant="outline" className="border-agile-primary text-agile-primary">Analyze</Badge>
+                <Badge variant="outline" className="border-agile-primary text-agile-primary">Iterate</Badge>
+              </div>
+            </div>
+          </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
             {researchToolkit.map((phase, index) => (
               <motion.div
@@ -695,6 +772,42 @@ const AltHome2 = () => {
               From user interviews to system architecture, I create visual artifacts that communicate 
               complex insights and drive informed design decisions.
             </p>
+          </motion.div>
+
+          {/* Artifacts Visual Intro */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-12 relative"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-center">
+              <div className="lg:col-span-2">
+                <div className="relative overflow-hidden rounded-xl">
+                  <div className="h-48 sm:h-64">
+                    <img 
+                      src={codingWorkspace} 
+                      alt="Code analysis and data visualization workspace" 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/30"></div>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <Badge variant="outline" className="border-accent text-accent">
+                  Visual Communication
+                </Badge>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold">
+                  From Data to <span className="text-accent">Decision</span>
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Complex user research findings transformed into clear, actionable visual artifacts 
+                  that drive strategic design decisions.
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
@@ -806,6 +919,44 @@ const AltHome2 = () => {
               My unique journey positions me as a translator between technical complexity and human needs, 
               bridging the gap between military discipline, enterprise systems, and modern user experience.
             </p>
+          </motion.div>
+
+          {/* Bridge Visual Hero */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="mb-16 relative overflow-hidden rounded-2xl"
+          >
+            <div className="relative h-64 sm:h-80 lg:h-96">
+              <img 
+                src={abstractNight} 
+                alt="Starry night representing vast possibilities and connections" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center max-w-2xl px-4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                  >
+                    <Badge variant="outline" className="mb-4 border-primary-glow text-primary-glow bg-background/50 backdrop-blur-sm">
+                      Bridging Infinite Possibilities
+                    </Badge>
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                      Connecting <span className="text-primary-glow">Complex Systems</span> with Human Needs
+                    </h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">
+                      Every challenge is an opportunity to create meaningful connections between technology and users.
+                    </p>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Bridge Visual Metaphor */}
@@ -1087,6 +1238,43 @@ const AltHome2 = () => {
               A unique combination of technical systems knowledge and user experience expertise, 
               honed through military service and enterprise development.
             </p>
+          </motion.div>
+
+          {/* Skills Visual Intro */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center"
+          >
+            <div>
+              <Badge variant="outline" className="mb-4 border-systems-blue text-systems-blue">
+                Technical Arsenal
+              </Badge>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
+                Innovation Through <span className="text-systems-blue">Systematic Mastery</span>
+              </h3>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
+                A comprehensive toolkit built through military precision, enterprise complexity, 
+                and modern UX methodologies—each skill sharpened for maximum impact.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline" className="border-accent text-accent">Research</Badge>
+                <Badge variant="outline" className="border-accent text-accent">Analysis</Badge>
+                <Badge variant="outline" className="border-accent text-accent">Strategy</Badge>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-xl">
+              <div className="h-48 sm:h-64 lg:h-80">
+                <img 
+                  src={robotInnovation} 
+                  alt="Innovation and futuristic technology representation" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-l from-background/90 to-transparent"></div>
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
