@@ -17,24 +17,41 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 35% 15%;
 
-    /* Primary Colors - Vibrant Electric Blue (10% Accent) */
+    /* Primary Colors - Vibrant Electric Blue Spectrum */
     --primary: 210 100% 50%;  /* #0080FF - vibrant electric blue */
     --primary-foreground: 0 0% 100%;
     --primary-light: 210 90% 60%; /* #3399FF */
     --primary-dark: 210 100% 40%; /* #0066CC */
+    --primary-warm: 213 100% 50%; /* #007BFF - warmer variant */
 
-    /* 30% - Secondary Colors (Professional Gray) */
+    /* Navy & Professional Blues */
+    --navy: 220 39% 11%; /* #1B365D - deep navy */
+    --navy-foreground: 0 0% 100%;
+
+    /* Secondary Colors (Professional Gray Foundation) */
     --secondary: 215 25% 27%; /* #4a5568 */
     --secondary-foreground: 0 0% 100%;
 
-    /* Refined muted colors for better contrast */
-    --muted: 210 15% 95%;
+    /* Sophisticated Neutrals */
+    --muted: 210 15% 96%; /* #F8F9FB - warmer background */
     --muted-foreground: 215 20% 45%;
+    --cool-gray: 210 15% 91%; /* #E2E8F0 - borders & dividers */
 
-    /* Complementary accent colors (10% Distribution) */
+    /* Enhanced Teal Accent System */
     --accent: 175 100% 40%; /* #00CC99 - vibrant teal */
     --accent-foreground: 0 0% 100%;
+    --accent-warm: 174 62% 47%; /* #20B2AA - warmer teal */
+    --accent-mint: 174 71% 64%; /* #64E6D1 - mint highlight */
+
+    /* Strategic Warm Accents */
+    --coral: 9 100% 64%; /* #FF6B47 - action CTAs */
+    --coral-foreground: 0 0% 100%;
+    --gold: 51 100% 50%; /* #FFD700 - achievements */
+    --gold-foreground: 220 39% 11%;
+
+    /* Military & Professional Touches */
     --success: 140 55% 45%; /* #38a169 - military green */
+    --silver: 215 20% 65%; /* #94A3B8 - technical certifications */
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -72,20 +89,41 @@
     --popover: 210 25% 10%;
     --popover-foreground: 210 20% 90%;
 
-    /* Lighter primary for dark backgrounds */
+    /* Softened primary for dark backgrounds */
     --primary: 200 80% 60%; /* #4a9eff */
     --primary-foreground: 210 30% 8%;
     --primary-light: 200 70% 70%;
     --primary-dark: 200 90% 50%;
+    --primary-warm: 213 80% 60%; /* Softer warm variant */
 
+    /* Navy & Professional Blues - Dark Mode */
+    --navy: 220 50% 20%; /* Lighter navy for dark mode */
+    --navy-foreground: 210 20% 92%;
+
+    /* Secondary Colors - Dark Mode */
     --secondary: 210 20% 20%;
     --secondary-foreground: 210 20% 90%;
 
+    /* Sophisticated Neutrals - Dark Mode */
     --muted: 210 25% 15%;
     --muted-foreground: 210 15% 60%;
+    --cool-gray: 210 20% 25%; /* Darker borders for dark mode */
 
-    --accent: 175 85% 55%; /* #40E0D0 - lighter vibrant teal for dark mode */
+    /* Enhanced Teal Accent System - Dark Mode */
+    --accent: 175 85% 55%; /* #40E0D0 - lighter vibrant teal */
     --accent-foreground: 210 30% 8%;
+    --accent-warm: 174 70% 60%; /* Lighter warm teal */
+    --accent-mint: 174 60% 70%; /* Lighter mint */
+
+    /* Strategic Warm Accents - Dark Mode */
+    --coral: 9 85% 70%; /* Softer coral for dark mode */
+    --coral-foreground: 210 30% 8%;
+    --gold: 51 80% 60%; /* Softer gold */
+    --gold-foreground: 210 30% 8%;
+
+    /* Military & Professional Touches - Dark Mode */
+    --success: 140 50% 55%; /* Lighter military green */
+    --silver: 215 15% 70%; /* Lighter silver */
 
     --border: 210 20% 20%;
     --input: 210 20% 18%;
