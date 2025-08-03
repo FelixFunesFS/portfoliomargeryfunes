@@ -82,6 +82,49 @@ const Journey = () => {
           </div>
         </div>
 
+        {/* Outcome Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <Card className="glass border-none">
+            <CardContent className="p-8">
+              <div className="flex items-center gap-3 mb-4">
+                <Lightbulb className="w-8 h-8 text-primary" />
+                <h3 className="text-2xl font-semibold">The Realization</h3>
+              </div>
+              <p className="text-muted-foreground mb-4">
+                Most users couldn't clearly express their needs in technical terms, and development 
+                teams didn't always have access to the full context of daily operations.
+              </p>
+              <div className="p-4 bg-primary/10 rounded-lg">
+                <p className="font-medium text-primary">
+                  It wasn't a people problem — it was a communication and alignment problem.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="glass border-none">
+            <CardContent className="p-8">
+              <div className="flex items-center gap-3 mb-4">
+                <Users className="w-8 h-8 text-primary" />
+                <h3 className="text-2xl font-semibold">Today's Mission</h3>
+              </div>
+              <p className="text-muted-foreground mb-4">
+                I create research-driven, human-centered solutions that help teams build 
+                the right products — the first time.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline">User Research</Badge>
+                <Badge variant="outline">UX Design</Badge>
+                <Badge variant="outline">Full Stack Development</Badge>
+                <Badge variant="outline">Process Improvement</Badge>
+                <Badge variant="outline">Automation</Badge>
+                <Badge variant="outline">Agile</Badge>
+                <Badge variant="outline">Lean</Badge>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
         <div className="text-center">
           <Card className="glass border-none inline-block">
             <CardContent className="p-6">

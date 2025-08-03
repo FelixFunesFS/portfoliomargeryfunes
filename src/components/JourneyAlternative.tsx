@@ -99,44 +99,6 @@ const JourneyAlternative = () => {
           ))}
         </div>
 
-        {/* Outcome Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card className="glass border-none">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <Lightbulb className="w-8 h-8 text-primary" />
-                <h3 className="text-2xl font-semibold">The Realization</h3>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                Most users couldn't clearly express their needs in technical terms, and development 
-                teams didn't always have access to the full context of daily operations.
-              </p>
-              <div className="p-4 bg-primary/10 rounded-lg">
-                <p className="font-medium text-primary">
-                  It wasn't a people problem — it was a communication and alignment problem.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="glass border-none">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <Rocket className="w-8 h-8 text-primary" />
-                <h3 className="text-2xl font-semibold">Today's Impact</h3>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                I create research-driven, human-centered solutions that help teams build 
-                the right products — the first time.
-              </p>
-              <div className="flex items-center gap-2 text-primary font-medium">
-                <span>Translator between users and developers</span>
-                <ArrowRight className="w-4 h-4" />
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
         {/* Skills gained */}
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">Skills developed throughout the journey:</p>
