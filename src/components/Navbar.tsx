@@ -36,7 +36,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map(link => <a key={link.name} href={link.href} className={`font-medium hover:text-purple transition-colors ${isScrolled ? 'text-charcoal' : 'text-white'}`}>
+          {navLinks.map(link => <a key={link.name} href={link.href} className="font-medium text-gradient hover:opacity-80 transition-all">
               {link.name}
             </a>)}
           <Button className="bg-gradient hover:opacity-90 transition-opacity">
@@ -55,7 +55,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMenuOpen && <div className="md:hidden fixed inset-0 top-16 z-40 bg-white/95 backdrop-blur-md p-6">
           <nav className="flex flex-col items-center gap-6 pt-8">
-            {navLinks.map(link => <a key={link.name} href={link.href} onClick={() => setIsMenuOpen(false)} className="text-xl font-medium text-charcoal hover:text-purple transition-colors">
+            {navLinks.map(link => <a key={link.name} href={link.href} onClick={() => setIsMenuOpen(false)} className="text-xl font-medium text-gradient hover:opacity-80 transition-all">
                 {link.name}
               </a>)}
             <Button className="bg-gradient hover:opacity-90 transition-opacity mt-4 w-full">
