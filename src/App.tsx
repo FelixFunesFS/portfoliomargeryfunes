@@ -9,6 +9,7 @@ import AltHome from "./pages/AltHome";
 import AltHome2 from "./pages/AltHome2";
 import CaseStudies from "./pages/CaseStudies";
 import CaseStudies2 from "./pages/CaseStudies2";
+import Journey from "./pages/Journey";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/alt2" element={<AltHome2 />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/case-studies2" element={<CaseStudies2 />} />
+          <Route path="/journey" element={<Journey />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
