@@ -130,7 +130,7 @@ const OptimizedHero = () => {
           </motion.h1>
 
           <motion.div variants={slideUpVariants} className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gradient">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-primary">
               UX/UI Designer & Systems Analyst
             </h2>
             <div className="flex justify-center lg:justify-start gap-3 sm:gap-4">
@@ -151,7 +151,7 @@ const OptimizedHero = () => {
 
           <motion.p 
             variants={slideUpVariants} 
-            className="text-foreground/80 max-w-xl lg:max-w-2xl mb-8 sm:mb-10 text-base sm:text-lg md:text-xl leading-relaxed px-4 sm:px-0 lg:px-0"
+            className="text-muted-foreground max-w-xl lg:max-w-2xl mb-8 sm:mb-10 text-base sm:text-lg md:text-xl leading-relaxed px-4 sm:px-0 lg:px-0"
           >
             Military-trained systems analyst and UX designer creating mission-critical digital solutions. 
             I bring precision, leadership, and strategic thinking to every design challenge.
@@ -159,14 +159,14 @@ const OptimizedHero = () => {
 
           <motion.div variants={slideUpVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
             <Button 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25" 
+              className="bg-primary hover:bg-primary-light text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25 focus-visible:ring-offset-2" 
               asChild
             >
               <a href="#military-experience">View Military Projects</a>
             </Button>
             <Button 
               variant="outline" 
-              className="border-primary text-primary hover:bg-primary/10 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover:scale-105 transition-all duration-300" 
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover:scale-105 transition-all duration-300 focus-visible:ring-offset-2" 
               asChild
             >
               <a href="#contact">Mission Brief</a>

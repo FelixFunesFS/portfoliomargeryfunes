@@ -7,55 +7,99 @@
 
 @layer base {
   :root {
-    /* Enhanced color palette with military-inspired precision */
-    --background: 225 25% 97%;
-    --foreground: 220 30% 15%;
+    /* 60% - Base/Neutral Colors (Deep Metal Blue System) */
+    --background: 210 20% 98%;
+    --foreground: 210 40% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 20%;
+    --card-foreground: 210 35% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 20%;
+    --popover-foreground: 210 35% 15%;
 
-    /* Military-inspired primary colors */
-    --primary: 262 83% 66%;
+    /* Primary Colors - Deep Metal Blue (10% Accent) */
+    --primary: 210 60% 25%;  /* #1e3a5f - deep metal blue */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 262 85% 75%;
+    --primary-light: 210 50% 35%; /* #2d4a6b */
+    --primary-dark: 210 70% 15%; /* #0f1f2f */
 
-    /* Strategic secondary colors */
-    --secondary: 220 25% 25%;
+    /* 30% - Secondary Colors (Professional Gray) */
+    --secondary: 215 25% 27%; /* #4a5568 */
     --secondary-foreground: 0 0% 100%;
 
-    /* Refined muted colors */
-    --muted: 220 15% 92%;
-    --muted-foreground: 220 20% 45%;
+    /* Refined muted colors for better contrast */
+    --muted: 210 15% 95%;
+    --muted-foreground: 215 20% 45%;
 
-    /* Enhanced accent colors */
-    --accent: 262 50% 96%;
-    --accent-foreground: 262 83% 60%;
+    /* Complementary accent colors (10% Distribution) */
+    --accent: 200 70% 45%; /* #3182ce - complementary blue */
+    --accent-foreground: 0 0% 100%;
+    --success: 140 55% 45%; /* #38a169 - military green */
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 88%;
-    --input: 220 15% 90%;
-    --ring: 262 83% 66%;
+    --border: 210 20% 90%;
+    --input: 210 20% 92%;
+    --ring: 210 60% 25%;
 
-    /* Enhanced gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    /* Professional gradients for backgrounds only */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
     --gradient-military: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)));
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary-light)));
 
-    /* Military-inspired shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.15);
-    --shadow-strong: 0 20px 40px -15px hsl(var(--primary) / 0.25);
-    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.3);
+    /* Professional shadows with better contrast */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.2);
+    --shadow-strong: 0 20px 40px -15px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.15);
 
     /* Enhanced transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark mode colors for accessibility */
+    --background: 210 30% 8%;
+    --foreground: 210 20% 92%;
+
+    --card: 210 25% 10%;
+    --card-foreground: 210 20% 90%;
+
+    --popover: 210 25% 10%;
+    --popover-foreground: 210 20% 90%;
+
+    /* Lighter primary for dark backgrounds */
+    --primary: 200 80% 60%; /* #4a9eff */
+    --primary-foreground: 210 30% 8%;
+    --primary-light: 200 70% 70%;
+    --primary-dark: 200 90% 50%;
+
+    --secondary: 210 20% 20%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 210 25% 15%;
+    --muted-foreground: 210 15% 60%;
+
+    --accent: 200 70% 55%;
+    --accent-foreground: 210 30% 8%;
+
+    --border: 210 20% 20%;
+    --input: 210 20% 18%;
+    --ring: 200 80% 60%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-military: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+
+    /* Dark mode shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-strong: 0 20px 40px -15px hsl(var(--primary) / 0.4);
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.25);
   }
 }
 
@@ -94,8 +138,8 @@
   }
   
   .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background: var(--gradient-primary);
+    /* Replaced with solid color for accessibility */
+    @apply text-primary;
   }
 
   .bg-gradient-military {
