@@ -83,10 +83,10 @@ const MilitaryExperience = () => {
               US Air Force Veteran
             </Badge>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-gradient">
             Military-Informed Design Leadership
           </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
+          <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base lg:text-lg">
             8 years of Air Force service provided exceptional training in leadership, decision-making under pressure, 
             and systems thinking - all of which inform my approach to design and systems analysis.
           </p>
@@ -96,34 +96,34 @@ const MilitaryExperience = () => {
           {/* Service Details */}
           <motion.div variants={slideUpVariants}>
             <Card className="glass border-none h-full">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
-                    <Shield className="w-8 h-8 text-primary" />
+              <CardContent className="p-4 sm:p-6 lg:p-8">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold">United States Air Force</h3>
+                  <div className="text-center sm:text-left">
+                    <h3 className="text-xl sm:text-2xl font-bold">United States Air Force</h3>
                     <p className="text-muted-foreground">Systems Operations Specialist</p>
                     <p className="text-sm text-muted-foreground">2010 - 2018</p>
                   </div>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4 mb-6">
                   <div className="flex items-center gap-3">
-                    <Award className="w-5 h-5 text-primary" />
+                    <Award className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
                     <span className="text-sm">Exceptional Service Recognition</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Users className="w-5 h-5 text-primary" />
+                    <Users className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
                     <span className="text-sm">Team Achievement Award</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Target className="w-5 h-5 text-primary" />
+                    <Target className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
                     <span className="text-sm">Process Improvement Leadership</span>
                   </div>
                 </div>
 
-                <div className="mt-6 p-4 bg-accent/30 rounded-lg">
+                <div className="p-3 sm:p-4 bg-accent/30 rounded-lg">
                   <p className="text-sm font-medium text-primary mb-2">Leadership Recognition:</p>
                   <p className="text-sm italic">"Known for making the impossible, possible!"</p>
                 </div>
@@ -169,7 +169,7 @@ const MilitaryExperience = () => {
         {/* Transferable Skills */}
         <motion.div variants={slideUpVariants} className="mb-16">
           <h3 className="text-2xl font-bold text-center mb-8">Key Transferable Skills</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
             {transferableSkills.map((skill, index) => (
               <motion.div
                 key={index}
@@ -178,12 +178,12 @@ const MilitaryExperience = () => {
                 transition={{ duration: 0.2 }}
               >
                 <Card className="glass border-none h-full hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6 text-center">
-                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CardContent className="p-4 sm:p-6 text-center">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
                       {skill.icon}
                     </div>
-                    <h4 className="font-semibold mb-2">{skill.skill}</h4>
-                    <p className="text-muted-foreground text-sm">{skill.description}</p>
+                    <h4 className="font-semibold mb-2 text-sm sm:text-base">{skill.skill}</h4>
+                    <p className="text-muted-foreground text-xs sm:text-sm">{skill.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -194,7 +194,7 @@ const MilitaryExperience = () => {
         {/* Military Case Studies Highlight */}
         <motion.div variants={slideUpVariants} className="text-center">
           <h3 className="text-2xl font-bold mb-8">Military/Design Case Studies</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8">
             {militaryCaseStudies.map((study, index) => (
               <motion.div
                 key={index}
