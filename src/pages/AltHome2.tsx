@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '@/components/Navbar';
 import { 
   Target, 
   Zap, 
@@ -67,7 +68,7 @@ const AltHome2 = () => {
     
     const caseStudyId = projectToCaseStudyMap[projectTitle];
     if (caseStudyId) {
-      navigate('/case-studies2', { state: { selectedStudyId: caseStudyId } });
+      navigate('/case-studies', { state: { selectedStudyId: caseStudyId } });
     }
   };
 
@@ -722,7 +723,7 @@ const AltHome2 = () => {
                     {/* View Case Study Button */}
                     <div className="mt-auto">
                       <Button 
-                        onClick={() => navigate('/case-studies2', { state: { selectedStudyId: story.caseStudyId } })}
+                        onClick={() => navigate('/case-studies', { state: { selectedStudyId: story.caseStudyId } })}
                         className={`w-full ${
                           story.color === 'systems' ? 'bg-systems-blue hover:bg-systems-blue/90' :
                           story.color === 'agile' ? 'bg-agile-primary hover:bg-agile-primary/90' :
@@ -750,7 +751,7 @@ const AltHome2 = () => {
             className="text-center mt-12 sm:mt-16"
           >
             <Button 
-              onClick={() => navigate('/case-studies2')}
+              onClick={() => navigate('/case-studies')}
               size="lg"
               className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow px-8 py-4"
             >
@@ -762,7 +763,7 @@ const AltHome2 = () => {
       </section>
 
       {/* Recent Work Section */}
-      <section className="section gradient-subtle py-12 sm:py-16 lg:py-20">
+      <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20">
         <div className="container-custom px-3 sm:px-4 lg:px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -1155,7 +1156,7 @@ const AltHome2 = () => {
       </section>
 
       {/* Journey: Bridging the Gap */}
-      <section className="section bg-background relative overflow-hidden">
+      <section id="about" className="section bg-background relative overflow-hidden">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -1584,7 +1585,7 @@ const AltHome2 = () => {
 
 
       {/* Mission Briefing CTA */}
-      <section className="section bg-background">
+      <section id="contact" className="section bg-background">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 50 }}

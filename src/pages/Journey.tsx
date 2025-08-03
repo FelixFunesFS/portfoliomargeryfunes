@@ -281,7 +281,7 @@ const Journey = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                onClick={() => navigate('/case-studies2')}
+                onClick={() => navigate('/case-studies')}
                 className="bg-primary text-primary-foreground hover:bg-primary/90"
               >
                 View Case Studies
