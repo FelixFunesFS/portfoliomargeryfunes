@@ -208,27 +208,27 @@ const AltHome2 = () => {
           variants={radarVariants}
           className="absolute inset-0 flex items-center justify-center opacity-10"
         >
-          <div className="relative w-96 h-96">
+          <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96">
             <div className="absolute inset-0 rounded-full border-2 border-primary-glow radar-animation"></div>
-            <div className="absolute inset-8 rounded-full border border-primary-glow/50 radar-animation" style={{animationDelay: '1s'}}></div>
-            <div className="absolute inset-16 rounded-full border border-primary-glow/30 radar-animation" style={{animationDelay: '2s'}}></div>
-            <Radar className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 text-primary-glow" />
+            <div className="absolute inset-4 sm:inset-8 rounded-full border border-primary-glow/50 radar-animation" style={{animationDelay: '1s'}}></div>
+            <div className="absolute inset-8 sm:inset-16 rounded-full border border-primary-glow/30 radar-animation" style={{animationDelay: '2s'}}></div>
+            <Radar className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 text-primary-glow" />
           </div>
         </motion.div>
 
-        <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Hero Content */}
             <motion.div variants={itemVariants} className="text-center lg:text-left">
-              <motion.div variants={itemVariants} className="mb-6">
-                <Badge variant="outline" className="mb-4 text-lg py-2 px-4 border-primary-glow text-primary-glow">
+              <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
+                <Badge variant="outline" className="mb-4 text-sm sm:text-base lg:text-lg py-1.5 sm:py-2 px-3 sm:px-4 border-primary-glow text-primary-glow">
                   Systems Analyst • UX Researcher • Agile Problem Solver
                 </Badge>
               </motion.div>
               
               <motion.h1 
                 variants={itemVariants}
-                className="text-5xl lg:text-7xl font-bold mb-6 text-foreground"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-foreground leading-tight"
               >
                 I analyze{' '}
                 <span className="bg-gradient-to-r from-primary-glow to-accent bg-clip-text text-transparent">
@@ -242,7 +242,7 @@ const AltHome2 = () => {
 
               <motion.p 
                 variants={itemVariants}
-                className="text-xl text-muted-foreground mb-8 leading-relaxed"
+                className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed"
               >
                 Military precision meets modern product development. I bridge the gap between 
                 complex technical systems and user needs through systematic analysis and 
@@ -251,13 +251,13 @@ const AltHome2 = () => {
 
               <motion.div 
                 variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-4 mb-12"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12"
               >
-                <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow">
+                <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[44px] text-base">
                   View Case Studies
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
-                <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10">
+                <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[44px] text-base">
                   Download Resume
                 </Button>
               </motion.div>
@@ -265,19 +265,19 @@ const AltHome2 = () => {
               {/* Key Metrics */}
               <motion.div 
                 variants={itemVariants}
-                className="grid grid-cols-3 gap-6 text-center"
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center"
               >
-                <div>
-                  <div className="text-3xl font-bold text-primary-glow">26K+</div>
-                  <div className="text-sm text-muted-foreground">Hours Saved Annually</div>
+                <div className="sm:border-r sm:border-border/20 last:border-r-0">
+                  <div className="text-2xl sm:text-3xl font-bold text-primary-glow">26K+</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">Hours Saved Annually</div>
+                </div>
+                <div className="sm:border-r sm:border-border/20 last:border-r-0">
+                  <div className="text-2xl sm:text-3xl font-bold text-agile-primary">23</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">Global Bases Unified</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-agile-primary">23</div>
-                  <div className="text-sm text-muted-foreground">Global Bases Unified</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-accent">340%</div>
-                  <div className="text-sm text-muted-foreground">Max Conversion Increase</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-accent">340%</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">Max Conversion Increase</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -347,7 +347,7 @@ const AltHome2 = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {problemSolutionMatrix.map((item, index) => (
               <motion.div
                 key={index}
@@ -359,15 +359,15 @@ const AltHome2 = () => {
                 className="h-full"
               >
                 <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full">
-                  <CardContent className="p-6">
-                    <div className="text-center mb-6">
-                      <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 ${
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="text-center">
+                      <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full flex items-center justify-center mb-3 sm:mb-4 ${
                         item.color === 'systems' ? 'bg-systems-blue/20' :
                         item.color === 'agile' ? 'bg-agile-primary/20' :
                         item.color === 'success' ? 'bg-success/20' :
                         'bg-accent/20'
                       }`}>
-                        <item.icon className={`w-8 h-8 ${
+                        <item.icon className={`w-6 h-6 sm:w-8 sm:h-8 ${
                           item.color === 'systems' ? 'text-systems-blue' :
                           item.color === 'agile' ? 'text-agile-primary' :
                           item.color === 'success' ? 'text-success' :
@@ -377,16 +377,16 @@ const AltHome2 = () => {
                       <Badge variant="outline" className="text-xs text-muted-foreground mb-2">
                         PROBLEM
                       </Badge>
-                      <h3 className="font-semibold text-foreground mb-4">{item.problem}</h3>
+                      <h3 className="font-semibold text-sm sm:text-base text-foreground mb-3 sm:mb-4 leading-tight">{item.problem}</h3>
                       
-                      <ArrowRight className="w-4 h-4 mx-auto text-muted-foreground mb-4" />
+                      <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 mx-auto text-muted-foreground mb-3 sm:mb-4" />
                       
                       <Badge variant="outline" className="text-xs text-primary-glow mb-2">
                         SOLUTION
                       </Badge>
-                      <h4 className="font-semibold text-primary-glow mb-4">{item.solution}</h4>
+                      <h4 className="font-semibold text-sm sm:text-base text-primary-glow mb-3 sm:mb-4 leading-tight">{item.solution}</h4>
                       
-                      <div className={`text-2xl font-bold ${
+                      <div className={`text-lg sm:text-2xl font-bold ${
                         item.color === 'systems' ? 'text-systems-blue' :
                         item.color === 'agile' ? 'text-agile-primary' :
                         item.color === 'success' ? 'text-success' :
@@ -435,22 +435,22 @@ const AltHome2 = () => {
                 transition={{ delay: index * 0.2, duration: 0.6 }}
               >
                 <Card className="glass border-none shadow-card hover:shadow-systems transition-all duration-300">
-                  <CardContent className="p-8">
-                    <div className="grid lg:grid-cols-4 gap-6 items-center">
+                  <CardContent className="p-4 sm:p-6 lg:p-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 items-center">
                       <div className="text-center lg:text-left">
-                        <div className="w-16 h-16 mx-auto lg:mx-0 rounded-full bg-primary-glow/20 flex items-center justify-center mb-4">
-                          <milestone.icon className="w-8 h-8 text-primary-glow" />
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto lg:mx-0 rounded-full bg-primary-glow/20 flex items-center justify-center mb-3 sm:mb-4">
+                          <milestone.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-glow" />
                         </div>
-                        <Badge variant="outline" className="border-primary-glow text-primary-glow">
+                        <Badge variant="outline" className="border-primary-glow text-primary-glow text-xs sm:text-sm">
                           {milestone.period}
                         </Badge>
                       </div>
                       
-                      <div className="lg:col-span-2">
-                        <h3 className="text-2xl font-bold text-foreground mb-2">
+                      <div className="lg:col-span-2 text-center lg:text-left">
+                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-2 leading-tight">
                           {milestone.role}
                         </h3>
-                        <p className="text-lg text-muted-foreground mb-4">
+                        <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-3 sm:mb-4 leading-relaxed">
                           {milestone.focus}
                         </p>
                       </div>
@@ -496,7 +496,7 @@ const AltHome2 = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {agileToolkit.map((phase, index) => (
               <motion.div
                 key={index}
@@ -504,16 +504,16 @@ const AltHome2 = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 className="h-full"
               >
                 <Card className="glass border-agile-primary/20 shadow-agile hover:shadow-agile/50 transition-all duration-300 h-full">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-full bg-agile-primary/20 flex items-center justify-center mb-4">
-                      <phase.icon className="w-6 h-6 text-agile-primary" />
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-agile-primary/20 flex items-center justify-center mb-3 sm:mb-4">
+                      <phase.icon className="w-5 h-5 sm:w-6 sm:h-6 text-agile-primary" />
                     </div>
-                    <CardTitle className="text-agile-primary">{phase.phase}</CardTitle>
-                    <Badge variant="outline" className="w-fit border-agile-secondary text-agile-secondary">
+                    <CardTitle className="text-agile-primary text-lg sm:text-xl">{phase.phase}</CardTitle>
+                    <Badge variant="outline" className="w-fit border-agile-secondary text-agile-secondary text-xs sm:text-sm">
                       {phase.duration}
                     </Badge>
                   </CardHeader>
@@ -582,7 +582,7 @@ const AltHome2 = () => {
               <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-success via-primary-glow to-accent transform -translate-y-1/2 z-0"></div>
               
               {/* Bridge Pillars */}
-              <div className="grid lg:grid-cols-3 gap-8 relative z-10">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative z-10">
                 {/* Military Foundation */}
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
@@ -592,11 +592,11 @@ const AltHome2 = () => {
                   className="text-center"
                 >
                   <Card className="glass border-success/20 shadow-systems hover:shadow-success/30 transition-all duration-300">
-                    <CardContent className="p-8">
-                      <div className="w-20 h-20 mx-auto rounded-full bg-success/20 flex items-center justify-center mb-6">
-                        <Shield className="w-10 h-10 text-success" />
+                    <CardContent className="p-6 sm:p-8">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-success/20 flex items-center justify-center mb-4 sm:mb-6">
+                        <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-success" />
                       </div>
-                      <h3 className="text-2xl font-bold text-success mb-4">Military Foundation</h3>
+                      <h3 className="text-xl sm:text-2xl font-bold text-success mb-3 sm:mb-4">Military Foundation</h3>
                       <p className="text-muted-foreground mb-6">
                         Systematic thinking, process optimization, and mission-critical reliability
                       </p>
@@ -624,11 +624,11 @@ const AltHome2 = () => {
                   className="text-center"
                 >
                   <Card className="glass border-primary-glow/20 shadow-systems hover:shadow-primary-glow/30 transition-all duration-300">
-                    <CardContent className="p-8">
-                      <div className="w-20 h-20 mx-auto rounded-full bg-primary-glow/20 flex items-center justify-center mb-6">
-                        <GitBranch className="w-10 h-10 text-primary-glow" />
+                    <CardContent className="p-6 sm:p-8">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-primary-glow/20 flex items-center justify-center mb-4 sm:mb-6">
+                        <GitBranch className="w-8 h-8 sm:w-10 sm:h-10 text-primary-glow" />
                       </div>
-                      <h3 className="text-2xl font-bold text-primary-glow mb-4">Enterprise Translation</h3>
+                      <h3 className="text-xl sm:text-2xl font-bold text-primary-glow mb-3 sm:mb-4">Enterprise Translation</h3>
                       <p className="text-muted-foreground mb-6">
                         Converting complex technical requirements into scalable business solutions
                       </p>
@@ -656,11 +656,11 @@ const AltHome2 = () => {
                   className="text-center"
                 >
                   <Card className="glass border-accent/20 shadow-systems hover:shadow-accent/30 transition-all duration-300">
-                    <CardContent className="p-8">
-                      <div className="w-20 h-20 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-6">
-                        <Brain className="w-10 h-10 text-accent" />
+                    <CardContent className="p-6 sm:p-8">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-4 sm:mb-6">
+                        <Brain className="w-8 h-8 sm:w-10 sm:h-10 text-accent" />
                       </div>
-                      <h3 className="text-2xl font-bold text-accent mb-4">User-Centered Innovation</h3>
+                      <h3 className="text-xl sm:text-2xl font-bold text-accent mb-3 sm:mb-4">User-Centered Innovation</h3>
                       <p className="text-muted-foreground mb-6">
                         Transforming complex systems into intuitive, human-centered experiences
                       </p>
@@ -691,20 +691,20 @@ const AltHome2 = () => {
             className="max-w-5xl mx-auto"
           >
             <Card className="glass border-copper/20 shadow-military">
-              <CardContent className="p-12">
-                <div className="text-center mb-8">
-                  <div className="w-16 h-16 mx-auto rounded-full bg-copper/20 flex items-center justify-center mb-4">
-                    <TrendingUp className="w-8 h-8 text-copper" />
+              <CardContent className="p-6 sm:p-8 lg:p-12">
+                <div className="text-center mb-6 sm:mb-8">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full bg-copper/20 flex items-center justify-center mb-3 sm:mb-4">
+                    <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-copper" />
                   </div>
-                  <h3 className="text-3xl font-bold text-foreground mb-4">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
                     The Bridge Effect
                   </h3>
-                  <p className="text-lg text-muted-foreground">
+                  <p className="text-base sm:text-lg text-muted-foreground">
                     Where technical expertise meets human understanding
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                   <div>
                     <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center">
                       <Database className="w-5 h-5 text-systems-blue mr-2" />
@@ -769,7 +769,7 @@ const AltHome2 = () => {
             transition={{ delay: 1, duration: 0.6 }}
             className="mt-16"
           >
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
               {[
                 { 
                   metric: "3 Domains", 
@@ -797,7 +797,7 @@ const AltHome2 = () => {
                 }
               ].map((item, index) => (
                 <Card key={index} className="glass border-none shadow-card text-center">
-                  <CardContent className="p-6">
+                  <CardContent className="p-4 sm:p-6">
                     <div className={`w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4 ${
                       item.color === 'success' ? 'bg-success/20' :
                       item.color === 'primary-glow' ? 'bg-primary-glow/20' :
@@ -850,7 +850,7 @@ const AltHome2 = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {skillsArsenal.map((category, index) => (
               <motion.div
                 key={index}
@@ -860,15 +860,15 @@ const AltHome2 = () => {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
               >
                 <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-4">
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 gap-3">
                       <div className="flex items-center space-x-3">
-                        <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                          <category.icon className="w-6 h-6 text-accent" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                          <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
                         </div>
-                        <CardTitle className="text-foreground">{category.category}</CardTitle>
+                        <CardTitle className="text-foreground text-lg sm:text-xl">{category.category}</CardTitle>
                       </div>
-                      <Badge variant="outline" className="border-accent text-accent">
+                      <Badge variant="outline" className="border-accent text-accent self-start sm:self-auto text-xs sm:text-sm">
                         {category.proficiency}%
                       </Badge>
                     </div>
@@ -911,23 +911,23 @@ const AltHome2 = () => {
             className="text-center"
           >
             <Card className="glass border-primary-glow/20 shadow-glow max-w-4xl mx-auto">
-              <CardContent className="p-12">
-                <Badge variant="outline" className="mb-6 border-primary-glow text-primary-glow">
+              <CardContent className="p-6 sm:p-8 lg:p-12">
+                <Badge variant="outline" className="mb-4 sm:mb-6 border-primary-glow text-primary-glow text-xs sm:text-sm">
                   Mission Briefing
                 </Badge>
-                <h2 className="text-4xl font-bold mb-6 text-foreground">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
                   Ready to solve your next <span className="text-primary-glow">complex challenge</span>?
                 </h2>
-                <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
                   Let's discuss how systematic analysis and agile UX research can transform 
                   your user experience and business outcomes.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                  <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[44px] text-base">
                     Start a Project
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
-                  <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10">
+                  <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[44px] text-base">
                     Schedule Consultation
                   </Button>
                 </div>
