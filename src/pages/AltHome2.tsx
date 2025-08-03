@@ -872,6 +872,96 @@ const AltHome2 = () => {
         </div>
       </section>
 
+      {/* My Journey into User Research */}
+      <section className="py-16 sm:py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-secondary/5"></div>
+        <div className="container relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <Badge variant="outline" className="mb-4 border-primary text-primary">
+              My Professional Evolution
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              My Journey into User Research:
+              <span className="block text-primary mt-2">Bridging the Gap</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="prose prose-lg mx-auto"
+            >
+              <div className="backdrop-blur-sm bg-card/60 rounded-2xl p-8 sm:p-12 border border-border/50 shadow-2xl">
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  While serving in the U.S. Air Force and later at Boeing, I began noticing a recurring issue: 
+                  the systems we relied on often didn't align with how people actually worked. Applications 
+                  were clunky, workflows were inefficient, and users — myself included — were left adapting 
+                  to tools that didn't fit their needs.
+                </p>
+
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  Rather than accept the status quo, I took action. I began learning automation, programming, 
+                  and systems analysis to improve the processes I worked within. I built tools, streamlined 
+                  workflows, and started bridging the gap between users and the technology they depended on.
+                </p>
+
+                <div className="my-8 p-6 bg-primary/10 rounded-xl border-l-4 border-primary">
+                  <p className="text-lg font-semibold text-primary mb-2">Leadership took notice.</p>
+                  <p className="text-muted-foreground">
+                    Recognizing the value of my technical skills and user perspective, they began rotating 
+                    me into new roles every six months — not to fill gaps, but to improve them.
+                  </p>
+                </div>
+
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  Each rotation became an opportunity to assess, modernize, and automate core systems. 
+                  Once every area had been optimized, I helped establish documentation and continuous 
+                  improvement processes to ensure sustainable progress.
+                </p>
+
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  Through this work, I uncovered a deeper problem: most users couldn't clearly express 
+                  their needs in technical terms, and development teams didn't always have access to 
+                  the full context of daily operations. It wasn't a people problem — it was a 
+                  communication and alignment problem.
+                </p>
+
+                <div className="my-8 p-6 bg-accent/10 rounded-xl border-l-4 border-accent">
+                  <p className="text-lg font-semibold text-accent mb-2">The Realization</p>
+                  <p className="text-muted-foreground">
+                    That realization led me to formally pursue User Research and Experience Design. 
+                    I wanted to understand how people interact with technology, and how to ensure 
+                    their experiences were not only efficient, but intuitive and empowering.
+                  </p>
+                </div>
+
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  I earned certifications, refined my design practice, and expanded into full stack 
+                  development — fully stepping into the role of a translator between users and developers.
+                </p>
+
+                <div className="mt-8 p-6 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl text-center">
+                  <p className="text-xl font-bold text-foreground">
+                    Today, I create research-driven, human-centered solutions that help teams 
+                    build the right products — the first time.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Agile Research Toolkit */}
       <section className="section bg-background">
         <div className="container-custom">
