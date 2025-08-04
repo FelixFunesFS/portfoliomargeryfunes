@@ -783,7 +783,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                           U.S. Air Force & Boeing
                         </Badge>
                       </p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-base text-muted-foreground leading-relaxed">
                         Noticed systems didn't align with how people actually worked. Applications were clunky, workflows inefficient.
                       </p>
                     </div>
@@ -814,7 +814,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                           Learning & Building
                         </Badge>
                       </p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-base text-muted-foreground leading-relaxed">
                         Began learning automation, programming, and systems analysis to improve processes and bridge the user-technology gap.
                       </p>
                     </div>
@@ -845,7 +845,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                           Continuous Improvement
                         </Badge>
                       </p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-base text-muted-foreground leading-relaxed">
                         Rotated into new roles every six months to assess, modernize, and automate core systems.
                       </p>
                       <div className="mt-2 bg-accent/10 p-3 rounded-lg border-l-4 border-accent">
@@ -881,7 +881,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                           Communication & Alignment
                         </Badge>
                       </p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-base text-muted-foreground leading-relaxed">
                         Discovered the gap between users who couldn't express technical needs and developers lacking operational context.
                       </p>
                     </div>
@@ -912,7 +912,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                           User Research & Experience Design
                         </Badge>
                       </p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-base text-muted-foreground leading-relaxed">
                         Earned certifications, refined design practice, and expanded into full stack development.
                       </p>
                     </div>
@@ -1419,7 +1419,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                     </div>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    <p className="text-base text-muted-foreground leading-relaxed mb-4">
                       The key insight was that successful technology solutions required someone who could understand both worlds — the technical possibilities and the human reality. Most users couldn't clearly express their needs in technical terms, and development teams didn't always have access to the full context of daily operations.
                     </p>
                     <div className="bg-accent/10 p-4 rounded-lg border-l-4 border-accent mb-4">
