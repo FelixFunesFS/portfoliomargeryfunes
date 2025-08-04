@@ -821,62 +821,59 @@ const Home = () => {
             </p>
           </motion.div>
 
-          {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-            {/* Left Column - Journey Milestones */}
-            <div className="lg:col-span-3 space-y-6">
-              {/* U.S. Air Force & Boeing */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
-                <Card className="bg-background border border-border/50 shadow-sm">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Shield className="w-6 h-6 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold mb-2">U.S. Air Force & Boeing</h3>
-                        <p className="text-sm text-muted-foreground mb-3">Military Systems Analysis</p>
-                        <p className="text-muted-foreground leading-relaxed">
-                          While serving in the U.S. Air Force and later at Boeing, I began noticing a recurring issue: 
-                          the systems we relied on often didn't align with how people actually worked. Rather than accept 
-                          the status quo, I took action by learning automation, programming, and systems analysis.
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+          {/* Full-width introductory card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-12"
+          >
+            <Card className="bg-background border border-border/50 shadow-sm">
+              <CardContent className="p-8">
+                <div className="flex items-start gap-6">
+                  <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Shield className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold mb-3">U.S. Air Force & Boeing</h3>
+                    <p className="text-sm text-muted-foreground mb-4">Military Systems Analysis</p>
+                    <p className="text-muted-foreground leading-relaxed text-lg">
+                      While serving in the U.S. Air Force and later at Boeing, I began noticing a recurring issue: 
+                      the systems we relied on often didn't align with how people actually worked. Rather than accept 
+                      the status quo, I took action by learning automation, programming, and systems analysis.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
 
+          {/* Two Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left Column - Journey Steps */}
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold mb-6 text-primary">Journey Steps</h3>
+              
               {/* Leadership Recognition */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg"
               >
-                <Card className="bg-background border border-border/50 shadow-sm">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Trophy className="w-6 h-6 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold mb-2">Leadership Recognition</h3>
-                        <p className="text-sm text-muted-foreground mb-3">Process Innovation</p>
-                        <p className="text-muted-foreground leading-relaxed">
-                          My superiors began assigning me to different teams specifically to assess, modernize, 
-                          and automate their core systems. Through this work, I uncovered a deeper problem: 
-                          users couldn't clearly express their needs in technical terms.
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Trophy className="w-5 h-5 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold mb-1">Leadership Recognition</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Process Innovation</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    My superiors began assigning me to different teams specifically to assess, modernize, 
+                    and automate their core systems.
+                  </p>
+                </div>
               </motion.div>
 
               {/* Formal Pursuit */}
@@ -885,47 +882,42 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg"
               >
-                <Card className="bg-background border border-border/50 shadow-sm">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <GraduationCap className="w-6 h-6 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold mb-2">Formal Pursuit</h3>
-                        <p className="text-sm text-muted-foreground mb-3">UX Education & Certification</p>
-                        <p className="text-muted-foreground leading-relaxed mb-4">
-                          This realization led me to formally pursue User Research and Experience Design. 
-                          I earned certifications, refined my design practice, and expanded into full stack 
-                          development — fully stepping into the role of a translator between users and developers.
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          <Badge variant="outline" className="border-primary/30 text-primary bg-primary/5">
-                            Google UX Design
-                          </Badge>
-                          <Badge variant="outline" className="border-primary/30 text-primary bg-primary/5">
-                            Google UX Research & Test Early Designs
-                          </Badge>
-                          <Badge variant="outline" className="border-accent/30 text-accent bg-accent/5">
-                            IBM DevOps, Cloud and Agile Foundations
-                          </Badge>
-                          <Badge variant="outline" className="border-accent/30 text-accent bg-accent/5">
-                            Google Prompting Essentials
-                          </Badge>
-                          <Badge variant="outline" className="border-primary/30 text-primary bg-primary/5">
-                            Agile Development & Scrum
-                          </Badge>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <GraduationCap className="w-5 h-5 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold mb-1">Formal Pursuit</h4>
+                  <p className="text-sm text-muted-foreground mb-2">UX Education & Certification</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                    This realization led me to formally pursue User Research and Experience Design.
+                  </p>
+                  <div className="flex flex-wrap gap-1">
+                    <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                      Google UX Design
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                      Google UX Research & Test Early Designs
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
+                      IBM DevOps, Cloud and Agile Foundations
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
+                      Google Prompting Essentials
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                      Agile Development & Scrum
+                    </Badge>
+                  </div>
+                </div>
               </motion.div>
             </div>
 
-            {/* Right Column - Action Cards */}
-            <div className="lg:col-span-2 space-y-6">
+            {/* Right Column - Insight Cards */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold mb-6 text-accent">Key Insights</h3>
+              
               {/* Taking Action */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
@@ -954,7 +946,7 @@ const Home = () => {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
               >
                 <Card className="bg-background border border-accent/30 shadow-sm">
                   <CardContent className="p-6">
@@ -972,59 +964,57 @@ const Home = () => {
                   </CardContent>
                 </Card>
               </motion.div>
+
+              {/* Today's Mission */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <Card className="bg-background border border-primary/30 shadow-sm">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
+                        <Rocket className="w-4 h-4 text-primary" />
+                      </div>
+                      <h4 className="font-semibold text-primary">Today's Mission</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      I create research-driven, human-centered solutions that help teams build the right 
+                      products — the first time. My military background brings systematic rigor to UX research, 
+                      while my technical skills ensure feasible, implementable solutions.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </div>
           </div>
 
-          {/* Bottom Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
-            {/* The Realization */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <Card className="bg-background border border-border/50 shadow-sm h-full">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center">
-                      <Lightbulb className="w-4 h-4 text-secondary" />
-                    </div>
-                    <h4 className="font-semibold">The Realization</h4>
+          {/* Full-width bottom insight card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-12"
+          >
+            <Card className="bg-background border border-border/50 shadow-sm">
+              <CardContent className="p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center">
+                    <Lightbulb className="w-6 h-6 text-secondary" />
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    The key insight was that successful technology solutions required someone who could 
-                    understand both worlds — the technical possibilities and the human reality. This led 
-                    me to pursue formal UX education and begin my transition into user research.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Today's Mission */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <Card className="bg-background border border-border/50 shadow-sm h-full">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
-                      <Rocket className="w-4 h-4 text-primary" />
-                    </div>
-                    <h4 className="font-semibold">Today's Mission</h4>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    I create research-driven, human-centered solutions that help teams build the right 
-                    products — the first time. My military background brings systematic rigor to UX research, 
-                    while my technical skills ensure feasible, implementable solutions.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
+                  <h4 className="text-xl font-semibold">The Realization</h4>
+                </div>
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  The key insight was that successful technology solutions required someone who could 
+                  understand both worlds — the technical possibilities and the human reality. This led 
+                  me to pursue formal UX education and begin my transition into user research.
+                </p>
+              </CardContent>
+            </Card>
+          </motion.div>
 
           {/* Quote Section */}
           <motion.div
