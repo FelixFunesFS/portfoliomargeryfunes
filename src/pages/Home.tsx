@@ -773,7 +773,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                 }} className="relative">
                     {/* Timeline node */}
                     <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
-                      <Eye className="w-4 h-4 text-primary" />
+                      <Eye className="w-5 h-5 text-primary" />
                     </div>
                     {/* Content */}
                     <div className="pl-6">
@@ -804,7 +804,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                 }} className="relative">
                     {/* Timeline node */}
                     <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
-                      <Zap className="w-4 h-4 text-primary" />
+                      <Zap className="w-5 h-5 text-primary" />
                     </div>
                     {/* Content */}
                     <div className="pl-6">
@@ -835,7 +835,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                 }} className="relative">
                     {/* Timeline node */}
                     <div className="absolute -left-4 top-2 w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center border-2 border-accent/30">
-                      <Trophy className="w-4 h-4 text-accent" />
+                      <Trophy className="w-5 h-5 text-accent" />
                     </div>
                     {/* Content */}
                     <div className="pl-6">
@@ -869,7 +869,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                 }} className="relative">
                     {/* Timeline node */}
                     <div className="absolute -left-4 top-2 w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center border-2 border-accent/30">
-                      <Target className="w-4 h-4 text-accent" />
+                      <Target className="w-5 h-5 text-accent" />
                     </div>
                     {/* Content */}
                     <div className="pl-6">
@@ -900,7 +900,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                 }} className="relative">
                     {/* Timeline node */}
                     <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
-                      <GraduationCap className="w-4 h-4 text-primary" />
+                      <GraduationCap className="w-5 h-5 text-primary" />
                     </div>
                     {/* Content */}
                     <div className="pl-6">
