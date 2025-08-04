@@ -47,6 +47,7 @@ const DesignProcess = () => {
       phase: "05",
       title: "Implementation & Launch",
       description: "Supporting development teams with technical expertise and quality assurance",
+      keyQuestion: "How do we ensure the solution is technically sound, scalable, and ready for real-world use?",
       deliverables: ["Development Support", "Quality Assurance", "Launch Strategy", "Training Materials"],
       color: "bg-primary/10 text-primary"
     },
@@ -55,6 +56,7 @@ const DesignProcess = () => {
       phase: "06",
       title: "Iteration & Optimization",
       description: "Continuous improvement based on real user data and performance metrics",
+      keyQuestion: "What feedback and data are telling us post-launch? How can we improve performance and user satisfaction?",
       deliverables: ["Analytics Review", "User Feedback Integration", "Performance Optimization", "Feature Enhancement"],
       color: "bg-accent/10 text-accent"
     }
