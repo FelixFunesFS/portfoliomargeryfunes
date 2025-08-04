@@ -895,11 +895,28 @@ const Home = () => {
                       <div className="flex-1">
                         <h3 className="text-xl font-semibold mb-2">Formal Pursuit</h3>
                         <p className="text-sm text-muted-foreground mb-3">UX Education & Certification</p>
-                        <p className="text-muted-foreground leading-relaxed">
+                        <p className="text-muted-foreground leading-relaxed mb-4">
                           This realization led me to formally pursue User Research and Experience Design. 
                           I earned certifications, refined my design practice, and expanded into full stack 
                           development — fully stepping into the role of a translator between users and developers.
                         </p>
+                        <div className="flex flex-wrap gap-2">
+                          <Badge variant="outline" className="border-primary/30 text-primary bg-primary/5">
+                            Google UX Design
+                          </Badge>
+                          <Badge variant="outline" className="border-primary/30 text-primary bg-primary/5">
+                            Google UX Research & Test Early Designs
+                          </Badge>
+                          <Badge variant="outline" className="border-accent/30 text-accent bg-accent/5">
+                            IBM DevOps, Cloud and Agile Foundations
+                          </Badge>
+                          <Badge variant="outline" className="border-accent/30 text-accent bg-accent/5">
+                            Google Prompting Essentials
+                          </Badge>
+                          <Badge variant="outline" className="border-primary/30 text-primary bg-primary/5">
+                            Agile Development & Scrum
+                          </Badge>
+                        </div>
                       </div>
                     </div>
                   </CardContent>
