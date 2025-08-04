@@ -898,26 +898,9 @@ Rather than accept the status quo, I took action. I began learning automation, p
                       User Research & Experience Design
                     </Badge>
                   </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     Earned certifications, refined design practice, and expanded into full stack development.
                   </p>
-                  <div className="flex flex-wrap gap-1">
-                    <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
-                      Google UX Design
-                    </Badge>
-                    <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
-                      Google UX Research & Test Early Designs
-                    </Badge>
-                    <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
-                      IBM DevOps, Cloud and Agile Foundations
-                    </Badge>
-                    <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
-                      Google Prompting Essentials
-                    </Badge>
-                    <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
-                      Agile Development & Scrum
-                    </Badge>
-                  </div>
                 </div>
               </motion.div>
             </div>
@@ -980,11 +963,28 @@ Rather than accept the status quo, I took action. I began learning automation, p
                       </div>
                       <h4 className="font-semibold text-primary">Today's Mission</h4>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                       I create research-driven, human-centered solutions that help teams build the right 
                       products — the first time. My military background brings systematic rigor to UX research, 
                       while my technical skills ensure feasible, implementable solutions.
                     </p>
+                    <div className="flex flex-wrap gap-1">
+                      <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                        Google UX Design
+                      </Badge>
+                      <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                        Google UX Research & Test Early Designs
+                      </Badge>
+                      <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
+                        IBM DevOps, Cloud and Agile Foundations
+                      </Badge>
+                      <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
+                        Google Prompting Essentials
+                      </Badge>
+                      <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                        Agile Development & Scrum
+                      </Badge>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
