@@ -846,7 +846,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                         </Badge>
                       </p>
                       <p className="text-base text-muted-foreground leading-relaxed">
-                        Rotated into new roles every six months to assess, modernize, and automate core systems.
+                        Recognizing the value of my technical skills and user perspective, they began rotating me into new roles every six months — not to fill gaps, but to improve them. Each rotation became an opportunity to assess, modernize, and automate core systems. Once every area had been optimized, I helped establish documentation and continuous improvement processes to ensure sustainable progress.
                       </p>
                       <div className="mt-2 bg-accent/10 p-3 rounded-lg border-l-4 border-accent">
                         <p className="text-xs text-primary font-medium leading-relaxed italic">
