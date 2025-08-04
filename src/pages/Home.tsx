@@ -759,7 +759,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
             <div className="space-y-4">
               <h3 className="text-xl font-semibold mb-6 text-primary">Journey Steps</h3>
               
-              {/* Taking Action */}
+              {/* Identifying the Problem */}
               <motion.div initial={{
               opacity: 0,
               y: 20
@@ -773,14 +773,17 @@ Rather than accept the status quo, I took action. I began learning automation, p
               delay: 0.1
             }} className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Zap className="w-5 h-5 text-primary" />
+                  <Eye className="w-5 h-5 text-primary" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-semibold mb-1">Taking Action</h4>
-                  <p className="text-sm text-muted-foreground mb-2">Proactive Problem Solving</p>
+                  <h4 className="font-semibold mb-1">Identifying the Problem</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                      U.S. Air Force & Boeing
+                    </Badge>
+                  </p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Rather than just observe problems, I actively learned programming, automation, 
-                    and systems analysis to bridge the gap between user needs and technical solutions.
+                    Noticed systems didn't align with how people actually worked. Applications were clunky, workflows inefficient.
                   </p>
                 </div>
               </motion.div>
@@ -803,10 +806,42 @@ Rather than accept the status quo, I took action. I began learning automation, p
                 </div>
                 <div className="flex-1">
                   <h4 className="font-semibold mb-1">Leadership Recognition</h4>
-                  <p className="text-sm text-muted-foreground mb-2">Process Innovation</p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
+                      Continuous Improvement
+                    </Badge>
+                  </p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    My superiors began assigning me to different teams specifically to assess, modernize, 
-                    and automate their core systems.
+                    Rotated into new roles every six months to assess, modernize, and automate core systems.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Taking Action */}
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6,
+              delay: 0.3
+            }} className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg">
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Zap className="w-5 h-5 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold mb-1">Taking Action</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                      Learning & Building
+                    </Badge>
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Began learning automation, programming, and systems analysis to improve processes and bridge the user-technology gap.
                   </p>
                 </div>
               </motion.div>
@@ -822,17 +857,20 @@ Rather than accept the status quo, I took action. I began learning automation, p
               once: true
             }} transition={{
               duration: 0.6,
-              delay: 0.3
+              delay: 0.4
             }} className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg">
                 <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Target className="w-5 h-5 text-accent" />
                 </div>
                 <div className="flex-1">
                   <h4 className="font-semibold mb-1">The Real Problem</h4>
-                  <p className="text-sm text-muted-foreground mb-2">Communication & Alignment</p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
+                      Communication & Alignment
+                    </Badge>
+                  </p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    It wasn't a people problem — it was a communication and alignment problem. 
-                    Most users couldn't clearly express their needs in technical terms.
+                    Discovered the gap between users who couldn't express technical needs and developers lacking operational context.
                   </p>
                 </div>
               </motion.div>
@@ -848,16 +886,20 @@ Rather than accept the status quo, I took action. I began learning automation, p
               once: true
             }} transition={{
               duration: 0.6,
-              delay: 0.4
+              delay: 0.5
             }} className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <GraduationCap className="w-5 h-5 text-primary" />
                 </div>
                 <div className="flex-1">
                   <h4 className="font-semibold mb-1">Formal Pursuit</h4>
-                  <p className="text-sm text-muted-foreground mb-2">UX Education & Certification</p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                      User Research & Experience Design
+                    </Badge>
+                  </p>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                    This realization led me to formally pursue User Research and Experience Design.
+                    Earned certifications, refined design practice, and expanded into full stack development.
                   </p>
                   <div className="flex flex-wrap gap-1">
                     <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
