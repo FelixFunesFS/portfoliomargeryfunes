@@ -737,18 +737,9 @@ const Home = () => {
         }} className="mb-12">
             <Card className="bg-background border border-border/50 shadow-sm">
               <CardContent className="p-8">
-                <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Shield className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-semibold mb-3">U.S. Air Force & Boeing</h3>
-                    <p className="text-sm text-muted-foreground mb-4">Military Systems Analysis</p>
-                    <p className="text-muted-foreground leading-relaxed text-lg">While serving in the U.S. Air Force and later at Boeing, I began noticing a recurring issue: the systems we relied on often didn't align with how people actually worked. Applications were clunky, workflows were inefficient, and users — myself included — were left adapting to tools that didn't fit their needs.
+                <p className="text-muted-foreground leading-relaxed text-lg">While serving in the U.S. Air Force and later at Boeing, I began noticing a recurring issue: the systems we relied on often didn't align with how people actually worked. Applications were clunky, workflows were inefficient, and users — myself included — were left adapting to tools that didn't fit their needs.
 
 Rather than accept the status quo, I took action. I began learning automation, programming, and systems analysis to improve the processes I worked within. I built tools, streamlined workflows, and started bridging the gap between users and the technology they depended on.</p>
-                  </div>
-                </div>
               </CardContent>
             </Card>
           </motion.div>
