@@ -760,17 +760,17 @@ Rather than accept the status quo, I took action. I began learning automation, p
                 <div className="space-y-3">
                   {/* Identifying the Problem */}
                   <motion.div initial={{
-                    opacity: 0,
-                    y: 20
-                  }} whileInView={{
-                    opacity: 1,
-                    y: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    duration: 0.6,
-                    delay: 0.1
-                  }} className="relative">
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  duration: 0.6,
+                  delay: 0.1
+                }} className="relative">
                     {/* Timeline node */}
                     <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
                       <Eye className="w-4 h-4 text-primary" />
@@ -783,7 +783,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                           U.S. Air Force & Boeing
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         Noticed systems didn't align with how people actually worked. Applications were clunky, workflows inefficient.
                       </p>
                     </div>
@@ -791,17 +791,17 @@ Rather than accept the status quo, I took action. I began learning automation, p
 
                   {/* Taking Action */}
                   <motion.div initial={{
-                    opacity: 0,
-                    y: 20
-                  }} whileInView={{
-                    opacity: 1,
-                    y: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    duration: 0.6,
-                    delay: 0.2
-                  }} className="relative">
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  duration: 0.6,
+                  delay: 0.2
+                }} className="relative">
                     {/* Timeline node */}
                     <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
                       <Zap className="w-4 h-4 text-primary" />
@@ -814,7 +814,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                           Learning & Building
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         Began learning automation, programming, and systems analysis to improve processes and bridge the user-technology gap.
                       </p>
                     </div>
@@ -822,17 +822,17 @@ Rather than accept the status quo, I took action. I began learning automation, p
 
                   {/* Leadership Recognition */}
                   <motion.div initial={{
-                    opacity: 0,
-                    y: 20
-                  }} whileInView={{
-                    opacity: 1,
-                    y: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    duration: 0.6,
-                    delay: 0.3
-                  }} className="relative">
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  duration: 0.6,
+                  delay: 0.3
+                }} className="relative">
                     {/* Timeline node */}
                     <div className="absolute -left-4 top-2 w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center border-2 border-accent/30">
                       <Trophy className="w-4 h-4 text-accent" />
@@ -845,11 +845,9 @@ Rather than accept the status quo, I took action. I began learning automation, p
                           Continuous Improvement
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
-                        Recognizing the value of my technical skills and user perspective, they began rotating me into new roles every six months — not to fill gaps, but to improve them. Each rotation became an opportunity to assess, modernize, and automate core systems. Once every area had been optimized, I helped establish documentation and continuous improvement processes to ensure sustainable progress.
-                      </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">Recognizing the value of my technical skills and user perspective, they began rotating me into new roles every six months — not to fill gaps, but to improve them. Each rotation became an opportunity to assess, modernize, and automate core systems. Once every area had been optimized, I helped establish documentation for user manuals and continuous improvement processes to ensure sustainable progress.</p>
                       <div className="mt-2 bg-accent/10 p-3 rounded-lg border-l-4 border-accent">
-                        <p className="text-base text-primary font-medium leading-relaxed italic">
+                        <p className="text-xs text-primary font-medium leading-relaxed italic">
                           "Known for making the seemingly impossible impossible!"
                         </p>
                       </div>
@@ -858,17 +856,17 @@ Rather than accept the status quo, I took action. I began learning automation, p
 
                   {/* The Real Problem */}
                   <motion.div initial={{
-                    opacity: 0,
-                    y: 20
-                  }} whileInView={{
-                    opacity: 1,
-                    y: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    duration: 0.6,
-                    delay: 0.4
-                  }} className="relative">
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  duration: 0.6,
+                  delay: 0.4
+                }} className="relative">
                     {/* Timeline node */}
                     <div className="absolute -left-4 top-2 w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center border-2 border-accent/30">
                       <Target className="w-4 h-4 text-accent" />
@@ -881,7 +879,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                           Communication & Alignment
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         Discovered the gap between users who couldn't express technical needs and developers lacking operational context.
                       </p>
                     </div>
@@ -889,17 +887,17 @@ Rather than accept the status quo, I took action. I began learning automation, p
 
                   {/* Formal Pursuit */}
                   <motion.div initial={{
-                    opacity: 0,
-                    y: 20
-                  }} whileInView={{
-                    opacity: 1,
-                    y: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    duration: 0.6,
-                    delay: 0.5
-                  }} className="relative">
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  duration: 0.6,
+                  delay: 0.5
+                }} className="relative">
                     {/* Timeline node */}
                     <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
                       <GraduationCap className="w-4 h-4 text-primary" />
@@ -912,7 +910,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                           User Research & Experience Design
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         Earned certifications, refined design practice, and expanded into full stack development.
                       </p>
                     </div>
@@ -1419,7 +1417,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                     </div>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <p className="text-base text-muted-foreground leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       The key insight was that successful technology solutions required someone who could understand both worlds — the technical possibilities and the human reality. Most users couldn't clearly express their needs in technical terms, and development teams didn't always have access to the full context of daily operations.
                     </p>
                     <div className="bg-accent/10 p-4 rounded-lg border-l-4 border-accent mb-4">
