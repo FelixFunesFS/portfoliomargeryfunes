@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { 
   Shield, 
   GitBranch, 
@@ -12,11 +11,11 @@ import {
   Database,
   Users,
   CheckCircle,
-  ChevronDown,
-  ChevronRight,
   Target,
   Lightbulb,
-  Wrench
+  Wrench,
+  ArrowDown,
+  Play
 } from 'lucide-react';
 
 interface JourneyPhase {
@@ -80,252 +79,360 @@ const journeyPhases: JourneyPhase[] = [
 ];
 
 export default function InteractiveJourney() {
-  const [expandedPhase, setExpandedPhase] = useState<string | null>(null);
   const [activePhase, setActivePhase] = useState<string>('military');
+  const [hoveredPhase, setHoveredPhase] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'overview' | 'detailed'>('overview');
+  const [detailPhase, setDetailPhase] = useState<string | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-  const togglePhase = (phaseId: string) => {
-    setExpandedPhase(expandedPhase === phaseId ? null : phaseId);
+  const handlePhaseClick = (phaseId: string) => {
+    setActivePhase(phaseId);
+    if (viewMode === 'overview') {
+      setDetailPhase(phaseId);
+      setViewMode('detailed');
+    } else if (detailPhase === phaseId) {
+      setViewMode('overview');
+      setDetailPhase(null);
+    } else {
+      setDetailPhase(phaseId);
+    }
+  };
+
+  const scrollToPhase = (phaseId: string) => {
+    setActivePhase(phaseId);
+    const element = document.getElementById(`phase-${phaseId}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   };
 
   return (
-    <section className="section bg-gradient-to-br from-background via-background/95 to-military-primary/5 relative overflow-hidden">
-      <div className="container-custom">
+    <section ref={sectionRef} className="py-16 lg:py-24 bg-gradient-to-br from-background via-background/95 to-military-primary/5 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 lg:mb-16"
         >
           <Badge variant="outline" className="mb-4 border-military-primary text-military-primary backdrop-blur-sm bg-background/50">
             Evolution
           </Badge>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-6">
             My Journey to <span className="text-gradient bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary bg-clip-text text-transparent">User-Centered Design</span>
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-4 sm:px-0">
+          <p className="text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto">
             From military systems to enterprise solutions to user experience research — each phase has built 
             the unique perspective I bring to solving complex problems.
           </p>
         </motion.div>
 
-        {/* Interactive Timeline */}
-        <div className="relative">
-          {/* Progress Line */}
-          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary transform -translate-y-1/2 z-0 hidden md:block opacity-60"></div>
-          
-          {/* Progress Dots */}
-          <div className="absolute top-1/2 left-0 w-full transform -translate-y-1/2 z-10 hidden md:flex justify-between px-8">
-            {journeyPhases.map((phase, index) => (
-              <button
-                key={phase.id}
-                onClick={() => setActivePhase(phase.id)}
-                className={`w-4 h-4 rounded-full border-2 transition-all duration-300 hover:scale-125 ${
-                  activePhase === phase.id 
-                    ? `bg-${phase.color.split('-')[1]}-primary border-${phase.color.split('-')[1]}-primary` 
-                    : 'bg-background border-muted-foreground/30 hover:border-muted-foreground/60'
-                }`}
-                aria-label={`Jump to ${phase.title}`}
-              />
-            ))}
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 relative z-20">
+        {/* Enhanced Timeline Navigation */}
+        <div className="hidden lg:flex justify-center mb-8">
+          <div className="flex items-center space-x-8 bg-card/60 backdrop-blur-sm rounded-full p-2 border">
             {journeyPhases.map((phase, index) => {
               const Icon = phase.icon;
-              const isExpanded = expandedPhase === phase.id;
+              const isActive = activePhase === phase.id;
+              
+              return (
+                <motion.button
+                  key={phase.id}
+                  onClick={() => scrollToPhase(phase.id)}
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 ${
+                    isActive 
+                      ? `bg-gradient-to-r ${phase.bgColor} ${phase.color} shadow-lg scale-105` 
+                      : 'hover:bg-muted text-muted-foreground hover:text-foreground'
+                  }`}
+                  whileHover={{ scale: isActive ? 1.05 : 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Icon className="w-4 h-4" />
+                  <span className="text-sm font-medium hidden xl:block">{phase.title}</span>
+                </motion.button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Optimized Desktop Layout */}
+        <div className="relative">
+          {/* Background Progress Line */}
+          <div className="absolute top-24 left-0 w-full h-0.5 bg-gradient-to-r from-military-primary/20 via-systems-blue/20 to-agile-primary/20 hidden lg:block"></div>
+          <motion.div
+            className="absolute top-24 left-0 h-0.5 bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary hidden lg:block"
+            initial={{ width: 0 }}
+            animate={{ 
+              width: activePhase === 'military' ? '33%' : activePhase === 'enterprise' ? '66%' : '100%' 
+            }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          />
+
+          {/* Asymmetrical Grid Layout */}
+          <div className="space-y-8 lg:space-y-16">
+            {journeyPhases.map((phase, index) => {
+              const Icon = phase.icon;
+              const isActive = activePhase === phase.id;
+              const isDetailed = detailPhase === phase.id && viewMode === 'detailed';
+              const isRight = index % 2 === 1;
               
               return (
                 <motion.div
                   key={phase.id}
-                  initial={{ opacity: 0, x: index === 0 ? -50 : index === 2 ? 50 : 0, y: index === 1 ? 50 : 0 }}
-                  whileInView={{ opacity: 1, x: 0, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 * (index + 1), duration: 0.6 }}
-                  className="text-center"
-                  whileHover={{ y: -5 }}
+                  id={`phase-${phase.id}`}
+                  initial={{ opacity: 0, x: isRight ? 100 : -100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ delay: 0.2 * index, duration: 0.8 }}
+                  className={`relative ${isRight ? 'lg:ml-auto lg:max-w-5xl' : 'lg:mr-auto lg:max-w-5xl'}`}
+                  onMouseEnter={() => setHoveredPhase(phase.id)}
+                  onMouseLeave={() => setHoveredPhase(null)}
                 >
-                  <Collapsible open={isExpanded} onOpenChange={() => togglePhase(phase.id)}>
-                    <Card className={`glass ${phase.borderColor} shadow-systems hover:shadow-${phase.color.split('-')[1]}-primary/30 transition-all duration-300 cursor-pointer`}>
-                      <CollapsibleTrigger asChild>
-                        <CardContent className="p-6 sm:p-8">
-                          <div className={`w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full ${phase.bgColor} flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                            <Icon className={`w-8 h-8 sm:w-10 sm:h-10 ${phase.color}`} />
-                          </div>
-                          <h3 className={`text-xl sm:text-2xl font-bold ${phase.color} mb-3 sm:mb-4`}>
-                            {phase.title}
-                          </h3>
-                          <p className="text-muted-foreground mb-6">
-                            {phase.subtitle}
-                          </p>
-                          <div className="space-y-2 mb-4">
-                            {phase.skills.map((skill, skillIndex) => (
-                              <Badge 
-                                key={skillIndex}
-                                variant="outline" 
-                                className={`${phase.borderColor} ${phase.color} mr-2 mb-2 hover:bg-${phase.color.split('-')[1]}-primary/10 transition-colors`}
-                              >
-                                {skill}
-                              </Badge>
-                            ))}
-                          </div>
-                          <div className={`flex items-center justify-center ${phase.color} text-sm font-medium`}>
-                            {isExpanded ? (
-                              <>
-                                <ChevronDown className="w-4 h-4 mr-1" />
-                                Show Less
-                              </>
-                            ) : (
-                              <>
-                                <ChevronRight className="w-4 h-4 mr-1" />
-                                Learn More
-                              </>
-                            )}
-                          </div>
-                        </CardContent>
-                      </CollapsibleTrigger>
-                      
-                      <CollapsibleContent>
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="px-6 sm:px-8 pb-6 sm:pb-8"
-                        >
-                          <Separator className="mb-6" />
-                          
-                          <div className="space-y-6 text-left">
-                            <div>
-                              <h4 className={`font-semibold ${phase.color} mb-2 flex items-center`}>
-                                <Target className="w-4 h-4 mr-2" />
-                                Challenge
-                              </h4>
-                              <p className="text-muted-foreground text-sm">
-                                {phase.challenge}
-                              </p>
-                            </div>
+                  {/* Timeline Dot */}
+                  <motion.div
+                    className={`hidden lg:block absolute top-6 w-6 h-6 rounded-full border-4 border-background shadow-lg z-10 ${
+                      isRight ? '-left-3' : '-right-3'
+                    } ${phase.bgColor}`}
+                    animate={{
+                      scale: isActive ? 1.3 : hoveredPhase === phase.id ? 1.1 : 1,
+                      boxShadow: isActive ? `0 0 20px ${phase.color.replace('text-', '')}` : '0 4px 8px rgba(0,0,0,0.1)'
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Icon className={`w-3 h-3 ${phase.color} absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`} />
+                  </motion.div>
+
+                  <motion.div
+                    layout
+                    className={`grid gap-6 ${
+                      isDetailed 
+                        ? 'lg:grid-cols-5' 
+                        : isRight 
+                          ? 'lg:grid-cols-3 lg:text-right' 
+                          : 'lg:grid-cols-3'
+                    }`}
+                    animate={{
+                      scale: isActive ? 1.02 : 1,
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {/* Main Phase Card */}
+                    <motion.div 
+                      className={`${
+                        isDetailed 
+                          ? 'lg:col-span-2' 
+                          : isRight 
+                            ? 'lg:col-span-2 lg:order-2' 
+                            : 'lg:col-span-2'
+                      }`}
+                      whileHover={{ y: -4 }}
+                    >
+                      <Card 
+                        className={`${phase.borderColor} bg-card/60 backdrop-blur-sm hover:bg-card/80 transition-all duration-300 cursor-pointer group ${
+                          isActive ? 'ring-2 ring-primary/20 shadow-2xl' : 'hover:shadow-xl'
+                        }`}
+                        onClick={() => handlePhaseClick(phase.id)}
+                      >
+                        <CardContent className="p-6 lg:p-8">
+                          <div className="flex items-start space-x-4">
+                            <motion.div 
+                              className={`w-16 h-16 rounded-full ${phase.bgColor} flex items-center justify-center flex-shrink-0`}
+                              whileHover={{ rotate: 5, scale: 1.05 }}
+                            >
+                              <Icon className={`w-8 h-8 ${phase.color}`} />
+                            </motion.div>
                             
-                            <div>
-                              <h4 className={`font-semibold ${phase.color} mb-2 flex items-center`}>
-                                <Wrench className="w-4 h-4 mr-2" />
-                                Solution
-                              </h4>
-                              <p className="text-muted-foreground text-sm">
-                                {phase.solution}
+                            <div className="flex-1 min-w-0">
+                              <h3 className={`text-2xl font-bold ${phase.color} mb-2`}>
+                                {phase.title}
+                              </h3>
+                              <p className="text-muted-foreground mb-4 leading-relaxed">
+                                {phase.subtitle}
                               </p>
-                            </div>
-                            
-                            <div>
-                              <h4 className={`font-semibold ${phase.color} mb-2 flex items-center`}>
-                                <Lightbulb className="w-4 h-4 mr-2" />
-                                Key Insight
-                              </h4>
-                              <p className="text-muted-foreground text-sm italic">
-                                "{phase.keyInsight}"
-                              </p>
-                            </div>
-                            
-                            <div>
-                              <h4 className={`font-semibold ${phase.color} mb-3`}>
-                                Tools & Methods
-                              </h4>
-                              <div className="flex flex-wrap gap-2">
-                                {phase.tools.map((tool, toolIndex) => (
+                              
+                              <div className="flex flex-wrap gap-2 mb-4">
+                                {phase.skills.map((skill, skillIndex) => (
                                   <Badge 
-                                    key={toolIndex}
-                                    variant="secondary" 
-                                    className="text-xs"
+                                    key={skillIndex}
+                                    variant="outline" 
+                                    className={`${phase.borderColor} ${phase.color} hover:bg-primary/10 transition-colors`}
                                   >
-                                    {tool}
+                                    {skill}
                                   </Badge>
                                 ))}
                               </div>
+                              
+                              <motion.button
+                                className={`flex items-center space-x-2 ${phase.color} text-sm font-medium group-hover:underline`}
+                                whileHover={{ x: 4 }}
+                              >
+                                <Play className="w-4 h-4" />
+                                <span>{isDetailed ? 'Show Overview' : 'Explore Details'}</span>
+                              </motion.button>
                             </div>
                           </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+
+                    {/* Phase Number */}
+                    <motion.div 
+                      className={`hidden lg:flex items-center justify-center ${
+                        isDetailed ? 'lg:col-span-1' : isRight ? 'lg:order-1' : ''
+                      }`}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.4 + index * 0.1 }}
+                    >
+                      <div className={`w-20 h-20 rounded-full ${phase.bgColor} flex items-center justify-center border-2 ${phase.borderColor}`}>
+                        <span className={`text-3xl font-bold ${phase.color}`}>
+                          {(index + 1).toString().padStart(2, '0')}
+                        </span>
+                      </div>
+                    </motion.div>
+
+                    {/* Detailed View Panel */}
+                    <AnimatePresence>
+                      {isDetailed && (
+                        <motion.div
+                          initial={{ opacity: 0, x: 50, scale: 0.9 }}
+                          animate={{ opacity: 1, x: 0, scale: 1 }}
+                          exit={{ opacity: 0, x: 50, scale: 0.9 }}
+                          transition={{ duration: 0.5 }}
+                          className="lg:col-span-2"
+                        >
+                          <Card className="bg-muted/50 backdrop-blur-sm border-muted">
+                            <CardContent className="p-6 space-y-6">
+                              <div>
+                                <h4 className={`font-semibold ${phase.color} mb-2 flex items-center`}>
+                                  <Target className="w-4 h-4 mr-2" />
+                                  Challenge
+                                </h4>
+                                <p className="text-muted-foreground">
+                                  {phase.challenge}
+                                </p>
+                              </div>
+                              
+                              <div>
+                                <h4 className={`font-semibold ${phase.color} mb-2 flex items-center`}>
+                                  <Wrench className="w-4 h-4 mr-2" />
+                                  Solution
+                                </h4>
+                                <p className="text-muted-foreground">
+                                  {phase.solution}
+                                </p>
+                              </div>
+                              
+                              <div>
+                                <h4 className={`font-semibold ${phase.color} mb-2 flex items-center`}>
+                                  <Lightbulb className="w-4 h-4 mr-2" />
+                                  Key Insight
+                                </h4>
+                                <p className="text-muted-foreground italic">
+                                  "{phase.keyInsight}"
+                                </p>
+                              </div>
+                              
+                              <div>
+                                <h4 className={`font-semibold ${phase.color} mb-3`}>
+                                  Tools & Methods
+                                </h4>
+                                <div className="flex flex-wrap gap-2">
+                                  {phase.tools.map((tool, toolIndex) => (
+                                    <Badge 
+                                      key={toolIndex}
+                                      variant="secondary" 
+                                      className="text-xs"
+                                    >
+                                      {tool}
+                                    </Badge>
+                                  ))}
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
                         </motion.div>
-                      </CollapsibleContent>
-                    </Card>
-                  </Collapsible>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
                 </motion.div>
               );
             })}
           </div>
         </div>
 
-        {/* Value Proposition */}
+        {/* Compact Value Proposition */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-16 max-w-5xl mx-auto"
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="mt-16 lg:mt-20"
         >
-          <Card className="glass border-accent/20 shadow-accent">
-            <CardContent className="p-6 sm:p-8 lg:p-12">
-              <div className="text-center mb-6 sm:mb-8">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-3 sm:mb-4">
-                  <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
+          <Card className="bg-gradient-to-r from-military-primary/5 via-systems-blue/5 to-agile-primary/5 border-primary/10 backdrop-blur-sm">
+            <CardContent className="p-8 lg:p-10">
+              <div className="text-center mb-8">
+                <motion.div 
+                  className="w-16 h-16 mx-auto rounded-full bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary flex items-center justify-center mb-4"
+                  whileHover={{ rotate: 180, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <TrendingUp className="w-8 h-8 text-background" />
+                </motion.div>
+                <h3 className="text-3xl font-bold text-foreground mb-4">
                   The Bridge Effect
                 </h3>
-                <p className="text-base sm:text-lg text-muted-foreground">
-                  Where technical expertise meets human understanding
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Where technical expertise meets human understanding — creating solutions that are both powerful and accessible.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                <div>
-                  <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center">
-                    <Database className="w-5 h-5 text-systems-blue mr-2" />
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <motion.div 
+                  className="text-center"
+                  whileHover={{ y: -4 }}
+                >
+                  <Database className="w-12 h-12 text-systems-blue mx-auto mb-4" />
+                  <h4 className="text-xl font-semibold text-foreground mb-3">
                     Technical Translation
                   </h4>
-                  <ul className="space-y-3 text-muted-foreground">
-                    <li className="flex items-start">
-                      <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
-                      <span>Convert complex technical requirements into user-friendly solutions</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
-                      <span>Bridge communication gaps between developers and end users</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
-                      <span>Ensure technical solutions align with business objectives</span>
-                    </li>
-                  </ul>
-                </div>
+                  <p className="text-muted-foreground">
+                    Convert complex requirements into user-friendly solutions that align with business objectives.
+                  </p>
+                </motion.div>
 
-                <div>
-                  <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center">
-                    <Users className="w-5 h-5 text-agile-primary mr-2" />
+                <motion.div 
+                  className="text-center"
+                  whileHover={{ y: -4 }}
+                >
+                  <Users className="w-12 h-12 text-agile-primary mx-auto mb-4" />
+                  <h4 className="text-xl font-semibold text-foreground mb-3">
                     Human-Centered Impact
                   </h4>
-                  <ul className="space-y-3 text-muted-foreground">
-                    <li className="flex items-start">
-                      <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
-                      <span>Design with military precision but user empathy at the core</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
-                      <span>Create solutions that are both powerful and accessible</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
-                      <span>Deliver measurable results through systematic user research</span>
-                    </li>
-                  </ul>
-                </div>
+                  <p className="text-muted-foreground">
+                    Design with military precision while keeping user empathy and accessibility at the core.
+                  </p>
+                </motion.div>
+
+                <motion.div 
+                  className="text-center"
+                  whileHover={{ y: -4 }}
+                >
+                  <CheckCircle className="w-12 h-12 text-military-primary mx-auto mb-4" />
+                  <h4 className="text-xl font-semibold text-foreground mb-3">
+                    Measurable Results
+                  </h4>
+                  <p className="text-muted-foreground">
+                    Deliver solutions backed by systematic research and proven methodologies.
+                  </p>
+                </motion.div>
               </div>
 
               <Separator className="my-8" />
 
               <div className="text-center">
-                <p className="text-lg text-muted-foreground italic">
-                  "I don't just build systems or design interfaces — I create bridges between 
-                  complex technology and human needs, ensuring solutions are both technically 
-                  sound and genuinely useful."
+                <p className="text-xl text-muted-foreground italic max-w-4xl mx-auto">
+                  "I create bridges between complex technology and human needs, ensuring solutions are both technically sound and genuinely useful."
                 </p>
               </div>
             </CardContent>
