@@ -360,7 +360,7 @@ const Home = () => {
       features: ["Service Portfolios", "Staff Profiles", "Resource Center", "Contact Forms", "Accessibility Compliance"],
       tools: ["Webflow", "Custom CSS", "JavaScript", "Form Integrations", "CMS"],
       category: "youth-services",
-      icon: Home,
+      icon: HomeIcon,
       color: "blue-500",
       image: "photo-1483058712412-4245e9b90334",
       link: "https://placeholder.com/website/visionsofhope"
