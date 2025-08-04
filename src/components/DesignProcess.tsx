@@ -11,7 +11,7 @@ const DesignProcess = () => {
       phase: "01",
       title: "Research & Discovery",
       description: "Military-precision user research and stakeholder interviews to understand real operational needs",
-      keyQuestion: "Why are users struggling? What are their real needs vs. stated needs?",
+      keyQuestion: "Why are users struggling? What are their real needs vs. their stated needs?",
       deliverables: ["User Personas", "Journey Maps", "Requirements Analysis", "Competitive Research"],
       color: "bg-primary/10 text-primary"
     },
@@ -20,7 +20,7 @@ const DesignProcess = () => {
       phase: "02", 
       title: "Alignment & Strategy",
       description: "Bridging the communication gap between users and development teams through clear documentation",
-      keyQuestion: "What patterns emerge? How do user needs connect to business goals?",
+      keyQuestion: "What patterns are emerging, and how do user needs connect to business goals?",
       deliverables: ["Stakeholder Workshops", "Technical Specifications", "Success Metrics", "Project Roadmap"],
       color: "bg-accent/10 text-accent"
     },
@@ -29,7 +29,7 @@ const DesignProcess = () => {
       phase: "03",
       title: "Design & Prototyping", 
       description: "Creating intuitive interfaces with systems thinking and attention to detail",
-      keyQuestion: "Which solutions resonate? How do users actually interact with our ideas?",
+      keyQuestion: "Which solutions resonate, and how do users actually interact with our ideas?",
       deliverables: ["Wireframes", "High-Fidelity Prototypes", "Design Systems", "Interaction Models"],
       color: "bg-success/10 text-success"
     },
@@ -56,7 +56,7 @@ const DesignProcess = () => {
       phase: "06",
       title: "Iteration & Optimization",
       description: "Continuous improvement based on real user data and performance metrics",
-      keyQuestion: "What feedback and data are telling us post-launch? How can we improve performance and user satisfaction?",
+      keyQuestion: "What are feedback and data telling us post-launch? How can we improve performance and user satisfaction?",
       deliverables: ["Analytics Review", "User Feedback Integration", "Performance Optimization", "Feature Enhancement"],
       color: "bg-accent/10 text-accent"
     }
