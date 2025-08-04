@@ -855,6 +855,27 @@ const Home = () => {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold mb-6 text-primary">Journey Steps</h3>
               
+              {/* Taking Action */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg"
+              >
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Zap className="w-5 h-5 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold mb-1">Taking Action</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Proactive Problem Solving</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Rather than just observe problems, I actively learned programming, automation, 
+                    and systems analysis to bridge the gap between user needs and technical solutions.
+                  </p>
+                </div>
+              </motion.div>
+
               {/* Leadership Recognition */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -863,8 +884,8 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg"
               >
-                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Trophy className="w-5 h-5 text-primary" />
+                <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Trophy className="w-5 h-5 text-accent" />
                 </div>
                 <div className="flex-1">
                   <h4 className="font-semibold mb-1">Leadership Recognition</h4>
@@ -876,12 +897,33 @@ const Home = () => {
                 </div>
               </motion.div>
 
-              {/* Formal Pursuit */}
+              {/* The Real Problem */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg"
+              >
+                <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Target className="w-5 h-5 text-accent" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold mb-1">The Real Problem</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Communication & Alignment</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    It wasn't a people problem — it was a communication and alignment problem. 
+                    Most users couldn't clearly express their needs in technical terms.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Formal Pursuit */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
                 className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg"
               >
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -918,49 +960,30 @@ const Home = () => {
             <div className="space-y-6">
               <h3 className="text-xl font-semibold mb-6 text-accent">Key Insights</h3>
               
-              {/* Taking Action */}
+              {/* The Realization */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <Card className="bg-background border border-primary/30 shadow-sm">
+                <Card className="bg-background border border-secondary/30 shadow-sm">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
-                        <Zap className="w-4 h-4 text-primary" />
+                      <div className="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center">
+                        <Lightbulb className="w-4 h-4 text-secondary" />
                       </div>
-                      <h4 className="font-semibold text-primary">Taking Action</h4>
+                      <h4 className="font-semibold text-secondary">The Realization</h4>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Rather than just observe problems, I actively learned programming, automation, 
-                      and systems analysis to bridge the gap between user needs and technical solutions.
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      The key insight was that successful technology solutions required someone who could 
+                      understand both worlds — the technical possibilities and the human reality.
                     </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              {/* The Real Problem */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <Card className="bg-background border border-accent/30 shadow-sm">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 bg-accent/20 rounded-lg flex items-center justify-center">
-                        <Target className="w-4 h-4 text-accent" />
-                      </div>
-                      <h4 className="font-semibold text-accent">The Real Problem</h4>
+                    <div className="bg-secondary/10 p-3 rounded-lg">
+                      <p className="text-sm text-secondary font-medium leading-relaxed">
+                        This led me to pursue formal UX education and begin my transition into user research.
+                      </p>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      It wasn't a people problem — it was a communication and alignment problem. 
-                      Most users couldn't clearly express their needs in technical terms, and 
-                      development teams didn't have access to the full context of daily operations.
-                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -970,7 +993,7 @@ const Home = () => {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
               >
                 <Card className="bg-background border border-primary/30 shadow-sm">
                   <CardContent className="p-6">
@@ -991,30 +1014,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Full-width bottom insight card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-12"
-          >
-            <Card className="bg-background border border-border/50 shadow-sm">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center">
-                    <Lightbulb className="w-6 h-6 text-secondary" />
-                  </div>
-                  <h4 className="text-xl font-semibold">The Realization</h4>
-                </div>
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  The key insight was that successful technology solutions required someone who could 
-                  understand both worlds — the technical possibilities and the human reality. This led 
-                  me to pursue formal UX education and begin my transition into user research.
-                </p>
-              </CardContent>
-            </Card>
-          </motion.div>
 
           {/* Quote Section */}
           <motion.div
