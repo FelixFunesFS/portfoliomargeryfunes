@@ -722,8 +722,7 @@ const Home = () => {
               From Military Precision to <span className="text-gradient bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary bg-clip-text text-transparent">User-Centered Innovation</span>
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-4 sm:px-0">
-              My unique journey positions me as a translator between technical complexity and human needs, 
-              bridging the gap between military discipline, enterprise systems, and modern user experience.
+              From military precision to agile innovation — discovering the bridge between technology and human needs.
             </p>
           </motion.div>
 
