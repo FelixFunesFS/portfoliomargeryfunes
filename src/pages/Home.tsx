@@ -737,7 +737,8 @@ const Home = () => {
         }} className="mb-12">
             <Card className="bg-background border border-border/50 shadow-sm">
               <CardContent className="p-8">
-                <p className="text-muted-foreground leading-relaxed text-lg">While serving in the U.S. Air Force and later at Boeing, I began noticing a recurring issue: the systems we relied on often didn't align with how people actually worked. Applications were clunky, workflows were inefficient, and users — myself included — were left adapting to tools that didn't fit their needs.
+                <p className="text-muted-foreground leading-relaxed text-lg">While serving in the U.S. Air Force and later at Boeing, I began noticing a recurring issue: the systems we relied on often didn't align with how people actually worked. Applications were clunky, workflows were inefficient, and users — myself included — were left adapting to tools that didn't fit their needs. 
+
 
 Rather than accept the status quo, I took action. I began learning automation, programming, and systems analysis to improve the processes I worked within. I built tools, streamlined workflows, and started bridging the gap between users and the technology they depended on.</p>
               </CardContent>
