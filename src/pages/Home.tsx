@@ -1369,155 +1369,149 @@ const Home = () => {
             </p>
           </motion.div>
 
-          {/* Bridge Visual Hero */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="mb-16 relative overflow-hidden rounded-2xl"
-          >
-            <div className="relative h-64 sm:h-80 lg:h-96">
-              <img 
-                src={abstractNight} 
-                alt="Starry night representing vast possibilities and connections" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center max-w-2xl px-4">
-                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
-                  >
-                    <Badge variant="outline" className="mb-4 border-agile-primary text-agile-primary bg-background/50 backdrop-blur-sm">
-                      Bridging Infinite Possibilities
-                    </Badge>
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                      Connecting <span className="text-gradient bg-gradient-to-r from-systems-blue to-agile-primary bg-clip-text text-transparent">Complex Systems</span> with Human Needs
-                    </h3>
-                    <p className="text-sm sm:text-base text-muted-foreground">
-                      Every challenge is an opportunity to create meaningful connections between technology and users.
-                    </p>
-                  </motion.div>
+          {/* Journey Timeline & Insights Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
+            {/* Left Column: Milestone Timeline (60% on large screens) */}
+            <div className="lg:col-span-3">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative"
+              >
+                {/* Connecting Line */}
+                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-military-primary via-systems-blue to-agile-primary opacity-30 hidden sm:block"></div>
+                
+                <div className="space-y-8">
+                  {journeyMilestones.map((milestone, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.2, duration: 0.6 }}
+                      className="relative flex items-start gap-6"
+                    >
+                      {/* Icon Circle */}
+                      <div className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg ${
+                        index === 0 ? 'bg-military-primary/20 border-2 border-military-primary' :
+                        index === 1 ? 'bg-systems-blue/20 border-2 border-systems-blue' :
+                        'bg-agile-primary/20 border-2 border-agile-primary'
+                      }`}>
+                        <milestone.icon className={`w-6 h-6 ${
+                          index === 0 ? 'text-military-primary' :
+                          index === 1 ? 'text-systems-blue' :
+                          'text-agile-primary'
+                        }`} />
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-wrap items-center gap-2 mb-2">
+                          <Badge variant="outline" className={`text-xs ${
+                            index === 0 ? 'border-military-primary text-military-primary' :
+                            index === 1 ? 'border-systems-blue text-systems-blue' :
+                            'border-agile-primary text-agile-primary'
+                          }`}>
+                            {milestone.period}
+                          </Badge>
+                        </div>
+                        
+                        <h3 className="text-lg font-semibold text-foreground mb-1">
+                          {milestone.role}
+                        </h3>
+                        
+                        <p className="text-sm text-muted-foreground mb-3">
+                          {milestone.focus}
+                        </p>
+                        
+                        <div className="flex flex-wrap gap-1">
+                          {milestone.skills.map((skill, skillIndex) => (
+                            <Badge key={skillIndex} variant="secondary" className="text-xs">
+                              {skill}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </motion.div>
 
-          {/* Bridge Visual Metaphor */}
-          <div className="relative mb-16">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              {/* Bridge Connection Line */}
-              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary transform -translate-y-1/2 z-0 hidden md:block opacity-60"></div>
-              
-              {/* Bridge Pillars */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 relative z-10">
-                {/* Military Foundation */}
-                <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2, duration: 0.6 }}
-                  className="text-center"
-                >
-                  <Card className="glass border-military-primary/20 shadow-systems hover:shadow-military-primary/30 transition-all duration-300">
-                    <CardContent className="p-6 sm:p-8">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-military-primary/20 flex items-center justify-center mb-4 sm:mb-6">
-                        <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-military-primary" />
+            {/* Right Column: Key Insights (40% on large screens) */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* The Realization Card */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+              >
+                <Card className="glass border-accent/20 shadow-accent h-full">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                        <Eye className="w-5 h-5 text-accent" />
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-military-primary mb-3 sm:mb-4">Military Foundation</h3>
-                      <p className="text-muted-foreground mb-6">
-                        Systematic thinking, process optimization, and mission-critical reliability
-                      </p>
-                      <div className="space-y-2">
-                        <Badge variant="outline" className="border-military-primary text-military-primary mr-2 mb-2">
-                          Strategic Planning
-                        </Badge>
-                        <Badge variant="outline" className="border-military-primary text-military-primary mr-2 mb-2">
-                          Risk Management
-                        </Badge>
-                        <Badge variant="outline" className="border-military-primary text-military-primary mr-2 mb-2">
-                          Process Excellence
-                        </Badge>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-
-                {/* Enterprise Bridge */}
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4, duration: 0.6 }}
-                  className="text-center"
-                >
-                  <Card className="glass border-systems-blue/20 shadow-systems hover:shadow-systems-blue/30 transition-all duration-300">
-                    <CardContent className="p-6 sm:p-8">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-systems-blue/20 flex items-center justify-center mb-4 sm:mb-6">
-                        <GitBranch className="w-8 h-8 sm:w-10 sm:h-10 text-systems-blue" />
-                      </div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-systems-blue mb-3 sm:mb-4">Enterprise Translation</h3>
-                      <p className="text-muted-foreground mb-6">
-                        Converting complex technical requirements into scalable business solutions
-                      </p>
-                      <div className="space-y-2">
-                        <Badge variant="outline" className="border-systems-blue text-systems-blue mr-2 mb-2">
-                          Systems Integration
-                        </Badge>
-                        <Badge variant="outline" className="border-systems-blue text-systems-blue mr-2 mb-2">
-                          Stakeholder Alignment
-                        </Badge>
-                        <Badge variant="outline" className="border-systems-blue text-systems-blue mr-2 mb-2">
-                          Technical Leadership
-                        </Badge>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-
-                {/* User Experience Innovation */}
-                <motion.div
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.6, duration: 0.6 }}
-                  className="text-center"
-                >
-                <Card className="glass border-agile-primary/20 shadow-systems hover:shadow-agile-primary/30 transition-all duration-300">
-                  <CardContent className="p-6 sm:p-8">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-agile-primary/20 flex items-center justify-center mb-4 sm:mb-6">
-                      <Brain className="w-8 h-8 sm:w-10 sm:h-10 text-agile-primary" />
+                      <CardTitle className="text-lg">The Realization</CardTitle>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-agile-primary mb-3 sm:mb-4">User-Centered Innovation</h3>
-                    <p className="text-muted-foreground mb-6">
-                      Transforming complex systems into intuitive, human-centered experiences
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Systems failed not because of technical limitations, but because they didn't align with human behavior and organizational needs.
                     </p>
                     <div className="space-y-2">
-                      <Badge variant="outline" className="border-agile-primary text-agile-primary mr-2 mb-2">
-                        Design Thinking
+                      <Badge variant="outline" className="border-accent text-accent text-xs mr-2">
+                        Human-Centered Design
                       </Badge>
-                      <Badge variant="outline" className="border-agile-primary text-agile-primary mr-2 mb-2">
-                        User Research
+                      <Badge variant="outline" className="border-accent text-accent text-xs mr-2">
+                        Systems Thinking
                       </Badge>
-                      <Badge variant="outline" className="border-agile-primary text-agile-primary mr-2 mb-2">
-                        Agile Innovation
+                      <Badge variant="outline" className="border-accent text-accent text-xs">
+                        Behavioral Analysis
                       </Badge>
                     </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </div>
-            </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              {/* Today's Mission Card */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+              >
+                <Card className="glass border-agile-primary/20 shadow-agile h-full">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-10 h-10 rounded-full bg-agile-primary/20 flex items-center justify-center">
+                        <Target className="w-5 h-5 text-agile-primary" />
+                      </div>
+                      <CardTitle className="text-lg">Today's Mission</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Bridge the gap between complex technical requirements and intuitive user experiences through research-driven design.
+                    </p>
+                    <div className="space-y-2">
+                      <Badge variant="outline" className="border-agile-primary text-agile-primary text-xs mr-2">
+                        User Research
+                      </Badge>
+                      <Badge variant="outline" className="border-agile-primary text-agile-primary text-xs mr-2">
+                        Agile Methods
+                      </Badge>
+                      <Badge variant="outline" className="border-agile-primary text-agile-primary text-xs">
+                        Technical Translation
+                      </Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
           </div>
 
           {/* The Bridge Value Proposition */}
