@@ -847,9 +847,9 @@ Rather than accept the status quo, I took action. I began learning automation, p
                       </p>
                       <p className="text-sm text-muted-foreground leading-relaxed">Recognizing the value of my technical skills and user perspective, they began rotating me into new roles every six months — not to fill gaps, but to improve them. Each rotation became an opportunity to assess, modernize, and automate core systems. Once every area had been optimized, I helped establish documentation for user manuals and continuous improvement processes to ensure sustainable progress.</p>
                       <div className="mt-2 bg-accent/10 p-3 rounded-lg border-l-4 border-accent">
-                        <p className="text-xs text-primary font-medium leading-relaxed italic">
-                          "Known for making the seemingly impossible impossible!"
-                        </p>
+                         <p className="text-base text-primary font-medium leading-relaxed italic">
+                           "Known for making the seemingly impossible impossible!"
+                         </p>
                       </div>
                     </div>
                   </motion.div>
@@ -1362,7 +1362,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                 }} className="relative flex items-start gap-6">
                       {/* Icon Circle */}
                       <div className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg ${index === 0 ? 'bg-military-primary/20 border-2 border-military-primary' : index === 1 ? 'bg-systems-blue/20 border-2 border-systems-blue' : 'bg-agile-primary/20 border-2 border-agile-primary'}`}>
-                        <milestone.icon className={`w-6 h-6 ${index === 0 ? 'text-military-primary' : index === 1 ? 'text-systems-blue' : 'text-agile-primary'}`} />
+                        <milestone.icon className={`w-5 h-5 ${index === 0 ? 'text-military-primary' : index === 1 ? 'text-systems-blue' : 'text-agile-primary'}`} />
                       </div>
 
                       {/* Content */}
@@ -1377,9 +1377,9 @@ Rather than accept the status quo, I took action. I began learning automation, p
                           {milestone.role}
                         </h3>
                         
-                        <p className="text-sm text-muted-foreground mb-3">
-                          {milestone.focus}
-                        </p>
+                         <p className="text-base text-muted-foreground mb-3">
+                           {milestone.focus}
+                         </p>
                         
                         <div className="flex flex-wrap gap-1">
                           {milestone.skills.map((skill, skillIndex) => <Badge key={skillIndex} variant="secondary" className="text-xs">
@@ -1417,13 +1417,13 @@ Rather than accept the status quo, I took action. I began learning automation, p
                     </div>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      The key insight was that successful technology solutions required someone who could understand both worlds — the technical possibilities and the human reality. Most users couldn't clearly express their needs in technical terms, and development teams didn't always have access to the full context of daily operations.
-                    </p>
+                     <p className="text-base text-muted-foreground leading-relaxed mb-4">
+                       The key insight was that successful technology solutions required someone who could understand both worlds — the technical possibilities and the human reality. Most users couldn't clearly express their needs in technical terms, and development teams didn't always have access to the full context of daily operations.
+                     </p>
                     <div className="bg-accent/10 p-4 rounded-lg border-l-4 border-accent mb-4">
-                      <p className="text-sm text-primary font-medium leading-relaxed">
-                        It wasn't a people problem — it was a communication and alignment problem. This led me to pursue formal UX education and begin my transition into user research.
-                      </p>
+                       <p className="text-base text-primary font-medium leading-relaxed">
+                         It wasn't a people problem — it was a communication and alignment problem. This led me to pursue formal UX education and begin my transition into user research.
+                       </p>
                     </div>
                     <div className="flex flex-wrap gap-2">
                       <Badge variant="outline" className="border-accent text-accent text-xs">
