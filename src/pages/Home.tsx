@@ -1345,9 +1345,9 @@ Rather than accept the status quo, I took action. I began learning automation, p
               duration: 0.6
             }} className="relative">
                 {/* Connecting Line */}
-                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-military-primary via-systems-blue to-agile-primary opacity-30 hidden sm:block"></div>
+                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-military-primary via-systems-blue to-agile-primary opacity-30 hidden sm:block"></div>
                 
-                <div className="space-y-8">
+                <div className="space-y-8 pl-6">
                   {journeyMilestones.map((milestone, index) => <motion.div key={index} initial={{
                   opacity: 0,
                   y: 30
@@ -1361,8 +1361,8 @@ Rather than accept the status quo, I took action. I began learning automation, p
                   duration: 0.6
                 }} className="relative flex items-start gap-6">
                       {/* Icon Circle */}
-                      <div className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg ${index === 0 ? 'bg-military-primary/20 border-2 border-military-primary' : index === 1 ? 'bg-systems-blue/20 border-2 border-systems-blue' : 'bg-agile-primary/20 border-2 border-agile-primary'}`}>
-                        <milestone.icon className={`w-5 h-5 ${index === 0 ? 'text-military-primary' : index === 1 ? 'text-systems-blue' : 'text-agile-primary'}`} />
+                      <div className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg -ml-6 ${index === 0 ? 'bg-military-primary/20 border-2 border-military-primary' : index === 1 ? 'bg-systems-blue/20 border-2 border-systems-blue' : 'bg-agile-primary/20 border-2 border-agile-primary'}`}>
+                        <milestone.icon className={`w-6 h-6 ${index === 0 ? 'text-military-primary' : index === 1 ? 'text-systems-blue' : 'text-agile-primary'}`} />
                       </div>
 
                       {/* Content */}
@@ -1373,7 +1373,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                           </Badge>
                         </div>
                         
-                        <h3 className="text-lg font-semibold text-foreground mb-1">
+                        <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-1">
                           {milestone.role}
                         </h3>
                         
