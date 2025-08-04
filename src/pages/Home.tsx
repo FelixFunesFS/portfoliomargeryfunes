@@ -715,11 +715,15 @@ const Home = () => {
         }} transition={{
           duration: 0.6
         }} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              My Journey into User Research
+            <Badge variant="outline" className="mb-4 border-military-primary text-military-primary backdrop-blur-sm bg-background/50">
+              Bridging Worlds
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+              From Military Precision to <span className="text-gradient bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary bg-clip-text text-transparent">User-Centered Innovation</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              From military precision to agile innovation — discovering the bridge between technology and human needs.
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-4 sm:px-0">
+              My unique journey positions me as a translator between technical complexity and human needs, 
+              bridging the gap between military discipline, enterprise systems, and modern user experience.
             </p>
           </motion.div>
 
