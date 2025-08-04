@@ -11,6 +11,7 @@ const DesignProcess = () => {
       phase: "01",
       title: "Research & Discovery",
       description: "Military-precision user research and stakeholder interviews to understand real operational needs",
+      keyQuestion: "Why are users struggling? What are their real needs vs. stated needs?",
       deliverables: ["User Personas", "Journey Maps", "Requirements Analysis", "Competitive Research"],
       color: "bg-primary/10 text-primary"
     },
@@ -19,6 +20,7 @@ const DesignProcess = () => {
       phase: "02", 
       title: "Alignment & Strategy",
       description: "Bridging the communication gap between users and development teams through clear documentation",
+      keyQuestion: "What patterns emerge? How do user needs connect to business goals?",
       deliverables: ["Stakeholder Workshops", "Technical Specifications", "Success Metrics", "Project Roadmap"],
       color: "bg-accent/10 text-accent"
     },
@@ -27,6 +29,7 @@ const DesignProcess = () => {
       phase: "03",
       title: "Design & Prototyping", 
       description: "Creating intuitive interfaces with systems thinking and attention to detail",
+      keyQuestion: "Which solutions resonate? How do users actually interact with our ideas?",
       deliverables: ["Wireframes", "High-Fidelity Prototypes", "Design Systems", "Interaction Models"],
       color: "bg-success/10 text-success"
     },
@@ -35,6 +38,7 @@ const DesignProcess = () => {
       phase: "04",
       title: "Testing & Validation",
       description: "Rigorous testing methodology ensuring solutions work under real-world conditions",
+      keyQuestion: "Did we solve the right problem? What should we optimize next?",
       deliverables: ["Usability Testing", "A/B Testing", "Performance Metrics", "User Feedback"],
       color: "bg-destructive/10 text-destructive"
     },
@@ -85,6 +89,14 @@ const DesignProcess = () => {
                   
                   <h3 className="text-lg sm:text-xl font-semibold mb-3 text-foreground">{step.title}</h3>
                   <p className="text-muted-foreground mb-4 text-xs sm:text-sm">{step.description}</p>
+                  
+                  {step.keyQuestion && (
+                    <div className="mb-4 p-3 rounded-lg bg-muted/30 border-l-4 border-primary">
+                      <p className="text-xs sm:text-sm font-medium text-foreground italic">
+                        💡 Key Question: <span className="text-primary">{step.keyQuestion}</span>
+                      </p>
+                    </div>
+                  )}
                   
                   <div className="space-y-2">
                     <h4 className="font-medium text-xs sm:text-sm text-foreground">Key Deliverables:</h4>
