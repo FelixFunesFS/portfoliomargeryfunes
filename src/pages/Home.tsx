@@ -31,7 +31,10 @@ import {
   Monitor,
   Smartphone,
   Heart,
-  Home as HomeIcon
+  Home as HomeIcon,
+  Trophy,
+  GraduationCap,
+  Lightbulb
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -799,81 +802,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Military to Agile Journey */}
-      <section className="section gradient-subtle py-12 sm:py-16 lg:py-20">
-        <div className="container-custom px-3 sm:px-4 lg:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12 sm:mb-16"
-          >
-            <Badge variant="outline" className="mb-3 sm:mb-4 border-success text-success text-xs sm:text-sm">
-              Professional Evolution
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
-              From Military Precision to <span className="text-agile-primary">Agile Innovation</span>
-            </h2>
-            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto px-2 sm:px-4 lg:px-0 leading-relaxed">
-              My passion for understanding how people interact with complex systems began in the Air Force, 
-              where I witnessed the gap between technical capabilities and user needs. This drives my systematic 
-              approach to UX research, always asking "Why?" before building "What."
-            </p>
-          </motion.div>
-
-          <div className="space-y-6 sm:space-y-8">
-            {journeyMilestones.map((milestone, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2, duration: 0.6 }}
-              >
-                <Card className="glass border-none shadow-card hover:shadow-systems transition-all duration-300">
-                  <CardContent className="p-4 sm:p-6 lg:p-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 items-center">
-                      <div className="text-center lg:text-left">
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto lg:mx-0 rounded-full bg-primary-glow/20 flex items-center justify-center mb-3 sm:mb-4">
-                          <milestone.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-glow" />
-                        </div>
-                        <Badge variant="outline" className="border-primary-glow text-primary-glow text-xs sm:text-sm">
-                          {milestone.period}
-                        </Badge>
-                      </div>
-                      
-                      <div className="lg:col-span-2 text-center lg:text-left">
-                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-2 leading-tight">
-                          {milestone.role}
-                        </h3>
-                        <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-3 sm:mb-4 leading-relaxed">
-                          {milestone.focus}
-                        </p>
-                      </div>
-                      
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-3">Key Skills</h4>
-                        <div className="space-y-2">
-                          {milestone.skills.map((skill, skillIndex) => (
-                            <Badge key={skillIndex} variant="secondary" className="mr-2 mb-2">
-                              {skill}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-          
-        </div>
-      </section>
-
       {/* My Journey into User Research */}
-      <section className="py-16 sm:py-24 bg-background">
+      <section className="py-16 sm:py-24 bg-muted/30">
         <div className="container max-w-7xl mx-auto px-4">
           {/* Header */}
           <motion.div
@@ -883,9 +813,6 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <Badge variant="outline" className="mb-4 text-primary border-primary/30">
-              Professional Evolution
-            </Badge>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               My Journey into User Research
             </h2>
@@ -898,24 +825,22 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Left Column - Journey Milestones */}
             <div className="lg:col-span-3 space-y-6">
-              {/* Military Foundation */}
+              {/* U.S. Air Force & Boeing */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <Card className="border border-border/50 shadow-sm hover:shadow-md transition-shadow">
+                <Card className="bg-background border border-border/50 shadow-sm">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
+                        <Shield className="w-6 h-6 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold mb-2">Military Foundation</h3>
-                        <p className="text-sm text-muted-foreground mb-3">U.S. Air Force & Boeing</p>
+                        <h3 className="text-xl font-semibold mb-2">U.S. Air Force & Boeing</h3>
+                        <p className="text-sm text-muted-foreground mb-3">Military Systems Analysis</p>
                         <p className="text-muted-foreground leading-relaxed">
                           While serving in the U.S. Air Force and later at Boeing, I began noticing a recurring issue: 
                           the systems we relied on often didn't align with how people actually worked. Rather than accept 
@@ -927,30 +852,26 @@ const Home = () => {
                 </Card>
               </motion.div>
 
-              {/* Systems Optimization */}
+              {/* Leadership Recognition */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <Card className="border border-border/50 shadow-sm hover:shadow-md transition-shadow">
+                <Card className="bg-background border border-border/50 shadow-sm">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
+                        <Trophy className="w-6 h-6 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold mb-2">Systems Optimization</h3>
-                        <p className="text-sm text-muted-foreground mb-3">Continuous Improvement</p>
+                        <h3 className="text-xl font-semibold mb-2">Leadership Recognition</h3>
+                        <p className="text-sm text-muted-foreground mb-3">Process Innovation</p>
                         <p className="text-muted-foreground leading-relaxed">
-                          Each rotation became an opportunity to assess, modernize, and automate core systems. 
-                          Through this work, I uncovered a deeper problem: most users couldn't clearly express 
-                          their needs in technical terms, and development teams didn't always have access to 
-                          the full context of daily operations.
+                          My superiors began assigning me to different teams specifically to assess, modernize, 
+                          and automate their core systems. Through this work, I uncovered a deeper problem: 
+                          users couldn't clearly express their needs in technical terms.
                         </p>
                       </div>
                     </div>
@@ -958,24 +879,22 @@ const Home = () => {
                 </Card>
               </motion.div>
 
-              {/* UX Discovery */}
+              {/* Formal Pursuit */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <Card className="border border-border/50 shadow-sm hover:shadow-md transition-shadow">
+                <Card className="bg-background border border-border/50 shadow-sm">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                        </svg>
+                        <GraduationCap className="w-6 h-6 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold mb-2">The UX Awakening</h3>
-                        <p className="text-sm text-muted-foreground mb-3">Research & Design</p>
+                        <h3 className="text-xl font-semibold mb-2">Formal Pursuit</h3>
+                        <p className="text-sm text-muted-foreground mb-3">UX Education & Certification</p>
                         <p className="text-muted-foreground leading-relaxed">
                           This realization led me to formally pursue User Research and Experience Design. 
                           I earned certifications, refined my design practice, and expanded into full stack 
@@ -988,24 +907,45 @@ const Home = () => {
               </motion.div>
             </div>
 
-            {/* Right Column - Insight Cards */}
+            {/* Right Column - Action Cards */}
             <div className="lg:col-span-2 space-y-6">
-              {/* Key Insight */}
+              {/* Taking Action */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <Card className="border border-accent/30 bg-accent/5 shadow-sm">
+                <Card className="bg-background border border-primary/30 shadow-sm">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
+                        <Zap className="w-4 h-4 text-primary" />
+                      </div>
+                      <h4 className="font-semibold text-primary">Taking Action</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Rather than just observe problems, I actively learned programming, automation, 
+                      and systems analysis to bridge the gap between user needs and technical solutions.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              {/* The Real Problem */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <Card className="bg-background border border-accent/30 shadow-sm">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-8 h-8 bg-accent/20 rounded-lg flex items-center justify-center">
-                        <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                        <Target className="w-4 h-4 text-accent" />
                       </div>
-                      <h4 className="font-semibold text-accent">Key Insight</h4>
+                      <h4 className="font-semibold text-accent">The Real Problem</h4>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       It wasn't a people problem — it was a communication and alignment problem. 
@@ -1015,69 +955,80 @@ const Home = () => {
                   </CardContent>
                 </Card>
               </motion.div>
-
-              {/* Today's Impact */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <Card className="border border-primary/30 bg-primary/5 shadow-sm">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
-                        <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                        </svg>
-                      </div>
-                      <h4 className="font-semibold text-primary">Today's Impact</h4>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      I create research-driven, human-centered solutions that help teams 
-                      build the right products — the first time.
-                    </p>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="text-xs text-primary font-medium">Military Precision + UX Innovation</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              {/* Skills & Approach */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                <Card className="border border-border/50 shadow-sm">
-                  <CardContent className="p-6">
-                    <h4 className="font-semibold mb-4">Core Capabilities</h4>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span className="text-sm">Systems Analysis</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span className="text-sm">User Research</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span className="text-sm">Process Optimization</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span className="text-sm">Full-Stack Development</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
             </div>
           </div>
+
+          {/* Bottom Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+            {/* The Realization */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <Card className="bg-background border border-border/50 shadow-sm h-full">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center">
+                      <Lightbulb className="w-4 h-4 text-secondary" />
+                    </div>
+                    <h4 className="font-semibold">The Realization</h4>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    The key insight was that successful technology solutions required someone who could 
+                    understand both worlds — the technical possibilities and the human reality. This led 
+                    me to pursue formal UX education and begin my transition into user research.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Today's Mission */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <Card className="bg-background border border-border/50 shadow-sm h-full">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
+                      <Rocket className="w-4 h-4 text-primary" />
+                    </div>
+                    <h4 className="font-semibold">Today's Mission</h4>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    I create research-driven, human-centered solutions that help teams build the right 
+                    products — the first time. My military background brings systematic rigor to UX research, 
+                    while my technical skills ensure feasible, implementable solutions.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+
+          {/* Quote Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="text-center mt-16"
+          >
+            <Card className="bg-muted/50 border border-border/30 shadow-sm max-w-2xl mx-auto">
+              <CardContent className="p-8">
+                <blockquote className="text-lg font-medium text-foreground italic">
+                  "I am a translator between users and developers"
+                </blockquote>
+                <div className="flex items-center justify-center gap-2 mt-4">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Military Precision + UX Innovation</span>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
