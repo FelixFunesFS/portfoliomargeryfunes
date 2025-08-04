@@ -873,179 +873,209 @@ const Home = () => {
       </section>
 
       {/* My Journey into User Research */}
-      <section className="py-16 sm:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-secondary/5"></div>
-        <div className="container relative z-10">
+      <section className="py-16 sm:py-24 bg-background">
+        <div className="container max-w-7xl mx-auto px-4">
+          {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <Badge variant="outline" className="mb-4 border-primary text-primary">
-              My Professional Evolution
+            <Badge variant="outline" className="mb-4 text-primary border-primary/30">
+              Professional Evolution
             </Badge>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              My Journey into User Research:
-              <span className="block text-primary mt-2">Bridging the Gap</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              My Journey into User Research
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              From military precision to agile innovation — discovering the bridge between technology and human needs.
+            </p>
           </motion.div>
 
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-              {/* Left Column - Milestone Cards (60% width) */}
-              <div className="lg:col-span-3 space-y-8">
-                {/* Military Foundation */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.1 }}
-                  className="backdrop-blur-sm bg-gradient-to-br from-military-primary/20 to-military-secondary/10 rounded-2xl p-6 sm:p-8 border border-military-primary/30 shadow-2xl group hover:shadow-military-primary/20 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-military-primary/20 rounded-lg flex items-center justify-center">
-                      <svg className="w-5 h-5 text-military-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                      </svg>
+          {/* Two Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            {/* Left Column - Journey Milestones */}
+            <div className="lg:col-span-3 space-y-6">
+              {/* Military Foundation */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <Card className="border border-border/50 shadow-sm hover:shadow-md transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold mb-2">Military Foundation</h3>
+                        <p className="text-sm text-muted-foreground mb-3">U.S. Air Force & Boeing</p>
+                        <p className="text-muted-foreground leading-relaxed">
+                          While serving in the U.S. Air Force and later at Boeing, I began noticing a recurring issue: 
+                          the systems we relied on often didn't align with how people actually worked. Rather than accept 
+                          the status quo, I took action by learning automation, programming, and systems analysis.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-military-primary">Military Foundation</h3>
-                      <p className="text-sm text-military-secondary">U.S. Air Force & Boeing</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              {/* Systems Optimization */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <Card className="border border-border/50 shadow-sm hover:shadow-md transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold mb-2">Systems Optimization</h3>
+                        <p className="text-sm text-muted-foreground mb-3">Continuous Improvement</p>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Each rotation became an opportunity to assess, modernize, and automate core systems. 
+                          Through this work, I uncovered a deeper problem: most users couldn't clearly express 
+                          their needs in technical terms, and development teams didn't always have access to 
+                          the full context of daily operations.
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
 
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                    While serving in the U.S. Air Force and later at Boeing, I began noticing a recurring issue: 
-                    the systems we relied on often didn't align with how people actually worked.
-                  </p>
-
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    Rather than accept the status quo, I took action by learning automation, programming, 
-                    and systems analysis to improve the processes I worked within.
-                  </p>
-                </motion.div>
-
-                {/* Systems Optimization */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="backdrop-blur-sm bg-gradient-to-br from-systems-blue/20 to-systems-cyan/10 rounded-2xl p-6 sm:p-8 border border-systems-blue/30 shadow-2xl group hover:shadow-systems-blue/20 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-systems-blue/20 rounded-lg flex items-center justify-center">
-                      <svg className="w-5 h-5 text-systems-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
+              {/* UX Discovery */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <Card className="border border-border/50 shadow-sm hover:shadow-md transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold mb-2">The UX Awakening</h3>
+                        <p className="text-sm text-muted-foreground mb-3">Research & Design</p>
+                        <p className="text-muted-foreground leading-relaxed">
+                          This realization led me to formally pursue User Research and Experience Design. 
+                          I earned certifications, refined my design practice, and expanded into full stack 
+                          development — fully stepping into the role of a translator between users and developers.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-systems-blue">Systems Optimization</h3>
-                      <p className="text-sm text-systems-cyan">Continuous Improvement</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+
+            {/* Right Column - Insight Cards */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Key Insight */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <Card className="border border-accent/30 bg-accent/5 shadow-sm">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-8 h-8 bg-accent/20 rounded-lg flex items-center justify-center">
+                        <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </div>
+                      <h4 className="font-semibold text-accent">Key Insight</h4>
                     </div>
-                  </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      It wasn't a people problem — it was a communication and alignment problem. 
+                      Most users couldn't clearly express their needs in technical terms, and 
+                      development teams didn't have access to the full context of daily operations.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
 
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                    Each rotation became an opportunity to assess, modernize, and automate core systems. 
-                    Once every area had been optimized, I helped establish documentation and continuous 
-                    improvement processes.
-                  </p>
-
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    Through this work, I uncovered a deeper problem: most users couldn't clearly express 
-                    their needs in technical terms, and development teams didn't always have access to 
-                    the full context of daily operations.
-                  </p>
-                </motion.div>
-
-                {/* UX Discovery */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="backdrop-blur-sm bg-gradient-to-br from-agile-primary/20 to-agile-secondary/10 rounded-2xl p-6 sm:p-8 border border-agile-primary/30 shadow-2xl group hover:shadow-agile-primary/20 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-agile-primary/20 rounded-lg flex items-center justify-center">
-                      <svg className="w-5 h-5 text-agile-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
+              {/* Today's Impact */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <Card className="border border-primary/30 bg-primary/5 shadow-sm">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
+                        <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                      </div>
+                      <h4 className="font-semibold text-primary">Today's Impact</h4>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-agile-primary">The UX Awakening</h3>
-                      <p className="text-sm text-agile-secondary">Research & Design</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      I create research-driven, human-centered solutions that help teams 
+                      build the right products — the first time.
+                    </p>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
+                      <span className="text-xs text-primary font-medium">Military Precision + UX Innovation</span>
                     </div>
-                  </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
 
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                    This realization led me to formally pursue User Research and Experience Design. 
-                    I wanted to understand how people interact with technology, and how to ensure 
-                    their experiences were not only efficient, but intuitive and empowering.
-                  </p>
-
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    I earned certifications, refined my design practice, and expanded into full stack 
-                    development — fully stepping into the role of a translator between users and developers.
-                  </p>
-                </motion.div>
-              </div>
-
-              {/* Right Column - Insight Cards (40% width) */}
-              <div className="lg:col-span-2 space-y-8">
-                {/* The Realization Card */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="backdrop-blur-sm bg-gradient-to-br from-accent/20 to-primary/10 rounded-2xl p-6 border border-accent/30 shadow-2xl sticky top-8"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 bg-accent/20 rounded-lg flex items-center justify-center">
-                      <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
+              {/* Skills & Approach */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <Card className="border border-border/50 shadow-sm">
+                  <CardContent className="p-6">
+                    <h4 className="font-semibold mb-4">Core Capabilities</h4>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        <span className="text-sm">Systems Analysis</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        <span className="text-sm">User Research</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        <span className="text-sm">Process Optimization</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        <span className="text-sm">Full-Stack Development</span>
+                      </div>
                     </div>
-                    <h3 className="text-lg font-bold text-accent">The Realization</h3>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    It wasn't a people problem — it was a communication and alignment problem. 
-                    Most users couldn't clearly express their needs in technical terms, and 
-                    development teams didn't always have access to the full context of daily operations.
-                  </p>
-                </motion.div>
-
-                {/* Today's Mission Card */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  className="backdrop-blur-sm bg-gradient-to-br from-success/20 to-primary/10 rounded-2xl p-6 border border-success/30 shadow-2xl sticky top-64"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 bg-success/20 rounded-lg flex items-center justify-center">
-                      <svg className="w-4 h-4 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-lg font-bold text-success">Today's Mission</h3>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    Today, I create research-driven, human-centered solutions that help teams 
-                    build the right products — the first time.
-                  </p>
-                  <div className="flex items-center gap-2 text-success/80">
-                    <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium">Bridging Military Precision with UX Innovation</span>
-                  </div>
-                </motion.div>
-              </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </div>
           </div>
         </div>
