@@ -751,33 +751,33 @@ Rather than accept the status quo, I took action. I began learning automation, p
             <div className="relative">
               <h3 className="text-xl font-semibold mb-6 text-primary">Journey Steps</h3>
               
-              {/* Timeline Container */}
-              <div className="relative pl-8">
-                {/* Continuous vertical line */}
-                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30"></div>
-                
-                {/* Timeline Items */}
-                <div className="space-y-3">
-                  {/* Identifying the Problem */}
-                  <motion.div initial={{
-                  opacity: 0,
-                  y: 20
-                }} whileInView={{
-                  opacity: 1,
-                  y: 0
-                }} viewport={{
-                  once: true
-                }} transition={{
-                  duration: 0.6,
-                  delay: 0.1
-                }} className="relative">
-                    {/* Timeline node */}
-                    <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
-                      <Eye className="w-5 h-5 text-primary" />
-                    </div>
-                    {/* Content */}
-                    <div className="pl-6">
-                      <h4 className="font-semibold mb-1">Identifying the Problem</h4>
+               {/* Timeline Container */}
+               <div className="relative pl-12">
+                 {/* Continuous vertical line */}
+                 <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30"></div>
+                 
+                 {/* Timeline Items */}
+                 <div className="space-y-6">
+                   {/* Identifying the Problem */}
+                   <motion.div initial={{
+                   opacity: 0,
+                   y: 20
+                 }} whileInView={{
+                   opacity: 1,
+                   y: 0
+                 }} viewport={{
+                   once: true
+                 }} transition={{
+                   duration: 0.6,
+                   delay: 0.1
+                 }} className="relative">
+                     {/* Timeline node */}
+                     <div className="absolute -left-6 top-2 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
+                       <Eye className="w-8 h-8 text-primary" />
+                     </div>
+                     {/* Content */}
+                     <div className="pl-8">
+                       <h4 className="text-lg sm:text-xl font-semibold mb-1">Identifying the Problem</h4>
                       <p className="text-sm text-muted-foreground mb-2">
                         <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
                           U.S. Air Force & Boeing
@@ -789,26 +789,26 @@ Rather than accept the status quo, I took action. I began learning automation, p
                     </div>
                   </motion.div>
 
-                  {/* Taking Action */}
-                  <motion.div initial={{
-                  opacity: 0,
-                  y: 20
-                }} whileInView={{
-                  opacity: 1,
-                  y: 0
-                }} viewport={{
-                  once: true
-                }} transition={{
-                  duration: 0.6,
-                  delay: 0.2
-                }} className="relative">
-                    {/* Timeline node */}
-                    <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
-                      <Zap className="w-5 h-5 text-primary" />
-                    </div>
-                    {/* Content */}
-                    <div className="pl-6">
-                      <h4 className="font-semibold mb-1">Taking Action</h4>
+                   {/* Taking Action */}
+                   <motion.div initial={{
+                   opacity: 0,
+                   y: 20
+                 }} whileInView={{
+                   opacity: 1,
+                   y: 0
+                 }} viewport={{
+                   once: true
+                 }} transition={{
+                   duration: 0.6,
+                   delay: 0.2
+                 }} className="relative">
+                     {/* Timeline node */}
+                     <div className="absolute -left-6 top-2 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
+                       <Zap className="w-8 h-8 text-primary" />
+                     </div>
+                     {/* Content */}
+                     <div className="pl-8">
+                       <h4 className="text-lg sm:text-xl font-semibold mb-1">Taking Action</h4>
                       <p className="text-sm text-muted-foreground mb-2">
                         <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
                           Learning & Building
@@ -820,26 +820,26 @@ Rather than accept the status quo, I took action. I began learning automation, p
                     </div>
                   </motion.div>
 
-                  {/* Leadership Recognition */}
-                  <motion.div initial={{
-                  opacity: 0,
-                  y: 20
-                }} whileInView={{
-                  opacity: 1,
-                  y: 0
-                }} viewport={{
-                  once: true
-                }} transition={{
-                  duration: 0.6,
-                  delay: 0.3
-                }} className="relative">
-                    {/* Timeline node */}
-                    <div className="absolute -left-4 top-2 w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center border-2 border-accent/30">
-                      <Trophy className="w-5 h-5 text-accent" />
-                    </div>
-                    {/* Content */}
-                    <div className="pl-6">
-                      <h4 className="font-semibold mb-1">Leadership Recognition</h4>
+                   {/* Leadership Recognition */}
+                   <motion.div initial={{
+                   opacity: 0,
+                   y: 20
+                 }} whileInView={{
+                   opacity: 1,
+                   y: 0
+                 }} viewport={{
+                   once: true
+                 }} transition={{
+                   duration: 0.6,
+                   delay: 0.3
+                 }} className="relative">
+                     {/* Timeline node */}
+                     <div className="absolute -left-6 top-2 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center border-2 border-accent/30">
+                       <Trophy className="w-8 h-8 text-accent" />
+                     </div>
+                     {/* Content */}
+                     <div className="pl-8">
+                       <h4 className="text-lg sm:text-xl font-semibold mb-1">Leadership Recognition</h4>
                       <p className="text-sm text-muted-foreground mb-2">
                         <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
                           Continuous Improvement
@@ -854,26 +854,26 @@ Rather than accept the status quo, I took action. I began learning automation, p
                     </div>
                   </motion.div>
 
-                  {/* The Real Problem */}
-                  <motion.div initial={{
-                  opacity: 0,
-                  y: 20
-                }} whileInView={{
-                  opacity: 1,
-                  y: 0
-                }} viewport={{
-                  once: true
-                }} transition={{
-                  duration: 0.6,
-                  delay: 0.4
-                }} className="relative">
-                    {/* Timeline node */}
-                    <div className="absolute -left-4 top-2 w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center border-2 border-accent/30">
-                      <Target className="w-5 h-5 text-accent" />
-                    </div>
-                    {/* Content */}
-                    <div className="pl-6">
-                      <h4 className="font-semibold mb-1">The Real Problem</h4>
+                   {/* The Real Problem */}
+                   <motion.div initial={{
+                   opacity: 0,
+                   y: 20
+                 }} whileInView={{
+                   opacity: 1,
+                   y: 0
+                 }} viewport={{
+                   once: true
+                 }} transition={{
+                   duration: 0.6,
+                   delay: 0.4
+                 }} className="relative">
+                     {/* Timeline node */}
+                     <div className="absolute -left-6 top-2 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center border-2 border-accent/30">
+                       <Target className="w-8 h-8 text-accent" />
+                     </div>
+                     {/* Content */}
+                     <div className="pl-8">
+                       <h4 className="text-lg sm:text-xl font-semibold mb-1">The Real Problem</h4>
                       <p className="text-sm text-muted-foreground mb-2">
                         <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
                           Communication & Alignment
@@ -885,26 +885,26 @@ Rather than accept the status quo, I took action. I began learning automation, p
                     </div>
                   </motion.div>
 
-                  {/* Formal Pursuit */}
-                  <motion.div initial={{
-                  opacity: 0,
-                  y: 20
-                }} whileInView={{
-                  opacity: 1,
-                  y: 0
-                }} viewport={{
-                  once: true
-                }} transition={{
-                  duration: 0.6,
-                  delay: 0.5
-                }} className="relative">
-                    {/* Timeline node */}
-                    <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
-                      <GraduationCap className="w-5 h-5 text-primary" />
-                    </div>
-                    {/* Content */}
-                    <div className="pl-6">
-                      <h4 className="font-semibold mb-1">Formal Pursuit</h4>
+                   {/* Formal Pursuit */}
+                   <motion.div initial={{
+                   opacity: 0,
+                   y: 20
+                 }} whileInView={{
+                   opacity: 1,
+                   y: 0
+                 }} viewport={{
+                   once: true
+                 }} transition={{
+                   duration: 0.6,
+                   delay: 0.5
+                 }} className="relative">
+                     {/* Timeline node */}
+                     <div className="absolute -left-6 top-2 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
+                       <GraduationCap className="w-8 h-8 text-primary" />
+                     </div>
+                     {/* Content */}
+                     <div className="pl-8">
+                       <h4 className="text-lg sm:text-xl font-semibold mb-1">Formal Pursuit</h4>
                       <p className="text-sm text-muted-foreground mb-2">
                         <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
                           User Research & Experience Design
