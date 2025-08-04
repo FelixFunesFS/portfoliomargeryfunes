@@ -780,35 +780,6 @@ Rather than accept the status quo, I took action. I began learning automation, p
                 </div>
               </motion.div>
 
-              {/* Leadership Recognition */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: 0.2
-            }} className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg">
-                <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Trophy className="w-5 h-5 text-accent" />
-                </div>
-                <div className="flex-1">
-                  <h4 className="font-semibold mb-1">Leadership Recognition</h4>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
-                      Continuous Improvement
-                    </Badge>
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Rotated into new roles every six months to assess, modernize, and automate core systems.
-                  </p>
-                </div>
-              </motion.div>
-
               {/* Taking Action */}
               <motion.div initial={{
               opacity: 0,
@@ -820,7 +791,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
               once: true
             }} transition={{
               duration: 0.6,
-              delay: 0.3
+              delay: 0.2
             }} className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Zap className="w-5 h-5 text-primary" />
@@ -834,6 +805,35 @@ Rather than accept the status quo, I took action. I began learning automation, p
                   </p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Began learning automation, programming, and systems analysis to improve processes and bridge the user-technology gap.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Leadership Recognition */}
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6,
+              delay: 0.3
+            }} className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg">
+                <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Trophy className="w-5 h-5 text-accent" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold mb-1">Leadership Recognition</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
+                      Continuous Improvement
+                    </Badge>
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Rotated into new roles every six months to assess, modernize, and automate core systems.
                   </p>
                 </div>
               </motion.div>
