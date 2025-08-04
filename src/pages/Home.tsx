@@ -747,159 +747,178 @@ Rather than accept the status quo, I took action. I began learning automation, p
 
           {/* Two Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left Column - Journey Steps */}
-            <div className="space-y-4">
+            {/* Left Column - Journey Steps Timeline */}
+            <div className="relative">
               <h3 className="text-xl font-semibold mb-6 text-primary">Journey Steps</h3>
               
-              {/* Identifying the Problem */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: 0.1
-            }} className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg">
-                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Eye className="w-5 h-5 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <h4 className="font-semibold mb-1">Identifying the Problem</h4>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
-                      U.S. Air Force & Boeing
-                    </Badge>
-                  </p>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Noticed systems didn't align with how people actually worked. Applications were clunky, workflows inefficient.
-                  </p>
-                </div>
-              </motion.div>
+              {/* Timeline Container */}
+              <div className="relative pl-8">
+                {/* Continuous vertical line */}
+                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30"></div>
+                
+                {/* Timeline Items */}
+                <div className="space-y-3">
+                  {/* Identifying the Problem */}
+                  <motion.div initial={{
+                    opacity: 0,
+                    y: 20
+                  }} whileInView={{
+                    opacity: 1,
+                    y: 0
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    duration: 0.6,
+                    delay: 0.1
+                  }} className="relative">
+                    {/* Timeline node */}
+                    <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
+                      <Eye className="w-4 h-4 text-primary" />
+                    </div>
+                    {/* Content */}
+                    <div className="pl-6">
+                      <h4 className="font-semibold mb-1">Identifying the Problem</h4>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                          U.S. Air Force & Boeing
+                        </Badge>
+                      </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Noticed systems didn't align with how people actually worked. Applications were clunky, workflows inefficient.
+                      </p>
+                    </div>
+                  </motion.div>
 
-              {/* Taking Action */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: 0.2
-            }} className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg">
-                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Zap className="w-5 h-5 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <h4 className="font-semibold mb-1">Taking Action</h4>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
-                      Learning & Building
-                    </Badge>
-                  </p>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Began learning automation, programming, and systems analysis to improve processes and bridge the user-technology gap.
-                  </p>
-                </div>
-              </motion.div>
+                  {/* Taking Action */}
+                  <motion.div initial={{
+                    opacity: 0,
+                    y: 20
+                  }} whileInView={{
+                    opacity: 1,
+                    y: 0
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    duration: 0.6,
+                    delay: 0.2
+                  }} className="relative">
+                    {/* Timeline node */}
+                    <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
+                      <Zap className="w-4 h-4 text-primary" />
+                    </div>
+                    {/* Content */}
+                    <div className="pl-6">
+                      <h4 className="font-semibold mb-1">Taking Action</h4>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                          Learning & Building
+                        </Badge>
+                      </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Began learning automation, programming, and systems analysis to improve processes and bridge the user-technology gap.
+                      </p>
+                    </div>
+                  </motion.div>
 
-              {/* Leadership Recognition */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: 0.3
-            }} className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg">
-                <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Trophy className="w-5 h-5 text-accent" />
-                </div>
-                <div className="flex-1">
-                  <h4 className="font-semibold mb-1">Leadership Recognition</h4>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
-                      Continuous Improvement
-                    </Badge>
-                  </p>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Rotated into new roles every six months to assess, modernize, and automate core systems.
-                  </p>
-                  <div className="mt-3 bg-accent/10 p-4 rounded-lg border-l-4 border-accent">
-                    <p className="text-sm text-primary font-medium leading-relaxed italic">
-                      "Known for making the seemingly impossible impossible!"
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
+                  {/* Leadership Recognition */}
+                  <motion.div initial={{
+                    opacity: 0,
+                    y: 20
+                  }} whileInView={{
+                    opacity: 1,
+                    y: 0
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    duration: 0.6,
+                    delay: 0.3
+                  }} className="relative">
+                    {/* Timeline node */}
+                    <div className="absolute -left-4 top-2 w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center border-2 border-accent/30">
+                      <Trophy className="w-4 h-4 text-accent" />
+                    </div>
+                    {/* Content */}
+                    <div className="pl-6">
+                      <h4 className="font-semibold mb-1">Leadership Recognition</h4>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
+                          Continuous Improvement
+                        </Badge>
+                      </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Rotated into new roles every six months to assess, modernize, and automate core systems.
+                      </p>
+                      <div className="mt-2 bg-accent/10 p-3 rounded-lg border-l-4 border-accent">
+                        <p className="text-xs text-primary font-medium leading-relaxed italic">
+                          "Known for making the seemingly impossible impossible!"
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
 
-              {/* The Real Problem */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: 0.4
-            }} className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg">
-                <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Target className="w-5 h-5 text-accent" />
-                </div>
-                <div className="flex-1">
-                  <h4 className="font-semibold mb-1">The Real Problem</h4>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
-                      Communication & Alignment
-                    </Badge>
-                  </p>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Discovered the gap between users who couldn't express technical needs and developers lacking operational context.
-                  </p>
-                </div>
-              </motion.div>
+                  {/* The Real Problem */}
+                  <motion.div initial={{
+                    opacity: 0,
+                    y: 20
+                  }} whileInView={{
+                    opacity: 1,
+                    y: 0
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    duration: 0.6,
+                    delay: 0.4
+                  }} className="relative">
+                    {/* Timeline node */}
+                    <div className="absolute -left-4 top-2 w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center border-2 border-accent/30">
+                      <Target className="w-4 h-4 text-accent" />
+                    </div>
+                    {/* Content */}
+                    <div className="pl-6">
+                      <h4 className="font-semibold mb-1">The Real Problem</h4>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
+                          Communication & Alignment
+                        </Badge>
+                      </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Discovered the gap between users who couldn't express technical needs and developers lacking operational context.
+                      </p>
+                    </div>
+                  </motion.div>
 
-              {/* Formal Pursuit */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: 0.5
-            }} className="flex items-start gap-4 p-4 bg-background border border-border/30 rounded-lg">
-                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <GraduationCap className="w-5 h-5 text-primary" />
+                  {/* Formal Pursuit */}
+                  <motion.div initial={{
+                    opacity: 0,
+                    y: 20
+                  }} whileInView={{
+                    opacity: 1,
+                    y: 0
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    duration: 0.6,
+                    delay: 0.5
+                  }} className="relative">
+                    {/* Timeline node */}
+                    <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
+                      <GraduationCap className="w-4 h-4 text-primary" />
+                    </div>
+                    {/* Content */}
+                    <div className="pl-6">
+                      <h4 className="font-semibold mb-1">Formal Pursuit</h4>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                          User Research & Experience Design
+                        </Badge>
+                      </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Earned certifications, refined design practice, and expanded into full stack development.
+                      </p>
+                    </div>
+                  </motion.div>
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-semibold mb-1">Formal Pursuit</h4>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
-                      User Research & Experience Design
-                    </Badge>
-                  </p>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Earned certifications, refined design practice, and expanded into full stack development.
-                  </p>
-                </div>
-              </motion.div>
+              </div>
             </div>
 
             {/* Right Column - Insight Cards */}
