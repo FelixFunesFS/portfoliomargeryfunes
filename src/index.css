@@ -34,6 +34,11 @@
     --success: 175 70% 35%;
     --success-foreground: 220 10% 98%;
     
+    /* Military Colors - Light Mode */
+    --military-primary: 215 85% 25%;
+    --military-secondary: 215 25% 88%;
+    --military-accent: 25 90% 55%;
+    
     /* Agile - Mid-tone blue variations */
     --agile-primary: 215 70% 45%;
     --agile-secondary: 25 80% 60%;
@@ -133,6 +138,11 @@
     /* Military & Professional Touches - Dark Mode */
     --success: 140 50% 55%; /* Lighter military green */
     --silver: 215 15% 70%; /* Lighter silver */
+    
+    /* Military Colors - Dark Mode */
+    --military-primary: 213 100% 55%;
+    --military-secondary: 217 20% 12%;
+    --military-accent: 43 96% 56%;
 
     --border: 210 20% 20%;
     --input: 210 20% 18%;
