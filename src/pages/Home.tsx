@@ -967,21 +967,20 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <Card className="bg-background border border-secondary/30 shadow-sm">
+                <Card className="bg-background border border-accent/30 shadow-sm">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center">
-                        <Lightbulb className="w-4 h-4 text-secondary" />
+                      <div className="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
+                        <Lightbulb className="w-6 h-6 text-accent" />
                       </div>
-                      <h4 className="font-semibold text-secondary">The Realization</h4>
+                      <h4 className="text-lg font-semibold text-primary">The Realization</h4>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      The key insight was that successful technology solutions required someone who could 
-                      understand both worlds — the technical possibilities and the human reality.
+                      The key insight was that successful technology solutions required someone who could understand both worlds — the technical possibilities and the human reality. Most users couldn't clearly express their needs in technical terms, and development teams didn't always have access to the full context of daily operations.
                     </p>
-                    <div className="bg-secondary/10 p-3 rounded-lg">
-                      <p className="text-sm text-secondary font-medium leading-relaxed">
-                        This led me to pursue formal UX education and begin my transition into user research.
+                    <div className="bg-accent/10 p-4 rounded-lg border-l-4 border-accent">
+                      <p className="text-sm text-primary font-medium leading-relaxed">
+                        It wasn't a people problem — it was a communication and alignment problem. This led me to pursue formal UX education and begin my transition into user research.
                       </p>
                     </div>
                   </CardContent>
@@ -1406,24 +1405,29 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.6 }}
               >
-                <Card className="glass border-accent/20 shadow-accent h-full">
+                <Card className="glass border-accent/30 shadow-accent h-full">
                   <CardHeader className="pb-3">
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-                        <Eye className="w-5 h-5 text-accent" />
+                      <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                        <Lightbulb className="w-6 h-6 text-accent" />
                       </div>
-                      <CardTitle className="text-lg">The Realization</CardTitle>
+                      <CardTitle className="text-xl text-primary">The Realization</CardTitle>
                     </div>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Systems failed not because of technical limitations, but because they didn't align with human behavior and organizational needs.
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      The key insight was that successful technology solutions required someone who could understand both worlds — the technical possibilities and the human reality. Most users couldn't clearly express their needs in technical terms, and development teams didn't always have access to the full context of daily operations.
                     </p>
-                    <div className="space-y-2">
-                      <Badge variant="outline" className="border-accent text-accent text-xs mr-2">
+                    <div className="bg-accent/10 p-4 rounded-lg border-l-4 border-accent mb-4">
+                      <p className="text-sm text-primary font-medium leading-relaxed">
+                        It wasn't a people problem — it was a communication and alignment problem. This led me to pursue formal UX education and begin my transition into user research.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="outline" className="border-accent text-accent text-xs">
                         Human-Centered Design
                       </Badge>
-                      <Badge variant="outline" className="border-accent text-accent text-xs mr-2">
+                      <Badge variant="outline" className="border-accent text-accent text-xs">
                         Systems Thinking
                       </Badge>
                       <Badge variant="outline" className="border-accent text-accent text-xs">
