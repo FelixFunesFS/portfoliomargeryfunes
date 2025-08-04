@@ -835,6 +835,11 @@ Rather than accept the status quo, I took action. I began learning automation, p
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Rotated into new roles every six months to assess, modernize, and automate core systems.
                   </p>
+                  <blockquote className="mt-3 pl-4 border-l-2 border-accent/30 bg-accent/5 py-2 pr-3 rounded-r-md">
+                    <p className="text-sm text-muted-foreground italic">
+                      "Known for making the seemingly impossible impossible!"
+                    </p>
+                  </blockquote>
                 </div>
               </motion.div>
 
