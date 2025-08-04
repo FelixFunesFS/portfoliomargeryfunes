@@ -783,7 +783,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                           U.S. Air Force & Boeing
                         </Badge>
                       </p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-base text-muted-foreground leading-relaxed">
                         Noticed systems didn't align with how people actually worked. Applications were clunky, workflows inefficient.
                       </p>
                     </div>
@@ -948,7 +948,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                       The key insight was that successful technology solutions required someone who could understand both worlds — the technical possibilities and the human reality. Most users couldn't clearly express their needs in technical terms, and development teams didn't always have access to the full context of daily operations.
                     </p>
                     <div className="bg-accent/10 p-4 rounded-lg border-l-4 border-accent">
-                      <p className="text-sm text-primary font-medium leading-relaxed">
+                      <p className="text-base text-primary font-medium leading-relaxed">
                         It wasn't a people problem — it was a communication and alignment problem. This led me to pursue formal UX education and begin my transition into user research.
                       </p>
                     </div>
