@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import WebDesignCard from '@/components/WebDesignCard';
+import DesignProcess from '@/components/DesignProcess';
 
 // Import images
 import codingWorkspace from '@/assets/coding-workspace.jpg';
@@ -1155,6 +1156,9 @@ Rather than accept the status quo, I took action. I began learning automation, p
           </div>
         </div>
       </section>
+
+      {/* Design Process */}
+      <DesignProcess />
 
       {/* Research Artifacts Showcase */}
       <section className="section gradient-subtle">
