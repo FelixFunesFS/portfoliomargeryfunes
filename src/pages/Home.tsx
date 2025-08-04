@@ -31,7 +31,7 @@ import {
   Monitor,
   Smartphone,
   Heart,
-  Home
+  Home as HomeIcon
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -50,7 +50,7 @@ import caseStudy5Automation from '@/assets/case-study-5-automation.jpg';
 import caseStudy3Slides from '@/assets/case-study-3-slides.jpg';
 import caseStudy4Workspace from '@/assets/case-study-4-workspace.jpg';
 
-const AltHome2 = () => {
+const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const heroRef = useRef(null);
   const isHeroInView = useInView(heroRef, { once: true });
@@ -1974,4 +1974,4 @@ const AltHome2 = () => {
   );
 };
 
-export default AltHome2;
+export default Home;
