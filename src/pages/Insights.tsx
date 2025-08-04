@@ -1,0 +1,447 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
+import { 
+  Search, 
+  Users, 
+  Target, 
+  BarChart3, 
+  Lightbulb, 
+  Database,
+  PenTool,
+  Zap,
+  Clock,
+  CheckCircle
+} from 'lucide-react';
+import circuitBoard from '@/assets/circuit-board.jpg';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+
+const Insights = () => {
+  const researchToolkit = [
+    {
+      phase: "Discover",
+      duration: "Week 1", 
+      icon: Search,
+      insight: "What are users really trying to accomplish, and what's blocking them?",
+      methods: [
+        "Stakeholder interviews",
+        "User journey mapping", 
+        "Competitive analysis",
+        "Data analysis review"
+      ],
+      deliverables: [
+        "Research plan",
+        "User personas", 
+        "Problem statements",
+        "Opportunity matrix"
+      ]
+    },
+    {
+      phase: "Define",
+      duration: "Week 2",
+      icon: Target,
+      insight: "How can we frame the problem to create the most impactful solution?",
+      methods: [
+        "Affinity mapping",
+        "How Might We sessions",
+        "Priority matrix creation",
+        "Success metrics definition"
+      ],
+      deliverables: [
+        "Problem definition",
+        "Design requirements",
+        "Success criteria", 
+        "Scope boundaries"
+      ]
+    },
+    {
+      phase: "Design", 
+      duration: "Week 3",
+      icon: PenTool,
+      insight: "What interaction patterns will feel most natural and effective for users?",
+      methods: [
+        "Rapid prototyping",
+        "Design system integration",
+        "Accessibility review",
+        "Technical feasibility check"
+      ],
+      deliverables: [
+        "Low-fi wireframes",
+        "Interactive prototypes",
+        "Design specifications",
+        "Component library"
+      ]
+    },
+    {
+      phase: "Validate",
+      duration: "Week 4",
+      icon: CheckCircle,
+      insight: "Does our solution actually solve the problem better than existing approaches?",
+      methods: [
+        "Usability testing",
+        "A/B testing",
+        "Performance benchmarking",
+        "Accessibility testing"
+      ],
+      deliverables: [
+        "Test results",
+        "Iteration recommendations",
+        "Launch readiness report",
+        "Performance metrics"
+      ]
+    }
+  ];
+
+  const researchMethods = [
+    {
+      title: "Military-Grade User Research",
+      description: "Systematic observation and analysis techniques adapted from intelligence gathering",
+      icon: <Search className="w-6 h-6" />,
+      techniques: ["Structured interviews", "Behavioral observation", "Task analysis", "Performance metrics"]
+    },
+    {
+      title: "Systems Analysis Approach", 
+      description: "Understanding complex interconnections between users, technology, and business goals",
+      icon: <Database className="w-6 h-6" />,
+      techniques: ["Process mapping", "Stakeholder analysis", "Risk assessment", "Impact analysis"]
+    },
+    {
+      title: "Agile Research Methods",
+      description: "Rapid, iterative research cycles that adapt to changing requirements",
+      icon: <Zap className="w-6 h-6" />,
+      techniques: ["Sprint planning", "Daily standups", "Retrospectives", "Continuous testing"]
+    },
+    {
+      title: "Data-Driven Insights",
+      description: "Combining qualitative insights with quantitative validation",
+      icon: <BarChart3 className="w-6 h-6" />,
+      techniques: ["Analytics review", "A/B testing", "Heat mapping", "Conversion analysis"]
+    }
+  ];
+
+  const skillsArsenal = [
+    {
+      category: "Research & Analysis",
+      skills: ["User Interviews", "Usability Testing", "Data Analysis", "Competitive Research", "Journey Mapping"],
+      icon: <Search className="w-8 h-8" />
+    },
+    {
+      category: "Design & Prototyping", 
+      skills: ["Wireframing", "Prototyping", "Design Systems", "Interaction Design", "Visual Design"],
+      icon: <PenTool className="w-8 h-8" />
+    },
+    {
+      category: "Collaboration & Communication",
+      skills: ["Stakeholder Management", "Workshop Facilitation", "Presentation Design", "Technical Documentation"],
+      icon: <Users className="w-8 h-8" />
+    },
+    {
+      category: "Technical Implementation",
+      skills: ["Front-end Development", "System Architecture", "Performance Optimization", "Quality Assurance"],
+      icon: <Database className="w-8 h-8" />
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <section id="insights-hero" className="section pt-24 pb-16 gradient-hero">
+        <div className="container-custom">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <Badge variant="outline" className="mb-6 border-primary text-primary">
+              Research Methodologies & Insights
+            </Badge>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6">
+              Deep Dive into <span className="text-gradient bg-gradient-to-r from-primary via-accent to-success bg-clip-text text-transparent">Research & Design</span>
+            </h1>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
+              Explore the methodologies, tools, and insights that drive user-centered design decisions. 
+              From military precision to agile innovation.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Sprint-Based Problem Solving */}
+      <section className="section bg-background">
+        <div className="container-custom">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <Badge variant="outline" className="mb-4 border-agile-primary text-agile-primary">
+              Agile Research Methodology
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+              Sprint-Based <span className="text-agile-primary">Problem Solving</span>
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
+              My systematic approach to UX research combines agile methodologies with 
+              systems analysis for rapid, iterative problem solving.
+            </p>
+          </motion.div>
+
+          {/* Agile Methodology Visual */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center"
+          >
+            <div className="relative overflow-hidden rounded-xl order-2 lg:order-1">
+              <div className="h-48 sm:h-64 lg:h-80">
+                <img 
+                  src={circuitBoard} 
+                  alt="Complex systems and interconnected processes" 
+                  className="w-full h-full object-cover" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+              </div>
+            </div>
+            <div className="order-1 lg:order-2">
+              <Badge variant="outline" className="mb-4 border-agile-primary text-agile-primary">
+                Systematic Approach
+              </Badge>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
+                Precision in <span className="text-agile-primary">Every Sprint</span>
+              </h3>
+              <p className="text-sm sm:text-base text-muted-foreground mb-6">
+                Just like complex circuit boards require methodical design, every research sprint follows 
+                a structured approach to ensure reliable, actionable insights.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline" className="border-agile-primary text-agile-primary">Plan</Badge>
+                <Badge variant="outline" className="border-agile-primary text-agile-primary">Research</Badge>
+                <Badge variant="outline" className="border-agile-primary text-agile-primary">Analyze</Badge>
+                <Badge variant="outline" className="border-agile-primary text-agile-primary">Iterate</Badge>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
+            {researchToolkit.map((phase, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ scale: 1.02 }}
+                className="h-full"
+              >
+                <Card className="glass border-agile-primary/20 shadow-agile hover:shadow-agile/50 transition-all duration-300 h-full">
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-agile-primary/20 flex items-center justify-center mb-3 sm:mb-4">
+                      <phase.icon className="w-5 h-5 sm:w-6 sm:h-6 text-agile-primary" />
+                    </div>
+                    <CardTitle className="text-agile-primary text-lg sm:text-xl">{phase.phase}</CardTitle>
+                    <Badge variant="outline" className="w-fit border-agile-secondary text-agile-secondary text-xs sm:text-sm">
+                      {phase.duration}
+                    </Badge>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {/* Key Research Question */}
+                      <div className="bg-agile-primary/10 p-3 rounded-lg">
+                        <h4 className="font-semibold text-agile-primary mb-2 text-sm">Key Question</h4>
+                        <p className="text-sm text-agile-primary font-medium italic">
+                          {phase.insight}
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">Methods</h4>
+                        <ul className="text-sm text-muted-foreground space-y-1">
+                          {phase.methods.map((method, methodIndex) => (
+                            <li key={methodIndex}>• {method}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <Separator />
+                      
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">Deliverables</h4>
+                        <ul className="text-sm text-muted-foreground space-y-1">
+                          {phase.deliverables.map((deliverable, deliverableIndex) => (
+                            <li key={deliverableIndex}>• {deliverable}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Research Methods Deep Dive */}
+      <section className="section gradient-subtle">
+        <div className="container-custom">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <Badge variant="outline" className="mb-4 border-primary text-primary">
+              Research Methodology
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+              Research <span className="text-gradient bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Methods & Approaches</span>
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+              A comprehensive toolkit combining military precision, systems thinking, and agile methodologies.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {researchMethods.map((method, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+              >
+                <Card className="glass border-none h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                        {method.icon}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold mb-2">{method.title}</h3>
+                        <p className="text-muted-foreground text-sm mb-4">{method.description}</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {method.techniques.map((technique, techIndex) => (
+                        <Badge key={techIndex} variant="secondary" className="text-xs">
+                          {technique}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Arsenal */}
+      <section className="section bg-background">
+        <div className="container-custom">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <Badge variant="outline" className="mb-4 border-success text-success">
+              Technical Expertise
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+              Skills <span className="text-gradient bg-gradient-to-r from-success to-primary bg-clip-text text-transparent">Arsenal</span>
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+              A comprehensive skill set spanning research, design, development, and systems analysis.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {skillsArsenal.map((category, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+              >
+                <Card className="glass border-none h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-16 h-16 rounded-full bg-success/10 flex items-center justify-center text-success">
+                        {category.icon}
+                      </div>
+                      <h3 className="text-xl font-semibold">{category.category}</h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, skillIndex) => (
+                        <Badge key={skillIndex} variant="outline" className="border-success text-success">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Military to UX Journey Timeline */}
+      <section className="section gradient-subtle">
+        <div className="container-custom">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <Badge variant="outline" className="mb-4 border-military-primary text-military-primary">
+              Career Evolution
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+              From <span className="text-military-primary">Military Precision</span> to <span className="text-agile-primary">UX Innovation</span>
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+              A unique journey that bridges tactical excellence with user-centered design thinking.
+            </p>
+          </motion.div>
+
+          <div className="relative">
+            {/* Timeline content would go here - keeping it simple for now */}
+            <Card className="glass border-none">
+              <CardContent className="p-8">
+                <div className="text-center">
+                  <Lightbulb className="w-16 h-16 mx-auto mb-4 text-primary" />
+                  <h3 className="text-xl font-semibold mb-4">Bridging Two Worlds</h3>
+                  <p className="text-muted-foreground">
+                    My military background provides unmatched discipline and systems thinking, 
+                    while my UX expertise ensures every solution is human-centered and accessible.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Insights;

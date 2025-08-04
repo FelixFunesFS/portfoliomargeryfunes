@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
-import { Target, Zap, TrendingUp, Users, BarChart3, Layers, GitBranch, RefreshCw, CheckCircle, ArrowRight, Radar, Settings, Database, Code, LineChart, Shield, Rocket, Brain, Clock, Award, ChevronDown, Eye, MapPin, ExternalLink, Globe, Monitor, Smartphone, Heart, Home as HomeIcon, Trophy, GraduationCap, Lightbulb } from 'lucide-react';
+import { Target, Zap, TrendingUp, Users, BarChart3, Layers, GitBranch, RefreshCw, CheckCircle, ArrowRight, Radar, Settings, Database, Code, LineChart, Shield, Rocket, Brain, Clock, Award, ChevronDown, Eye, MapPin, ExternalLink, Globe, Monitor, Smartphone, Heart, Home as HomeIcon, Trophy, GraduationCap, Lightbulb, Search, TestTube } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -1038,130 +1038,125 @@ Rather than accept the status quo, I took action. I began learning automation, p
         </div>
       </section>
 
-      {/* Agile Research Toolkit */}
+      {/* Design Process */}
+      <DesignProcess />
+
+      {/* Process Philosophy */}
       <section className="section bg-background">
         <div className="container-custom">
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6
-        }} className="text-center mb-16">
-            <Badge variant="outline" className="mb-4 border-agile-primary text-agile-primary">
-              Agile Research Methodology
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <Badge variant="outline" className="mb-4 border-primary text-primary">
+              Design Philosophy
             </Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-              Sprint-Based <span className="text-agile-primary">Problem Solving</span>
+              Core <span className="text-gradient bg-gradient-to-r from-primary via-accent to-success bg-clip-text text-transparent">Principles</span>
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
-              My systematic approach to UX research combines agile methodologies with 
-              systems analysis for rapid, iterative problem solving.
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              The foundational beliefs that guide every design decision and research initiative.
             </p>
           </motion.div>
 
-          {/* Agile Methodology Visual */}
-          <motion.div initial={{
-          opacity: 0,
-          scale: 0.95
-        }} whileInView={{
-          opacity: 1,
-          scale: 1
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
-            <div className="relative overflow-hidden rounded-xl order-2 lg:order-1">
-              <div className="h-48 sm:h-64 lg:h-80">
-                <img src={circuitBoard} alt="Complex systems and interconnected processes" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-              </div>
-            </div>
-            <div className="order-1 lg:order-2">
-              <Badge variant="outline" className="mb-4 border-agile-primary text-agile-primary">
-                Systematic Approach
-              </Badge>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
-                Precision in <span className="text-agile-primary">Every Sprint</span>
-              </h3>
-              <p className="text-sm sm:text-base text-muted-foreground mb-6">
-                Just like complex circuit boards require methodical design, every research sprint follows 
-                a structured approach to ensure reliable, actionable insights.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="outline" className="border-agile-primary text-agile-primary">Plan</Badge>
-                <Badge variant="outline" className="border-agile-primary text-agile-primary">Research</Badge>
-                <Badge variant="outline" className="border-agile-primary text-agile-primary">Analyze</Badge>
-                <Badge variant="outline" className="border-agile-primary text-agile-primary">Iterate</Badge>
-              </div>
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+            >
+              <Card className="glass border-none h-full">
+                <CardContent className="p-4 sm:p-6 text-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Search className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-semibold mb-2 text-foreground">Research-Driven</h3>
+                  <p className="text-muted-foreground text-xs sm:text-sm">
+                    Every decision is backed by real user data and operational context, not assumptions.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
-            {researchToolkit.map((phase, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 50
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: index * 0.1,
-            duration: 0.6
-          }} whileHover={{
-            scale: 1.02
-          }} className="h-full">
-                <Card className="glass border-agile-primary/20 shadow-agile hover:shadow-agile/50 transition-all duration-300 h-full">
-                  <CardHeader className="p-4 sm:p-6">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-agile-primary/20 flex items-center justify-center mb-3 sm:mb-4">
-                      <phase.icon className="w-5 h-5 sm:w-6 sm:h-6 text-agile-primary" />
-                    </div>
-                    <CardTitle className="text-agile-primary text-lg sm:text-xl">{phase.phase}</CardTitle>
-                    <Badge variant="outline" className="w-fit border-agile-secondary text-agile-secondary text-xs sm:text-sm">
-                      {phase.duration}
-                    </Badge>
-                  </CardHeader>
-                   <CardContent>
-                    <div className="space-y-4">
-                      {/* Key Research Question */}
-                      <div className="bg-agile-primary/10 p-3 rounded-lg">
-                        <h4 className="font-semibold text-agile-primary mb-2 text-sm">Key Question</h4>
-                        <p className="text-sm text-agile-primary font-medium italic">
-                          {phase.insight}
-                        </p>
-                      </div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              <Card className="glass border-none h-full">
+                <CardContent className="p-4 sm:p-6 text-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Users className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-semibold mb-2 text-foreground">Collaborative</h3>
+                  <p className="text-muted-foreground text-xs sm:text-sm">
+                    Bringing together stakeholders, users, and developers for aligned solutions.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-2">Methods</h4>
-                        <ul className="text-sm text-muted-foreground space-y-1">
-                          {phase.methods.map((method, methodIndex) => <li key={methodIndex}>• {method}</li>)}
-                        </ul>
-                      </div>
-                      
-                      <Separator />
-                      
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-2">Deliverables</h4>
-                        <ul className="text-sm text-muted-foreground space-y-1">
-                          {phase.deliverables.map((deliverable, deliverableIndex) => <li key={deliverableIndex}>• {deliverable}</li>)}
-                        </ul>
-                      </div>
-                    </div>
-                   </CardContent>
-                </Card>
-              </motion.div>)}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+              <Card className="glass border-none h-full">
+                <CardContent className="p-4 sm:p-6 text-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <TestTube className="w-6 h-6 sm:w-8 sm:h-8 text-success" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-semibold mb-2 text-foreground">Iterative</h3>
+                  <p className="text-muted-foreground text-xs sm:text-sm">
+                    Continuous testing and refinement ensure optimal performance and user satisfaction.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Design Process */}
-      <DesignProcess />
+      {/* CTA to Insights Page */}
+      <section className="section bg-gradient-to-r from-primary/5 via-accent/5 to-success/5">
+        <div className="container-custom">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <Card className="glass border-primary/20 max-w-4xl mx-auto">
+              <CardContent className="p-8 sm:p-12">
+                <Badge variant="outline" className="mb-4 border-primary text-primary">
+                  Deep Dive Available
+                </Badge>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+                  Explore My <span className="text-gradient bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Research Methodologies</span>
+                </h2>
+                <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                  Dive deeper into the systematic approaches, tools, and insights that drive effective user-centered design. 
+                  From sprint-based problem solving to comprehensive research artifacts.
+                </p>
+                <Button 
+                  size="lg" 
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                  onClick={() => window.location.href = '/insights'}
+                >
+                  View Research Insights <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Research Artifacts Showcase */}
       <section className="section gradient-subtle">

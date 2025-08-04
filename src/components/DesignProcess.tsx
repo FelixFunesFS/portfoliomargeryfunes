@@ -66,8 +66,11 @@ const DesignProcess = () => {
     <section id="design-process" className="section bg-gradient-to-br from-muted/20 via-background to-accent/10">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-primary">
-            My Design Process
+          <Badge variant="outline" className="mb-4 border-primary text-primary">
+            Design Philosophy
+          </Badge>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+            From Discovery to <span className="text-gradient bg-gradient-to-r from-primary via-accent to-success bg-clip-text text-transparent">Deployment</span>
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base lg:text-lg">
             A systematic, military-informed approach to user-centered design that ensures every solution 
@@ -116,44 +119,6 @@ const DesignProcess = () => {
             ))}
           </div>
 
-          {/* Process Philosophy */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          <Card className="glass border-none">
-            <CardContent className="p-4 sm:p-6 text-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <Search className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
-              </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-2 text-foreground">Research-Driven</h3>
-              <p className="text-muted-foreground text-xs sm:text-sm">
-                Every decision is backed by real user data and operational context, not assumptions.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="glass border-none">
-            <CardContent className="p-4 sm:p-6 text-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <Users className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
-              </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-2 text-foreground">Collaborative</h3>
-              <p className="text-muted-foreground text-xs sm:text-sm">
-                Bringing together stakeholders, users, and developers for aligned solutions.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="glass border-none">
-            <CardContent className="p-4 sm:p-6 text-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <TestTube className="w-6 h-6 sm:w-8 sm:h-8 text-success" />
-              </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-2 text-foreground">Iterative</h3>
-              <p className="text-muted-foreground text-xs sm:text-sm">
-                Continuous testing and refinement ensure optimal performance and user satisfaction.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </section>
   );
