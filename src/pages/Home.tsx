@@ -967,21 +967,21 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <Card className="bg-gradient-to-br from-accent/5 to-accent/10 border border-accent/30 shadow-lg">
+                <Card className="bg-background border border-secondary/30 shadow-sm">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
-                        <Lightbulb className="w-5 h-5 text-accent" />
+                      <div className="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center">
+                        <Lightbulb className="w-4 h-4 text-secondary" />
                       </div>
-                      <h4 className="text-xl font-semibold text-foreground">The Realization</h4>
+                      <h4 className="font-semibold text-secondary">The Realization</h4>
                     </div>
-                    <p className="text-base text-foreground leading-relaxed mb-4">
-                      Most users couldn't clearly express their needs in technical terms, and development teams 
-                      didn't always have access to the full context of daily operations.
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      The key insight was that successful technology solutions required someone who could 
+                      understand both worlds — the technical possibilities and the human reality.
                     </p>
-                    <div className="bg-accent/15 border border-accent/20 p-4 rounded-lg">
-                      <p className="text-base text-accent font-semibold leading-relaxed">
-                        It wasn't a people problem — it was a communication and alignment problem.
+                    <div className="bg-secondary/10 p-3 rounded-lg">
+                      <p className="text-sm text-secondary font-medium leading-relaxed">
+                        This led me to pursue formal UX education and begin my transition into user research.
                       </p>
                     </div>
                   </CardContent>
