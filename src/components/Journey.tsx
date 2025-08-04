@@ -69,87 +69,72 @@ const Journey = () => {
           </Card>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          <div className="space-y-8">
-            {milestones.filter((_, index) => index % 2 === 0).map((milestone, index) => (
-              <div key={index * 2} className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    {milestone.icon}
+        <div className="flex flex-col lg:flex-row gap-8 mb-16">
+          {/* Left Column - Milestone List */}
+          <div className="lg:w-3/5 relative">
+            {/* Connecting Line */}
+            <div className="absolute left-6 top-12 bottom-0 w-0.5 bg-border hidden lg:block"></div>
+            
+            <div className="space-y-6">
+              {milestones.map((milestone, index) => (
+                <div key={index} className="flex gap-4 relative">
+                  <div className="flex-shrink-0 relative z-10">
+                    <div className="w-12 h-12 rounded-full bg-card border-2 border-primary/20 flex items-center justify-center text-primary shadow-sm">
+                      {milestone.icon}
+                    </div>
+                  </div>
+                  <div className="flex-1 pb-2">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="text-lg font-semibold text-foreground">{milestone.title}</h3>
+                      <Badge variant="secondary" className="text-xs">
+                        {milestone.subtitle}
+                      </Badge>
+                    </div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{milestone.description}</p>
                   </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold mb-1 text-foreground">{milestone.title}</h3>
-                  <Badge variant="secondary" className="mb-2">
-                    {milestone.subtitle}
-                  </Badge>
-                  <p className="text-muted-foreground">{milestone.description}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          <div className="space-y-8">
-            {milestones.filter((_, index) => index % 2 === 1).map((milestone, index) => (
-              <div key={index * 2 + 1} className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    {milestone.icon}
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold mb-1 text-foreground">{milestone.title}</h3>
-                  <Badge variant="secondary" className="mb-2">
-                    {milestone.subtitle}
-                  </Badge>
-                  <p className="text-muted-foreground">{milestone.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Outcome Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div>
+          {/* Right Column - Insight Cards */}
+          <div className="lg:w-2/5 space-y-6">
             <Card className="glass border-none">
-              <CardContent className="p-8">
+              <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <Lightbulb className="w-8 h-8 text-primary" />
-                  <h3 className="text-2xl font-semibold text-foreground">The Realization</h3>
+                  <Lightbulb className="w-6 h-6 text-primary" />
+                  <h3 className="text-xl font-semibold text-foreground">The Realization</h3>
                 </div>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground mb-4 text-sm">
                   Most users couldn't clearly express their needs in technical terms, and development 
                   teams didn't always have access to the full context of daily operations.
                 </p>
-                <div className="p-4 bg-primary/10 rounded-lg">
-                  <p className="font-medium text-primary">
+                <div className="p-3 bg-primary/10 rounded-lg">
+                  <p className="font-medium text-primary text-sm">
                     It wasn't a people problem — it was a communication and alignment problem.
                   </p>
                 </div>
               </CardContent>
             </Card>
-          </div>
 
-          <div>
             <Card className="glass border-none">
-              <CardContent className="p-8">
+              <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <Users className="w-8 h-8 text-primary" />
-                  <h3 className="text-2xl font-semibold text-foreground">Today's Mission</h3>
+                  <Users className="w-6 h-6 text-primary" />
+                  <h3 className="text-xl font-semibold text-foreground">Today's Mission</h3>
                 </div>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground mb-4 text-sm">
                   I create research-driven, human-centered solutions that help teams build 
                   the right products — the first time.
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="outline">User Research</Badge>
-                  <Badge variant="outline">UX Design</Badge>
-                  <Badge variant="outline">Full Stack Development</Badge>
-                  <Badge variant="outline">Process Improvement</Badge>
-                  <Badge variant="outline">Automation</Badge>
-                  <Badge variant="outline">Agile</Badge>
-                  <Badge variant="outline">Lean</Badge>
+                <div className="flex flex-wrap gap-1">
+                  <Badge variant="outline" className="text-xs">User Research</Badge>
+                  <Badge variant="outline" className="text-xs">UX Design</Badge>
+                  <Badge variant="outline" className="text-xs">Full Stack Development</Badge>
+                  <Badge variant="outline" className="text-xs">Process Improvement</Badge>
+                  <Badge variant="outline" className="text-xs">Automation</Badge>
+                  <Badge variant="outline" className="text-xs">Agile</Badge>
+                  <Badge variant="outline" className="text-xs">Lean</Badge>
                 </div>
               </CardContent>
             </Card>
