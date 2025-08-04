@@ -836,7 +836,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                     Rotated into new roles every six months to assess, modernize, and automate core systems.
                   </p>
                   <div className="mt-3 bg-accent/10 p-4 rounded-lg border-l-4 border-accent">
-                    <p className="text-sm text-primary font-medium leading-relaxed">
+                    <p className="text-sm text-primary font-medium leading-relaxed italic">
                       "Known for making the seemingly impossible impossible!"
                     </p>
                   </div>
