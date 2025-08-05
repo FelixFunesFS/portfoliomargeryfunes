@@ -157,26 +157,6 @@ const Home = () => {
     caseStudyId: 4
   }];
 
-  // Military to Agile Journey
-  const journeyMilestones = [{
-    period: "2008-2012",
-    role: "US Air Force Systems Operations",
-    focus: "Mission-Critical Systems Management",
-    skills: ["F117 Engine Logistics", "Multi-Base Coordination", "Risk Management"],
-    icon: Shield
-  }, {
-    period: "2012-2018",
-    role: "Boeing Enterprise Systems Analyst",
-    focus: "Large-Scale Process Optimization",
-    skills: ["SharePoint Architecture", "SQL Development", "Workflow Automation"],
-    icon: Settings
-  }, {
-    period: "2018-Present",
-    role: "Agile UX Research & Systems Design",
-    focus: "User-Centered Problem Solving",
-    skills: ["Sprint Planning", "User Research", "Technical Implementation"],
-    icon: Rocket
-  }];
 
   // Research-First Agile Toolkit
   const researchToolkit = [{
@@ -1005,6 +985,90 @@ Rather than accept the status quo, I took action. I began learning automation, p
               </CardContent>
             </Card>
           </motion.div>
+
+          {/* Bridge Effect Card - moved here after translator quote */}
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          delay: 0.9,
+          duration: 0.6
+        }} className="max-w-5xl mx-auto mt-16">
+            <Card className="glass border-accent/20 shadow-accent">
+              <CardContent className="p-6 sm:p-8 lg:p-12">
+                <div className="text-center mb-6 sm:mb-8">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-3 sm:mb-4">
+                    <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
+                    The Bridge Effect
+                  </h3>
+                  <p className="text-base sm:text-lg text-muted-foreground">
+                    Where technical expertise meets human understanding
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                  <div>
+                    <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center">
+                      <Database className="w-5 h-5 text-systems-blue mr-2" />
+                      Technical Translation
+                    </h4>
+                    <ul className="space-y-3 text-muted-foreground">
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Convert complex technical requirements into user-friendly solutions</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Bridge communication gaps between developers and end users</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Ensure technical solutions align with business objectives</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center">
+                      <Users className="w-5 h-5 text-agile-primary mr-2" />
+                      Human-Centered Impact
+                    </h4>
+                    <ul className="space-y-3 text-muted-foreground">
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Design with military precision but user empathy at the core</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Create solutions that are both powerful and accessible</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Deliver measurable results through systematic user research</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <Separator className="my-8" />
+
+                <div className="text-center">
+                  <p className="text-lg text-muted-foreground italic">
+                    "I don't just build systems or design interfaces — I create bridges between 
+                    complex technology and human needs, ensuring solutions are both technically 
+                    sound and genuinely useful."
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
@@ -1174,20 +1238,6 @@ Rather than accept the status quo, I took action. I began learning automation, p
                 {/* Connecting Line */}
                 <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-military-primary via-systems-blue to-agile-primary opacity-30 hidden sm:block"></div>
                 
-                <div className="space-y-8">
-                  {journeyMilestones.map((milestone, index) => (
-                    <motion.div key={index} className="flex items-start space-x-6">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                        <milestone.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <h4 className="text-lg font-semibold text-foreground">{milestone.role}</h4>
-                        <p className="text-sm text-muted-foreground">{milestone.period}</p>
-                        <p className="text-base text-muted-foreground mt-2">{milestone.focus}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
               </motion.div>
             </div>
 
@@ -1195,147 +1245,9 @@ Rather than accept the status quo, I took action. I began learning automation, p
             
           </div>
 
-          {/* Bridge Effect Card - moved after translator quote */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          delay: 0.9,
-          duration: 0.6
-        }} className="max-w-5xl mx-auto mt-16">
-            <Card className="glass border-accent/20 shadow-accent">
-              <CardContent className="p-6 sm:p-8 lg:p-12">
-                <div className="text-center mb-6 sm:mb-8">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-3 sm:mb-4">
-                    <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
-                    The Bridge Effect
-                  </h3>
-                  <p className="text-base sm:text-lg text-muted-foreground">
-                    Where technical expertise meets human understanding
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                  <div>
-                    <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center">
-                      <Database className="w-5 h-5 text-systems-blue mr-2" />
-                      Technical Translation
-                    </h4>
-                    <ul className="space-y-3 text-muted-foreground">
-                      <li className="flex items-start">
-                        <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
-                        <span>Convert complex technical requirements into user-friendly solutions</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
-                        <span>Bridge communication gaps between developers and end users</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
-                        <span>Ensure technical solutions align with business objectives</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center">
-                      <Users className="w-5 h-5 text-agile-primary mr-2" />
-                      Human-Centered Impact
-                    </h4>
-                    <ul className="space-y-3 text-muted-foreground">
-                      <li className="flex items-start">
-                        <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
-                        <span>Design with military precision but user empathy at the core</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
-                        <span>Create solutions that are both powerful and accessible</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
-                        <span>Deliver measurable results through systematic user research</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <Separator className="my-8" />
-
-                <div className="text-center">
-                  <p className="text-lg text-muted-foreground italic">
-                    "I don't just build systems or design interfaces — I create bridges between 
-                    complex technology and human needs, ensuring solutions are both technically 
-                    sound and genuinely useful."
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
         </div>
       </section>
 
-      {/* Design Process */}
-      <DesignProcess />
-
-      {/* Process Philosophy */}
-      <section className="section bg-background">
-        <div className="container-custom">
-          {/* Unique Value Metrics */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          delay: 1,
-          duration: 0.6
-        }} className="mt-16">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-              {[{
-              metric: "3 Domains",
-              label: "Military • Enterprise • UX",
-              icon: Shield,
-              color: "military-primary"
-            }, {
-              metric: "15+ Years",
-              label: "Systems Experience",
-              icon: Clock,
-              color: "systems-blue"
-            }, {
-              metric: "100%",
-              label: "User Adoption Rate",
-              icon: Target,
-              color: "agile-primary"
-            }, {
-              metric: "∞",
-              label: "Translation Capability",
-              icon: GitBranch,
-              color: "accent"
-            }].map((item, index) => <Card key={index} className="glass border-none shadow-card text-center">
-                  <CardContent className="p-4 sm:p-6">
-                    <div className={`w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4 ${item.color === 'military-primary' ? 'bg-military-primary/20' : item.color === 'systems-blue' ? 'bg-systems-blue/20' : item.color === 'agile-primary' ? 'bg-agile-primary/20' : 'bg-accent/20'}`}>
-                      <item.icon className={`w-6 h-6 ${item.color === 'military-primary' ? 'text-military-primary' : item.color === 'systems-blue' ? 'text-systems-blue' : item.color === 'agile-primary' ? 'text-agile-primary' : 'text-accent'}`} />
-                    </div>
-                    <div className={`text-3xl font-bold mb-1 ${item.color === 'success' ? 'text-success' : item.color === 'primary-glow' ? 'text-primary-glow' : item.color === 'agile-primary' ? 'text-agile-primary' : 'text-accent'}`}>
-                      {item.metric}
-                    </div>
-                    <div className="text-sm text-muted-foreground">{item.label}</div>
-                  </CardContent>
-                </Card>)}
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Skills Arsenal */}
       <section className="section gradient-subtle">
