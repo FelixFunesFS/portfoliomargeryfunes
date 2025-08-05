@@ -199,124 +199,102 @@ const Home = () => {
     insight: "Did we solve the right problem? What should we optimize next?"
   }];
 
-   // Skills Arsenal with detailed breakdown and descriptions
-   const skillCategories = {
-     'UX Research & Design': [
-       { 
-         name: 'User Research & Testing', 
-         level: 94, 
-         proficiency: 'Expert',
-         description: 'Conducted 50+ user interviews, surveys, and usability testing sessions across military and civilian domains. Led journey mapping and persona development for enterprise systems.'
-       },
-       { 
-         name: 'UX Design & Prototyping', 
-         level: 88, 
-         proficiency: 'Advanced',
-         description: 'Created comprehensive design systems and interactive prototypes tested with 200+ users across multiple domains using Figma and modern design tools.'
-       },
-       { 
-         name: 'Systems Analysis', 
-         level: 98, 
-         proficiency: 'Expert',
-         description: 'Architected enterprise solutions serving 10,000+ users with complex workflow and data requirements'
-       },
-      { 
-        name: 'Strategic Planning (Vision & Roadmaps)', 
-        level: 95, 
-        proficiency: 'Expert',
-        description: 'Developed multi-year roadmaps and vision documents for complex military and enterprise initiatives'
-      },
-      { 
-        name: 'Agile Methodologies (Scrum, Kanban, Lean)', 
-        level: 95, 
-        proficiency: 'Expert',
-        description: 'Led Scrum ceremonies, sprint planning, and backlog grooming for cross-functional teams of 20+ members'
-      },
-      { 
-        name: 'Process Optimization', 
-        level: 95, 
-        proficiency: 'Expert',
-        description: 'Streamlined operations reducing task completion time by 40% through systematic workflow analysis'
-      }
-    ],
-    'Design & Development': [
-      { 
-        name: 'UX Design (Figma, Design Systems)', 
-        level: 88, 
-        proficiency: 'Advanced',
-        description: 'Created comprehensive design systems and user interfaces for enterprise applications and military tools'
-      },
-      { 
-        name: 'Prototyping (Interactive Flows, User Testing)', 
-        level: 85, 
-        proficiency: 'Advanced',
-        description: 'Built high-fidelity prototypes and conducted iterative testing with 200+ users across multiple domains'
-      },
-      { 
-        name: 'JavaScript/React', 
-        level: 85, 
-        proficiency: 'Advanced',
-        description: 'Developed responsive web applications and component libraries using modern React patterns and TypeScript'
-      },
-      { 
-        name: 'SharePoint Development', 
-        level: 90, 
-        proficiency: 'Expert',
-        description: 'Built custom solutions, workflows, and integrations for enterprise environments serving thousands of users'
-      }
-    ],
-    'Automation & Tools': [
-      { 
-        name: 'VBA/Automation', 
-        level: 88, 
-        proficiency: 'Advanced',
-        description: 'Automated complex data processing tasks, reducing manual effort by 80% for financial and operational reporting'
-      },
-      { 
-        name: 'SQL/Database', 
-        level: 82, 
-        proficiency: 'Advanced',
-        description: 'Designed and optimized database structures for mission-critical applications with complex data relationships'
-      },
-      { 
-        name: 'Tableau/Analytics', 
-        level: 80, 
-        proficiency: 'Advanced',
-        description: 'Created executive dashboards and data visualizations supporting strategic decision-making for leadership teams'
-      },
-      { 
-        name: 'Power Platform', 
-        level: 85, 
-        proficiency: 'Advanced',
-        description: 'Developed end-to-end business solutions using Power Apps, Power Automate, and Power BI for enterprise workflows'
-      }
-    ],
-    'Leadership & Collaboration': [
-      { 
-        name: 'Military Leadership (Team Command, Operations)', 
-        level: 100, 
-        proficiency: 'Expert',
-        description: 'Commanded teams of 50+ personnel in high-stakes operational environments with zero tolerance for failure'
-      },
-      { 
-        name: 'Cross-functional Teams', 
-        level: 95, 
-        proficiency: 'Expert',
-        description: 'Coordinated diverse teams across engineering, design, operations, and executive stakeholder groups'
-      },
-      { 
-        name: 'Stakeholder Management (Executive Communication)', 
-        level: 90, 
-        proficiency: 'Expert',
-        description: 'Presented strategic initiatives to C-suite executives and senior military leadership with measurable outcomes'
-      },
-      { 
-        name: 'Remote Coordination', 
-        level: 88, 
-        proficiency: 'Advanced',
-        description: 'Successfully managed distributed teams across multiple time zones and security clearance levels'
-      }
-    ]
+  // Skills Arsenal with detailed breakdown and descriptions
+  const skillCategories = {
+    'UX Research & Design': [{
+      name: 'User Research & Testing',
+      level: 94,
+      proficiency: 'Expert',
+      description: 'Conducted 50+ user interviews, surveys, and usability testing sessions across military and civilian domains. Led journey mapping and persona development for enterprise systems.'
+    }, {
+      name: 'UX Design & Prototyping',
+      level: 88,
+      proficiency: 'Advanced',
+      description: 'Created comprehensive design systems and interactive prototypes tested with 200+ users across multiple domains using Figma and modern design tools.'
+    }, {
+      name: 'Systems Analysis',
+      level: 98,
+      proficiency: 'Expert',
+      description: 'Architected enterprise solutions serving 10,000+ users with complex workflow and data requirements'
+    }, {
+      name: 'Strategic Planning (Vision & Roadmaps)',
+      level: 95,
+      proficiency: 'Expert',
+      description: 'Developed multi-year roadmaps and vision documents for complex military and enterprise initiatives'
+    }, {
+      name: 'Agile Methodologies (Scrum, Kanban, Lean)',
+      level: 95,
+      proficiency: 'Expert',
+      description: 'Led Scrum ceremonies, sprint planning, and backlog grooming for cross-functional teams of 20+ members'
+    }, {
+      name: 'Process Optimization',
+      level: 95,
+      proficiency: 'Expert',
+      description: 'Streamlined operations reducing task completion time by 40% through systematic workflow analysis'
+    }],
+    'Design & Development': [{
+      name: 'UX Design (Figma, Design Systems)',
+      level: 88,
+      proficiency: 'Advanced',
+      description: 'Created comprehensive design systems and user interfaces for enterprise applications and military tools'
+    }, {
+      name: 'Prototyping (Interactive Flows, User Testing)',
+      level: 85,
+      proficiency: 'Advanced',
+      description: 'Built high-fidelity prototypes and conducted iterative testing with 200+ users across multiple domains'
+    }, {
+      name: 'JavaScript/React',
+      level: 85,
+      proficiency: 'Advanced',
+      description: 'Developed responsive web applications and component libraries using modern React patterns and TypeScript'
+    }, {
+      name: 'SharePoint Development',
+      level: 90,
+      proficiency: 'Expert',
+      description: 'Built custom solutions, workflows, and integrations for enterprise environments serving thousands of users'
+    }],
+    'Automation & Tools': [{
+      name: 'VBA/Automation',
+      level: 88,
+      proficiency: 'Advanced',
+      description: 'Automated complex data processing tasks, reducing manual effort by 80% for financial and operational reporting'
+    }, {
+      name: 'SQL/Database',
+      level: 82,
+      proficiency: 'Advanced',
+      description: 'Designed and optimized database structures for mission-critical applications with complex data relationships'
+    }, {
+      name: 'Tableau/Analytics',
+      level: 80,
+      proficiency: 'Advanced',
+      description: 'Created executive dashboards and data visualizations supporting strategic decision-making for leadership teams'
+    }, {
+      name: 'Power Platform',
+      level: 85,
+      proficiency: 'Advanced',
+      description: 'Developed end-to-end business solutions using Power Apps, Power Automate, and Power BI for enterprise workflows'
+    }],
+    'Leadership & Collaboration': [{
+      name: 'Military Leadership (Team Command, Operations)',
+      level: 100,
+      proficiency: 'Expert',
+      description: 'Commanded teams of 50+ personnel in high-stakes operational environments with zero tolerance for failure'
+    }, {
+      name: 'Cross-functional Teams',
+      level: 95,
+      proficiency: 'Expert',
+      description: 'Coordinated diverse teams across engineering, design, operations, and executive stakeholder groups'
+    }, {
+      name: 'Stakeholder Management (Executive Communication)',
+      level: 90,
+      proficiency: 'Expert',
+      description: 'Presented strategic initiatives to C-suite executives and senior military leadership with measurable outcomes'
+    }, {
+      name: 'Remote Coordination',
+      level: 88,
+      proficiency: 'Advanced',
+      description: 'Successfully managed distributed teams across multiple time zones and security clearance levels'
+    }]
   };
 
   // Web Design Portfolio Data
@@ -528,13 +506,17 @@ const Home = () => {
       {/* Research Philosophy Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-muted/30">
         <div className="container-custom px-3 sm:px-4 lg:px-6">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center max-w-4xl mx-auto">
             <Badge variant="outline" className="mb-4 border-primary-glow text-primary-glow bg-primary-glow/5">
               Research Philosophy
             </Badge>
@@ -666,16 +648,14 @@ const Home = () => {
                      </div>
 
                      {/* User Voice Quote */}
-                     {story.userVoice && (
-                       <div className="mb-3 sm:mb-4 p-2 sm:p-3 bg-muted/50 rounded-lg border-l-4 border-primary-glow">
+                     {story.userVoice && <div className="mb-3 sm:mb-4 p-2 sm:p-3 bg-muted/50 rounded-lg border-l-4 border-primary-glow">
                          <Badge variant="outline" className="text-xs text-primary-glow mb-2">
                            USER VOICE
                          </Badge>
                          <p className="text-xs sm:text-sm text-muted-foreground italic leading-tight">
                            "{story.userVoice}"
                          </p>
-                       </div>
-                     )}
+                       </div>}
 
                     {/* Research Method */}
                     <div className="mb-3 sm:mb-4">
@@ -838,40 +818,29 @@ const Home = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            {Object.entries(skillCategories).map(([category, skills], index) => (
-              <motion.div key={category} initial={{
-                opacity: 0,
-                y: 50
-              }} whileInView={{
-                opacity: 1,
-                y: 0
-              }} viewport={{
-                once: true
-              }} transition={{
-                delay: index * 0.1,
-                duration: 0.6
-              }}>
+            {Object.entries(skillCategories).map(([category, skills], index) => <motion.div key={category} initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: index * 0.1,
+            duration: 0.6
+          }}>
                 <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300">
                   <CardHeader className="p-4 sm:p-6">
                     <CardTitle className="text-foreground text-lg sm:text-xl mb-4">
                       {category}
                     </CardTitle>
                     <div className="space-y-3">
-                      {skills.map((skill, skillIndex) => (
-                        <SkillItem
-                          key={skill.name}
-                          name={skill.name}
-                          level={skill.level}
-                          proficiency={skill.proficiency}
-                          description={skill.description}
-                          delay={index * 100 + skillIndex * 50}
-                        />
-                      ))}
+                      {skills.map((skill, skillIndex) => <SkillItem key={skill.name} name={skill.name} level={skill.level} proficiency={skill.proficiency} description={skill.description} delay={index * 100 + skillIndex * 50} />)}
                     </div>
                   </CardHeader>
                 </Card>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </div>
       </section>
@@ -904,27 +873,7 @@ const Home = () => {
           </motion.div>
 
           {/* Full-width introductory card */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6,
-          delay: 0.1
-        }} className="mb-12">
-            <Card className="bg-background border border-border/50 shadow-sm">
-              <CardContent className="p-8">
-                <p className="text-muted-foreground leading-relaxed text-lg">While serving in the U.S. Air Force and later at Boeing, I began noticing a recurring issue: the systems we relied on often didn't align with how people actually worked. Applications were clunky, workflows were inefficient, and users — myself included — were left adapting to tools that didn't fit their needs. 
-
-
-Rather than accept the status quo, I took action. I began learning automation, programming, and systems analysis to improve the processes I worked within. I built tools, streamlined workflows, and started bridging the gap between users and the technology they depended on.</p>
-              </CardContent>
-            </Card>
-          </motion.div>
+          
 
           {/* Two Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
