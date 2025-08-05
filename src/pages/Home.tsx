@@ -1140,12 +1140,6 @@ Rather than accept the status quo, I took action. I began learning automation, p
                 </div>
 
                 <Separator className="my-8" />
-
-                <div className="text-center">
-                  <p className="text-lg text-muted-foreground italic">
-                    "I am a translator between the user and the developer"
-                  </p>
-                </div>
               </CardContent>
             </Card>
           </motion.div>
