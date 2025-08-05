@@ -209,7 +209,6 @@ const Home = () => {
     insight: "Did we solve the right problem? What should we optimize next?"
   }];
 
-
   // Skills Arsenal
   const skillsArsenal = [{
     category: "Systems Analysis",
@@ -694,9 +693,7 @@ const Home = () => {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
               From Military Precision to <span className="text-gradient bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary bg-clip-text text-transparent">User-Centered Innovation</span>
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-4 sm:px-0">
-              From military precision to agile innovation — discovering the bridge between technology and human needs.
-            </p>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-4 sm:px-0">Bridging the gap between technical complexity and human needs. Discovering the bridge between technology and human needs.</p>
           </motion.div>
 
           {/* Full-width introductory card */}
@@ -1017,13 +1014,17 @@ Rather than accept the status quo, I took action. I began learning automation, p
       {/* Process Philosophy */}
       <section className="section bg-background">
         <div className="container-custom">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center mb-12">
             <Badge variant="outline" className="mb-4 border-primary text-primary">
               Design Philosophy
             </Badge>
@@ -1036,12 +1037,18 @@ Rather than accept the status quo, I took action. I began learning automation, p
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.1,
+            duration: 0.6
+          }}>
               <Card className="glass border-none h-full">
                 <CardContent className="p-4 sm:p-6 text-center">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
@@ -1055,12 +1062,18 @@ Rather than accept the status quo, I took action. I began learning automation, p
               </Card>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.2,
+            duration: 0.6
+          }}>
               <Card className="glass border-none h-full">
                 <CardContent className="p-4 sm:p-6 text-center">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
@@ -1074,12 +1087,18 @@ Rather than accept the status quo, I took action. I began learning automation, p
               </Card>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.3,
+            duration: 0.6
+          }}>
               <Card className="glass border-none h-full">
                 <CardContent className="p-4 sm:p-6 text-center">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
@@ -1099,13 +1118,17 @@ Rather than accept the status quo, I took action. I began learning automation, p
       {/* CTA to Insights Page */}
       <section className="section bg-gradient-to-r from-primary/5 via-accent/5 to-success/5">
         <div className="container-custom">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center">
             <Card className="glass border-primary/20 max-w-4xl mx-auto">
               <CardContent className="p-8 sm:p-12">
                 <Badge variant="outline" className="mb-4 border-primary text-primary">
@@ -1118,11 +1141,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                   Dive deeper into the systematic approaches, tools, and insights that drive effective user-centered design. 
                   From sprint-based problem solving to comprehensive research artifacts.
                 </p>
-                <Button 
-                  size="lg" 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                  onClick={() => window.location.href = '/insights'}
-                >
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => window.location.href = '/insights'}>
                   View Research Insights <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </CardContent>
@@ -1177,46 +1196,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                 <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-military-primary via-systems-blue to-agile-primary opacity-30 hidden sm:block"></div>
                 
                 <div className="space-y-8">
-                  {journeyMilestones.map((milestone, index) => <motion.div key={index} initial={{
-                  opacity: 0,
-                  y: 30
-                }} whileInView={{
-                  opacity: 1,
-                  y: 0
-                }} viewport={{
-                  once: true
-                }} transition={{
-                  delay: index * 0.2,
-                  duration: 0.6
-                }} className="relative flex items-start gap-6">
-                      {/* Icon Circle */}
-                      <div className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg ${index === 0 ? 'bg-military-primary/20 border-2 border-military-primary' : index === 1 ? 'bg-systems-blue/20 border-2 border-systems-blue' : 'bg-agile-primary/20 border-2 border-agile-primary'}`}>
-                        <milestone.icon className={`w-5 h-5 ${index === 0 ? 'text-military-primary' : index === 1 ? 'text-systems-blue' : 'text-agile-primary'}`} />
-                      </div>
-
-                      {/* Content */}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex flex-wrap items-center gap-2 mb-2">
-                          <Badge variant="outline" className={`text-xs ${index === 0 ? 'border-military-primary text-military-primary' : index === 1 ? 'border-systems-blue text-systems-blue' : 'border-agile-primary text-agile-primary'}`}>
-                            {milestone.period}
-                          </Badge>
-                        </div>
-                        
-                        <h3 className="text-lg font-semibold text-foreground mb-1">
-                          {milestone.role}
-                        </h3>
-                        
-                         <p className="text-base text-muted-foreground mb-3">
-                           {milestone.focus}
-                         </p>
-                        
-                        <div className="flex flex-wrap gap-1">
-                          {milestone.skills.map((skill, skillIndex) => <Badge key={skillIndex} variant="secondary" className="text-xs">
-                              {skill}
-                            </Badge>)}
-                        </div>
-                      </div>
-                    </motion.div>)}
+                  {journeyMilestones.map((milestone, index) => {})}
                 </div>
               </motion.div>
             </div>
