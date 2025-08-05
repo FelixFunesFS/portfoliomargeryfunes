@@ -1682,7 +1682,7 @@ const Insights = () => {
         <DialogContent className="max-w-[98vw] w-full max-h-[90vh] overflow-hidden">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-center mb-6">
-              Hero Section Variants Gallery
+              {selectedComponent === "Hero Sections" ? "Hero Section Variants Gallery" : "Navigation Variants Gallery"}
             </DialogTitle>
           </DialogHeader>
           
