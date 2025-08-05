@@ -1143,9 +1143,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
 
                 <div className="text-center">
                   <p className="text-lg text-muted-foreground italic">
-                    "I don't just build systems or design interfaces — I create bridges between 
-                    complex technology and human needs, ensuring solutions are both technically 
-                    sound and genuinely useful."
+                    "I am a translator between the user and the developer"
                   </p>
                 </div>
               </CardContent>
