@@ -617,135 +617,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Quick Facts Section */}
-      <section className="py-12 sm:py-16 bg-muted/20">
-        <div className="container max-w-6xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8"
-          >
-            <Badge variant="outline" className="mb-4 border-accent text-accent">
-              At a Glance
-            </Badge>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 text-foreground">
-              Quick Facts for Recruiters
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6"
-          >
-            <Card className="text-center p-4 border-primary/20">
-              <CardContent className="pt-2">
-                <div className="text-2xl font-bold text-primary mb-1">8+</div>
-                <div className="text-sm text-muted-foreground">Years Military & UX</div>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-4 border-accent/20">
-              <CardContent className="pt-2">
-                <div className="text-2xl font-bold text-accent mb-1">26K+</div>
-                <div className="text-sm text-muted-foreground">Hours Saved</div>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-4 border-agile-primary/20">
-              <CardContent className="pt-2">
-                <div className="text-2xl font-bold text-agile-primary mb-1">23</div>
-                <div className="text-sm text-muted-foreground">Global Bases</div>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-4 border-success/20">
-              <CardContent className="pt-2">
-                <div className="text-2xl font-bold text-success mb-1">340%</div>
-                <div className="text-sm text-muted-foreground">Max Conversion</div>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-4 border-primary-glow/20">
-              <CardContent className="pt-2">
-                <GraduationCap className="w-6 h-6 text-primary-glow mx-auto mb-1" />
-                <div className="text-sm text-muted-foreground">Google UX & IBM Certified</div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Skills Arsenal - Moved to Position #2 */}
-      <section className="section gradient-subtle">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <Badge variant="outline" className="mb-4 border-accent text-accent">
-              Skills Arsenal
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-              Technical Expertise Meets <span className="text-accent">User Focus</span>
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
-              A unique combination of technical systems knowledge and user experience expertise, 
-              honed through military service and enterprise development.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {skillsArsenal.map((skillArea, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="h-full bg-background/50 border border-border/50 shadow-sm hover:shadow-md transition-all duration-300">
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-                        <skillArea.icon className="w-5 h-5 text-accent" />
-                      </div>
-                      <CardTitle className="text-lg font-bold">{skillArea.category}</CardTitle>
-                    </div>
-                    <div className="w-full bg-muted rounded-full h-2">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skillArea.proficiency}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
-                        className="bg-gradient-to-r from-accent to-accent/70 h-2 rounded-full"
-                      />
-                    </div>
-                    <p className="text-sm text-muted-foreground mt-2">{skillArea.proficiency}% proficiency</p>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      {skillArea.skills.map((skill, skillIndex) => (
-                        <Badge key={skillIndex} variant="secondary" className="text-xs mr-2 mb-2">
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Recent Work Section */}
       <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20">
         <div className="container-custom px-3 sm:px-4 lg:px-6">
@@ -1377,36 +1248,123 @@ Rather than accept the status quo, I took action. I began learning automation, p
       </section>
 
 
-      {/* Case Studies CTA */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-primary/5 via-accent/5 to-agile-primary/5">
-        <div className="container max-w-4xl mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+      {/* Skills Arsenal */}
+      <section className="section gradient-subtle">
+        <div className="container-custom">
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center mb-16">
             <Badge variant="outline" className="mb-4 border-accent text-accent">
-              Portfolio Deep Dive
+              Skills Arsenal
             </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-foreground">
-              Ready to see <span className="text-accent">detailed case studies</span>?
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+              Technical Expertise Meets <span className="text-accent">User Focus</span>
             </h2>
-            <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Explore comprehensive breakdowns of research methodologies, user insights, 
-              and measurable business outcomes from real-world projects.
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
+              A unique combination of technical systems knowledge and user experience expertise, 
+              honed through military service and enterprise development.
             </p>
-            <Button 
-              onClick={() => navigate('/case-studies')} 
-              size="lg" 
-              className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg px-8 py-4"
-            >
-              Explore Detailed Case Studies
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
           </motion.div>
+
+          {/* Skills Visual Intro */}
+          <motion.div initial={{
+          opacity: 0,
+          scale: 0.95
+        }} whileInView={{
+          opacity: 1,
+          scale: 1
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+            <div>
+              <Badge variant="outline" className="mb-4 border-systems-blue text-systems-blue">
+                Technical Arsenal
+              </Badge>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
+                Innovation Through <span className="text-systems-blue">Systematic Mastery</span>
+              </h3>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
+                A comprehensive toolkit built through military precision, enterprise complexity, 
+                and modern UX methodologies—each skill sharpened for maximum impact.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline" className="border-accent text-accent">Research</Badge>
+                <Badge variant="outline" className="border-accent text-accent">Analysis</Badge>
+                <Badge variant="outline" className="border-accent text-accent">Strategy</Badge>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-xl">
+              <div className="h-48 sm:h-64 lg:h-80">
+                <img src={robotInnovation} alt="Innovation and futuristic technology representation" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-l from-background/90 to-transparent"></div>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            {skillsArsenal.map((category, index) => <motion.div key={index} initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: index * 0.1,
+            duration: 0.6
+          }}>
+                <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300">
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 gap-3">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                          <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+                        </div>
+                        <CardTitle className="text-foreground text-lg sm:text-xl">{category.category}</CardTitle>
+                      </div>
+                      <Badge variant="outline" className="border-accent text-accent self-start sm:self-auto text-xs sm:text-sm">
+                        {category.proficiency}%
+                      </Badge>
+                    </div>
+                    
+                    {/* Proficiency Bar */}
+                    <div className="w-full bg-muted rounded-full h-2 mb-4">
+                      <motion.div initial={{
+                    width: 0
+                  }} whileInView={{
+                    width: `${category.proficiency}%`
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    delay: index * 0.2 + 0.5,
+                    duration: 1
+                  }} className="bg-accent h-2 rounded-full" />
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, skillIndex) => <Badge key={skillIndex} variant="secondary">
+                          {skill}
+                        </Badge>)}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>)}
+          </div>
         </div>
       </section>
+
 
       {/* Mission Briefing CTA */}
       <section id="contact" className="section bg-background">
