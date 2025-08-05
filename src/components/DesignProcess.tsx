@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Search, Users, PenTool, TestTube, Rocket, RotateCcw, Brain, ArrowRight } from 'lucide-react';
+import { Search, Users, PenTool, TestTube, Rocket, RotateCcw, Brain, ArrowRight, Clock, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 
@@ -11,56 +11,68 @@ const DesignProcess = () => {
     {
       icon: <Search className="w-8 h-8" />,
       phase: "01",
-      title: "Research & Discovery",
-      description: "Military-precision user research and stakeholder interviews to understand real operational needs",
+      title: "Empathy & Discovery",
+      description: "Deep user research through interviews, observations, and data analysis to understand real problems and mental models",
       keyQuestion: "Why are users struggling? What are their real needs vs. their stated needs?",
-      deliverables: ["User Personas", "Journey Maps", "Requirements Analysis", "Competitive Research"],
-      color: "bg-primary/10 text-primary"
+      deliverables: ["User Interviews (50+)", "Journey Maps", "Mental Models", "Pain Point Analysis"],
+      color: "bg-primary/10 text-primary",
+      methods: ["User Interviews", "Contextual Inquiry", "Analytics Review", "Stakeholder Mapping"],
+      timeline: "1-2 weeks"
     },
     {
-      icon: <Users className="w-8 h-8" />,
+      icon: <Brain className="w-8 h-8" />,
       phase: "02", 
-      title: "Alignment & Strategy",
-      description: "Bridging the communication gap between users and development teams through clear documentation",
-      keyQuestion: "What patterns are emerging, and how do user needs connect to business goals?",
-      deliverables: ["Stakeholder Workshops", "Technical Specifications", "Success Metrics", "Project Roadmap"],
-      color: "bg-accent/10 text-accent"
+      title: "Synthesis & Insights",
+      description: "Pattern recognition and opportunity identification through systematic analysis of research findings",
+      keyQuestion: "What patterns are emerging, and what opportunities can we prioritize for maximum impact?",
+      deliverables: ["Research Synthesis", "Opportunity Map", "User Personas", "Success Metrics"],
+      color: "bg-accent/10 text-accent",
+      methods: ["Affinity Mapping", "Thematic Analysis", "Persona Development", "Jobs-to-be-Done"],
+      timeline: "1 week"
     },
     {
       icon: <PenTool className="w-8 h-8" />,
       phase: "03",
-      title: "Design & Prototyping", 
-      description: "Creating intuitive interfaces with systems thinking and attention to detail",
+      title: "Solution Design", 
+      description: "Evidence-based solutions aligned with user needs, creating intuitive interfaces with systems thinking",
       keyQuestion: "Which solutions resonate, and how do users actually interact with our ideas?",
-      deliverables: ["Wireframes", "High-Fidelity Prototypes", "Design Systems", "Interaction Models"],
-      color: "bg-success/10 text-success"
+      deliverables: ["Wireframes", "Prototypes", "Design Systems", "Interaction Models"],
+      color: "bg-success/10 text-success",
+      methods: ["Co-design Sessions", "Rapid Prototyping", "Design Systems", "Information Architecture"],
+      timeline: "2-3 weeks"
     },
     {
       icon: <TestTube className="w-8 h-8" />,
       phase: "04",
-      title: "Testing & Validation",
-      description: "Rigorous testing methodology ensuring solutions work under real-world conditions",
-      keyQuestion: "Did we solve the right problem? What should we optimize next?",
-      deliverables: ["Usability Testing", "A/B Testing", "Performance Metrics", "User Feedback"],
-      color: "bg-destructive/10 text-destructive"
+      title: "Validation & Iteration",
+      description: "Testing and refining based on user feedback through rigorous usability testing methodology",
+      keyQuestion: "Did we solve the right problem? What should we optimize based on real user behavior?",
+      deliverables: ["Usability Testing (200+ sessions)", "A/B Testing", "Validation Report", "Iteration Plan"],
+      color: "bg-destructive/10 text-destructive",
+      methods: ["Moderated Testing", "Unmoderated Testing", "A/B Testing", "Analytics Validation"],
+      timeline: "1-2 weeks"
     },
     {
       icon: <Rocket className="w-8 h-8" />,
       phase: "05",
       title: "Implementation & Launch",
-      description: "Supporting development teams with technical expertise and quality assurance",
+      description: "Supporting development teams with technical expertise, quality assurance, and launch strategy",
       keyQuestion: "How do we ensure the solution is technically sound, scalable, and ready for real-world use?",
-      deliverables: ["Development Support", "Quality Assurance", "Launch Strategy", "Training Materials"],
-      color: "bg-primary/10 text-primary"
+      deliverables: ["Development Support", "QA Testing", "Launch Strategy", "Training Materials"],
+      color: "bg-primary/10 text-primary",
+      methods: ["Design QA", "Developer Handoff", "Launch Planning", "Team Training"],
+      timeline: "2-4 weeks"
     },
     {
       icon: <RotateCcw className="w-8 h-8" />,
       phase: "06",
-      title: "Iteration & Optimization",
-      description: "Continuous improvement based on real user data and performance metrics",
-      keyQuestion: "What are feedback and data telling us post-launch? How can we improve performance and user satisfaction?",
-      deliverables: ["Analytics Review", "User Feedback Integration", "Performance Optimization", "Feature Enhancement"],
-      color: "bg-accent/10 text-accent"
+      title: "Measurement & Growth",
+      description: "Continuous improvement based on real user data, performance metrics, and ongoing research",
+      keyQuestion: "What are feedback and data telling us post-launch? How can we drive continued improvement?",
+      deliverables: ["Analytics Review", "User Feedback Integration", "Performance Report", "Growth Roadmap"],
+      color: "bg-accent/10 text-accent",
+      methods: ["Analytics Monitoring", "Continuous Feedback", "Performance Optimization", "Feature Enhancement"],
+      timeline: "Ongoing"
     }
   ];
 
@@ -72,11 +84,11 @@ const DesignProcess = () => {
             Design Philosophy
           </Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-            From Discovery to <span className="text-gradient bg-gradient-to-r from-primary via-accent to-success bg-clip-text text-transparent">Deployment</span>
+            Research-Driven <span className="text-gradient bg-gradient-to-r from-primary via-accent to-success bg-clip-text text-transparent">Design Process</span>
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base lg:text-lg">
-            A systematic, military-informed approach to user-centered design that ensures every solution 
-            is built for real-world effectiveness and long-term success.
+            A comprehensive, evidence-based approach combining deep user research with agile delivery. 
+            Every solution is grounded in real user needs and validated through systematic testing.
           </p>
         </div>
 
@@ -94,7 +106,13 @@ const DesignProcess = () => {
                     </Badge>
                   </div>
                   
-                  <h3 className="text-lg sm:text-xl font-semibold mb-3 text-foreground">{step.title}</h3>
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-lg sm:text-xl font-semibold text-foreground">{step.title}</h3>
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <Clock className="w-3 h-3" />
+                      {step.timeline}
+                    </div>
+                  </div>
                   <p className="text-muted-foreground mb-4 text-xs sm:text-sm">{step.description}</p>
                   
                   {step.keyQuestion && (
@@ -105,14 +123,26 @@ const DesignProcess = () => {
                     </div>
                   )}
                   
-                  <div className="space-y-2">
-                    <h4 className="font-medium text-xs sm:text-sm text-foreground">Key Deliverables:</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {step.deliverables.map((deliverable, idx) => (
-                        <Badge key={idx} variant="secondary" className="text-xs">
-                          {deliverable}
-                        </Badge>
-                      ))}
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="font-medium text-xs sm:text-sm text-foreground mb-2">Research Methods:</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {step.methods.map((method, idx) => (
+                          <Badge key={idx} variant="outline" className="text-xs">
+                            {method}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-xs sm:text-sm text-foreground mb-2">Key Deliverables:</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {step.deliverables.map((deliverable, idx) => (
+                          <Badge key={idx} variant="secondary" className="text-xs">
+                            {deliverable}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </CardContent>

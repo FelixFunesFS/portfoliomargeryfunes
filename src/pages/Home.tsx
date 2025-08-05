@@ -558,8 +558,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Research Methodology Showcase */}
-      <ResearchMethodology />
 
       {/* Research Impact at a Glance - New Section */}
       <ResearchImpactGlance />
