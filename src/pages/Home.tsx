@@ -196,6 +196,7 @@ const Home = () => {
       { name: 'User Research', level: 92, proficiency: 'Expert' },
       { name: 'Systems Analysis', level: 98, proficiency: 'Expert' },
       { name: 'Strategic Planning', level: 95, proficiency: 'Expert' },
+      { name: 'Agile Methodologies', level: 95, proficiency: 'Expert' },
       { name: 'Process Optimization', level: 95, proficiency: 'Expert' }
     ],
     'Design & Development': [
