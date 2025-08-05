@@ -1120,9 +1120,9 @@ Rather than accept the status quo, I took action. I began learning automation, p
         }} className="text-center mt-16">
             <Card className="bg-muted/50 border border-border/30 shadow-sm max-w-2xl mx-auto">
               <CardContent className="p-8">
-                <blockquote className="text-lg font-medium text-foreground italic">
-                  "I am a translator between users and developers"
-                </blockquote>
+            <blockquote className="text-lg font-medium text-foreground italic">
+              "I don't just build systems or design interfaces — I create bridges between complex technology and human needs, ensuring solutions are both technically sound and genuinely useful."
+            </blockquote>
                 <div className="flex items-center justify-center gap-2 mt-4">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
                   <span className="text-sm text-muted-foreground">Military Precision + UX Innovation</span>
