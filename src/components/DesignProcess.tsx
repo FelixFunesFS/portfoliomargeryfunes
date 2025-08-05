@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Search, Users, PenTool, TestTube, Rocket, RotateCcw, Brain } from 'lucide-react';
+import { Search, Users, PenTool, TestTube, Rocket, RotateCcw, Brain, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 
 const DesignProcess = () => {
@@ -120,7 +121,7 @@ const DesignProcess = () => {
             ))}
            </div>
 
-          {/* Research Philosophy */}
+          {/* Research Philosophy & Methodologies */}
           <motion.div 
             initial={{ opacity: 0, y: 50 }} 
             whileInView={{ opacity: 1, y: 0 }} 
@@ -135,19 +136,26 @@ const DesignProcess = () => {
                     <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-4">
-                    Research Philosophy
+                    Research Philosophy & Methodologies
                   </h3>
-                  <p className="text-base sm:text-lg text-muted-foreground italic leading-relaxed">
+                  <p className="text-base sm:text-lg text-muted-foreground italic leading-relaxed mb-6">
                     "Every artifact tells a story. Whether it's a journey map revealing user pain points 
                     or a systems diagram showing technical constraints, I believe in making the invisible visible. 
                     Good research isn't just about gathering data—it's about creating shared understanding 
                     that transforms how teams think about problems."
                   </p>
-                  <div className="mt-6">
+                  <div className="mb-6">
                     <Badge variant="outline" className="border-accent text-accent">
                       Always ask "Why?" before "How?"
                     </Badge>
                   </div>
+                  <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                    Dive deeper into the systematic approaches, tools, and insights that drive effective user-centered design. 
+                    From sprint-based problem solving to comprehensive research artifacts.
+                  </p>
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => window.location.href = '/insights'}>
+                    Explore Research Insights <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
                 </div>
               </CardContent>
             </Card>

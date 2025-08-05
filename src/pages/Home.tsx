@@ -1150,40 +1150,6 @@ Rather than accept the status quo, I took action. I began learning automation, p
       <DesignProcess />
 
 
-      {/* CTA to Insights Page */}
-      <section className="section bg-gradient-to-r from-primary/5 via-accent/5 to-success/5">
-        <div className="container-custom">
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6
-        }} className="text-center">
-            <Card className="glass border-primary/20 max-w-4xl mx-auto">
-              <CardContent className="p-8 sm:p-12">
-                <Badge variant="outline" className="mb-4 border-primary text-primary">
-                  Deep Dive Available
-                </Badge>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-                  Explore My <span className="text-gradient bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Research Methodologies</span>
-                </h2>
-                <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Dive deeper into the systematic approaches, tools, and insights that drive effective user-centered design. 
-                  From sprint-based problem solving to comprehensive research artifacts.
-                </p>
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => window.location.href = '/insights'}>
-                  View Research Insights <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Recent Work Section */}
       <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20">
