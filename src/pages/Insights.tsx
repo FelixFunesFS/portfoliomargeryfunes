@@ -23,6 +23,7 @@ import {
   FileText,
   MousePointer
 } from 'lucide-react';
+import { Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType } from "docx";
 import circuitBoard from '@/assets/circuit-board.jpg';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -212,53 +213,181 @@ const Insights = () => {
     }
   ];
 
-  const handleDownloadStyleGuide = () => {
-    // Create a comprehensive text content for the PDF
-    const styleGuideContent = `
-Web Design Style Guide for AI Full-Stack Developer Collaboration
-A Collaborative Reference for UX Design & AI-Powered Development
+  const handleDownloadStyleGuide = async () => {
+    const doc = new Document({
+      sections: [
+        {
+          children: [
+            new Paragraph({
+              children: [
+                new TextRun({
+                  text: "Web Design Style Guide for AI Full-Stack Developer Collaboration",
+                  bold: true,
+                  size: 32,
+                }),
+              ],
+              heading: HeadingLevel.TITLE,
+              alignment: AlignmentType.CENTER,
+              spacing: { after: 400 }
+            }),
+            new Paragraph({
+              children: [
+                new TextRun({
+                  text: "A Collaborative Reference for UX Design & AI-Powered Development",
+                  italics: true,
+                  size: 24,
+                }),
+              ],
+              alignment: AlignmentType.CENTER,
+              spacing: { after: 600 }
+            }),
 
-Objective: This document serves as a comprehensive visual and descriptive guide to diverse web design styles for key components. It's intended to facilitate efficient and precise collaboration between UX designers and AI Full-Stack Developers, ensuring consistent design language and accelerating the iteration process.
+            // Objective Section
+            new Paragraph({
+              children: [new TextRun({ text: "Objective", bold: true, size: 24 })],
+              heading: HeadingLevel.HEADING_1,
+              spacing: { before: 400, after: 200 }
+            }),
+            new Paragraph({
+              children: [
+                new TextRun({
+                  text: "This document serves as a comprehensive visual and descriptive guide to diverse web design styles for key components. It's intended to facilitate efficient and precise collaboration between UX designers and AI Full-Stack Developers, ensuring consistent design language and accelerating the iteration process."
+                })
+              ],
+              spacing: { after: 300 }
+            }),
 
-Target Audience:
-• UX Designers: For inspiration, establishing visual direction, and communicating design intent.
-• AI Full-Stack Developers: For understanding design characteristics, translating styles into code, and generating appropriate web components.
+            // Target Audience
+            new Paragraph({
+              children: [new TextRun({ text: "Target Audience", bold: true, size: 24 })],
+              heading: HeadingLevel.HEADING_1,
+              spacing: { before: 400, after: 200 }
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: "• UX Designers: For inspiration, establishing visual direction, and communicating design intent." })],
+              spacing: { after: 100 }
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: "• AI Full-Stack Developers: For understanding design characteristics, translating styles into code, and generating appropriate web components." })],
+              spacing: { after: 400 }
+            }),
 
-${aiCollaborationComponents.map(component => `
-${component.title} (${component.variants} Variants)
-Description: ${component.description}
-Keywords: ${component.keywords}
-Use Cases: Modern web applications, responsive designs, user-focused interfaces
-`).join('\n')}
+            // Component Sections
+            ...aiCollaborationComponents.map(component => [
+              new Paragraph({
+                children: [new TextRun({ text: `${component.title} (${component.variants} Variants)`, bold: true, size: 20 })],
+                heading: HeadingLevel.HEADING_2,
+                spacing: { before: 400, after: 200 }
+              }),
+              new Paragraph({
+                children: [new TextRun({ text: `Description: ${component.description}` })],
+                spacing: { after: 100 }
+              }),
+              new Paragraph({
+                children: [new TextRun({ text: `Keywords: ${component.keywords}` })],
+                spacing: { after: 100 }
+              }),
+              new Paragraph({
+                children: [new TextRun({ text: "Use Cases: Modern web applications, responsive designs, user-focused interfaces" })],
+                spacing: { after: 300 }
+              })
+            ]).flat(),
 
-Implementation Guidelines:
-• Always consider responsive design across all screen sizes
-• Maintain accessibility standards (WCAG 2.1 AA)
-• Use semantic HTML structure
-• Implement proper focus states and keyboard navigation
-• Test across multiple browsers and devices
-• Follow established design system tokens and variables
+            // Implementation Guidelines
+            new Paragraph({
+              children: [new TextRun({ text: "Implementation Guidelines", bold: true, size: 20 })],
+              heading: HeadingLevel.HEADING_1,
+              spacing: { before: 400, after: 200 }
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: "• Always consider responsive design across all screen sizes" })],
+              spacing: { after: 100 }
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: "• Maintain accessibility standards (WCAG 2.1 AA)" })],
+              spacing: { after: 100 }
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: "• Use semantic HTML structure" })],
+              spacing: { after: 100 }
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: "• Implement proper focus states and keyboard navigation" })],
+              spacing: { after: 100 }
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: "• Test across multiple browsers and devices" })],
+              spacing: { after: 100 }
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: "• Follow established design system tokens and variables" })],
+              spacing: { after: 300 }
+            }),
 
-Best Practices:
-• Prioritize user experience over visual complexity
-• Ensure fast loading times and optimal performance
-• Use progressive enhancement for advanced features
-• Maintain consistency across similar components
-• Document component variants and usage guidelines
+            // Best Practices
+            new Paragraph({
+              children: [new TextRun({ text: "Best Practices", bold: true, size: 20 })],
+              heading: HeadingLevel.HEADING_1,
+              spacing: { before: 400, after: 200 }
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: "• Prioritize user experience over visual complexity" })],
+              spacing: { after: 100 }
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: "• Ensure fast loading times and optimal performance" })],
+              spacing: { after: 100 }
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: "• Use progressive enhancement for advanced features" })],
+              spacing: { after: 100 }
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: "• Maintain consistency across similar components" })],
+              spacing: { after: 100 }
+            }),
+            new Paragraph({
+              children: [new TextRun({ text: "• Document component variants and usage guidelines" })],
+              spacing: { after: 400 }
+            }),
 
-This guide serves as a living document that evolves with design trends and user needs while maintaining core usability principles.
-    `;
+            new Paragraph({
+              children: [
+                new TextRun({ text: `Generated on: ${new Date().toLocaleDateString()}`, italics: true }),
+                new TextRun({ text: " | Version: 1.0", italics: true })
+              ],
+              alignment: AlignmentType.CENTER,
+              spacing: { before: 400 }
+            }),
+          ],
+        },
+      ],
+    });
 
-    // Create and download the file
-    const blob = new Blob([styleGuideContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'Web-Design-Style-Guide-AI-Collaboration.txt';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    try {
+      const buffer = await Packer.toBlob(doc);
+      const url = URL.createObjectURL(buffer);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'AI-UX-Collaboration-Style-Guide.docx';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error generating Word document:', error);
+      // Fallback to text file
+      const content = "Web Design Style Guide for AI Full-Stack Developer Collaboration - Error generating Word document. Please try again.";
+      const blob = new Blob([content], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'AI-UX-Collaboration-Style-Guide.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
   };
 
   return (
