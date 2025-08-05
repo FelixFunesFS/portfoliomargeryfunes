@@ -11,7 +11,6 @@ import WebDesignCard from '@/components/WebDesignCard';
 import DesignProcess from '@/components/DesignProcess';
 
 // Import images
-import codingWorkspace from '@/assets/coding-workspace.jpg';
 import circuitBoard from '@/assets/circuit-board.jpg';
 import robotInnovation from '@/assets/robot-innovation.jpg';
 import researchDesk from '@/assets/research-desk.jpg';
@@ -210,32 +209,6 @@ const Home = () => {
     insight: "Did we solve the right problem? What should we optimize next?"
   }];
 
-  // Research Artifacts Showcase
-  const researchArtifacts = [{
-    title: "User Journey Maps",
-    description: "End-to-end visualization of user experiences, pain points, and opportunities",
-    tools: ["Miro", "Figma", "User Research"],
-    icon: Target,
-    color: "agile"
-  }, {
-    title: "Affinity Diagrams",
-    description: "Pattern identification and insight synthesis from user research data",
-    tools: ["Post-it Clustering", "Thematic Analysis", "Insight Extraction"],
-    icon: Brain,
-    color: "accent"
-  }, {
-    title: "Systems Architecture",
-    description: "Technical flow diagrams connecting user needs to system capabilities",
-    tools: ["Lucidchart", "Systems Analysis", "Information Architecture"],
-    icon: Database,
-    color: "systems"
-  }, {
-    title: "Usability Test Reports",
-    description: "Structured findings with actionable recommendations and design implications",
-    tools: ["User Testing", "Video Analysis", "Behavioral Metrics"],
-    icon: CheckCircle,
-    color: "success"
-  }];
 
   // Skills Arsenal
   const skillsArsenal = [{
@@ -1158,114 +1131,6 @@ Rather than accept the status quo, I took action. I began learning automation, p
         </div>
       </section>
 
-      {/* Research Artifacts Showcase */}
-      <section className="section gradient-subtle">
-        <div className="container-custom">
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6
-        }} className="text-center mb-16">
-            <Badge variant="outline" className="mb-4 border-accent text-accent">
-              Research Artifacts
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-              Visualizing <span className="text-accent">User Insights</span>
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
-              From user interviews to system architecture, I create visual artifacts that communicate 
-              complex insights and drive informed design decisions.
-            </p>
-          </motion.div>
-
-          {/* Artifacts Visual Intro */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="mb-12 relative">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-center">
-              <div className="lg:col-span-2">
-                <div className="relative overflow-hidden rounded-xl">
-                  <div className="h-48 sm:h-64">
-                    <img src={codingWorkspace} alt="Code analysis and data visualization workspace" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/30"></div>
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <Badge variant="outline" className="border-accent text-accent">
-                  Visual Communication
-                </Badge>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold">
-                  From Data to <span className="text-accent">Decision</span>
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Complex user research findings transformed into clear, actionable visual artifacts 
-                  that drive strategic design decisions.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
-            {researchArtifacts.map((artifact, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 50
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: index * 0.1,
-            duration: 0.6
-          }} whileHover={{
-            y: -5
-          }} className="h-full">
-                <Card className="glass border-none shadow-card hover:shadow-accent/20 transition-all duration-300 h-full">
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="text-center">
-                      <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full flex items-center justify-center mb-3 sm:mb-4 ${artifact.color === 'systems' ? 'bg-systems-blue/20' : artifact.color === 'agile' ? 'bg-agile-primary/20' : artifact.color === 'success' ? 'bg-success/20' : 'bg-accent/20'}`}>
-                        <artifact.icon className={`w-6 h-6 sm:w-8 sm:h-8 ${artifact.color === 'systems' ? 'text-systems-blue' : artifact.color === 'agile' ? 'text-agile-primary' : artifact.color === 'success' ? 'text-success' : 'text-accent'}`} />
-                      </div>
-                      
-                      <h3 className="font-semibold text-sm sm:text-base text-foreground mb-2 sm:mb-3 leading-tight">
-                        {artifact.title}
-                      </h3>
-                      
-                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-3 sm:mb-4">
-                        {artifact.description}
-                      </p>
-                      
-                      {/* Tools Used */}
-                      <div className="space-y-2">
-                        <h4 className="text-xs font-semibold text-muted-foreground">CREATED WITH</h4>
-                        <div className="flex flex-wrap gap-1 justify-center">
-                          {artifact.tools.map((tool, toolIndex) => <Badge key={toolIndex} variant="secondary" className="text-xs">
-                              {tool}
-                            </Badge>)}
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>)}
-          </div>
-        </div>
-      </section>
 
       {/* Journey: Bridging the Gap */}
       <section id="about" className="section bg-gradient-to-br from-background via-background/95 to-military-primary/5 relative overflow-hidden">
