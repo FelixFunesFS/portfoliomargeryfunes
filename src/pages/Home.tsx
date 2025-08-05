@@ -3,6 +3,8 @@ import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import About from '@/components/About';
+import OptimizedHero from '@/components/OptimizedHero';
+import Contact from '@/components/Contact';
 import { Target, Zap, TrendingUp, Users, BarChart3, Layers, GitBranch, RefreshCw, CheckCircle, ArrowRight, Radar, Settings, Database, Code, LineChart, Shield, Rocket, Brain, Clock, Award, ChevronDown, Eye, MapPin, ExternalLink, Globe, Monitor, Smartphone, Heart, Home as HomeIcon, Trophy, GraduationCap, Lightbulb, Search, TestTube } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -311,113 +313,9 @@ const Home = () => {
     link: "https://placeholder.com/website/discoverelsalvador"
   }];
   return <div className="min-h-screen bg-background">
-      {/* Radar Hero Section */}
-      <motion.section ref={heroRef} initial="hidden" animate={isHeroInView ? "visible" : "hidden"} variants={containerVariants} className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero">
-        {/* Animated Radar Background */}
-        <motion.div variants={radarVariants} className="absolute inset-0 flex items-center justify-center opacity-10">
-          <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96">
-            <div className="absolute inset-0 rounded-full border-2 border-primary-glow radar-animation"></div>
-            <div className="absolute inset-4 sm:inset-8 rounded-full border border-primary-glow/50 radar-animation" style={{
-            animationDelay: '1s'
-          }}></div>
-            <div className="absolute inset-8 sm:inset-16 rounded-full border border-primary-glow/30 radar-animation" style={{
-            animationDelay: '2s'
-          }}></div>
-            <Radar className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 text-primary-glow" />
-          </div>
-        </motion.div>
-
-        <div className="container-custom relative z-10 px-3 sm:px-4 lg:px-6 xl:px-8">
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-center">
-            {/* Hero Content */}
-            <motion.div variants={itemVariants} className="text-center lg:text-left">
-              <motion.div variants={itemVariants} className="mb-3 sm:mb-4 lg:mb-6">
-                <Badge variant="outline" className="mb-3 sm:mb-4 text-xs sm:text-sm lg:text-base py-1 sm:py-1.5 lg:py-2 px-2 sm:px-3 lg:px-4 border-primary-glow text-primary-glow">
-                  Systems Analyst • UX Researcher • Agile Problem Solver
-                </Badge>
-              </motion.div>
-              
-              <motion.h1 variants={itemVariants} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
-                I analyze{' '}
-                <span className="bg-gradient-to-r from-primary-glow to-accent bg-clip-text text-transparent">
-                  complex systems
-                </span>{' '}
-                and solve user problems through{' '}
-                <span className="bg-gradient-to-r from-agile-primary to-agile-secondary bg-clip-text text-transparent">
-                  Agile UX research
-                </span>
-              </motion.h1>
-
-              <motion.p variants={itemVariants} className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
-                Military precision meets modern product development. I bridge the gap between 
-                complex technical systems and user needs through systematic analysis and 
-                iterative design methodologies.
-              </motion.p>
-
-              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10 justify-center lg:justify-start">
-                <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
-                  View Case Studies
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-                <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
-                  Download Resume
-                </Button>
-              </motion.div>
-
-              {/* Key Metrics */}
-              <motion.div variants={itemVariants} className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 text-center max-w-sm sm:max-w-md lg:max-w-none mx-auto lg:mx-0">
-                <div className="py-3 sm:py-4">
-                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-primary-glow">26K+</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Hours Saved Annually</div>
-                </div>
-                <div className="py-3 sm:py-4 border-x border-border/20">
-                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-agile-primary">23</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Global Bases Unified</div>
-                </div>
-                <div className="py-3 sm:py-4">
-                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-accent">340%</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Max Conversion Increase</div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Interactive Systems Diagram */}
-            <motion.div variants={itemVariants} className="relative mt-6 lg:mt-0">
-              <Card className="glass border-primary-glow/20 shadow-systems">
-                <CardHeader className="p-4 sm:p-6">
-                  <CardTitle className="text-center text-primary-glow text-lg sm:text-xl">
-                    Systems Analysis Framework
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="p-4 sm:p-6">
-                  <div className="space-y-3 sm:space-y-4">
-                    {['User Problems', 'Systems Analysis', 'Agile Solutions', 'Measurable Results'].map((step, index) => <motion.div key={step} initial={{
-                    opacity: 0,
-                    x: 30
-                  }} animate={{
-                    opacity: 1,
-                    x: 0
-                  }} transition={{
-                    delay: index * 0.2 + 1
-                  }} className="flex items-center space-x-2 sm:space-x-3">
-                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary-glow/20 flex items-center justify-center flex-shrink-0">
-                          <span className="text-xs sm:text-sm font-bold text-primary-glow">{index + 1}</span>
-                        </div>
-                        <span className="text-sm sm:text-base text-foreground">{step}</span>
-                        {index < 3 && <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground ml-auto" />}
-                      </motion.div>)}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <motion.div variants={itemVariants} className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <ChevronDown className="w-6 h-6 text-primary-glow animate-bounce" />
-        </motion.div>
-      </motion.section>
+      <Navbar />
+      {/* Optimized Hero Section */}
+      <OptimizedHero />
 
       {/* Problem-Solution Matrix */}
       <section className="section bg-background py-12 sm:py-16 lg:py-20">
@@ -1229,46 +1127,8 @@ Rather than accept the status quo, I took action. I began learning automation, p
 
 
 
-      {/* Mission Briefing CTA */}
-      <section id="contact" className="section bg-background">
-        <div className="container-custom">
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6
-        }} className="text-center">
-            <Card className="glass border-primary-glow/20 shadow-glow max-w-4xl mx-auto">
-              <CardContent className="p-6 sm:p-8 lg:p-12">
-                <Badge variant="outline" className="mb-4 sm:mb-6 border-primary-glow text-primary-glow text-xs sm:text-sm">
-                  Mission Briefing
-                </Badge>
-                <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
-                  Ready to solve your next <span className="text-primary-glow">complex challenge</span>?
-                </h2>
-                <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
-                  Let's discuss how systematic analysis and agile UX research can transform 
-                  your user experience and business outcomes.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                  <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
-                    Start a Project
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                  <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
-                    Schedule Consultation
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
+      {/* Contact Section */}
+      <Contact />
 
       {/* Footer Section */}
       <footer className="section bg-muted/30 border-t border-border/20">
