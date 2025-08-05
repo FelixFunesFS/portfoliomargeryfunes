@@ -13,6 +13,10 @@ import WebDesignCard from '@/components/WebDesignCard';
 import DesignProcess from '@/components/DesignProcess';
 import ProfessionalImpact from '@/components/ProfessionalImpact';
 import SkillItem from '@/components/SkillItem';
+import ResearchImpactGlance from '@/components/ResearchImpactGlance';
+import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
+import ResearchConsultationCTA from '@/components/ResearchConsultationCTA';
+import PortfolioDownload from '@/components/PortfolioDownload';
 
 // Import images
 import circuitBoard from '@/assets/circuit-board.jpg';
@@ -447,16 +451,16 @@ const Home = () => {
                  that truly serve human needs.
                </motion.p>
 
-               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10 justify-center lg:justify-start">
-                 <Button onClick={() => navigate('/case-studies')} size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
-                   Explore My Research Process
-                   <ArrowRight className="ml-2 w-4 h-4" />
-                 </Button>
-                 <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
-                   <Download className="mr-2 w-4 h-4" />
-                   Download Research Portfolio
-                 </Button>
-               </motion.div>
+                <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10 justify-center lg:justify-start">
+                  <Button onClick={() => navigate('/case-studies')} size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
+                    View Research Case Studies
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                  <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
+                    <Calendar className="mr-2 w-4 h-4" />
+                    Schedule Research Consultation
+                  </Button>
+                </motion.div>
 
               {/* Key Metrics */}
               <motion.div variants={itemVariants} className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 text-center max-w-sm sm:max-w-md lg:max-w-none mx-auto lg:mx-0">
@@ -556,6 +560,9 @@ const Home = () => {
 
       {/* Research Methodology Showcase */}
       <ResearchMethodology />
+
+      {/* Research Impact at a Glance - New Section */}
+      <ResearchImpactGlance />
 
       {/* Problem-Solution Matrix */}
       <section className="section bg-background py-12 sm:py-16 lg:py-20">
@@ -722,21 +729,22 @@ const Home = () => {
                       </div>
                     </div>
 
-                     {/* Research Artifacts */}
-                     <div className="mb-4">
-                       <h4 className="text-xs font-semibold text-muted-foreground mb-2">RESEARCH ARTIFACTS</h4>
-                       <div className="flex flex-wrap gap-1 mb-3">
-                         {story.artifacts?.map((artifact, artifactIndex) => <Badge key={artifactIndex} variant="outline" className="text-xs border-primary/30 text-primary">
-                             {artifact}
-                           </Badge>)}
-                       </div>
-                       <h4 className="text-xs font-semibold text-muted-foreground mb-2">TOOLS USED</h4>
-                       <div className="flex flex-wrap gap-1">
-                         {story.tools.map((tool, toolIndex) => <Badge key={toolIndex} variant="secondary" className="text-xs">
-                             {tool}
-                           </Badge>)}
-                       </div>
-                     </div>
+                      {/* Research Artifacts Preview */}
+                      <ResearchArtifactPreview 
+                        storyId={story.caseStudyId} 
+                        artifacts={story.artifacts || []}
+                        onViewArtifact={(artifact) => console.log('View artifact:', artifact)}
+                      />
+
+                      {/* Tools Used */}
+                      <div className="mb-4">
+                        <h4 className="text-xs font-semibold text-muted-foreground mb-2">TOOLS USED</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {story.tools.map((tool, toolIndex) => <Badge key={toolIndex} variant="secondary" className="text-xs">
+                              {tool}
+                            </Badge>)}
+                        </div>
+                      </div>
 
                      {/* Stakeholder Testimonial */}
                      {story.stakeholderQuote && <div className="mb-4 p-3 bg-secondary/20 rounded-lg border-l-4 border-secondary">
@@ -758,56 +766,29 @@ const Home = () => {
                       </p>
                     </div>
 
-                     {/* Action Buttons */}
-                     <div className="mt-auto flex gap-2">
-                       <Button onClick={() => navigate('/case-studies', {
-                     state: {
-                       selectedStudyId: story.caseStudyId
-                     }
-                   })} className={`flex-1 ${story.color === 'systems' ? 'bg-systems-blue hover:bg-systems-blue/90' : story.color === 'agile' ? 'bg-agile-primary hover:bg-agile-primary/90' : story.color === 'success' ? 'bg-success hover:bg-success/90' : 'bg-accent hover:bg-accent/90'} text-white shadow-sm`} size="sm">
-                         <Eye className="w-4 h-4 mr-2" />
-                         Case Study
-                       </Button>
-                       <Button variant="outline" size="sm" className="border-muted-foreground/20 text-muted-foreground hover:bg-muted-foreground/5">
-                         <ExternalLink className="w-4 h-4" />
-                       </Button>
-                     </div>
+                       {/* Action Buttons */}
+                      <div className="mt-auto flex gap-2">
+                        <Button onClick={() => navigate('/case-studies', {
+                      state: {
+                        selectedStudyId: story.caseStudyId
+                      }
+                    })} className={`flex-1 ${story.color === 'systems' ? 'bg-systems-blue hover:bg-systems-blue/90' : story.color === 'agile' ? 'bg-agile-primary hover:bg-agile-primary/90' : story.color === 'success' ? 'bg-success hover:bg-success/90' : 'bg-accent hover:bg-accent/90'} text-white shadow-sm`} size="sm">
+                          <Eye className="w-4 h-4 mr-2" />
+                          Full Case Study
+                        </Button>
+                        <PortfolioDownload variant="button" className="shrink-0" />
+                      </div>
                   </CardContent>
                 </Card>
               </motion.div>)}
           </div>
 
-          {/* Enhanced CTA Section */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6,
-          delay: 0.4
-        }} className="text-center mt-12 sm:mt-16">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-              <Button onClick={() => navigate('/case-studies')} size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow px-8 py-4">
-                View All Research Case Studies
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 px-8 py-4">
-                <Calendar className="mr-2 w-5 h-5" />
-                Schedule Research Consultation
-              </Button>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Ready to improve user experiences through systematic research?
-            </p>
-          </motion.div>
+           {/* Enhanced Research Consultation CTA */}
+          <ResearchConsultationCTA />
         </div>
       </section>
 
-      {/* Skills Arsenal */}
+      {/* Skills Arsenal - Positioned Higher for Better Priority */}
       <section className="section gradient-subtle">
         <div className="container-custom">
           <motion.div initial={{
@@ -822,14 +803,13 @@ const Home = () => {
           duration: 0.6
         }} className="text-center mb-16">
             <Badge variant="outline" className="mb-4 border-accent text-accent">
-              Skills Arsenal
+              Core UX Research Skills
             </Badge>
              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-               UX Research Excellence Meets <span className="text-accent">Technical Precision</span>
+               Research Methods & <span className="text-accent">Technical Expertise</span>
              </h2>
              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
-               A unique combination of systematic UX research methodologies and deep technical systems knowledge, 
-               enabling solutions that are both human-centered and technically feasible.
+               A systematic approach to user research combining proven methodologies with technical implementation capabilities.
              </p>
           </motion.div>
 
