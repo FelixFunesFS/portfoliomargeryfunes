@@ -1175,18 +1175,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
                 <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-military-primary via-systems-blue to-agile-primary opacity-30 hidden sm:block"></div>
                 
                 <div className="space-y-8">
-                  {journeyMilestones.map((milestone, index) => (
-                    <motion.div key={index} className="flex items-start space-x-6">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                        <milestone.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <h4 className="text-lg font-semibold text-foreground">{milestone.role}</h4>
-                        <p className="text-sm text-muted-foreground">{milestone.period}</p>
-                        <p className="text-base text-muted-foreground mt-2">{milestone.focus}</p>
-                      </div>
-                    </motion.div>
-                  ))}
+                  {journeyMilestones.map((milestone, index) => {})}
                 </div>
               </motion.div>
             </div>
