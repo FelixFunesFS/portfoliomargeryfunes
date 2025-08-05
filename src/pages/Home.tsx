@@ -517,6 +517,46 @@ const Home = () => {
         </motion.div>
       </motion.section>
 
+      {/* Research Philosophy Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-muted/30">
+        <div className="container-custom px-3 sm:px-4 lg:px-6">
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center max-w-4xl mx-auto">
+            <Badge variant="outline" className="mb-4 border-primary-glow text-primary-glow bg-primary-glow/5">
+              Research Philosophy
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-foreground leading-tight">
+              Methodology That Bridges 
+              <span className="bg-gradient-to-r from-primary-glow to-accent bg-clip-text text-transparent">
+                {' '}Precision{' '}
+              </span>
+              and
+              <span className="bg-gradient-to-r from-agile-primary to-agile-secondary bg-clip-text text-transparent">
+                {' '}Empathy
+              </span>
+            </h2>
+            <div className="bg-background/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 lg:p-10 border border-primary-glow/20 shadow-glow">
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-4">
+                My research methodology combines military precision with human empathy. I believe the best solutions emerge when we deeply understand both user needs and technical constraints, then iterate rapidly based on evidence.
+              </p>
+              <div className="flex items-center justify-center gap-2 mt-4">
+                <Search className="w-5 h-5 text-primary-glow" />
+                <span className="text-sm text-primary-glow font-medium">Systematic • Evidence-Based • Human-Centered</span>
+                <TestTube className="w-5 h-5 text-primary-glow" />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Research Methodology Showcase */}
       <ResearchMethodology />

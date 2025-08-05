@@ -67,36 +67,18 @@ const DesignProcess = () => {
   return (
     <section id="design-process" className="section bg-gradient-to-br from-muted/20 via-background to-accent/10">
       <div className="container-custom">
-        {/* Research Philosophy Introduction */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }} 
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 border-primary text-primary">
-            Research Philosophy & Methodology
+            Design Philosophy
           </Badge>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
             From Discovery to <span className="text-gradient bg-gradient-to-r from-primary via-accent to-success bg-clip-text text-transparent">Deployment</span>
           </h2>
-          <div className="max-w-4xl mx-auto mb-8">
-            <p className="text-base sm:text-lg text-muted-foreground italic leading-relaxed mb-6">
-              "Every artifact tells a story. Whether it's a journey map revealing user pain points 
-              or a systems diagram showing technical constraints, I believe in making the invisible visible. 
-              Good research isn't just about gathering data—it's about creating shared understanding 
-              that transforms how teams think about problems."
-            </p>
-            <Badge variant="outline" className="border-accent text-accent mb-6">
-              Always ask "Why?" before "How?"
-            </Badge>
-            <p className="text-muted-foreground text-sm sm:text-base lg:text-lg">
-              A systematic, military-informed approach to user-centered design that ensures every solution 
-              is built for real-world effectiveness and long-term success.
-            </p>
-          </div>
-        </motion.div>
+          <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base lg:text-lg">
+            A systematic, military-informed approach to user-centered design that ensures every solution 
+            is built for real-world effectiveness and long-term success.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {processSteps.map((step, index) => (
@@ -139,7 +121,7 @@ const DesignProcess = () => {
             ))}
            </div>
 
-          {/* Research Toolkit CTA */}
+          {/* Research Philosophy & Methodologies */}
           <motion.div 
             initial={{ opacity: 0, y: 50 }} 
             whileInView={{ opacity: 1, y: 0 }} 
@@ -154,11 +136,22 @@ const DesignProcess = () => {
                     <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-4">
-                    Deep-Dive Research Toolkit
+                    Research Philosophy & Methodologies
                   </h3>
+                  <p className="text-base sm:text-lg text-muted-foreground italic leading-relaxed mb-6">
+                    "Every artifact tells a story. Whether it's a journey map revealing user pain points 
+                    or a systems diagram showing technical constraints, I believe in making the invisible visible. 
+                    Good research isn't just about gathering data—it's about creating shared understanding 
+                    that transforms how teams think about problems."
+                  </p>
+                  <div className="mb-6">
+                    <Badge variant="outline" className="border-accent text-accent">
+                      Always ask "Why?" before "How?"
+                    </Badge>
+                  </div>
                   <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                    Explore the comprehensive research methods, tools, and systematic approaches that drive effective user-centered design. 
-                    From sprint-based problem solving to research artifacts and impact measurement.
+                    Dive deeper into the systematic approaches, tools, and insights that drive effective user-centered design. 
+                    From sprint-based problem solving to comprehensive research artifacts.
                   </p>
                   <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => window.location.href = '/insights'}>
                     Explore Research Insights <ArrowRight className="ml-2 w-4 h-4" />
