@@ -1158,40 +1158,6 @@ Rather than accept the status quo, I took action. I began learning automation, p
       <DesignProcess />
 
 
-      {/* Recent Work Section */}
-      <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20">
-        <div className="container-custom px-3 sm:px-4 lg:px-6">
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6
-        }} className="text-center mb-12 sm:mb-16">
-            <Badge variant="outline" className="mb-4 sm:mb-6 border-accent text-accent text-xs sm:text-sm">
-              Web Development
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
-              Proven results through <span className="text-accent">systematic UX research</span>
-              <br className="hidden sm:block" />
-              and digital solutions
-            </h2>
-            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-              Real-world applications demonstrating how systematic analysis and agile methodologies 
-              solve complex challenges and deliver measurable business impact.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
-            {webDesigns.map((project, index) => <WebDesignCard key={index} project={project} index={index} onViewCaseStudy={() => handleViewCaseStudy(project.title)} />)}
-          </div>
-        </div>
-      </section>
-
       {/* CTA to Insights Page */}
       <section className="section bg-gradient-to-r from-primary/5 via-accent/5 to-success/5">
         <div className="container-custom">
@@ -1226,6 +1192,41 @@ Rather than accept the status quo, I took action. I began learning automation, p
           </motion.div>
         </div>
       </section>
+
+      {/* Recent Work Section */}
+      <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20">
+        <div className="container-custom px-3 sm:px-4 lg:px-6">
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center mb-12 sm:mb-16">
+            <Badge variant="outline" className="mb-4 sm:mb-6 border-accent text-accent text-xs sm:text-sm">
+              Web Development
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
+              Proven results through <span className="text-accent">systematic UX research</span>
+              <br className="hidden sm:block" />
+              and digital solutions
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+              Real-world applications demonstrating how systematic analysis and agile methodologies 
+              solve complex challenges and deliver measurable business impact.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
+            {webDesigns.map((project, index) => <WebDesignCard key={index} project={project} index={index} onViewCaseStudy={() => handleViewCaseStudy(project.title)} />)}
+          </div>
+        </div>
+      </section>
+
 
 
       {/* Journey: Bridging the Gap */}
