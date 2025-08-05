@@ -1154,28 +1154,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
       {/* Journey: Bridging the Gap */}
       <section id="about" className="section bg-gradient-to-br from-background via-background/95 to-military-primary/5 relative overflow-hidden">
         <div className="container-custom">
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6
-        }} className="text-center mb-16">
-            <Badge variant="outline" className="mb-4 border-military-primary text-military-primary backdrop-blur-sm bg-background/50">
-              Bridging Worlds
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-              From Military Precision to <span className="text-gradient bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary bg-clip-text text-transparent">User-Centered Innovation</span>
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-4 sm:px-0">
-              My unique journey positions me as a translator between technical complexity and human needs, 
-              bridging the gap between military discipline, enterprise systems, and modern user experience.
-            </p>
-          </motion.div>
+          
 
           {/* Journey Timeline & Insights Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
