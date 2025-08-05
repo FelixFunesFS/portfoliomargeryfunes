@@ -40,6 +40,8 @@ import Footer from '@/components/Footer';
 const Insights = () => {
   const [selectedComponent, setSelectedComponent] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCodeVariant, setSelectedCodeVariant] = useState<any | null>(null);
+  const [isCodeModalOpen, setIsCodeModalOpen] = useState(false);
 
   const heroSectionVariants = [
     {
@@ -50,7 +52,7 @@ const Insights = () => {
       stockImage: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?q=80&w=2071&auto=format&fit=crop",
       interactive: true,
       preview: (
-        <div className="relative w-full h-40 overflow-hidden rounded-lg group cursor-pointer">
+        <div className="relative w-full h-72 overflow-hidden rounded-lg group cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300">
           <img 
             src="https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?q=80&w=2071&auto=format&fit=crop" 
             alt="Mountain landscape"
@@ -94,7 +96,7 @@ const Insights = () => {
       stockImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2069&auto=format&fit=crop",
       interactive: true,
       preview: (
-        <div className="w-full h-40 bg-gradient-to-br from-slate-900 to-slate-700 rounded-lg overflow-hidden group cursor-pointer">
+        <div className="w-full h-72 bg-gradient-to-br from-slate-900 to-slate-700 rounded-lg overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300">
           <div className="flex h-full">
             <div className="flex-1 p-4 flex flex-col justify-center text-white">
               <h3 className="text-lg font-bold mb-2 transform transition-transform duration-300 group-hover:translate-x-2">
@@ -156,7 +158,7 @@ const Insights = () => {
       stockImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2070&auto=format&fit=crop",
       interactive: true,
       preview: (
-        <div className="w-full h-40 bg-gradient-to-br from-gray-50 to-white rounded-lg p-6 flex flex-col justify-center group cursor-pointer border border-gray-200">
+        <div className="w-full h-72 bg-gradient-to-br from-gray-50 to-white rounded-lg p-8 flex flex-col justify-center group cursor-pointer border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
           <div className="text-center transform transition-all duration-500 group-hover:scale-105">
             <h3 className="text-3xl font-light text-gray-900 mb-1 tracking-tight">
               Simple.
@@ -195,7 +197,7 @@ const Insights = () => {
       stockImage: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=2070&auto=format&fit=crop",
       interactive: true,
       preview: (
-        <div className="w-full h-40 bg-gradient-to-br from-blue-900 to-purple-900 rounded-lg overflow-hidden relative group cursor-pointer">
+        <div className="w-full h-72 bg-gradient-to-br from-blue-900 to-purple-900 rounded-lg overflow-hidden relative group cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300">
           <img 
             src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=2070&auto=format&fit=crop"
             alt="Colorful code"
@@ -251,7 +253,7 @@ const Insights = () => {
       stockImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
       interactive: true,
       preview: (
-        <div className="w-full h-40 bg-gradient-to-br from-gray-900 to-blue-900 rounded-lg overflow-hidden relative group cursor-pointer">
+        <div className="w-full h-72 bg-gradient-to-br from-gray-900 to-blue-900 rounded-lg overflow-hidden relative group cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300">
           <img 
             src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
             alt="Circuit board"
@@ -302,7 +304,7 @@ const Insights = () => {
       stockImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop",
       interactive: true,
       preview: (
-        <div className="w-full h-40 bg-gradient-to-br from-purple-900 to-pink-900 rounded-lg overflow-hidden relative group cursor-pointer">
+        <div className="w-full h-72 bg-gradient-to-br from-purple-900 to-pink-900 rounded-lg overflow-hidden relative group cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300">
           <img 
             src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop"
             alt="White robot"
@@ -1562,7 +1564,7 @@ const Insights = () => {
 
       {/* Hero Sections Variants Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-center mb-4">
               Hero Section Variants
@@ -1634,6 +1636,89 @@ const Insights = () => {
               </motion.div>
             ))}
           </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Full-Width Code Modal */}
+      <Dialog open={isCodeModalOpen} onOpenChange={setIsCodeModalOpen}>
+        <DialogContent className="max-w-[95vw] w-full max-h-[90vh] overflow-hidden">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold mb-4">
+              {selectedCodeVariant?.title} - Implementation Code
+            </DialogTitle>
+          </DialogHeader>
+          
+          {selectedCodeVariant && (
+            <div className="space-y-6">
+              {/* Preview Section */}
+              <div className="bg-muted/50 rounded-lg p-4">
+                <h3 className="text-sm font-semibold mb-2 text-muted-foreground uppercase tracking-wide">
+                  Live Preview
+                </h3>
+                <div className="bg-background rounded border">
+                  {selectedCodeVariant.preview}
+                </div>
+              </div>
+
+              {/* Code Section */}
+              <div className="bg-slate-950 rounded-lg overflow-hidden">
+                <div className="bg-slate-800 px-4 py-2 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-1">
+                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                    <span className="text-slate-300 text-sm ml-2">component.jsx</span>
+                  </div>
+                  <button 
+                    onClick={() => navigator.clipboard.writeText(selectedCodeVariant.codePreview)}
+                    className="text-slate-400 hover:text-slate-200 text-sm px-3 py-1 hover:bg-slate-700 rounded transition-colors"
+                  >
+                    Copy Code
+                  </button>
+                </div>
+                <div className="p-6 overflow-x-auto">
+                  <pre className="text-sm text-slate-100 leading-relaxed">
+                    <code className="language-jsx">
+                      {selectedCodeVariant.codePreview}
+                    </code>
+                  </pre>
+                </div>
+              </div>
+
+              {/* Implementation Details */}
+              <div className="bg-muted/30 rounded-lg p-4">
+                <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wide">
+                  Implementation Details
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <h4 className="font-medium mb-2">Characteristics</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      {selectedCodeVariant.characteristics.map((char, index) => (
+                        <li key={index} className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                          {char}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">Best Used For</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      {selectedCodeVariant.useCases.map((useCase, index) => (
+                        <li key={index} className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
+                          {useCase}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </DialogContent>
       </Dialog>
     </div>
