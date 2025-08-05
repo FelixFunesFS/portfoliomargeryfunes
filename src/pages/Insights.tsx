@@ -43,122 +43,304 @@ const Insights = () => {
 
   const heroSectionVariants = [
     {
-      title: "Full-Width Background Image/Video",
-      description: "Immersive full-screen hero with video/image background and overlay text",
-      characteristics: ["Cinematic appeal", "High visual impact", "Overlay text for readability", "Call-to-action prominence"],
-      useCases: ["Brand storytelling", "Product launches", "Event promotion", "Creative portfolios"],
-      codePreview: `<div className="relative h-screen bg-cover bg-center" style={{backgroundImage: 'url(/hero-bg.jpg)'}}>
-  <div className="absolute inset-0 bg-black/40"></div>
-  <div className="relative z-10 flex items-center justify-center h-full text-center text-white">
-    <div>
-      <h1 className="text-5xl font-bold mb-4">Your Story Starts Here</h1>
-      <p className="text-xl mb-8">Discover amazing experiences</p>
-      <button className="bg-primary px-8 py-3 rounded-lg">Get Started</button>
+      title: "Full-Width Background Video/Image",
+      description: "Immersive hero with stunning background media and elegant overlay content",
+      characteristics: ["Cinematic background", "Overlay text with blur backdrop", "Parallax scrolling", "Auto-playing video"],
+      useCases: ["Brand storytelling", "Creative portfolios", "Event promotion", "Premium experiences"],
+      stockImage: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?q=80&w=2071&auto=format&fit=crop",
+      interactive: true,
+      preview: (
+        <div className="relative w-full h-40 overflow-hidden rounded-lg group cursor-pointer">
+          <img 
+            src="https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?q=80&w=2071&auto=format&fit=crop" 
+            alt="Mountain landscape"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <div className="text-center text-white transform transition-all duration-500 group-hover:scale-105">
+              <h3 className="text-xl font-bold mb-2">Epic Adventures Await</h3>
+              <p className="text-sm opacity-90 mb-3">Discover breathtaking experiences</p>
+              <button className="px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full hover:bg-white/30 transition-all duration-300 text-xs">
+                Explore Now
+              </button>
+            </div>
+          </div>
+          <div className="absolute bottom-2 left-2 text-white text-xs opacity-75">
+            🎥 Auto-playing background video
+          </div>
+        </div>
+      ),
+      codePreview: `<div className="relative min-h-screen overflow-hidden">
+  <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover">
+    <source src="hero-video.mp4" type="video/mp4" />
+  </video>
+  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+    <div className="text-center text-white max-w-4xl px-4">
+      <h1 className="text-6xl font-bold mb-6 animate-fade-in">Epic Adventures Await</h1>
+      <p className="text-xl opacity-90 mb-8">Discover breathtaking experiences around the world</p>
+      <button className="px-8 py-4 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full hover:bg-white/30 transition-all duration-300">
+        Explore Now
+      </button>
     </div>
   </div>
 </div>`,
       mockup: "bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500"
     },
     {
-      title: "Split Layout",
-      description: "Clean two-column layout with content on one side and visual on the other",
-      characteristics: ["Balanced composition", "Clean typography", "Image/content harmony", "Responsive design"],
-      useCases: ["SaaS platforms", "Professional services", "B2B websites", "Corporate landing pages"],
-      codePreview: `<div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
-  <div className="flex items-center justify-center p-8">
-    <div className="max-w-md">
-      <h1 className="text-4xl font-bold mb-4">Innovation Meets Excellence</h1>
-      <p className="text-lg text-muted-foreground mb-6">Transform your business with our cutting-edge solutions</p>
-      <button className="bg-primary text-primary-foreground px-6 py-3 rounded-md">Learn More</button>
+      title: "Split Layout Design",
+      description: "Perfectly balanced layout showcasing content and technology harmoniously",
+      characteristics: ["50/50 split design", "Professional imagery", "Responsive stacking", "Clean typography"],
+      useCases: ["SaaS platforms", "Tech companies", "Professional services", "B2B websites"],
+      stockImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2069&auto=format&fit=crop",
+      interactive: true,
+      preview: (
+        <div className="w-full h-40 bg-gradient-to-br from-slate-900 to-slate-700 rounded-lg overflow-hidden group cursor-pointer">
+          <div className="flex h-full">
+            <div className="flex-1 p-4 flex flex-col justify-center text-white">
+              <h3 className="text-lg font-bold mb-2 transform transition-transform duration-300 group-hover:translate-x-2">
+                Revolutionary Code Platform
+              </h3>
+              <p className="text-xs opacity-90 mb-3">Build faster with intelligent development tools</p>
+              <div className="flex gap-2">
+                <button className="px-3 py-1 bg-blue-600 rounded text-xs hover:bg-blue-500 transition-colors">
+                  Get Started
+                </button>
+                <button className="px-3 py-1 border border-white/30 rounded text-xs hover:bg-white/10 transition-colors">
+                  Demo
+                </button>
+              </div>
+            </div>
+            <div className="flex-1 relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2069&auto=format&fit=crop"
+                alt="Programming interface"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-slate-900/50"></div>
+            </div>
+          </div>
+        </div>
+      ),
+      codePreview: `<div className="min-h-screen flex items-center">
+  <div className="container mx-auto px-4">
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="space-y-6">
+        <h1 className="text-5xl font-bold text-gray-900">
+          Revolutionary Code Platform
+        </h1>
+        <p className="text-xl text-gray-600">
+          Build faster with intelligent development tools and streamlined workflows
+        </p>
+        <div className="flex gap-4">
+          <button className="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            Get Started
+          </button>
+          <button className="px-8 py-4 border border-gray-300 rounded-lg hover:bg-gray-50">
+            View Demo
+          </button>
+        </div>
+      </div>
+      <div className="relative">
+        <img src="platform-demo.jpg" alt="Platform Demo" className="rounded-lg shadow-2xl" />
+      </div>
     </div>
-  </div>
-  <div className="bg-muted flex items-center justify-center">
-    <img src="/hero-image.jpg" alt="Hero" className="max-w-full h-auto" />
   </div>
 </div>`,
       mockup: "bg-gradient-to-r from-slate-100 to-slate-200 border-l-4 border-primary"
     },
     {
-      title: "Minimalist/Typography-Focused",
-      description: "Clean, text-centric design emphasizing typography and white space",
-      characteristics: ["Typography hierarchy", "Generous white space", "Subtle accents", "Content focus"],
-      useCases: ["Editorial sites", "Blogs", "Portfolios", "Minimalist brands"],
-      codePreview: `<div className="min-h-screen flex items-center justify-center bg-white">
-  <div className="text-center max-w-3xl px-8">
-    <h1 className="text-6xl font-light text-gray-900 mb-6 tracking-tight">
-      Less is <em className="font-bold">More</em>
+      title: "Minimalist Typography-Focused",
+      description: "Elegant design emphasizing beautiful typography and thoughtful whitespace",
+      characteristics: ["Large, expressive typography", "Minimal visual elements", "Strategic whitespace", "Elegant simplicity"],
+      useCases: ["Editorial sites", "Personal brands", "Blogs", "Content-focused sites"],
+      stockImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2070&auto=format&fit=crop",
+      interactive: true,
+      preview: (
+        <div className="w-full h-40 bg-gradient-to-br from-gray-50 to-white rounded-lg p-6 flex flex-col justify-center group cursor-pointer border border-gray-200">
+          <div className="text-center transform transition-all duration-500 group-hover:scale-105">
+            <h3 className="text-3xl font-light text-gray-900 mb-1 tracking-tight">
+              Simple.
+            </h3>
+            <h4 className="text-xl font-medium text-gray-700 mb-3">
+              Beautiful.
+            </h4>
+            <p className="text-xs text-gray-600 max-w-xs mx-auto leading-relaxed">
+              Clean design that speaks volumes through thoughtful typography
+            </p>
+            <div className="mt-3 w-8 h-px bg-gray-300 mx-auto transform transition-all duration-300 group-hover:w-16"></div>
+          </div>
+        </div>
+      ),
+      codePreview: `<div className="min-h-screen flex items-center justify-center bg-gray-50">
+  <div className="text-center max-w-4xl px-4">
+    <h1 className="text-8xl font-light text-gray-900 mb-4 tracking-tight">
+      Simple.
     </h1>
-    <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-      Discover the power of simplicity in design and communication
+    <h2 className="text-5xl font-medium text-gray-700 mb-8">
+      Beautiful.
+    </h2>
+    <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+      Clean design that speaks volumes through thoughtful typography and purposeful spacing
     </p>
-    <div className="w-24 h-0.5 bg-gray-900 mx-auto mb-8"></div>
-    <button className="text-gray-900 border border-gray-900 px-8 py-3 hover:bg-gray-900 hover:text-white transition-colors">
-      Explore
-    </button>
+    <div className="mt-12 w-24 h-px bg-gray-300 mx-auto"></div>
   </div>
 </div>`,
       mockup: "bg-white border border-gray-200 relative"
     },
     {
-      title: "Carousel/Slider",
-      description: "Dynamic rotating content with navigation controls and multiple messages",
-      characteristics: ["Multiple content slides", "Navigation controls", "Auto-play option", "Transition effects"],
-      useCases: ["E-commerce", "Multi-product showcase", "News sites", "Portfolio galleries"],
-      codePreview: `<div className="relative h-screen overflow-hidden">
-  <div className="flex transition-transform duration-500" style={{transform: 'translateX(0%)'}}>
-    <div className="w-full flex-shrink-0 bg-gradient-to-r from-red-500 to-pink-500 flex items-center justify-center text-white">
-      <div className="text-center">
-        <h1 className="text-5xl font-bold mb-4">Slide One</h1>
-        <p className="text-xl">First amazing feature</p>
+      title: "Interactive Carousel/Slider",
+      description: "Dynamic hero showcasing multiple features with smooth transitions and navigation",
+      characteristics: ["Multiple content slides", "Smooth transitions", "Navigation controls", "Auto-play with pause"],
+      useCases: ["E-commerce", "Multi-product showcase", "Portfolio galleries", "Feature highlights"],
+      stockImage: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=2070&auto=format&fit=crop",
+      interactive: true,
+      preview: (
+        <div className="w-full h-40 bg-gradient-to-br from-blue-900 to-purple-900 rounded-lg overflow-hidden relative group cursor-pointer">
+          <img 
+            src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=2070&auto=format&fit=crop"
+            alt="Colorful code"
+            className="w-full h-full object-cover opacity-70"
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center text-white">
+              <h3 className="text-lg font-bold mb-2 transform transition-transform duration-300 group-hover:scale-105">
+                Slide 1: Innovation Hub
+              </h3>
+              <p className="text-xs opacity-90 mb-3">Cutting-edge development environment</p>
+            </div>
+          </div>
+          <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
+            <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+            <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+          </div>
+          <div className="absolute top-1/2 left-2 transform -translate-y-1/2 text-white opacity-75 hover:opacity-100 transition-opacity cursor-pointer text-lg">
+            ‹
+          </div>
+          <div className="absolute top-1/2 right-2 transform -translate-y-1/2 text-white opacity-75 hover:opacity-100 transition-opacity cursor-pointer text-lg">
+            ›
+          </div>
+        </div>
+      ),
+      codePreview: `<div className="relative min-h-screen overflow-hidden">
+  <div className="carousel-container">
+    <div className="slide active">
+      <img src="slide1.jpg" className="slide-bg" />
+      <div className="slide-content">
+        <h1>Innovation Hub</h1>
+        <p>Cutting-edge development environment</p>
+        <button>Explore Features</button>
       </div>
     </div>
   </div>
-  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
-    <div className="w-3 h-3 bg-white rounded-full opacity-50"></div>
-    <div className="w-3 h-3 bg-white rounded-full"></div>
+  <div className="carousel-navigation">
+    <button className="nav-dot active"></button>
+    <button className="nav-dot"></button>
+    <button className="nav-dot"></button>
   </div>
+  <button className="carousel-prev">‹</button>
+  <button className="carousel-next">›</button>
 </div>`,
       mockup: "bg-gradient-to-r from-red-400 to-pink-400 relative"
     },
     {
-      title: "Geometric/Abstract Background",
-      description: "Modern geometric shapes and patterns creating visual interest",
-      characteristics: ["Geometric shapes", "Abstract patterns", "Modern aesthetic", "Color gradients"],
-      useCases: ["Tech startups", "Design agencies", "Creative studios", "Modern brands"],
-      codePreview: `<div className="relative min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 overflow-hidden">
-  <div className="absolute inset-0">
-    <div className="absolute top-20 left-20 w-32 h-32 bg-cyan-400 rounded-full opacity-20"></div>
-    <div className="absolute top-40 right-32 w-20 h-20 bg-yellow-400 transform rotate-45 opacity-30"></div>
-    <div className="absolute bottom-32 left-1/3 w-24 h-24 bg-pink-400 rounded-full opacity-25"></div>
+      title: "Geometric/Abstract Patterns",
+      description: "Modern tech-inspired design with dynamic geometric elements and circuit aesthetics",
+      characteristics: ["Geometric animations", "Circuit board patterns", "Modern tech aesthetic", "Dynamic shapes"],
+      useCases: ["Tech startups", "AI companies", "Design agencies", "Innovative brands"],
+      stockImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
+      interactive: true,
+      preview: (
+        <div className="w-full h-40 bg-gradient-to-br from-gray-900 to-blue-900 rounded-lg overflow-hidden relative group cursor-pointer">
+          <img 
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+            alt="Circuit board"
+            className="w-full h-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0">
+            <div className="absolute top-6 left-6 w-12 h-12 border-2 border-cyan-400 rounded-full animate-pulse"></div>
+            <div className="absolute bottom-6 right-6 w-8 h-8 bg-purple-500/30 transform rotate-45 animate-bounce"></div>
+            <div className="absolute top-1/2 left-1/4 w-6 h-6 bg-green-400/50 rounded-full transform transition-transform duration-1000 group-hover:scale-150"></div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center text-white transform transition-all duration-500 group-hover:scale-105">
+              <h3 className="text-lg font-bold mb-2 tracking-wide">
+                NEURAL NETWORK
+              </h3>
+              <p className="text-xs opacity-90 font-mono">AI • INNOVATION • FUTURE</p>
+            </div>
+          </div>
+        </div>
+      ),
+      codePreview: `<div className="relative min-h-screen bg-gray-900 overflow-hidden">
+  <div className="geometric-bg">
+    <div className="floating-shape circle"></div>
+    <div className="floating-shape triangle"></div>
+    <div className="floating-shape hexagon"></div>
   </div>
-  <div className="relative z-10 flex items-center justify-center min-h-screen text-center text-white px-8">
-    <div>
-      <h1 className="text-5xl font-bold mb-4">Creative Solutions</h1>
-      <p className="text-xl mb-8">Where innovation meets imagination</p>
-      <button className="bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold">Start Creating</button>
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div className="text-center text-white">
+      <h1 className="text-6xl font-bold tracking-wide mb-4">
+        NEURAL NETWORK
+      </h1>
+      <p className="text-xl font-mono opacity-90 mb-8">
+        AI • INNOVATION • FUTURE
+      </p>
+      <button className="px-8 py-4 border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 transition-all duration-300">
+        INITIALIZE
+      </button>
     </div>
   </div>
 </div>`,
       mockup: "bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 relative overflow-hidden"
     },
     {
-      title: "Interactive Elements",
-      description: "Engaging hover effects, animations, and interactive components",
-      characteristics: ["Hover animations", "Interactive buttons", "Micro-interactions", "Engaging transitions"],
-      useCases: ["Gaming sites", "Interactive portfolios", "Entertainment", "Creative agencies"],
-      codePreview: `<div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
-  <div className="text-center">
-    <h1 className="text-5xl font-bold mb-4 hover:text-cyan-400 transition-colors cursor-pointer">
-      Interactive Design
-    </h1>
-    <p className="text-xl mb-8 text-gray-300">Hover and explore the possibilities</p>
-    <div className="flex gap-4 justify-center">
-      <button className="group bg-cyan-500 px-6 py-3 rounded-lg transform hover:scale-105 transition-all">
-        <span className="group-hover:hidden">Hover Me</span>
-        <span className="hidden group-hover:inline">Amazing!</span>
-      </button>
-      <button className="bg-transparent border border-cyan-500 px-6 py-3 rounded-lg hover:bg-cyan-500 transition-colors">
-        Interactive
+      title: "Interactive AI Experience",
+      description: "Futuristic hero with AI elements, animations, and engaging user interactions",
+      characteristics: ["AI-themed visuals", "Hover animations", "Interactive elements", "Futuristic design"],
+      useCases: ["AI companies", "Robotics", "Gaming sites", "Tech innovation"],
+      stockImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop",
+      interactive: true,
+      preview: (
+        <div className="w-full h-40 bg-gradient-to-br from-purple-900 to-pink-900 rounded-lg overflow-hidden relative group cursor-pointer">
+          <img 
+            src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop"
+            alt="White robot"
+            className="w-full h-full object-cover opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent"></div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center text-white transform transition-all duration-500 group-hover:scale-105">
+              <h3 className="text-lg font-bold mb-2 animate-pulse">
+                AI REVOLUTION
+              </h3>
+              <p className="text-xs opacity-90 mb-3">Experience the future of intelligence</p>
+              <button className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 text-xs">
+                Activate AI
+              </button>
+            </div>
+          </div>
+          <div className="absolute top-3 right-3 flex gap-1">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+            <div className="w-2 h-2 bg-blue-400 rounded-full animate-ping animation-delay-200"></div>
+            <div className="w-2 h-2 bg-purple-400 rounded-full animate-ping animation-delay-500"></div>
+          </div>
+        </div>
+      ),
+      codePreview: `<div className="relative min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 overflow-hidden">
+  <div className="ai-particles">
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+  </div>
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div className="text-center text-white">
+      <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+        AI REVOLUTION
+      </h1>
+      <p className="text-xl opacity-90 mb-8">Experience the future of artificial intelligence</p>
+      <button className="group px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105">
+        <span className="group-hover:animate-pulse">Activate AI</span>
       </button>
     </div>
   </div>
@@ -1398,46 +1580,13 @@ const Insights = () => {
               >
                 <Card className="h-full hover:shadow-lg transition-all duration-300 border-muted">
                   <CardContent className="p-6">
-                    {/* Visual Mockup */}
-                    <div className={`w-full h-32 rounded-lg mb-4 ${variant.mockup} flex items-center justify-center relative overflow-hidden`}>
-                      {variant.title === "Minimalist/Typography-Focused" && (
-                        <div className="text-center">
-                          <div className="text-sm font-light text-gray-600">Less is</div>
-                          <div className="text-lg font-bold text-gray-900">More</div>
-                        </div>
-                      )}
-                      {variant.title === "Carousel/Slider" && (
-                        <>
+                    {/* Enhanced Interactive Visual Preview */}
+                    <div className="w-full h-48 rounded-lg mb-4 overflow-hidden">
+                      {variant.preview || (
+                        <div className={`w-full h-full ${variant.mockup} flex items-center justify-center relative overflow-hidden`}>
                           <div className="text-white text-center">
-                            <div className="text-sm font-bold">Slide 1</div>
+                            <div className="text-sm font-bold">{variant.title}</div>
                           </div>
-                          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
-                            <div className="w-2 h-2 bg-white/50 rounded-full"></div>
-                          </div>
-                        </>
-                      )}
-                      {variant.title === "Geometric/Abstract Background" && (
-                        <>
-                          <div className="absolute top-2 left-2 w-6 h-6 bg-cyan-300 rounded-full opacity-60"></div>
-                          <div className="absolute top-4 right-4 w-4 h-4 bg-yellow-300 transform rotate-45 opacity-70"></div>
-                          <div className="absolute bottom-3 left-1/3 w-5 h-5 bg-pink-300 rounded-full opacity-50"></div>
-                          <div className="text-white text-center">
-                            <div className="text-sm font-bold">Creative</div>
-                          </div>
-                        </>
-                      )}
-                      {variant.title === "Interactive Elements" && (
-                        <div className="text-center">
-                          <div className="text-cyan-300 text-sm font-bold mb-1">Interactive</div>
-                          <div className="w-12 h-6 bg-cyan-500 rounded text-xs flex items-center justify-center text-white">
-                            Hover
-                          </div>
-                        </div>
-                      )}
-                      {(variant.title === "Full-Width Background Image/Video" || variant.title === "Split Layout") && (
-                        <div className="text-white text-center">
-                          <div className="text-sm font-bold">{variant.title.includes("Full-Width") ? "Hero Title" : "Innovation"}</div>
                         </div>
                       )}
                     </div>
