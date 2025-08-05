@@ -394,8 +394,8 @@ const Home = () => {
                   <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Global Bases Unified</div>
                 </div>
                 <div className="py-3 sm:py-4">
-                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-accent">340%</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Max Conversion Increase</div>
+                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-accent">15+</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Years of Experience</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -1274,57 +1274,7 @@ Rather than accept the status quo, I took action. I began learning automation, p
       <DesignProcess />
 
       {/* Process Philosophy */}
-      <section className="section bg-background">
-        <div className="container-custom">
-          {/* Unique Value Metrics */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          delay: 1,
-          duration: 0.6
-        }} className="mt-16">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-              {[{
-              metric: "3 Domains",
-              label: "Military • Enterprise • UX",
-              icon: Shield,
-              color: "military-primary"
-            }, {
-              metric: "15+ Years",
-              label: "Systems Experience",
-              icon: Clock,
-              color: "systems-blue"
-            }, {
-              metric: "100%",
-              label: "User Adoption Rate",
-              icon: Target,
-              color: "agile-primary"
-            }, {
-              metric: "∞",
-              label: "Translation Capability",
-              icon: GitBranch,
-              color: "accent"
-            }].map((item, index) => <Card key={index} className="glass border-none shadow-card text-center">
-                  <CardContent className="p-4 sm:p-6">
-                    <div className={`w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4 ${item.color === 'military-primary' ? 'bg-military-primary/20' : item.color === 'systems-blue' ? 'bg-systems-blue/20' : item.color === 'agile-primary' ? 'bg-agile-primary/20' : 'bg-accent/20'}`}>
-                      <item.icon className={`w-6 h-6 ${item.color === 'military-primary' ? 'text-military-primary' : item.color === 'systems-blue' ? 'text-systems-blue' : item.color === 'agile-primary' ? 'text-agile-primary' : 'text-accent'}`} />
-                    </div>
-                    <div className={`text-3xl font-bold mb-1 ${item.color === 'success' ? 'text-success' : item.color === 'primary-glow' ? 'text-primary-glow' : item.color === 'agile-primary' ? 'text-agile-primary' : 'text-accent'}`}>
-                      {item.metric}
-                    </div>
-                    <div className="text-sm text-muted-foreground">{item.label}</div>
-                  </CardContent>
-                </Card>)}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      
 
       {/* Skills Arsenal */}
       <section className="section gradient-subtle">
