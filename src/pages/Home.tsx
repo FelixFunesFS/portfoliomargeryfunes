@@ -617,9 +617,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Recent Work Section */}
-      <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20">
-        <div className="container-custom px-3 sm:px-4 lg:px-6">
+      {/* Skills Arsenal */}
+      <section className="section gradient-subtle">
+        <div className="container-custom">
           <motion.div initial={{
           opacity: 0,
           y: 50
@@ -630,23 +630,106 @@ const Home = () => {
           once: true
         }} transition={{
           duration: 0.6
-        }} className="text-center mb-12 sm:mb-16">
-            <Badge variant="outline" className="mb-4 sm:mb-6 border-accent text-accent text-xs sm:text-sm">
-              Web Development
+        }} className="text-center mb-16">
+            <Badge variant="outline" className="mb-4 border-accent text-accent">
+              Skills Arsenal
             </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
-              Proven results through <span className="text-accent">systematic UX research</span>
-              <br className="hidden sm:block" />
-              and digital solutions
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+              Technical Expertise Meets <span className="text-accent">User Focus</span>
             </h2>
-            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-              Real-world applications demonstrating how systematic analysis and agile methodologies 
-              solve complex challenges and deliver measurable business impact.
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
+              A unique combination of technical systems knowledge and user experience expertise, 
+              honed through military service and enterprise development.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
-            {webDesigns.map((project, index) => <WebDesignCard key={index} project={project} index={index} onViewCaseStudy={() => handleViewCaseStudy(project.title)} />)}
+          {/* Skills Visual Intro */}
+          <motion.div initial={{
+          opacity: 0,
+          scale: 0.95
+        }} whileInView={{
+          opacity: 1,
+          scale: 1
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+            <div>
+              <Badge variant="outline" className="mb-4 border-systems-blue text-systems-blue">
+                Technical Arsenal
+              </Badge>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
+                Innovation Through <span className="text-systems-blue">Systematic Mastery</span>
+              </h3>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
+                A comprehensive toolkit built through military precision, enterprise complexity, 
+                and modern UX methodologies—each skill sharpened for maximum impact.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline" className="border-accent text-accent">Research</Badge>
+                <Badge variant="outline" className="border-accent text-accent">Analysis</Badge>
+                <Badge variant="outline" className="border-accent text-accent">Strategy</Badge>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-xl">
+              <div className="h-48 sm:h-64 lg:h-80">
+                <img src={robotInnovation} alt="Innovation and futuristic technology representation" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-l from-background/90 to-transparent"></div>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            {skillsArsenal.map((category, index) => <motion.div key={index} initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: index * 0.1,
+            duration: 0.6
+          }}>
+                <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300">
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 gap-3">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                          <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+                        </div>
+                        <CardTitle className="text-foreground text-lg sm:text-xl">{category.category}</CardTitle>
+                      </div>
+                      <Badge variant="outline" className="border-accent text-accent self-start sm:self-auto text-xs sm:text-sm">
+                        {category.proficiency}%
+                      </Badge>
+                    </div>
+                    
+                    {/* Proficiency Bar */}
+                    <div className="w-full bg-muted rounded-full h-2 mb-4">
+                      <motion.div initial={{
+                    width: 0
+                  }} whileInView={{
+                    width: `${category.proficiency}%`
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    delay: index * 0.2 + 0.5,
+                    duration: 1
+                  }} className="bg-accent h-2 rounded-full" />
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, skillIndex) => <Badge key={skillIndex} variant="secondary">
+                          {skill}
+                        </Badge>)}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>)}
           </div>
         </div>
       </section>
@@ -1178,6 +1261,40 @@ Rather than accept the status quo, I took action. I began learning automation, p
         </div>
       </section>
 
+      {/* Recent Work Section */}
+      <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20">
+        <div className="container-custom px-3 sm:px-4 lg:px-6">
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center mb-12 sm:mb-16">
+            <Badge variant="outline" className="mb-4 sm:mb-6 border-accent text-accent text-xs sm:text-sm">
+              Web Development
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
+              Proven results through <span className="text-accent">systematic UX research</span>
+              <br className="hidden sm:block" />
+              and digital solutions
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+              Real-world applications demonstrating how systematic analysis and agile methodologies 
+              solve complex challenges and deliver measurable business impact.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
+            {webDesigns.map((project, index) => <WebDesignCard key={index} project={project} index={index} onViewCaseStudy={() => handleViewCaseStudy(project.title)} />)}
+          </div>
+        </div>
+      </section>
+
       {/* CTA to Insights Page */}
       <section className="section bg-gradient-to-r from-primary/5 via-accent/5 to-success/5">
         <div className="container-custom">
@@ -1248,122 +1365,6 @@ Rather than accept the status quo, I took action. I began learning automation, p
       </section>
 
 
-      {/* Skills Arsenal */}
-      <section className="section gradient-subtle">
-        <div className="container-custom">
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6
-        }} className="text-center mb-16">
-            <Badge variant="outline" className="mb-4 border-accent text-accent">
-              Skills Arsenal
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-              Technical Expertise Meets <span className="text-accent">User Focus</span>
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
-              A unique combination of technical systems knowledge and user experience expertise, 
-              honed through military service and enterprise development.
-            </p>
-          </motion.div>
-
-          {/* Skills Visual Intro */}
-          <motion.div initial={{
-          opacity: 0,
-          scale: 0.95
-        }} whileInView={{
-          opacity: 1,
-          scale: 1
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
-            <div>
-              <Badge variant="outline" className="mb-4 border-systems-blue text-systems-blue">
-                Technical Arsenal
-              </Badge>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
-                Innovation Through <span className="text-systems-blue">Systematic Mastery</span>
-              </h3>
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
-                A comprehensive toolkit built through military precision, enterprise complexity, 
-                and modern UX methodologies—each skill sharpened for maximum impact.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="outline" className="border-accent text-accent">Research</Badge>
-                <Badge variant="outline" className="border-accent text-accent">Analysis</Badge>
-                <Badge variant="outline" className="border-accent text-accent">Strategy</Badge>
-              </div>
-            </div>
-            <div className="relative overflow-hidden rounded-xl">
-              <div className="h-48 sm:h-64 lg:h-80">
-                <img src={robotInnovation} alt="Innovation and futuristic technology representation" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-l from-background/90 to-transparent"></div>
-              </div>
-            </div>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            {skillsArsenal.map((category, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 50
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: index * 0.1,
-            duration: 0.6
-          }}>
-                <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300">
-                  <CardHeader className="p-4 sm:p-6">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 gap-3">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                          <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
-                        </div>
-                        <CardTitle className="text-foreground text-lg sm:text-xl">{category.category}</CardTitle>
-                      </div>
-                      <Badge variant="outline" className="border-accent text-accent self-start sm:self-auto text-xs sm:text-sm">
-                        {category.proficiency}%
-                      </Badge>
-                    </div>
-                    
-                    {/* Proficiency Bar */}
-                    <div className="w-full bg-muted rounded-full h-2 mb-4">
-                      <motion.div initial={{
-                    width: 0
-                  }} whileInView={{
-                    width: `${category.proficiency}%`
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    delay: index * 0.2 + 0.5,
-                    duration: 1
-                  }} className="bg-accent h-2 rounded-full" />
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill, skillIndex) => <Badge key={skillIndex} variant="secondary">
-                          {skill}
-                        </Badge>)}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>)}
-          </div>
-        </div>
-      </section>
 
 
       {/* Mission Briefing CTA */}
