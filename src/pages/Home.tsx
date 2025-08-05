@@ -50,7 +50,7 @@ const Home = () => {
     }
   };
   useEffect(() => {
-    document.title = "Systems Analyst | UX Researcher | Agile Problem Solver";
+    document.title = "UX Researcher | Systems Analyst | Human-Centered Problem Solver";
     window.scrollTo(0, 0);
     setIsLoaded(true);
   }, []);
@@ -102,6 +102,8 @@ const Home = () => {
     title: "Engine Logistics Tracking System",
     briefSummary: "Modernized tracking for F117 engines across 23 global bases with 45% faster reporting.",
     visual: caseStudy1Dashboard,
+    userProblem: "Engine maintenance teams spent hours searching through multiple systems to track critical components",
+    userVoice: "I spend more time hunting for engine data than actually maintaining aircraft. It's frustrating when mission readiness depends on information I can't quickly find.",
     challenge: "Engine maintenance teams across 23 bases struggled with manual tracking systems",
     researchMethod: "Conducted 15+ user interviews and workflow observations across multiple sites",
     keyInsight: "Users needed familiar interfaces with minimal training, not complex new systems",
@@ -117,6 +119,8 @@ const Home = () => {
     title: "Data Entry Automation System",
     briefSummary: "Automated DOD/Boeing GUI systems saving 26,000+ hours annually with 90% error reduction.",
     visual: caseStudy5Automation,
+    userProblem: "Data entry specialists faced exhaustion from repetitive 2.5-hour daily tasks leading to frequent errors",
+    userVoice: "By hour two of data entry, my brain feels like mush. I know I'm making mistakes, but the system requires perfect accuracy for flight safety.",
     challenge: "Data entry specialists experienced fatigue and errors from repetitive 2.5-hour daily tasks",
     researchMethod: "Empathy mapping, task analysis, and error pattern identification with 12 users",
     keyInsight: "Errors occurred due to cognitive overload, not lack of skill or attention",
@@ -132,6 +136,8 @@ const Home = () => {
     title: "Weekly Engine Removal Automation",
     briefSummary: "Automated slide deck generation saving 12+ weeks per year with 98% faster process.",
     visual: caseStudy3Slides,
+    userProblem: "Analysts spent entire afternoons creating repetitive slide decks instead of strategic analysis",
+    userVoice: "I became a PowerPoint expert when I should be an engine expert. Leadership needs these slides, but I'm not analyzing—I'm just formatting data.",
     challenge: "Analysts spent 9.6 hours weekly creating repetitive slide decks, causing burnout",
     researchMethod: "Journey mapping and pain point analysis with operations teams",
     keyInsight: "Manual slide creation was a barrier to timely decision-making at leadership level",
@@ -147,6 +153,8 @@ const Home = () => {
     title: "SharePoint Workspace System",
     briefSummary: "Scaled team collaboration across 23 bases with 90% faster document finding.",
     visual: caseStudy4Workspace,
+    userProblem: "Team members across global bases couldn't find critical documents or coordinate effectively",
+    userVoice: "New team members spend their first week asking 'Where do I find this?' instead of contributing. It's chaos, and we're losing valuable time.",
     challenge: "Growing teams faced communication breakdowns and document chaos",
     researchMethod: "Organizational analysis and collaborative workflow studies",
     keyInsight: "Information architecture needed to match team mental models and role hierarchies",
@@ -191,21 +199,27 @@ const Home = () => {
     insight: "Did we solve the right problem? What should we optimize next?"
   }];
 
-  // Skills Arsenal with detailed breakdown and descriptions
-  const skillCategories = {
-    'Research & Strategy': [
-      { 
-        name: 'User Research', 
-        level: 92, 
-        proficiency: 'Expert',
-        description: 'Conducted 50+ user interviews, surveys, and usability testing sessions across military and civilian domains'
-      },
-      { 
-        name: 'Systems Analysis', 
-        level: 98, 
-        proficiency: 'Expert',
-        description: 'Architected enterprise solutions serving 10,000+ users with complex workflow and data requirements'
-      },
+   // Skills Arsenal with detailed breakdown and descriptions
+   const skillCategories = {
+     'UX Research & Design': [
+       { 
+         name: 'User Research & Testing', 
+         level: 94, 
+         proficiency: 'Expert',
+         description: 'Conducted 50+ user interviews, surveys, and usability testing sessions across military and civilian domains. Led journey mapping and persona development for enterprise systems.'
+       },
+       { 
+         name: 'UX Design & Prototyping', 
+         level: 88, 
+         proficiency: 'Advanced',
+         description: 'Created comprehensive design systems and interactive prototypes tested with 200+ users across multiple domains using Figma and modern design tools.'
+       },
+       { 
+         name: 'Systems Analysis', 
+         level: 98, 
+         proficiency: 'Expert',
+         description: 'Architected enterprise solutions serving 10,000+ users with complex workflow and data requirements'
+       },
       { 
         name: 'Strategic Planning (Vision & Roadmaps)', 
         level: 95, 
@@ -424,36 +438,36 @@ const Home = () => {
             {/* Hero Content */}
             <motion.div variants={itemVariants} className="text-center lg:text-left">
               <motion.div variants={itemVariants} className="mb-3 sm:mb-4 lg:mb-6">
-                <Badge variant="outline" className="mb-3 sm:mb-4 text-xs sm:text-sm lg:text-base py-1 sm:py-1.5 lg:py-2 px-2 sm:px-3 lg:px-4 border-primary-glow text-primary-glow">
-                  Systems Analyst • UX Researcher • Agile Problem Solver
-                </Badge>
+                 <Badge variant="outline" className="mb-3 sm:mb-4 text-xs sm:text-sm lg:text-base py-1 sm:py-1.5 lg:py-2 px-2 sm:px-3 lg:px-4 border-primary-glow text-primary-glow">
+                   UX Researcher • Systems Analyst • Human-Centered Problem Solver
+                 </Badge>
               </motion.div>
               
-              <motion.h1 variants={itemVariants} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
-                I analyze{' '}
-                <span className="bg-gradient-to-r from-primary-glow to-accent bg-clip-text text-transparent">
-                  complex systems
-                </span>{' '}
-                and solve user problems through{' '}
-                <span className="bg-gradient-to-r from-agile-primary to-agile-secondary bg-clip-text text-transparent">
-                  Agile UX research
-                </span>
-              </motion.h1>
+               <motion.h1 variants={itemVariants} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
+                 I solve{' '}
+                 <span className="bg-gradient-to-r from-primary-glow to-accent bg-clip-text text-transparent">
+                   user problems
+                 </span>{' '}
+                 through systematic UX research, bridging{' '}
+                 <span className="bg-gradient-to-r from-agile-primary to-agile-secondary bg-clip-text text-transparent">
+                   technical complexity with human needs
+                 </span>
+               </motion.h1>
 
-              <motion.p variants={itemVariants} className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
-                Military precision meets modern product development. I bridge the gap between 
-                complex technical systems and user needs through systematic analysis and 
-                iterative design methodologies.
-              </motion.p>
+               <motion.p variants={itemVariants} className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
+                 Military precision meets human empathy. I bring systematic research methodologies 
+                 to uncover deep user insights, then collaborate with teams to build solutions 
+                 that truly serve human needs.
+               </motion.p>
 
               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10 justify-center lg:justify-start">
-                <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
-                  View Case Studies
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-                <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
-                  Download Resume
-                </Button>
+                 <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
+                   View Research Case Studies
+                   <ArrowRight className="ml-2 w-4 h-4" />
+                 </Button>
+                 <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
+                   Schedule Research Consultation
+                 </Button>
               </motion.div>
 
               {/* Key Metrics */}
@@ -510,6 +524,43 @@ const Home = () => {
           <ChevronDown className="w-6 h-6 text-primary-glow animate-bounce" />
         </motion.div>
       </motion.section>
+
+      {/* Research Philosophy Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-muted/30">
+        <div className="container-custom px-3 sm:px-4 lg:px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <Badge variant="outline" className="mb-4 border-primary-glow text-primary-glow bg-primary-glow/5">
+              Research Philosophy
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-foreground leading-tight">
+              Methodology That Bridges 
+              <span className="bg-gradient-to-r from-primary-glow to-accent bg-clip-text text-transparent">
+                {' '}Precision{' '}
+              </span>
+              and
+              <span className="bg-gradient-to-r from-agile-primary to-agile-secondary bg-clip-text text-transparent">
+                {' '}Empathy
+              </span>
+            </h2>
+            <div className="bg-background/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 lg:p-10 border border-primary-glow/20 shadow-glow">
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-4">
+                My research methodology combines military precision with human empathy. I believe the best solutions emerge when we deeply understand both user needs and technical constraints, then iterate rapidly based on evidence.
+              </p>
+              <div className="flex items-center justify-center gap-2 mt-4">
+                <Search className="w-5 h-5 text-primary-glow" />
+                <span className="text-sm text-primary-glow font-medium">Systematic • Evidence-Based • Human-Centered</span>
+                <TestTube className="w-5 h-5 text-primary-glow" />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Problem-Solution Matrix */}
       <section className="section bg-background py-12 sm:py-16 lg:py-20">
@@ -602,17 +653,29 @@ const Home = () => {
                     </div>
                   </div>
 
-                  <CardContent className="p-4 sm:p-5 lg:p-6 flex-1 flex flex-col">
+                   <CardContent className="p-4 sm:p-5 lg:p-6 flex-1 flex flex-col">
 
-                    {/* Challenge */}
-                    <div className="mb-3 sm:mb-4">
-                      <Badge variant="outline" className="text-xs text-muted-foreground mb-2">
-                        USER CHALLENGE
-                      </Badge>
-                      <p className="text-xs sm:text-sm text-foreground leading-tight mb-2 sm:mb-3">
-                        {story.challenge}
-                      </p>
-                    </div>
+                     {/* User Problem */}
+                     <div className="mb-3 sm:mb-4">
+                       <Badge variant="outline" className="text-xs text-red-500 bg-red-50 border-red-200 mb-2">
+                         USER PROBLEM
+                       </Badge>
+                       <p className="text-xs sm:text-sm text-foreground leading-tight mb-2 sm:mb-3">
+                         {story.userProblem || story.challenge}
+                       </p>
+                     </div>
+
+                     {/* User Voice Quote */}
+                     {story.userVoice && (
+                       <div className="mb-3 sm:mb-4 p-2 sm:p-3 bg-muted/50 rounded-lg border-l-4 border-primary-glow">
+                         <Badge variant="outline" className="text-xs text-primary-glow mb-2">
+                           USER VOICE
+                         </Badge>
+                         <p className="text-xs sm:text-sm text-muted-foreground italic leading-tight">
+                           "{story.userVoice}"
+                         </p>
+                       </div>
+                     )}
 
                     {/* Research Method */}
                     <div className="mb-3 sm:mb-4">
@@ -728,13 +791,13 @@ const Home = () => {
             <Badge variant="outline" className="mb-4 border-accent text-accent">
               Skills Arsenal
             </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-              Technical Expertise Meets <span className="text-accent">User Focus</span>
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
-              A unique combination of technical systems knowledge and user experience expertise, 
-              honed through military service and enterprise development.
-            </p>
+             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+               UX Research Excellence Meets <span className="text-accent">Technical Precision</span>
+             </h2>
+             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
+               A unique combination of systematic UX research methodologies and deep technical systems knowledge, 
+               enabling solutions that are both human-centered and technically feasible.
+             </p>
           </motion.div>
 
           {/* Skills Visual Intro */}
