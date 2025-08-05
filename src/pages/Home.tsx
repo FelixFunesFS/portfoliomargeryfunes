@@ -3,7 +3,8 @@ import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import About from '@/components/About';
-import { Target, Zap, TrendingUp, Users, BarChart3, Layers, GitBranch, RefreshCw, CheckCircle, ArrowRight, Radar, Settings, Database, Code, LineChart, Shield, Rocket, Brain, Clock, Award, ChevronDown, Eye, MapPin, ExternalLink, Globe, Monitor, Smartphone, Heart, Home as HomeIcon, Trophy, GraduationCap, Lightbulb, Search, TestTube } from 'lucide-react';
+import ResearchMethodology from '@/components/ResearchMethodology';
+import { Target, Zap, TrendingUp, Users, BarChart3, Layers, GitBranch, RefreshCw, CheckCircle, ArrowRight, Radar, Settings, Database, Code, LineChart, Shield, Rocket, Brain, Clock, Award, ChevronDown, Eye, MapPin, ExternalLink, Globe, Monitor, Smartphone, Heart, Home as HomeIcon, Trophy, GraduationCap, Lightbulb, Search, TestTube, Download, Calendar } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -104,6 +105,7 @@ const Home = () => {
     visual: caseStudy1Dashboard,
     userProblem: "Engine maintenance teams spent hours searching through multiple systems to track critical components",
     userVoice: "I spend more time hunting for engine data than actually maintaining aircraft. It's frustrating when mission readiness depends on information I can't quickly find.",
+    stakeholderQuote: "This system transformed our global operations. We finally have real-time visibility into our most critical assets. - Operations Director, Boeing Defense",
     challenge: "Engine maintenance teams across 23 bases struggled with manual tracking systems",
     researchMethod: "Conducted 15+ user interviews and workflow observations across multiple sites",
     keyInsight: "Users needed familiar interfaces with minimal training, not complex new systems",
@@ -112,6 +114,7 @@ const Home = () => {
     metric: "45% faster reporting",
     icon: Database,
     tools: ["User Interviews", "Workflow Analysis", "SharePoint", "Tableau"],
+    artifacts: ["User Journey Maps", "Persona Documentation", "Usability Test Results"],
     reflection: "I'd conduct more cross-site usability testing to validate the interface earlier",
     color: "systems",
     caseStudyId: 1
@@ -121,6 +124,7 @@ const Home = () => {
     visual: caseStudy5Automation,
     userProblem: "Data entry specialists faced exhaustion from repetitive 2.5-hour daily tasks leading to frequent errors",
     userVoice: "By hour two of data entry, my brain feels like mush. I know I'm making mistakes, but the system requires perfect accuracy for flight safety.",
+    stakeholderQuote: "The ROI was immediate. Our analysts went from data entry zombies to strategic thinkers overnight. - Engineering Manager, Boeing",
     challenge: "Data entry specialists experienced fatigue and errors from repetitive 2.5-hour daily tasks",
     researchMethod: "Empathy mapping, task analysis, and error pattern identification with 12 users",
     keyInsight: "Errors occurred due to cognitive overload, not lack of skill or attention",
@@ -129,6 +133,7 @@ const Home = () => {
     metric: "80% time reduction, 90% error reduction",
     icon: Clock,
     tools: ["Task Analysis", "Empathy Mapping", "VBA", "SQL"],
+    artifacts: ["Task Flow Diagrams", "Error Pattern Analysis", "User Satisfaction Surveys"],
     reflection: "I'd include more stakeholders in the design process to ensure broader organizational buy-in",
     color: "agile",
     caseStudyId: 5
@@ -138,6 +143,7 @@ const Home = () => {
     visual: caseStudy3Slides,
     userProblem: "Analysts spent entire afternoons creating repetitive slide decks instead of strategic analysis",
     userVoice: "I became a PowerPoint expert when I should be an engine expert. Leadership needs these slides, but I'm not analyzing—I'm just formatting data.",
+    stakeholderQuote: "Our analysts now focus on insights, not formatting. Decision-making speed has improved dramatically. - Operations Director",
     challenge: "Analysts spent 9.6 hours weekly creating repetitive slide decks, causing burnout",
     researchMethod: "Journey mapping and pain point analysis with operations teams",
     keyInsight: "Manual slide creation was a barrier to timely decision-making at leadership level",
@@ -146,6 +152,7 @@ const Home = () => {
     metric: "98% faster process",
     icon: TrendingUp,
     tools: ["Journey Mapping", "C#", "JavaScript", "VBA"],
+    artifacts: ["Process Journey Maps", "Pain Point Analysis", "Automation Workflows"],
     reflection: "I'd prototype multiple interface options to better understand user preferences",
     color: "success",
     caseStudyId: 3
@@ -155,6 +162,7 @@ const Home = () => {
     visual: caseStudy4Workspace,
     userProblem: "Team members across global bases couldn't find critical documents or coordinate effectively",
     userVoice: "New team members spend their first week asking 'Where do I find this?' instead of contributing. It's chaos, and we're losing valuable time.",
+    stakeholderQuote: "Onboarding went from weeks to days. Our global teams finally work as one unit. - Program Manager",
     challenge: "Growing teams faced communication breakdowns and document chaos",
     researchMethod: "Organizational analysis and collaborative workflow studies",
     keyInsight: "Information architecture needed to match team mental models and role hierarchies",
@@ -163,6 +171,7 @@ const Home = () => {
     metric: "90% faster document finding, 70% faster onboarding",
     icon: Users,
     tools: ["Information Architecture", "SharePoint", "Power Automate"],
+    artifacts: ["IA Sitemaps", "Role-Based Workflows", "Collaboration Patterns"],
     reflection: "I'd implement more iterative feedback loops during the workspace design phase",
     color: "accent",
     caseStudyId: 4
@@ -438,15 +447,16 @@ const Home = () => {
                  that truly serve human needs.
                </motion.p>
 
-              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10 justify-center lg:justify-start">
-                 <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
-                   View Research Case Studies
+               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10 justify-center lg:justify-start">
+                 <Button onClick={() => navigate('/case-studies')} size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
+                   Explore My Research Process
                    <ArrowRight className="ml-2 w-4 h-4" />
                  </Button>
                  <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
-                   Schedule Research Consultation
+                   <Download className="mr-2 w-4 h-4" />
+                   Download Research Portfolio
                  </Button>
-              </motion.div>
+               </motion.div>
 
               {/* Key Metrics */}
               <motion.div variants={itemVariants} className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 text-center max-w-sm sm:max-w-md lg:max-w-none mx-auto lg:mx-0">
@@ -543,6 +553,9 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Research Methodology Showcase */}
+      <ResearchMethodology />
 
       {/* Problem-Solution Matrix */}
       <section className="section bg-background py-12 sm:py-16 lg:py-20">
@@ -677,18 +690,30 @@ const Home = () => {
                       </p>
                     </div>
 
-                    {/* Solution & Impact */}
-                    <div className="mb-4">
-                      <Badge variant="outline" className="text-xs text-success mb-2">
-                        SOLUTION & IMPACT
-                      </Badge>
-                      <p className="text-sm text-foreground leading-tight mb-2">
-                        {story.solution}
-                      </p>
-                      <p className="text-sm text-muted-foreground leading-tight">
-                        {story.userImpact}
-                      </p>
-                    </div>
+                     {/* Solution & Impact */}
+                     <div className="mb-4">
+                       <Badge variant="outline" className="text-xs text-success mb-2">
+                         SOLUTION & IMPACT
+                       </Badge>
+                       <p className="text-sm text-foreground leading-tight mb-2">
+                         {story.solution}
+                       </p>
+                       <p className="text-sm text-muted-foreground leading-tight mb-3">
+                         {story.userImpact}
+                       </p>
+                       {/* Business Impact */}
+                       <div className="bg-success/5 border border-success/20 rounded-lg p-3">
+                         <Badge variant="outline" className="text-xs text-success mb-2 bg-success/10">
+                           BUSINESS IMPACT
+                         </Badge>
+                         <p className="text-xs text-success font-medium">
+                           {story.caseStudyId === 1 && "Enhanced mission readiness and reduced operational risk across global defense operations"}
+                           {story.caseStudyId === 5 && "ROI of 5,200% through automation. Enabled strategic focus shift from manual tasks to analysis"}
+                           {story.caseStudyId === 3 && "Leadership gained 12+ weeks annually for strategic planning instead of manual reporting"}
+                           {story.caseStudyId === 4 && "Improved organizational scalability enabling rapid team expansion without communication breakdown"}
+                         </p>
+                       </div>
+                     </div>
 
                     {/* Metric */}
                     <div className={`text-center p-3 rounded-lg mb-4 ${story.color === 'systems' ? 'bg-systems-blue/10' : story.color === 'agile' ? 'bg-agile-primary/10' : story.color === 'success' ? 'bg-success/10' : 'bg-accent/10'}`}>
@@ -697,15 +722,31 @@ const Home = () => {
                       </div>
                     </div>
 
-                    {/* Tools Used */}
-                    <div className="mb-4">
-                      <h4 className="text-xs font-semibold text-muted-foreground mb-2">TOOLS USED</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {story.tools.map((tool, toolIndex) => <Badge key={toolIndex} variant="secondary" className="text-xs">
-                            {tool}
-                          </Badge>)}
-                      </div>
-                    </div>
+                     {/* Research Artifacts */}
+                     <div className="mb-4">
+                       <h4 className="text-xs font-semibold text-muted-foreground mb-2">RESEARCH ARTIFACTS</h4>
+                       <div className="flex flex-wrap gap-1 mb-3">
+                         {story.artifacts?.map((artifact, artifactIndex) => <Badge key={artifactIndex} variant="outline" className="text-xs border-primary/30 text-primary">
+                             {artifact}
+                           </Badge>)}
+                       </div>
+                       <h4 className="text-xs font-semibold text-muted-foreground mb-2">TOOLS USED</h4>
+                       <div className="flex flex-wrap gap-1">
+                         {story.tools.map((tool, toolIndex) => <Badge key={toolIndex} variant="secondary" className="text-xs">
+                             {tool}
+                           </Badge>)}
+                       </div>
+                     </div>
+
+                     {/* Stakeholder Testimonial */}
+                     {story.stakeholderQuote && <div className="mb-4 p-3 bg-secondary/20 rounded-lg border-l-4 border-secondary">
+                         <Badge variant="outline" className="text-xs text-secondary mb-2">
+                           STAKEHOLDER FEEDBACK
+                         </Badge>
+                         <p className="text-xs text-secondary italic leading-tight">
+                           "{story.stakeholderQuote}"
+                         </p>
+                       </div>}
 
                     {/* Reflection */}
                     <div className="border-t pt-3 mb-4">
@@ -717,23 +758,26 @@ const Home = () => {
                       </p>
                     </div>
 
-                    {/* View Case Study Button */}
-                    <div className="mt-auto">
-                      <Button onClick={() => navigate('/case-studies', {
-                    state: {
-                      selectedStudyId: story.caseStudyId
-                    }
-                  })} className={`w-full ${story.color === 'systems' ? 'bg-systems-blue hover:bg-systems-blue/90' : story.color === 'agile' ? 'bg-agile-primary hover:bg-agile-primary/90' : story.color === 'success' ? 'bg-success hover:bg-success/90' : 'bg-accent hover:bg-accent/90'} text-white shadow-sm`} size="sm">
-                        <Eye className="w-4 h-4 mr-2" />
-                        View Case Study
-                      </Button>
-                    </div>
+                     {/* Action Buttons */}
+                     <div className="mt-auto flex gap-2">
+                       <Button onClick={() => navigate('/case-studies', {
+                     state: {
+                       selectedStudyId: story.caseStudyId
+                     }
+                   })} className={`flex-1 ${story.color === 'systems' ? 'bg-systems-blue hover:bg-systems-blue/90' : story.color === 'agile' ? 'bg-agile-primary hover:bg-agile-primary/90' : story.color === 'success' ? 'bg-success hover:bg-success/90' : 'bg-accent hover:bg-accent/90'} text-white shadow-sm`} size="sm">
+                         <Eye className="w-4 h-4 mr-2" />
+                         Case Study
+                       </Button>
+                       <Button variant="outline" size="sm" className="border-muted-foreground/20 text-muted-foreground hover:bg-muted-foreground/5">
+                         <ExternalLink className="w-4 h-4" />
+                       </Button>
+                     </div>
                   </CardContent>
                 </Card>
               </motion.div>)}
           </div>
 
-          {/* View All Case Studies Button */}
+          {/* Enhanced CTA Section */}
           <motion.div initial={{
           opacity: 0,
           y: 30
@@ -746,10 +790,19 @@ const Home = () => {
           duration: 0.6,
           delay: 0.4
         }} className="text-center mt-12 sm:mt-16">
-            <Button onClick={() => navigate('/case-studies')} size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow px-8 py-4">
-              View All Case Studies
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+              <Button onClick={() => navigate('/case-studies')} size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow px-8 py-4">
+                View All Research Case Studies
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 px-8 py-4">
+                <Calendar className="mr-2 w-5 h-5" />
+                Schedule Research Consultation
+              </Button>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Ready to improve user experiences through systematic research?
+            </p>
           </motion.div>
         </div>
       </section>
