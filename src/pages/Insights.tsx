@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { 
@@ -1564,14 +1565,14 @@ const Insights = () => {
 
       {/* Hero Sections Variants Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-[98vw] w-full max-h-[90vh] overflow-hidden">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-center mb-4">
-              Hero Section Variants
+            <DialogTitle className="text-2xl font-bold text-center mb-6">
+              Hero Section Variants Gallery
             </DialogTitle>
           </DialogHeader>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="space-y-8 max-h-[75vh] overflow-y-auto pr-4">
             {heroSectionVariants.map((variant, index) => (
               <motion.div
                 key={index}
@@ -1580,58 +1581,122 @@ const Insights = () => {
                 transition={{ delay: index * 0.1, duration: 0.4 }}
                 className="group"
               >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 border-muted">
-                  <CardContent className="p-6">
-                    {/* Enhanced Interactive Visual Preview */}
-                    <div className="w-full h-48 rounded-lg mb-4 overflow-hidden">
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 border-primary/20 bg-card/95 backdrop-blur-sm">
+                  <div className="flex flex-col lg:flex-row">
+                    {/* Full-Width Hero Preview */}
+                    <div className="relative flex-1 h-64 lg:h-80 overflow-hidden">
                       {variant.preview || (
-                        <div className={`w-full h-full ${variant.mockup} flex items-center justify-center relative overflow-hidden`}>
-                          <div className="text-white text-center">
-                            <div className="text-sm font-bold">{variant.title}</div>
+                        <div className="relative w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10 overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-20" />
+                          
+                          {/* Mock Hero Section Content */}
+                          <div className="relative h-full flex flex-col justify-center items-center p-8 text-center">
+                            <div className="max-w-4xl mx-auto space-y-6">
+                              {/* Navigation Mock */}
+                              <div className="absolute top-4 left-4 right-4 flex justify-between items-center">
+                                <div className="flex items-center space-x-2">
+                                  <div className="w-8 h-8 bg-primary/30 rounded-lg"></div>
+                                  <div className="hidden md:flex space-x-4">
+                                    {['Home', 'About', 'Services', 'Contact'].map((item) => (
+                                      <div key={item} className="w-12 h-3 bg-primary/20 rounded"></div>
+                                    ))}
+                                  </div>
+                                </div>
+                                <div className="w-20 h-8 bg-primary/40 rounded"></div>
+                              </div>
+
+                              {/* Hero Content */}
+                              <div className="space-y-4 mt-16">
+                                <div className="space-y-2">
+                                  <div className="w-3/4 h-6 bg-primary/40 rounded mx-auto"></div>
+                                  <div className="w-1/2 h-6 bg-primary/30 rounded mx-auto"></div>
+                                </div>
+                                <div className="space-y-2">
+                                  <div className="w-5/6 h-4 bg-muted/60 rounded mx-auto"></div>
+                                  <div className="w-2/3 h-4 bg-muted/50 rounded mx-auto"></div>
+                                </div>
+                                <div className="flex justify-center space-x-4 pt-4">
+                                  <div className="w-24 h-10 bg-primary/50 rounded-lg"></div>
+                                  <div className="w-24 h-10 bg-secondary/40 rounded-lg border border-primary/30"></div>
+                                </div>
+                              </div>
+
+                              {/* Features/Stats Mock */}
+                              <div className="absolute bottom-4 left-4 right-4 flex justify-center space-x-8">
+                                {[1, 2, 3].map((i) => (
+                                  <div key={i} className="text-center space-y-1">
+                                    <div className="w-12 h-4 bg-accent/40 rounded mx-auto"></div>
+                                    <div className="w-16 h-3 bg-muted/40 rounded mx-auto"></div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Overlay with variant info */}
+                            <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-lg p-3 border border-primary/20">
+                              <h4 className="font-semibold text-sm">{variant.title}</h4>
+                              <p className="text-xs text-muted-foreground">Interactive Preview</p>
+                            </div>
                           </div>
                         </div>
                       )}
                     </div>
 
-                    {/* Content */}
-                    <h3 className="text-lg font-semibold mb-2">{variant.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">{variant.description}</p>
-                    
-                    {/* Characteristics */}
-                    <div className="mb-4">
-                      <h4 className="text-sm font-medium mb-2">Key Characteristics:</h4>
-                      <div className="grid grid-cols-2 gap-1">
-                        {variant.characteristics.map((char, charIndex) => (
-                          <div key={charIndex} className="text-xs text-muted-foreground flex items-center">
-                            <div className="w-1 h-1 bg-accent rounded-full mr-2"></div>
-                            {char}
+                    {/* Code Preview Panel */}
+                    <div className="lg:w-96 border-t lg:border-t-0 lg:border-l border-border/50">
+                      <div className="p-6 space-y-4">
+                        <div className="flex items-center justify-between">
+                          <h3 className="font-semibold text-lg">{variant.title}</h3>
+                          <Button
+                            size="sm"
+                            onClick={() => {
+                              setSelectedCodeVariant(variant);
+                              setIsCodeModalOpen(true);
+                            }}
+                            className="gap-2"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                            Full Code
+                          </Button>
+                        </div>
+                        
+                        <p className="text-sm text-muted-foreground">
+                          {variant.description}
+                        </p>
+
+                        {/* Code Preview */}
+                        <div className="bg-muted/30 rounded-lg p-3 text-xs font-mono overflow-hidden">
+                          <div className="text-primary">&lt;section className="hero"&gt;</div>
+                          <div className="pl-2 text-muted-foreground">&lt;div className="container"&gt;</div>
+                          <div className="pl-4 text-foreground">&lt;h1&gt;{variant.title.split(' ')[0]}&lt;/h1&gt;</div>
+                          <div className="pl-4 text-muted-foreground">...</div>
+                          <div className="pl-2 text-muted-foreground">&lt;/div&gt;</div>
+                          <div className="text-primary">&lt;/section&gt;</div>
+                        </div>
+
+                        {/* Characteristics */}
+                        <div className="space-y-3">
+                          <div>
+                            <span className="text-xs font-medium text-muted-foreground">Characteristics:</span>
+                            <div className="flex flex-wrap gap-1 mt-1">
+                              {variant.characteristics.slice(0, 4).map((char, i) => (
+                                <span key={i} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
+                                  {char}
+                                </span>
+                              ))}
+                            </div>
                           </div>
-                        ))}
+                          
+                          <div>
+                            <span className="text-xs font-medium text-muted-foreground">Best For:</span>
+                            <p className="text-xs mt-1">{typeof variant.useCases === 'string' ? variant.useCases : variant.useCases.join(', ')}</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-
-                    {/* Use Cases */}
-                    <div className="mb-4">
-                      <h4 className="text-sm font-medium mb-2">Best Use Cases:</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {variant.useCases.map((useCase, caseIndex) => (
-                          <Badge key={caseIndex} variant="outline" className="text-xs">
-                            {useCase}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Code Preview */}
-                    <details className="group-hover:bg-muted/20 p-2 rounded transition-colors">
-                      <summary className="text-sm font-medium cursor-pointer text-primary">
-                        View Code Example
-                      </summary>
-                      <pre className="text-xs bg-muted p-3 rounded mt-2 overflow-x-auto">
-                        <code>{variant.codePreview}</code>
-                      </pre>
-                    </details>
-                  </CardContent>
+                  </div>
                 </Card>
               </motion.div>
             ))}
