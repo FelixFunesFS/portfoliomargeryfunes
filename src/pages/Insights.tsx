@@ -1687,7 +1687,7 @@ const Insights = () => {
           </DialogHeader>
           
           <div className="space-y-8 max-h-[75vh] overflow-y-auto pr-4">
-            {heroSectionVariants.map((variant, index) => (
+            {selectedComponent === "Hero Sections" && heroSectionVariants.map((variant, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -1814,6 +1814,95 @@ const Insights = () => {
                 </Card>
               </motion.div>
             ))}
+
+            {selectedComponent === "Navigation" && navigationVariants.map((variant, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+                className="group"
+              >
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 border-primary/20 bg-card/95 backdrop-blur-sm">
+                  <div className="flex flex-col lg:flex-row">
+                    {/* Full-Width Navigation Preview */}
+                    <div className="relative flex-1 h-64 lg:h-80 overflow-hidden">
+                      <div className="relative w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-20" />
+                        
+                        {/* Navigation Preview Content */}
+                        <div className="relative h-full flex items-center justify-center p-8">
+                          <div className="w-full max-w-4xl">
+                            {variant.preview}
+                          </div>
+                          
+                          {/* Overlay with variant info */}
+                          <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-lg p-3 border border-primary/20">
+                            <h4 className="font-semibold text-sm">{variant.title}</h4>
+                            <p className="text-xs text-muted-foreground">Interactive Preview</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Code Preview Panel */}
+                    <div className="lg:w-96 border-t lg:border-t-0 lg:border-l border-border/50">
+                      <div className="p-6 space-y-4">
+                        <div className="flex items-center justify-between">
+                          <h3 className="font-semibold text-lg">{variant.title}</h3>
+                          <Button
+                            size="sm"
+                            onClick={() => {
+                              setSelectedCodeVariant(variant);
+                              setIsCodeModalOpen(true);
+                            }}
+                            className="gap-2"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                            Full Code
+                          </Button>
+                        </div>
+                        
+                        <p className="text-sm text-muted-foreground">
+                          {variant.description}
+                        </p>
+
+                        {/* Code Preview */}
+                        <div className="bg-muted/30 rounded-lg p-3 text-xs font-mono overflow-hidden">
+                          <div className="text-primary">&lt;nav className="navigation"&gt;</div>
+                          <div className="pl-2 text-muted-foreground">&lt;div className="nav-container"&gt;</div>
+                          <div className="pl-4 text-foreground">&lt;ul&gt;{variant.title.split(' ')[0]}&lt;/ul&gt;</div>
+                          <div className="pl-4 text-muted-foreground">...</div>
+                          <div className="pl-2 text-muted-foreground">&lt;/div&gt;</div>
+                          <div className="text-primary">&lt;/nav&gt;</div>
+                        </div>
+
+                        {/* Characteristics */}
+                        <div className="space-y-3">
+                          <div>
+                            <span className="text-xs font-medium text-muted-foreground">Characteristics:</span>
+                            <div className="flex flex-wrap gap-1 mt-1">
+                              {variant.characteristics.slice(0, 4).map((char, i) => (
+                                <span key={i} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
+                                  {char}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <span className="text-xs font-medium text-muted-foreground">Best For:</span>
+                            <p className="text-xs mt-1">{typeof variant.useCases === 'string' ? variant.useCases : variant.useCases.join(', ')}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </DialogContent>
       </Dialog>
@@ -1899,36 +1988,6 @@ const Insights = () => {
             </div>
           )}
 
-          {selectedComponent === "Navigation" && (
-            <div className="space-y-6">
-              {navigationVariants.map((variant, index) => (
-                <Card key={index} className="overflow-hidden">
-                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 p-6">
-                    <div className="lg:col-span-3">
-                      <div className="mb-4">
-                        <h3 className="text-xl font-bold mb-2">{variant.title}</h3>
-                        <p className="text-muted-foreground mb-4">{variant.description}</p>
-                      </div>
-                      {variant.preview}
-                    </div>
-                    <div className="lg:col-span-2 space-y-4">
-                      <Button 
-                        variant="outline" 
-                        onClick={() => {
-                          setSelectedCodeVariant(variant);
-                          setIsCodeModalOpen(true);
-                        }}
-                        className="w-full"
-                      >
-                        <Code className="w-4 h-4 mr-2" />
-                        View Full Code
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          )}
         </DialogContent>
       </Dialog>
     </div>
