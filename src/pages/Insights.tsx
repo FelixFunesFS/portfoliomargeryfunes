@@ -364,11 +364,11 @@ const Insights = () => {
         <div className="w-full h-64 bg-white rounded-lg shadow-lg overflow-hidden group cursor-pointer">
           <div className="bg-gradient-to-r from-slate-900 to-slate-700 px-6 py-4 flex items-center justify-between shadow-sm">
             <div className="flex items-center gap-8">
-              <div className="text-white font-bold text-lg">LOGO</div>
+              <div className="text-white font-bold text-lg">BRANDNAME</div>
               <nav className="hidden md:flex gap-6">
                 {['Home', 'About', 'Services', 'Contact'].map((item, index) => (
                   <div key={item} className="relative group/item">
-                    <button className="text-white hover:text-blue-300 transition-colors duration-200 py-2">
+                    <button className="text-white hover:text-blue-300 transition-colors duration-200 py-2 px-1">
                       {item}
                     </button>
                     {item === 'Services' && (
@@ -397,7 +397,7 @@ const Insights = () => {
       codePreview: `<nav className="bg-slate-900 px-6 py-4">
   <div className="flex items-center justify-between">
     <div className="flex items-center gap-8">
-      <div className="text-white font-bold text-xl">LOGO</div>
+      <div className="text-white font-bold text-xl">BRANDNAME</div>
       <div className="hidden md:flex gap-6">
         <a href="#" className="text-white hover:text-blue-300 transition-colors">Home</a>
         <div className="relative group">
@@ -420,46 +420,393 @@ const Insights = () => {
 </nav>`,
       mockup: "bg-gradient-to-r from-slate-100 to-slate-200 border-l-4 border-primary"
     },
-    // Add 5 more variants with minimal code for brevity
     {
       title: "Mobile Hamburger Menu",
-      description: "Responsive navigation with slide-out drawer",
-      characteristics: ["Mobile-first", "Hamburger icon", "Slide animation"],
-      useCases: ["Mobile apps", "Responsive sites"],
-      preview: <div className="w-full h-64 bg-purple-100 rounded-lg p-4 text-center">Mobile Hamburger Preview</div>,
-      codePreview: `<nav>Mobile hamburger code</nav>`
+      description: "Responsive navigation with slide-out drawer and smooth animations",
+      characteristics: ["Mobile-first design", "Hamburger icon animation", "Slide-out drawer", "Touch-friendly"],
+      useCases: ["Mobile applications", "Responsive websites", "Progressive web apps", "Touch interfaces"],
+      stockImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
+      interactive: true,
+      preview: (
+        <div className="w-full h-64 bg-white rounded-lg shadow-lg overflow-hidden relative">
+          <div className="bg-indigo-600 px-4 py-3 flex items-center justify-between">
+            <div className="text-white font-bold text-lg">MobileApp</div>
+            <button className="text-white hover:bg-indigo-700 p-2 rounded transition-colors group">
+              <div className="w-6 h-5 relative">
+                <span className="block w-full h-0.5 bg-white mb-1 transition-transform group-hover:rotate-45 group-hover:translate-y-2"></span>
+                <span className="block w-full h-0.5 bg-white mb-1 transition-opacity group-hover:opacity-0"></span>
+                <span className="block w-full h-0.5 bg-white transition-transform group-hover:-rotate-45 group-hover:-translate-y-2"></span>
+              </div>
+            </button>
+          </div>
+          <div className="absolute top-14 right-0 w-64 h-48 bg-white shadow-xl transform translate-x-full group-hover:translate-x-0 transition-transform duration-300 z-10">
+            <div className="p-4 space-y-3">
+              {['Dashboard', 'Profile', 'Settings', 'Help', 'Logout'].map((item, index) => (
+                <a key={item} href="#" className="block py-2 px-3 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded transition-colors">
+                  {item}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="p-6 bg-gradient-to-b from-gray-50 to-white">
+            <div className="text-center">
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">Mobile Hamburger Menu</h3>
+              <p className="text-sm text-gray-600">Touch-optimized, space-efficient navigation</p>
+            </div>
+          </div>
+        </div>
+      ),
+      codePreview: `<header className="bg-indigo-600 px-4 py-3 flex items-center justify-between">
+  <div className="text-white font-bold text-lg">MobileApp</div>
+  <button onClick={toggleMenu} className="text-white p-2 rounded">
+    <div className="w-6 h-5 relative">
+      <span className={\`block w-full h-0.5 bg-white mb-1 transition-transform \${isOpen ? 'rotate-45 translate-y-2' : ''}\`}></span>
+      <span className={\`block w-full h-0.5 bg-white mb-1 transition-opacity \${isOpen ? 'opacity-0' : ''}\`}></span>
+      <span className={\`block w-full h-0.5 bg-white transition-transform \${isOpen ? '-rotate-45 -translate-y-2' : ''}\`}></span>
+    </div>
+  </button>
+</header>
+
+<div className={\`fixed top-14 right-0 w-64 h-screen bg-white shadow-xl transform transition-transform duration-300 z-50 \${isOpen ? 'translate-x-0' : 'translate-x-full'}\`}>
+  <nav className="p-4 space-y-3">
+    {menuItems.map((item) => (
+      <a key={item} href="#" className="block py-2 px-3 text-gray-700 hover:bg-indigo-50 rounded">
+        {item}
+      </a>
+    ))}
+  </nav>
+</div>`,
+      mockup: "bg-gradient-to-r from-indigo-100 to-purple-100 border-l-4 border-indigo-500"
     },
     {
       title: "Fixed/Sticky Navigation",
-      description: "Navigation that stays at top during scroll",
-      characteristics: ["Fixed position", "Scroll detection"],
-      useCases: ["Long content", "SPAs"],
-      preview: <div className="w-full h-64 bg-blue-100 rounded-lg p-4 text-center">Sticky Nav Preview</div>,
-      codePreview: `<nav className="fixed">Sticky nav code</nav>`
+      description: "Navigation that stays visible during scroll with dynamic styling",
+      characteristics: ["Fixed positioning", "Scroll detection", "Dynamic styling", "Performance optimized"],
+      useCases: ["Long-form content", "Single page applications", "Documentation sites", "Blogs"],
+      stockImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+      interactive: true,
+      preview: (
+        <div className="w-full h-64 bg-white rounded-lg shadow-lg overflow-hidden relative">
+          <div className="bg-white/95 backdrop-blur-sm border-b border-gray-200 px-6 py-3 shadow-sm">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-6">
+                <div className="text-gray-900 font-bold text-lg">StickyNav</div>
+                <nav className="hidden md:flex gap-4">
+                  {['Home', 'Features', 'Pricing', 'About'].map((item) => (
+                    <a key={item} href="#" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">
+                      {item}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+              <button className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors text-sm font-medium">
+                Sign Up
+              </button>
+            </div>
+          </div>
+          <div className="p-6 space-y-4 bg-gradient-to-b from-gray-50 to-white">
+            <div className="w-full h-2 bg-gray-200 rounded"></div>
+            <div className="w-3/4 h-2 bg-gray-200 rounded"></div>
+            <div className="w-5/6 h-2 bg-gray-200 rounded"></div>
+            <div className="text-center mt-4">
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">Sticky Navigation</h3>
+              <p className="text-sm text-gray-600">Always accessible, scroll-aware navigation</p>
+            </div>
+          </div>
+        </div>
+      ),
+      codePreview: `import { useState, useEffect } from 'react';
+
+function StickyNavigation() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <nav className={\`fixed top-0 w-full z-50 transition-all duration-300 \${
+      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+    }\`}>
+      <div className="px-6 py-4 flex items-center justify-between">
+        <div className="font-bold text-lg">StickyNav</div>
+        <div className="hidden md:flex gap-4">
+          {['Home', 'Features', 'Pricing'].map((item) => (
+            <a key={item} href="#" className="hover:text-gray-900 transition-colors">
+              {item}
+            </a>
+          ))}
+        </div>
+        <button className="bg-green-600 text-white px-4 py-2 rounded-full">
+          Sign Up
+        </button>
+      </div>
+    </nav>
+  );
+}`,
+      mockup: "bg-gradient-to-r from-green-100 to-emerald-100 border-l-4 border-green-500"
     },
     {
       title: "Mega Menu",
-      description: "Large dropdown with multiple columns",
-      characteristics: ["Multi-column", "Rich content"],
-      useCases: ["E-commerce", "Large catalogs"],
-      preview: <div className="w-full h-64 bg-emerald-100 rounded-lg p-4 text-center">Mega Menu Preview</div>,
-      codePreview: `<nav>Mega menu code</nav>`
+      description: "Multi-column dropdown navigation with rich content and imagery",
+      characteristics: ["Multi-column layout", "Rich content", "Category organization", "Visual hierarchy"],
+      useCases: ["E-commerce sites", "Large content catalogs", "Enterprise applications", "Product showcases"],
+      stockImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop",
+      interactive: true,
+      preview: (
+        <div className="w-full h-64 bg-white rounded-lg shadow-lg overflow-hidden group cursor-pointer">
+          <div className="bg-gray-900 px-6 py-4 flex items-center gap-8">
+            <div className="text-white font-bold text-lg">MEGASTORE</div>
+            <nav className="hidden md:flex gap-6">
+              {['Products', 'Solutions', 'Resources', 'About'].map((item, index) => (
+                <div key={item} className="relative group/item">
+                  <button className="text-white hover:text-blue-300 transition-colors duration-200 py-2">
+                    {item}
+                  </button>
+                  {item === 'Products' && (
+                    <div className="absolute top-full left-0 bg-white shadow-xl rounded-lg p-6 w-96 opacity-0 group-hover/item:opacity-100 transform scale-95 group-hover/item:scale-100 transition-all duration-300 z-10">
+                      <div className="grid grid-cols-2 gap-6">
+                        <div>
+                          <h4 className="font-semibold text-gray-900 mb-3">Categories</h4>
+                          <div className="space-y-2">
+                            <a href="#" className="block text-sm text-gray-600 hover:text-gray-900">Electronics</a>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-gray-900">Clothing</a>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-gray-900">Home & Garden</a>
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-900 mb-3">Featured</h4>
+                          <div className="space-y-2">
+                            <a href="#" className="block text-sm text-gray-600 hover:text-gray-900">New Arrivals</a>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-gray-900">Best Sellers</a>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-gray-900">Sale Items</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
+          <div className="p-6 bg-gray-50">
+            <div className="text-center">
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">Mega Menu Navigation</h3>
+              <p className="text-sm text-gray-600">Organized, content-rich dropdown menus</p>
+            </div>
+          </div>
+        </div>
+      ),
+      codePreview: `<nav className="bg-gray-900 px-6 py-4">
+  <div className="flex items-center gap-8">
+    <div className="text-white font-bold text-lg">MEGASTORE</div>
+    <div className="hidden md:flex gap-6">
+      <div className="relative group">
+        <button className="text-white hover:text-blue-300 transition-colors">
+          Products
+        </button>
+        <div className="absolute top-full left-0 bg-white shadow-xl rounded-lg p-6 w-96 opacity-0 group-hover:opacity-100 transition-all">
+          <div className="grid grid-cols-2 gap-6">
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-3">Categories</h4>
+              <div className="space-y-2">
+                <a href="#" className="block text-sm text-gray-600 hover:text-gray-900">Electronics</a>
+                <a href="#" className="block text-sm text-gray-600 hover:text-gray-900">Clothing</a>
+                <a href="#" className="block text-sm text-gray-600 hover:text-gray-900">Home & Garden</a>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-3">Featured</h4>
+              <div className="space-y-2">
+                <a href="#" className="block text-sm text-gray-600 hover:text-gray-900">New Arrivals</a>
+                <a href="#" className="block text-sm text-gray-600 hover:text-gray-900">Best Sellers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>`,
+      mockup: "bg-gradient-to-r from-blue-100 to-cyan-100 border-l-4 border-blue-500"
     },
     {
       title: "Breadcrumb Navigation",
-      description: "Shows user location in site hierarchy",
-      characteristics: ["Hierarchical", "Clickable segments"],
-      useCases: ["E-commerce", "Documentation"],
-      preview: <div className="w-full h-64 bg-amber-100 rounded-lg p-4 text-center">Breadcrumb Preview</div>,
-      codePreview: `<nav>Breadcrumb code</nav>`
+      description: "Hierarchical navigation showing user location with interactive segments",
+      characteristics: ["Hierarchical structure", "Clickable segments", "Path indication", "Responsive design"],
+      useCases: ["E-commerce navigation", "Documentation sites", "File systems", "Multi-level applications"],
+      stockImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop",
+      interactive: true,
+      preview: (
+        <div className="w-full h-64 bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="bg-gray-50 border-b border-gray-200 px-6 py-3">
+            <nav className="flex items-center space-x-2 text-sm">
+              <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors">Home</a>
+              <span className="text-gray-400">/</span>
+              <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors">Electronics</a>
+              <span className="text-gray-400">/</span>
+              <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors">Laptops</a>
+              <span className="text-gray-400">/</span>
+              <span className="text-gray-700 font-medium">MacBook Pro</span>
+            </nav>
+          </div>
+          <div className="p-6 space-y-4">
+            <div className="flex items-start gap-4">
+              <div className="w-16 h-16 bg-gray-200 rounded"></div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-gray-900">MacBook Pro 16"</h3>
+                <p className="text-sm text-gray-600 mt-1">Powerful laptop for professionals</p>
+                <p className="text-lg font-bold text-green-600 mt-2">$2,399</p>
+              </div>
+            </div>
+            <div className="text-center mt-4">
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">Breadcrumb Navigation</h3>
+              <p className="text-sm text-gray-600">Clear path indication and easy backtracking</p>
+            </div>
+          </div>
+        </div>
+      ),
+      codePreview: `function BreadcrumbNavigation({ path }) {
+  const pathSegments = path.split('/').filter(Boolean);
+  
+  return (
+    <nav className="bg-gray-50 border-b border-gray-200 px-6 py-3">
+      <ol className="flex items-center space-x-2 text-sm">
+        <li>
+          <a href="/" className="text-blue-600 hover:text-blue-800 transition-colors">
+            Home
+          </a>
+        </li>
+        {pathSegments.map((segment, index) => {
+          const isLast = index === pathSegments.length - 1;
+          const href = '/' + pathSegments.slice(0, index + 1).join('/');
+          
+          return (
+            <li key={segment} className="flex items-center space-x-2">
+              <span className="text-gray-400">/</span>
+              {isLast ? (
+                <span className="text-gray-700 font-medium capitalize">
+                  {segment.replace('-', ' ')}
+                </span>
+              ) : (
+                <a href={href} className="text-blue-600 hover:text-blue-800 transition-colors capitalize">
+                  {segment.replace('-', ' ')}
+                </a>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+}`,
+      mockup: "bg-gradient-to-r from-amber-100 to-orange-100 border-l-4 border-amber-500"
     },
     {
       title: "Sidebar Navigation",
-      description: "Vertical navigation with collapsible sections",
-      characteristics: ["Vertical layout", "Collapsible"],
-      useCases: ["Dashboards", "Apps"],
-      preview: <div className="w-full h-64 bg-gray-100 rounded-lg p-4 text-center">Sidebar Preview</div>,
-      codePreview: `<nav>Sidebar code</nav>`
+      description: "Vertical navigation with collapsible sections and hierarchical structure",
+      characteristics: ["Vertical layout", "Collapsible sections", "Nested navigation", "Icon support"],
+      useCases: ["Admin dashboards", "Application interfaces", "Documentation sites", "Complex workflows"],
+      stockImage: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=2070&auto=format&fit=crop",
+      interactive: true,
+      preview: (
+        <div className="w-full h-64 bg-white rounded-lg shadow-lg overflow-hidden flex">
+          <div className="w-64 bg-gray-900 p-4">
+            <div className="text-white font-bold text-lg mb-6">Dashboard</div>
+            <nav className="space-y-2">
+              {[
+                { name: 'Overview', icon: '📊', active: true },
+                { name: 'Analytics', icon: '📈', active: false },
+                { name: 'Settings', icon: '⚙️', active: false, hasSubmenu: true },
+                { name: 'Users', icon: '👥', active: false },
+                { name: 'Reports', icon: '📄', active: false }
+              ].map((item, index) => (
+                <div key={item.name}>
+                  <a 
+                    href="#" 
+                    className={`flex items-center gap-3 px-3 py-2 rounded transition-colors ${
+                      item.active 
+                        ? 'bg-blue-600 text-white' 
+                        : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+                    }`}
+                  >
+                    <span className="text-lg">{item.icon}</span>
+                    <span className="text-sm font-medium">{item.name}</span>
+                    {item.hasSubmenu && (
+                      <span className="ml-auto text-xs">▼</span>
+                    )}
+                  </a>
+                  {item.hasSubmenu && item.name === 'Settings' && (
+                    <div className="ml-6 mt-2 space-y-1">
+                      <a href="#" className="block px-3 py-1 text-xs text-gray-400 hover:text-gray-200">Profile</a>
+                      <a href="#" className="block px-3 py-1 text-xs text-gray-400 hover:text-gray-200">Security</a>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
+          <div className="flex-1 p-6 bg-gray-50">
+            <div className="text-center">
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">Sidebar Navigation</h3>
+              <p className="text-sm text-gray-600">Organized, hierarchical menu structure</p>
+            </div>
+          </div>
+        </div>
+      ),
+      codePreview: `function SidebarNavigation() {
+  const [expandedItems, setExpandedItems] = useState([]);
+  
+  const menuItems = [
+    { name: 'Overview', icon: '📊', path: '/overview' },
+    { name: 'Analytics', icon: '📈', path: '/analytics' },
+    { 
+      name: 'Settings', 
+      icon: '⚙️', 
+      submenu: [
+        { name: 'Profile', path: '/settings/profile' },
+        { name: 'Security', path: '/settings/security' }
+      ]
+    },
+    { name: 'Users', icon: '👥', path: '/users' },
+    { name: 'Reports', icon: '📄', path: '/reports' }
+  ];
+
+  return (
+    <aside className="w-64 bg-gray-900 p-4">
+      <div className="text-white font-bold text-lg mb-6">Dashboard</div>
+      <nav className="space-y-2">
+        {menuItems.map((item) => (
+          <div key={item.name}>
+            <a
+              href={item.path || '#'}
+              className="flex items-center gap-3 px-3 py-2 rounded text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
+              onClick={() => item.submenu && toggleExpanded(item.name)}
+            >
+              <span className="text-lg">{item.icon}</span>
+              <span className="text-sm font-medium">{item.name}</span>
+              {item.submenu && <span className="ml-auto text-xs">▼</span>}
+            </a>
+            {item.submenu && expandedItems.includes(item.name) && (
+              <div className="ml-6 mt-2 space-y-1">
+                {item.submenu.map((subItem) => (
+                  <a key={subItem.name} href={subItem.path} className="block px-3 py-1 text-xs text-gray-400 hover:text-gray-200">
+                    {subItem.name}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </nav>
+    </aside>
+  );
+}`,
+      mockup: "bg-gradient-to-r from-gray-100 to-slate-100 border-l-4 border-gray-500"
     }
   ];
 
