@@ -29,9 +29,12 @@ const OptimizedHero = () => {
           </h1>
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 lg:gap-6 mb-6 sm:mb-8">
-            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-primary">
-              UX/UI Designer & Systems Analyst
-            </h2>
+          <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-primary">
+            UX/UI Designer & Systems Analyst • 6+ Years Experience
+          </h2>
+          <p className="text-sm sm:text-base text-muted-foreground mt-2 font-medium">
+            Military → UX Transition Specialist | Mission-Critical Design Solutions
+          </p>
             <div className="flex justify-center lg:justify-start gap-2 sm:gap-3 flex-wrap">
               <div className="flex items-center gap-1 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full text-xs sm:text-sm">
                 <Code className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -58,14 +61,14 @@ const OptimizedHero = () => {
               className="bg-primary hover:bg-primary-light text-primary-foreground px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 text-sm sm:text-base lg:text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25 focus-visible:ring-offset-2 min-h-[44px]" 
               asChild
             >
-              <a href="#military-experience">View Military Projects</a>
+              <a href="/resume.pdf" target="_blank">Download Resume</a>
             </Button>
             <Button 
               variant="outline" 
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 text-sm sm:text-base lg:text-lg hover:scale-105 transition-all duration-300 focus-visible:ring-offset-2 min-h-[44px]" 
               asChild
             >
-              <a href="#contact">Mission Brief</a>
+              <a href="#about">Skills Overview</a>
             </Button>
           </div>
 

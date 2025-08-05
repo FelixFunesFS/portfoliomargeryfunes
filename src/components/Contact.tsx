@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Badge } from '@/components/ui/badge';
 import { Mail, Phone, Map, Linkedin, Twitter, Dribbble, Github } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -24,8 +25,8 @@ const Contact = () => {
     {
       icon: <Mail className="w-5 h-5 text-accent" />,
       label: 'Email',
-      value: 'hello@jakeanderson.com',
-      link: 'mailto:hello@jakeanderson.com',
+      value: 'margery.funes@email.com',
+      link: 'mailto:margery.funes@email.com',
     },
     {
       icon: <Phone className="w-5 h-5 text-accent" />,
@@ -70,9 +71,14 @@ const Contact = () => {
         <div className="text-center mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-primary">Get In Touch</h2>
           <p className="text-foreground/80 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">
-            Have a project in mind or want to collaborate? I'd love to hear from you. 
-            Fill out the form below and I'll get back to you as soon as possible.
+            Interested in discussing opportunities or learning more about my experience? 
+            I'm currently open to new opportunities and would love to connect.
           </p>
+          <div className="mt-4">
+            <Badge variant="outline" className="border-success text-success">
+              Available for New Opportunities
+            </Badge>
+          </div>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
@@ -108,11 +114,16 @@ const Contact = () => {
                 <label htmlFor="subject" className="block text-foreground mb-2">
                   Subject
                 </label>
-                <Input
+                <select
                   id="subject"
-                  placeholder="Subject"
-                  className="bg-background/80 border-border text-foreground placeholder:text-muted-foreground"
-                />
+                  className="w-full px-3 py-2 bg-background/80 border border-border rounded-md text-foreground"
+                >
+                  <option value="">Select inquiry type</option>
+                  <option value="recruiting">Recruiting Opportunity</option>
+                  <option value="collaboration">Project Collaboration</option>
+                  <option value="consultation">UX Consultation</option>
+                  <option value="general">General Inquiry</option>
+                </select>
               </div>
               
               <div className="mb-6">

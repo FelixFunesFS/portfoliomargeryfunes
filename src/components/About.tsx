@@ -5,15 +5,32 @@ import { Layout, PenTool, Code, Shield, Users, Target } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const About = () => {
-  const skills = [
-    { name: 'Systems Analysis', level: 98 },
-    { name: 'UX Research', level: 92 },
-    { name: 'Process Optimization', level: 95 },
-    { name: 'SharePoint Development', level: 90 },
-    { name: 'VBA/Automation', level: 88 },
-    { name: 'JavaScript/React', level: 85 },
-    { name: 'Military Leadership', level: 100 },
-  ];
+  const skillCategories = {
+    'Research & Strategy': [
+      { name: 'User Research', level: 92, proficiency: 'Expert' },
+      { name: 'Systems Analysis', level: 98, proficiency: 'Expert' },
+      { name: 'Strategic Planning', level: 95, proficiency: 'Expert' },
+      { name: 'Process Optimization', level: 95, proficiency: 'Expert' }
+    ],
+    'Design & Development': [
+      { name: 'UX/UI Design', level: 88, proficiency: 'Advanced' },
+      { name: 'Prototyping', level: 85, proficiency: 'Advanced' },
+      { name: 'JavaScript/React', level: 85, proficiency: 'Advanced' },
+      { name: 'SharePoint Development', level: 90, proficiency: 'Expert' }
+    ],
+    'Automation & Tools': [
+      { name: 'VBA/Automation', level: 88, proficiency: 'Advanced' },
+      { name: 'SQL/Database', level: 82, proficiency: 'Advanced' },
+      { name: 'Tableau/Analytics', level: 80, proficiency: 'Intermediate' },
+      { name: 'Power Platform', level: 85, proficiency: 'Advanced' }
+    ],
+    'Leadership & Collaboration': [
+      { name: 'Military Leadership', level: 100, proficiency: 'Expert' },
+      { name: 'Cross-functional Teams', level: 95, proficiency: 'Expert' },
+      { name: 'Stakeholder Management', level: 90, proficiency: 'Expert' },
+      { name: 'Remote Coordination', level: 88, proficiency: 'Advanced' }
+    ]
+  };
   
   const services = [
     {
@@ -71,15 +88,27 @@ const About = () => {
           </div>
           
           <div>
-            <h3 className="text-2xl font-semibold mb-6">Core Competencies</h3>
-            <div className="space-y-4">
-              {skills.map((skill, index) => (
-                <div key={skill.name}>
-                  <div className="flex justify-between mb-1">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-muted-foreground">{skill.level}%</span>
+            <h3 className="text-2xl font-semibold mb-6">Technical Skills Matrix</h3>
+            <div className="space-y-6">
+              {Object.entries(skillCategories).map(([category, skills]) => (
+                <div key={category} className="bg-muted/20 p-4 rounded-lg">
+                  <h4 className="text-lg font-semibold mb-4 text-primary">{category}</h4>
+                  <div className="space-y-3">
+                    {skills.map((skill) => (
+                      <div key={skill.name}>
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="font-medium">{skill.name}</span>
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs px-2 py-1 bg-accent/20 text-accent rounded-full">
+                              {skill.proficiency}
+                            </span>
+                            <span className="text-muted-foreground text-sm">{skill.level}%</span>
+                          </div>
+                        </div>
+                        <Progress value={skill.level} className="h-2" />
+                      </div>
+                    ))}
                   </div>
-                  <Progress value={skill.level} className="h-2" />
                 </div>
               ))}
             </div>

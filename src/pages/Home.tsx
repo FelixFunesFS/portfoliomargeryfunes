@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import WebDesignCard from '@/components/WebDesignCard';
 import DesignProcess from '@/components/DesignProcess';
+import ProfessionalImpact from '@/components/ProfessionalImpact';
 
 // Import images
 import circuitBoard from '@/assets/circuit-board.jpg';
@@ -1149,7 +1150,8 @@ Rather than accept the status quo, I took action. I began learning automation, p
       {/* Design Process */}
       <DesignProcess />
 
-
+      {/* Professional Impact */}
+      <ProfessionalImpact />
 
       {/* Recent Work Section */}
       <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20">
