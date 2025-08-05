@@ -157,7 +157,6 @@ const Home = () => {
     caseStudyId: 4
   }];
 
-
   // Research-First Agile Toolkit
   const researchToolkit = [{
     phase: "Discovery Sprint",
@@ -673,7 +672,7 @@ const Home = () => {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
               From Military Precision to <span className="text-gradient bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary bg-clip-text text-transparent">User-Centered Innovation</span>
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-4 sm:px-0">Bridging the gap between technical complexity and human needs.</p>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-4 sm:px-0">My Journey bridging the gap between technical complexity and human needs.</p>
           </motion.div>
 
           {/* Full-width introductory card */}
