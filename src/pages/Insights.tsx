@@ -352,6 +352,117 @@ const Insights = () => {
     }
   ];
 
+  const navigationVariants = [
+    {
+      title: "Horizontal Menu Bar",
+      description: "Classic desktop navigation with dropdown menus and hover effects",
+      characteristics: ["Horizontal layout", "Dropdown menus", "Hover states", "Desktop-first"],
+      useCases: ["Corporate websites", "Professional services", "E-commerce", "Business portals"],
+      stockImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2069&auto=format&fit=crop",
+      interactive: true,
+      preview: (
+        <div className="w-full h-64 bg-white rounded-lg shadow-lg overflow-hidden group cursor-pointer">
+          <div className="bg-gradient-to-r from-slate-900 to-slate-700 px-6 py-4 flex items-center justify-between shadow-sm">
+            <div className="flex items-center gap-8">
+              <div className="text-white font-bold text-lg">LOGO</div>
+              <nav className="hidden md:flex gap-6">
+                {['Home', 'About', 'Services', 'Contact'].map((item, index) => (
+                  <div key={item} className="relative group/item">
+                    <button className="text-white hover:text-blue-300 transition-colors duration-200 py-2">
+                      {item}
+                    </button>
+                    {item === 'Services' && (
+                      <div className="absolute top-full left-0 bg-white shadow-lg rounded-md py-2 w-48 opacity-0 group-hover/item:opacity-100 transform scale-95 group-hover/item:scale-100 transition-all duration-200 z-10">
+                        <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Web Development</a>
+                        <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Mobile Apps</a>
+                        <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Consulting</a>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </nav>
+            </div>
+            <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors text-sm">
+              Get Started
+            </button>
+          </div>
+          <div className="p-6 bg-gray-50">
+            <div className="text-center">
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">Classic Horizontal Navigation</h3>
+              <p className="text-sm text-gray-600">Professional, familiar, desktop-optimized</p>
+            </div>
+          </div>
+        </div>
+      ),
+      codePreview: `<nav className="bg-slate-900 px-6 py-4">
+  <div className="flex items-center justify-between">
+    <div className="flex items-center gap-8">
+      <div className="text-white font-bold text-xl">LOGO</div>
+      <div className="hidden md:flex gap-6">
+        <a href="#" className="text-white hover:text-blue-300 transition-colors">Home</a>
+        <div className="relative group">
+          <button className="text-white hover:text-blue-300 transition-colors">
+            Services
+          </button>
+          <div className="absolute top-full left-0 bg-white shadow-lg rounded-md py-2 w-48 opacity-0 group-hover:opacity-100 transition-all">
+            <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Web Development</a>
+            <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Mobile Apps</a>
+          </div>
+        </div>
+        <a href="#" className="text-white hover:text-blue-300 transition-colors">About</a>
+        <a href="#" className="text-white hover:text-blue-300 transition-colors">Contact</a>
+      </div>
+    </div>
+    <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+      Get Started
+    </button>
+  </div>
+</nav>`,
+      mockup: "bg-gradient-to-r from-slate-100 to-slate-200 border-l-4 border-primary"
+    },
+    // Add 5 more variants with minimal code for brevity
+    {
+      title: "Mobile Hamburger Menu",
+      description: "Responsive navigation with slide-out drawer",
+      characteristics: ["Mobile-first", "Hamburger icon", "Slide animation"],
+      useCases: ["Mobile apps", "Responsive sites"],
+      preview: <div className="w-full h-64 bg-purple-100 rounded-lg p-4 text-center">Mobile Hamburger Preview</div>,
+      codePreview: `<nav>Mobile hamburger code</nav>`
+    },
+    {
+      title: "Fixed/Sticky Navigation",
+      description: "Navigation that stays at top during scroll",
+      characteristics: ["Fixed position", "Scroll detection"],
+      useCases: ["Long content", "SPAs"],
+      preview: <div className="w-full h-64 bg-blue-100 rounded-lg p-4 text-center">Sticky Nav Preview</div>,
+      codePreview: `<nav className="fixed">Sticky nav code</nav>`
+    },
+    {
+      title: "Mega Menu",
+      description: "Large dropdown with multiple columns",
+      characteristics: ["Multi-column", "Rich content"],
+      useCases: ["E-commerce", "Large catalogs"],
+      preview: <div className="w-full h-64 bg-emerald-100 rounded-lg p-4 text-center">Mega Menu Preview</div>,
+      codePreview: `<nav>Mega menu code</nav>`
+    },
+    {
+      title: "Breadcrumb Navigation",
+      description: "Shows user location in site hierarchy",
+      characteristics: ["Hierarchical", "Clickable segments"],
+      useCases: ["E-commerce", "Documentation"],
+      preview: <div className="w-full h-64 bg-amber-100 rounded-lg p-4 text-center">Breadcrumb Preview</div>,
+      codePreview: `<nav>Breadcrumb code</nav>`
+    },
+    {
+      title: "Sidebar Navigation",
+      description: "Vertical navigation with collapsible sections",
+      characteristics: ["Vertical layout", "Collapsible"],
+      useCases: ["Dashboards", "Apps"],
+      preview: <div className="w-full h-64 bg-gray-100 rounded-lg p-4 text-center">Sidebar Preview</div>,
+      codePreview: `<nav>Sidebar code</nav>`
+    }
+  ];
+
   const researchToolkit = [
     {
       phase: "Discover",
@@ -1357,6 +1468,9 @@ const Insights = () => {
                     if (component.title === "Hero Sections") {
                       setSelectedComponent("Hero Sections");
                       setIsModalOpen(true);
+                    } else if (component.title === "Navigation") {
+                      setSelectedComponent("Navigation");
+                      setIsModalOpen(true);
                     }
                   }}
                 >
@@ -1782,6 +1896,37 @@ const Insights = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          )}
+
+          {selectedComponent === "Navigation" && (
+            <div className="space-y-6">
+              {navigationVariants.map((variant, index) => (
+                <Card key={index} className="overflow-hidden">
+                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 p-6">
+                    <div className="lg:col-span-3">
+                      <div className="mb-4">
+                        <h3 className="text-xl font-bold mb-2">{variant.title}</h3>
+                        <p className="text-muted-foreground mb-4">{variant.description}</p>
+                      </div>
+                      {variant.preview}
+                    </div>
+                    <div className="lg:col-span-2 space-y-4">
+                      <Button 
+                        variant="outline" 
+                        onClick={() => {
+                          setSelectedCodeVariant(variant);
+                          setIsCodeModalOpen(true);
+                        }}
+                        className="w-full"
+                      >
+                        <Code className="w-4 h-4 mr-2" />
+                        View Full Code
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              ))}
             </div>
           )}
         </DialogContent>
