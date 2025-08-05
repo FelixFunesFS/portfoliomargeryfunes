@@ -1,36 +1,9 @@
 
 import React from 'react';
-import { Progress } from '@/components/ui/progress';
-import { Layout, PenTool, Code, Shield, Users, Target } from 'lucide-react';
+import { Target, Shield, Code, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const About = () => {
-  const skillCategories = {
-    'Research & Strategy': [
-      { name: 'User Research', level: 92, proficiency: 'Expert' },
-      { name: 'Systems Analysis', level: 98, proficiency: 'Expert' },
-      { name: 'Strategic Planning', level: 95, proficiency: 'Expert' },
-      { name: 'Process Optimization', level: 95, proficiency: 'Expert' }
-    ],
-    'Design & Development': [
-      { name: 'UX/UI Design', level: 88, proficiency: 'Advanced' },
-      { name: 'Prototyping', level: 85, proficiency: 'Advanced' },
-      { name: 'JavaScript/React', level: 85, proficiency: 'Advanced' },
-      { name: 'SharePoint Development', level: 90, proficiency: 'Expert' }
-    ],
-    'Automation & Tools': [
-      { name: 'VBA/Automation', level: 88, proficiency: 'Advanced' },
-      { name: 'SQL/Database', level: 82, proficiency: 'Advanced' },
-      { name: 'Tableau/Analytics', level: 80, proficiency: 'Intermediate' },
-      { name: 'Power Platform', level: 85, proficiency: 'Advanced' }
-    ],
-    'Leadership & Collaboration': [
-      { name: 'Military Leadership', level: 100, proficiency: 'Expert' },
-      { name: 'Cross-functional Teams', level: 95, proficiency: 'Expert' },
-      { name: 'Stakeholder Management', level: 90, proficiency: 'Expert' },
-      { name: 'Remote Coordination', level: 88, proficiency: 'Advanced' }
-    ]
-  };
   
   const services = [
     {
@@ -68,52 +41,6 @@ const About = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
-          <div>
-            <h3 className="text-2xl font-semibold mb-6">From Air Force to Innovation</h3>
-            <p className="mb-4 text-muted-foreground">
-              My unique background combines 8 years of U.S. Air Force systems operations with advanced 
-              UX design methodologies. This rare combination allows me to approach complex problems with 
-              both strategic military thinking and user-centered design principles.
-            </p>
-            <p className="mb-4 text-muted-foreground">
-              During my military service, I specialized in complex systems analysis for F117 aircraft engines, 
-              managing operations across 23 global bases and automating critical processes that saved thousands 
-              of man-hours while reducing errors by up to 87%.
-            </p>
-            <p className="text-muted-foreground">
-              Today, I apply this same precision and systems thinking to digital product design, creating 
-              solutions that are not just beautiful, but built for reliability, scalability, and mission success.
-            </p>
-          </div>
-          
-          <div>
-            <h3 className="text-2xl font-semibold mb-6">Technical Skills Matrix</h3>
-            <div className="space-y-6">
-              {Object.entries(skillCategories).map(([category, skills]) => (
-                <div key={category} className="bg-muted/20 p-4 rounded-lg">
-                  <h4 className="text-lg font-semibold mb-4 text-primary">{category}</h4>
-                  <div className="space-y-3">
-                    {skills.map((skill) => (
-                      <div key={skill.name}>
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="font-medium">{skill.name}</span>
-                          <div className="flex items-center gap-2">
-                            <span className="text-xs px-2 py-1 bg-accent/20 text-accent rounded-full">
-                              {skill.proficiency}
-                            </span>
-                            <span className="text-muted-foreground text-sm">{skill.level}%</span>
-                          </div>
-                        </div>
-                        <Progress value={skill.level} className="h-2" />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
         
         <div>
           <h3 className="text-2xl font-semibold mb-8 text-center">Mission Capabilities</h3>

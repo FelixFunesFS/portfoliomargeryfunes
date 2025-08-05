@@ -190,28 +190,33 @@ const Home = () => {
     insight: "Did we solve the right problem? What should we optimize next?"
   }];
 
-  // Skills Arsenal
-  const skillsArsenal = [{
-    category: "Systems Analysis",
-    skills: ["Enterprise Architecture", "Database Design", "API Development", "Legacy Integration"],
-    icon: Database,
-    proficiency: 95
-  }, {
-    category: "UX Research",
-    skills: ["User Interviews", "Behavioral Analysis", "Journey Mapping", "Usability Testing"],
-    icon: Users,
-    proficiency: 90
-  }, {
-    category: "Agile Methodologies",
-    skills: ["Scrum Master", "Sprint Planning", "Backlog Management", "Retrospectives"],
-    icon: RefreshCw,
-    proficiency: 88
-  }, {
-    category: "Technical Development",
-    skills: ["React/JavaScript", "SQL/NoSQL", "VBA/Automation", "SharePoint"],
-    icon: Code,
-    proficiency: 92
-  }];
+  // Skills Arsenal with detailed breakdown
+  const skillCategories = {
+    'Research & Strategy': [
+      { name: 'User Research', level: 92, proficiency: 'Expert' },
+      { name: 'Systems Analysis', level: 98, proficiency: 'Expert' },
+      { name: 'Strategic Planning', level: 95, proficiency: 'Expert' },
+      { name: 'Process Optimization', level: 95, proficiency: 'Expert' }
+    ],
+    'Design & Development': [
+      { name: 'UX/UI Design', level: 88, proficiency: 'Advanced' },
+      { name: 'Prototyping', level: 85, proficiency: 'Advanced' },
+      { name: 'JavaScript/React', level: 85, proficiency: 'Advanced' },
+      { name: 'SharePoint Development', level: 90, proficiency: 'Expert' }
+    ],
+    'Automation & Tools': [
+      { name: 'VBA/Automation', level: 88, proficiency: 'Advanced' },
+      { name: 'SQL/Database', level: 82, proficiency: 'Advanced' },
+      { name: 'Tableau/Analytics', level: 80, proficiency: 'Intermediate' },
+      { name: 'Power Platform', level: 85, proficiency: 'Advanced' }
+    ],
+    'Leadership & Collaboration': [
+      { name: 'Military Leadership', level: 100, proficiency: 'Expert' },
+      { name: 'Cross-functional Teams', level: 95, proficiency: 'Expert' },
+      { name: 'Stakeholder Management', level: 90, proficiency: 'Expert' },
+      { name: 'Remote Coordination', level: 88, proficiency: 'Advanced' }
+    ]
+  };
 
   // Web Design Portfolio Data
   const webDesigns = [{
@@ -683,60 +688,55 @@ const Home = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            {skillsArsenal.map((category, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 50
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: index * 0.1,
-            duration: 0.6
-          }}>
+            {Object.entries(skillCategories).map(([category, skills], index) => (
+              <motion.div key={category} initial={{
+                opacity: 0,
+                y: 50
+              }} whileInView={{
+                opacity: 1,
+                y: 0
+              }} viewport={{
+                once: true
+              }} transition={{
+                delay: index * 0.1,
+                duration: 0.6
+              }}>
                 <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300">
                   <CardHeader className="p-4 sm:p-6">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 gap-3">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                          <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+                    <CardTitle className="text-foreground text-lg sm:text-xl mb-4">{category}</CardTitle>
+                    <div className="space-y-3">
+                      {skills.map((skill) => (
+                        <div key={skill.name}>
+                          <div className="flex justify-between items-center mb-1">
+                            <span className="font-medium">{skill.name}</span>
+                            <div className="flex items-center gap-2">
+                              <Badge variant="outline" className="border-accent text-accent text-xs">
+                                {skill.proficiency}
+                              </Badge>
+                              <span className="text-muted-foreground text-sm">{skill.level}%</span>
+                            </div>
+                          </div>
+                          <div className="w-full bg-muted rounded-full h-2">
+                            <motion.div 
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${skill.level}%` }}
+                              viewport={{ once: true }}
+                              transition={{ delay: index * 0.2 + 0.5, duration: 1 }}
+                              className="bg-accent h-2 rounded-full"
+                            />
+                          </div>
                         </div>
-                        <CardTitle className="text-foreground text-lg sm:text-xl">{category.category}</CardTitle>
-                      </div>
-                      <Badge variant="outline" className="border-accent text-accent self-start sm:self-auto text-xs sm:text-sm">
-                        {category.proficiency}%
-                      </Badge>
-                    </div>
-                    
-                    {/* Proficiency Bar */}
-                    <div className="w-full bg-muted rounded-full h-2 mb-4">
-                      <motion.div initial={{
-                    width: 0
-                  }} whileInView={{
-                    width: `${category.proficiency}%`
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    delay: index * 0.2 + 0.5,
-                    duration: 1
-                   }} className="bg-accent h-2 rounded-full" />
+                      ))}
                     </div>
                   </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill, skillIndex) => <Badge key={skillIndex} variant="secondary">
-                          {skill}
-                        </Badge>)}
-                    </div>
-                  </CardContent>
                 </Card>
-              </motion.div>)}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Enhanced Skills Matrix - About Component */}
+      {/* About Section - Mission Capabilities */}
       <About />
 
       {/* My Journey into User Research */}
