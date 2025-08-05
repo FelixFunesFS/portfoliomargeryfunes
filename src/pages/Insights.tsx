@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { 
   Search, 
   Users, 
@@ -37,6 +38,135 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const Insights = () => {
+  const [selectedComponent, setSelectedComponent] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const heroSectionVariants = [
+    {
+      title: "Full-Width Background Image/Video",
+      description: "Immersive full-screen hero with video/image background and overlay text",
+      characteristics: ["Cinematic appeal", "High visual impact", "Overlay text for readability", "Call-to-action prominence"],
+      useCases: ["Brand storytelling", "Product launches", "Event promotion", "Creative portfolios"],
+      codePreview: `<div className="relative h-screen bg-cover bg-center" style={{backgroundImage: 'url(/hero-bg.jpg)'}}>
+  <div className="absolute inset-0 bg-black/40"></div>
+  <div className="relative z-10 flex items-center justify-center h-full text-center text-white">
+    <div>
+      <h1 className="text-5xl font-bold mb-4">Your Story Starts Here</h1>
+      <p className="text-xl mb-8">Discover amazing experiences</p>
+      <button className="bg-primary px-8 py-3 rounded-lg">Get Started</button>
+    </div>
+  </div>
+</div>`,
+      mockup: "bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500"
+    },
+    {
+      title: "Split Layout",
+      description: "Clean two-column layout with content on one side and visual on the other",
+      characteristics: ["Balanced composition", "Clean typography", "Image/content harmony", "Responsive design"],
+      useCases: ["SaaS platforms", "Professional services", "B2B websites", "Corporate landing pages"],
+      codePreview: `<div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+  <div className="flex items-center justify-center p-8">
+    <div className="max-w-md">
+      <h1 className="text-4xl font-bold mb-4">Innovation Meets Excellence</h1>
+      <p className="text-lg text-muted-foreground mb-6">Transform your business with our cutting-edge solutions</p>
+      <button className="bg-primary text-primary-foreground px-6 py-3 rounded-md">Learn More</button>
+    </div>
+  </div>
+  <div className="bg-muted flex items-center justify-center">
+    <img src="/hero-image.jpg" alt="Hero" className="max-w-full h-auto" />
+  </div>
+</div>`,
+      mockup: "bg-gradient-to-r from-slate-100 to-slate-200 border-l-4 border-primary"
+    },
+    {
+      title: "Minimalist/Typography-Focused",
+      description: "Clean, text-centric design emphasizing typography and white space",
+      characteristics: ["Typography hierarchy", "Generous white space", "Subtle accents", "Content focus"],
+      useCases: ["Editorial sites", "Blogs", "Portfolios", "Minimalist brands"],
+      codePreview: `<div className="min-h-screen flex items-center justify-center bg-white">
+  <div className="text-center max-w-3xl px-8">
+    <h1 className="text-6xl font-light text-gray-900 mb-6 tracking-tight">
+      Less is <em className="font-bold">More</em>
+    </h1>
+    <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+      Discover the power of simplicity in design and communication
+    </p>
+    <div className="w-24 h-0.5 bg-gray-900 mx-auto mb-8"></div>
+    <button className="text-gray-900 border border-gray-900 px-8 py-3 hover:bg-gray-900 hover:text-white transition-colors">
+      Explore
+    </button>
+  </div>
+</div>`,
+      mockup: "bg-white border border-gray-200 relative"
+    },
+    {
+      title: "Carousel/Slider",
+      description: "Dynamic rotating content with navigation controls and multiple messages",
+      characteristics: ["Multiple content slides", "Navigation controls", "Auto-play option", "Transition effects"],
+      useCases: ["E-commerce", "Multi-product showcase", "News sites", "Portfolio galleries"],
+      codePreview: `<div className="relative h-screen overflow-hidden">
+  <div className="flex transition-transform duration-500" style={{transform: 'translateX(0%)'}}>
+    <div className="w-full flex-shrink-0 bg-gradient-to-r from-red-500 to-pink-500 flex items-center justify-center text-white">
+      <div className="text-center">
+        <h1 className="text-5xl font-bold mb-4">Slide One</h1>
+        <p className="text-xl">First amazing feature</p>
+      </div>
+    </div>
+  </div>
+  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+    <div className="w-3 h-3 bg-white rounded-full opacity-50"></div>
+    <div className="w-3 h-3 bg-white rounded-full"></div>
+  </div>
+</div>`,
+      mockup: "bg-gradient-to-r from-red-400 to-pink-400 relative"
+    },
+    {
+      title: "Geometric/Abstract Background",
+      description: "Modern geometric shapes and patterns creating visual interest",
+      characteristics: ["Geometric shapes", "Abstract patterns", "Modern aesthetic", "Color gradients"],
+      useCases: ["Tech startups", "Design agencies", "Creative studios", "Modern brands"],
+      codePreview: `<div className="relative min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 overflow-hidden">
+  <div className="absolute inset-0">
+    <div className="absolute top-20 left-20 w-32 h-32 bg-cyan-400 rounded-full opacity-20"></div>
+    <div className="absolute top-40 right-32 w-20 h-20 bg-yellow-400 transform rotate-45 opacity-30"></div>
+    <div className="absolute bottom-32 left-1/3 w-24 h-24 bg-pink-400 rounded-full opacity-25"></div>
+  </div>
+  <div className="relative z-10 flex items-center justify-center min-h-screen text-center text-white px-8">
+    <div>
+      <h1 className="text-5xl font-bold mb-4">Creative Solutions</h1>
+      <p className="text-xl mb-8">Where innovation meets imagination</p>
+      <button className="bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold">Start Creating</button>
+    </div>
+  </div>
+</div>`,
+      mockup: "bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 relative overflow-hidden"
+    },
+    {
+      title: "Interactive Elements",
+      description: "Engaging hover effects, animations, and interactive components",
+      characteristics: ["Hover animations", "Interactive buttons", "Micro-interactions", "Engaging transitions"],
+      useCases: ["Gaming sites", "Interactive portfolios", "Entertainment", "Creative agencies"],
+      codePreview: `<div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
+  <div className="text-center">
+    <h1 className="text-5xl font-bold mb-4 hover:text-cyan-400 transition-colors cursor-pointer">
+      Interactive Design
+    </h1>
+    <p className="text-xl mb-8 text-gray-300">Hover and explore the possibilities</p>
+    <div className="flex gap-4 justify-center">
+      <button className="group bg-cyan-500 px-6 py-3 rounded-lg transform hover:scale-105 transition-all">
+        <span className="group-hover:hidden">Hover Me</span>
+        <span className="hidden group-hover:inline">Amazing!</span>
+      </button>
+      <button className="bg-transparent border border-cyan-500 px-6 py-3 rounded-lg hover:bg-cyan-500 transition-colors">
+        Interactive
+      </button>
+    </div>
+  </div>
+</div>`,
+      mockup: "bg-gray-800 border border-cyan-400 relative"
+    }
+  ];
+
   const researchToolkit = [
     {
       phase: "Discover",
@@ -1038,6 +1168,12 @@ const Insights = () => {
                   transition={{ delay: index * 0.1, duration: 0.6 }}
                   whileHover={{ scale: 1.05 }}
                   className="cursor-pointer"
+                  onClick={() => {
+                    if (component.title === "Hero Sections") {
+                      setSelectedComponent("Hero Sections");
+                      setIsModalOpen(true);
+                    }
+                  }}
                 >
                   <Card className="glass border-accent/20 hover:border-accent/40 transition-all duration-300 h-full">
                     <CardContent className="p-6">
@@ -1241,6 +1377,116 @@ const Insights = () => {
       </section>
 
       <Footer />
+
+      {/* Hero Sections Variants Modal */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-center mb-4">
+              Hero Section Variants
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {heroSectionVariants.map((variant, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+                className="group"
+              >
+                <Card className="h-full hover:shadow-lg transition-all duration-300 border-muted">
+                  <CardContent className="p-6">
+                    {/* Visual Mockup */}
+                    <div className={`w-full h-32 rounded-lg mb-4 ${variant.mockup} flex items-center justify-center relative overflow-hidden`}>
+                      {variant.title === "Minimalist/Typography-Focused" && (
+                        <div className="text-center">
+                          <div className="text-sm font-light text-gray-600">Less is</div>
+                          <div className="text-lg font-bold text-gray-900">More</div>
+                        </div>
+                      )}
+                      {variant.title === "Carousel/Slider" && (
+                        <>
+                          <div className="text-white text-center">
+                            <div className="text-sm font-bold">Slide 1</div>
+                          </div>
+                          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                            <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                          </div>
+                        </>
+                      )}
+                      {variant.title === "Geometric/Abstract Background" && (
+                        <>
+                          <div className="absolute top-2 left-2 w-6 h-6 bg-cyan-300 rounded-full opacity-60"></div>
+                          <div className="absolute top-4 right-4 w-4 h-4 bg-yellow-300 transform rotate-45 opacity-70"></div>
+                          <div className="absolute bottom-3 left-1/3 w-5 h-5 bg-pink-300 rounded-full opacity-50"></div>
+                          <div className="text-white text-center">
+                            <div className="text-sm font-bold">Creative</div>
+                          </div>
+                        </>
+                      )}
+                      {variant.title === "Interactive Elements" && (
+                        <div className="text-center">
+                          <div className="text-cyan-300 text-sm font-bold mb-1">Interactive</div>
+                          <div className="w-12 h-6 bg-cyan-500 rounded text-xs flex items-center justify-center text-white">
+                            Hover
+                          </div>
+                        </div>
+                      )}
+                      {(variant.title === "Full-Width Background Image/Video" || variant.title === "Split Layout") && (
+                        <div className="text-white text-center">
+                          <div className="text-sm font-bold">{variant.title.includes("Full-Width") ? "Hero Title" : "Innovation"}</div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Content */}
+                    <h3 className="text-lg font-semibold mb-2">{variant.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-4">{variant.description}</p>
+                    
+                    {/* Characteristics */}
+                    <div className="mb-4">
+                      <h4 className="text-sm font-medium mb-2">Key Characteristics:</h4>
+                      <div className="grid grid-cols-2 gap-1">
+                        {variant.characteristics.map((char, charIndex) => (
+                          <div key={charIndex} className="text-xs text-muted-foreground flex items-center">
+                            <div className="w-1 h-1 bg-accent rounded-full mr-2"></div>
+                            {char}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Use Cases */}
+                    <div className="mb-4">
+                      <h4 className="text-sm font-medium mb-2">Best Use Cases:</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {variant.useCases.map((useCase, caseIndex) => (
+                          <Badge key={caseIndex} variant="outline" className="text-xs">
+                            {useCase}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Code Preview */}
+                    <details className="group-hover:bg-muted/20 p-2 rounded transition-colors">
+                      <summary className="text-sm font-medium cursor-pointer text-primary">
+                        View Code Example
+                      </summary>
+                      <pre className="text-xs bg-muted p-3 rounded mt-2 overflow-x-auto">
+                        <code>{variant.codePreview}</code>
+                      </pre>
+                    </details>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
