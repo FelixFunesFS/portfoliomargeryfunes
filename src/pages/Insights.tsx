@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
   Search, 
   Users, 
@@ -352,6 +353,12 @@ const Insights = () => {
     }
   ];
 
+  const [selectedNavVariant, setSelectedNavVariant] = useState<any | null>(null);
+  const [activeTab, setActiveTab] = useState('preview');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
   const navigationVariants = [
     {
       title: "Horizontal Menu Bar",
@@ -428,18 +435,24 @@ const Insights = () => {
       stockImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
       interactive: true,
       preview: (
-        <div className="w-full h-64 bg-white rounded-lg shadow-lg overflow-hidden relative">
+        <div className="w-full h-64 bg-white rounded-lg shadow-lg overflow-hidden relative group cursor-pointer">
           <div className="bg-indigo-600 px-4 py-3 flex items-center justify-between">
             <div className="text-white font-bold text-lg">MobileApp</div>
-            <button className="text-white hover:bg-indigo-700 p-2 rounded transition-colors group">
+            <button 
+              className="text-white hover:bg-indigo-700 p-2 rounded transition-colors"
+              onClick={(e) => {
+                e.stopPropagation();
+                setMobileMenuOpen(!mobileMenuOpen);
+              }}
+            >
               <div className="w-6 h-5 relative">
-                <span className="block w-full h-0.5 bg-white mb-1 transition-transform group-hover:rotate-45 group-hover:translate-y-2"></span>
-                <span className="block w-full h-0.5 bg-white mb-1 transition-opacity group-hover:opacity-0"></span>
-                <span className="block w-full h-0.5 bg-white transition-transform group-hover:-rotate-45 group-hover:-translate-y-2"></span>
+                <span className={`block w-full h-0.5 bg-gray-900 mb-1 transition-transform duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                <span className={`block w-full h-0.5 bg-gray-900 mb-1 transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`block w-full h-0.5 bg-gray-900 transition-transform duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
               </div>
             </button>
           </div>
-          <div className="absolute top-14 right-0 w-64 h-48 bg-white shadow-xl transform translate-x-full group-hover:translate-x-0 transition-transform duration-300 z-10">
+          <div className={`absolute top-14 right-0 w-64 h-48 bg-white shadow-xl transform transition-transform duration-300 z-10 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
             <div className="p-4 space-y-3">
               {['Dashboard', 'Profile', 'Settings', 'Help', 'Logout'].map((item, index) => (
                 <a key={item} href="#" className="block py-2 px-3 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded transition-colors">
@@ -2170,7 +2183,13 @@ function StickyNavigation() {
                 transition={{ delay: index * 0.1, duration: 0.4 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 border-primary/20 bg-card/95 backdrop-blur-sm">
+                <Card 
+                  className="overflow-hidden hover:shadow-xl transition-all duration-500 border-primary/20 bg-card/95 backdrop-blur-sm cursor-pointer"
+                  onClick={() => {
+                    setSelectedNavVariant(variant);
+                    setActiveTab('preview');
+                  }}
+                >
                   <div className="flex flex-col lg:flex-row">
                     {/* Full-Width Navigation Preview */}
                     <div className="relative flex-1 h-64 lg:h-80 overflow-hidden">
@@ -2183,10 +2202,16 @@ function StickyNavigation() {
                             {variant.preview}
                           </div>
                           
-                          {/* Overlay with variant info */}
+                          {/* Overlay with variant info and interaction indicator */}
                           <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-lg p-3 border border-primary/20">
                             <h4 className="font-semibold text-sm">{variant.title}</h4>
-                            <p className="text-xs text-muted-foreground">Interactive Preview</p>
+                            <p className="text-xs text-muted-foreground">Click to explore</p>
+                          </div>
+                          
+                          {/* Interactive indicator */}
+                          <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-background/90 backdrop-blur-sm rounded-full px-3 py-1 border border-primary/20">
+                            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                            <span className="text-xs text-muted-foreground">Interactive</span>
                           </div>
                         </div>
                       </div>
@@ -2335,6 +2360,213 @@ function StickyNavigation() {
             </div>
           )}
 
+        </DialogContent>
+      </Dialog>
+
+      {/* Enhanced Navigation Variants Modal */}
+      <Dialog open={!!selectedNavVariant} onOpenChange={() => setSelectedNavVariant(null)}>
+        <DialogContent className="max-w-[95vw] w-full max-h-[90vh] overflow-hidden">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold mb-4">
+              {selectedNavVariant?.title} - Navigation Pattern
+            </DialogTitle>
+          </DialogHeader>
+          
+          {selectedNavVariant && (
+            <div className="flex flex-col h-full">
+              {/* Tab Navigation */}
+              <div className="flex border-b border-border/50 mb-4">
+                {['preview', 'code', 'variants', 'guidelines'].map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`px-4 py-2 text-sm font-medium capitalize transition-colors border-b-2 ${
+                      activeTab === tab 
+                        ? 'border-primary text-primary' 
+                        : 'border-transparent text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+
+              {/* Tab Content */}
+              <div className="flex-1 overflow-auto">
+                {activeTab === 'preview' && (
+                  <div className="space-y-6">
+                    {/* Device Toggle */}
+                    <div className="flex items-center gap-4 mb-4">
+                      <span className="text-sm font-medium">Device:</span>
+                      <div className="flex gap-2">
+                        {['mobile', 'tablet', 'desktop'].map((device) => (
+                          <button key={device} className="px-3 py-1 text-xs rounded border border-border hover:bg-muted transition-colors capitalize">
+                            {device}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Enhanced Preview */}
+                    <div className="bg-muted/50 rounded-lg p-6">
+                      <div className="bg-background rounded border shadow-sm">
+                        {selectedNavVariant.preview}
+                      </div>
+                    </div>
+
+                    {/* Interactive Features */}
+                    <div className="bg-card rounded-lg p-4 border">
+                      <h3 className="font-semibold mb-3">Interactive Features</h3>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <h4 className="text-sm font-medium mb-2">Characteristics</h4>
+                          <div className="flex flex-wrap gap-1">
+                            {selectedNavVariant.characteristics.map((char, i) => (
+                              <span key={i} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
+                                {char}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="text-sm font-medium mb-2">Best For</h4>
+                          <p className="text-xs text-muted-foreground">
+                            {Array.isArray(selectedNavVariant.useCases) 
+                              ? selectedNavVariant.useCases.join(', ') 
+                              : selectedNavVariant.useCases}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeTab === 'code' && (
+                  <div className="space-y-6">
+                    {/* Framework Toggle */}
+                    <div className="flex items-center gap-4 mb-4">
+                      <span className="text-sm font-medium">Framework:</span>
+                      <div className="flex gap-2">
+                        {['React', 'HTML/CSS', 'Tailwind', 'Vue'].map((framework) => (
+                          <button key={framework} className="px-3 py-1 text-xs rounded border border-border hover:bg-muted transition-colors">
+                            {framework}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Code Block */}
+                    <div className="bg-slate-950 rounded-lg overflow-hidden">
+                      <div className="bg-slate-800 px-4 py-2 flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <div className="flex gap-1">
+                            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                          </div>
+                          <span className="text-slate-300 text-sm ml-2">Navigation.jsx</span>
+                        </div>
+                        <button 
+                          onClick={() => navigator.clipboard.writeText(selectedNavVariant.codePreview)}
+                          className="text-slate-400 hover:text-slate-200 text-sm px-3 py-1 hover:bg-slate-700 rounded transition-colors"
+                        >
+                          Copy Code
+                        </button>
+                      </div>
+                      <div className="p-6 overflow-x-auto">
+                        <pre className="text-sm text-slate-100 leading-relaxed">
+                          <code className="language-jsx">
+                            {selectedNavVariant.codePreview}
+                          </code>
+                        </pre>
+                      </div>
+                    </div>
+
+                    {/* Accessibility Features */}
+                    <div className="bg-card rounded-lg p-4 border">
+                      <h3 className="font-semibold mb-3">Accessibility Features</h3>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-green-500" />
+                          <span>Keyboard navigation support</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-green-500" />
+                          <span>ARIA labels and roles</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-green-500" />
+                          <span>Screen reader compatible</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-green-500" />
+                          <span>Focus management</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeTab === 'variants' && (
+                  <div className="space-y-6">
+                    <h3 className="font-semibold">Related Navigation Patterns</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {navigationVariants
+                        .filter(variant => variant.title !== selectedNavVariant.title)
+                        .slice(0, 4)
+                        .map((variant, index) => (
+                          <div key={index} className="border rounded-lg p-4 hover:bg-muted/50 transition-colors cursor-pointer">
+                            <h4 className="font-medium mb-2">{variant.title}</h4>
+                            <p className="text-sm text-muted-foreground">{variant.description}</p>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                )}
+
+                {activeTab === 'guidelines' && (
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="bg-card rounded-lg p-4 border">
+                        <h3 className="font-semibold mb-3 text-green-600">✅ Best Practices</h3>
+                        <ul className="space-y-2 text-sm">
+                          <li>• Keep navigation consistent across pages</li>
+                          <li>• Ensure touch targets are at least 44px</li>
+                          <li>• Test on actual devices for mobile</li>
+                          <li>• Use clear, descriptive labels</li>
+                          <li>• Implement proper focus states</li>
+                        </ul>
+                      </div>
+                      <div className="bg-card rounded-lg p-4 border">
+                        <h3 className="font-semibold mb-3 text-red-600">❌ Avoid</h3>
+                        <ul className="space-y-2 text-sm">
+                          <li>• Hidden navigation without indicators</li>
+                          <li>• Too many top-level menu items</li>
+                          <li>• Inconsistent interaction patterns</li>
+                          <li>• Missing mobile considerations</li>
+                          <li>• Complex nested dropdown menus</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-card rounded-lg p-4 border">
+                      <h3 className="font-semibold mb-3">Performance Considerations</h3>
+                      <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <span className="font-medium">Bundle Size:</span>
+                          <p className="text-muted-foreground">~2-8KB (CSS + JS)</p>
+                        </div>
+                        <div>
+                          <span className="font-medium">Accessibility Score:</span>
+                          <p className="text-green-600">AA Compliant</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </DialogContent>
       </Dialog>
     </div>
