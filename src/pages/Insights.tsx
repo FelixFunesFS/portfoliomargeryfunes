@@ -13,7 +13,15 @@ import {
   PenTool,
   Zap,
   Clock,
-  CheckCircle
+  CheckCircle,
+  Download,
+  Code,
+  Palette,
+  Layout,
+  Navigation,
+  Image,
+  FileText,
+  MousePointer
 } from 'lucide-react';
 import circuitBoard from '@/assets/circuit-board.jpg';
 import Navbar from '@/components/Navbar';
@@ -144,6 +152,114 @@ const Insights = () => {
       icon: <Database className="w-8 h-8" />
     }
   ];
+
+  const aiCollaborationComponents = [
+    {
+      title: "Hero Sections",
+      variants: 6,
+      icon: <Layout className="w-6 h-6" />,
+      description: "Full-width backgrounds, split layouts, minimalist typography, carousels, geometric patterns, interactive elements",
+      keywords: "immersive, cinematic, brand-focused, balanced, structured"
+    },
+    {
+      title: "Navigation",
+      variants: 6,
+      icon: <Navigation className="w-6 h-6" />,
+      description: "Horizontal menus, hamburger menus, fixed navigation, mega menus, breadcrumbs, sidebar navigation",
+      keywords: "classic, mobile-first, persistent, comprehensive, contextual"
+    },
+    {
+      title: "Image Galleries",
+      variants: 6,
+      icon: <Image className="w-6 h-6" />,
+      description: "Grid layouts, masonry, lightbox modals, thumbnail carousels, before/after sliders, parallax scrolling",
+      keywords: "organized, dynamic, immersive, comparative, depth-creating"
+    },
+    {
+      title: "Forms",
+      variants: 6,
+      icon: <FileText className="w-6 h-6" />,
+      description: "Standard labeled fields, floating labels, Material Design, card-based forms, multi-step, validation states",
+      keywords: "accessible, modern, interactive, segmented, feedback-oriented"
+    },
+    {
+      title: "Footers",
+      variants: 5,
+      icon: <Target className="w-6 h-6" />,
+      description: "Minimalist copyright, detailed multi-column, fat footer sitemaps, newsletter signups, back-to-top buttons",
+      keywords: "unobtrusive, comprehensive, exhaustive, engagement-focused"
+    },
+    {
+      title: "CTA Buttons",
+      variants: 5,
+      icon: <MousePointer className="w-6 h-6" />,
+      description: "Primary/secondary/tertiary hierarchy, ghost buttons, icon buttons, hover states, multiple sizes",
+      keywords: "hierarchical, subtle, compact, interactive, scalable"
+    },
+    {
+      title: "Typography",
+      variants: 5,
+      icon: <Code className="w-6 h-6" />,
+      description: "Heading hierarchy (H1-H6), paragraph text, blockquotes, lists, link states",
+      keywords: "hierarchical, readable, emphatic, structured, navigational"
+    },
+    {
+      title: "Card Components",
+      variants: 5,
+      icon: <Palette className="w-6 h-6" />,
+      description: "Basic info cards, product cards, article cards, user profiles, interactive hover reveals",
+      keywords: "modular, conversion-focused, content-oriented, personal, engaging"
+    }
+  ];
+
+  const handleDownloadStyleGuide = () => {
+    // Create a comprehensive text content for the PDF
+    const styleGuideContent = `
+Web Design Style Guide for AI Full-Stack Developer Collaboration
+A Collaborative Reference for UX Design & AI-Powered Development
+
+Objective: This document serves as a comprehensive visual and descriptive guide to diverse web design styles for key components. It's intended to facilitate efficient and precise collaboration between UX designers and AI Full-Stack Developers, ensuring consistent design language and accelerating the iteration process.
+
+Target Audience:
+• UX Designers: For inspiration, establishing visual direction, and communicating design intent.
+• AI Full-Stack Developers: For understanding design characteristics, translating styles into code, and generating appropriate web components.
+
+${aiCollaborationComponents.map(component => `
+${component.title} (${component.variants} Variants)
+Description: ${component.description}
+Keywords: ${component.keywords}
+Use Cases: Modern web applications, responsive designs, user-focused interfaces
+`).join('\n')}
+
+Implementation Guidelines:
+• Always consider responsive design across all screen sizes
+• Maintain accessibility standards (WCAG 2.1 AA)
+• Use semantic HTML structure
+• Implement proper focus states and keyboard navigation
+• Test across multiple browsers and devices
+• Follow established design system tokens and variables
+
+Best Practices:
+• Prioritize user experience over visual complexity
+• Ensure fast loading times and optimal performance
+• Use progressive enhancement for advanced features
+• Maintain consistency across similar components
+• Document component variants and usage guidelines
+
+This guide serves as a living document that evolves with design trends and user needs while maintaining core usability principles.
+    `;
+
+    // Create and download the file
+    const blob = new Blob([styleGuideContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'Web-Design-Style-Guide-AI-Collaboration.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -422,7 +538,6 @@ const Insights = () => {
           </motion.div>
 
           <div className="relative">
-            {/* Timeline content would go here - keeping it simple for now */}
             <Card className="glass border-none">
               <CardContent className="p-8">
                 <div className="text-center">
@@ -436,6 +551,145 @@ const Insights = () => {
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* AI Collaboration Framework */}
+      <section className="section bg-background">
+        <div className="container-custom">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <Badge variant="outline" className="mb-4 border-accent text-accent">
+              AI Collaboration
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+              From Design Concept to <span className="text-gradient bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Code Implementation</span>
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+              A comprehensive style guide that bridges the gap between UX design vision and AI-powered development, 
+              ensuring consistent, efficient, and precise collaboration.
+            </p>
+          </motion.div>
+
+          {/* Framework Overview */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-12"
+          >
+            <Card className="glass border-accent/20 shadow-lg">
+              <CardContent className="p-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
+                      <Code className="w-8 h-8 text-accent" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">Design-to-Code Efficiency</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Accelerates development by 60% through clear visual examples and AI-friendly descriptors
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
+                      <Target className="w-8 h-8 text-accent" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">Consistent Design Language</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Ensures visual and functional consistency across all AI-generated components
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
+                      <Zap className="w-8 h-8 text-accent" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">Rapid Iteration</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Enables quick design variations and A/B testing through standardized component patterns
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* Component Categories Grid */}
+          <div className="mb-12">
+            <h3 className="text-xl sm:text-2xl font-bold text-center mb-8">
+              Component Style Categories
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {aiCollaborationComponents.map((component, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="cursor-pointer"
+                >
+                  <Card className="glass border-accent/20 hover:border-accent/40 transition-all duration-300 h-full">
+                    <CardContent className="p-6">
+                      <div className="text-center">
+                        <div className="w-12 h-12 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                          {component.icon}
+                        </div>
+                        <h4 className="font-semibold mb-2">{component.title}</h4>
+                        <Badge variant="outline" className="mb-3 border-accent text-accent text-xs">
+                          {component.variants} Variants
+                        </Badge>
+                        <p className="text-xs text-muted-foreground mb-3 line-clamp-3">
+                          {component.description}
+                        </p>
+                        <div className="text-xs text-accent font-medium">
+                          {component.keywords}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Download Section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <Card className="glass border-primary/20 shadow-lg max-w-2xl mx-auto">
+              <CardContent className="p-8">
+                <div className="mb-6">
+                  <Download className="w-16 h-16 mx-auto mb-4 text-primary" />
+                  <h3 className="text-xl font-semibold mb-4">Complete Style Guide</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Download the comprehensive Web Design Style Guide for AI Full-Stack Developer Collaboration. 
+                    Includes detailed descriptions, use cases, and AI integration keywords for all component categories.
+                  </p>
+                </div>
+                <button
+                  onClick={handleDownloadStyleGuide}
+                  className="inline-flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-md font-medium transition-colors"
+                >
+                  <Download className="w-5 h-5" />
+                  Download Style Guide
+                </button>
+                <p className="text-xs text-muted-foreground mt-4">
+                  A comprehensive reference for UX designers and AI developers
+                </p>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
