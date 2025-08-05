@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
+import About from '@/components/About';
 import { Target, Zap, TrendingUp, Users, BarChart3, Layers, GitBranch, RefreshCw, CheckCircle, ArrowRight, Radar, Settings, Database, Code, LineChart, Shield, Rocket, Brain, Clock, Award, ChevronDown, Eye, MapPin, ExternalLink, Globe, Monitor, Smartphone, Heart, Home as HomeIcon, Trophy, GraduationCap, Lightbulb, Search, TestTube } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -719,7 +720,7 @@ const Home = () => {
                   }} transition={{
                     delay: index * 0.2 + 0.5,
                     duration: 1
-                  }} className="bg-accent h-2 rounded-full" />
+                   }} className="bg-accent h-2 rounded-full" />
                     </div>
                   </CardHeader>
                   <CardContent>
@@ -734,6 +735,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Enhanced Skills Matrix - About Component */}
+      <About />
 
       {/* My Journey into User Research */}
       <section className="py-16 sm:py-24 bg-muted/30">
