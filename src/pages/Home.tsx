@@ -1,638 +1,1665 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Calendar, MapPin, Users, Clock, Target, Lightbulb, BookOpen, Code, Palette, Zap, ArrowRight, ChevronRight, TrendingUp, Award, Globe, Heart, Brain, Rocket, Shield, Star, CheckCircle } from 'lucide-react';
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import AnimatedCounter from '@/components/AnimatedCounter';
-import AnimatedMetric from '@/components/AnimatedMetric';
-import useInView from '@/hooks/useInView';
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '@/components/Navbar';
+import { Target, Zap, TrendingUp, Users, BarChart3, Layers, GitBranch, RefreshCw, CheckCircle, ArrowRight, Radar, Settings, Database, Code, LineChart, Shield, Rocket, Brain, Clock, Award, ChevronDown, Eye, MapPin, ExternalLink, Globe, Monitor, Smartphone, Heart, Home as HomeIcon, Trophy, GraduationCap, Lightbulb, Search, TestTube } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import WebDesignCard from '@/components/WebDesignCard';
+import DesignProcess from '@/components/DesignProcess';
 
-interface TimelineEvent {
-  year: string;
-  location: string;
-  title: string;
-  description: string;
-}
-
-interface KeyInsight {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
-
-interface UniqueValueMetric {
-  value: number;
-  label: string;
-  description: string;
-  suffix?: string;
-}
-
-const timelineEvents: TimelineEvent[] = [
-  {
-    year: '2008',
-    location: 'San Diego, CA',
-    title: 'US Navy Service',
-    description: 'Served as a Nuclear Electrician, maintaining complex electrical systems and ensuring operational readiness.'
-  },
-  {
-    year: '2014',
-    location: 'San Diego, CA',
-    title: 'Software Engineer',
-    description: 'Transitioned to software development, focusing on web applications and database management.'
-  },
-  {
-    year: '2018',
-    location: 'Remote',
-    title: 'Full-Stack Developer',
-    description: 'Developed and deployed full-stack applications, emphasizing scalability and user experience.'
-  },
-  {
-    year: 'Present',
-    location: 'Global',
-    title: 'Bridging Worlds',
-    description: 'Combining technical expertise with creative vision to deliver innovative solutions for clients worldwide.'
-  }
-];
-
-const keyInsights: KeyInsight[] = [
-  {
-    icon: <Code className="h-6 w-6" />,
-    title: 'Technical Mastery',
-    description: 'Deep understanding of software architecture, cloud computing, and modern development practices.'
-  },
-  {
-    icon: <Palette className="h-6 w-6" />,
-    title: 'Creative Problem-Solving',
-    description: 'Ability to approach challenges from multiple angles, finding innovative and effective solutions.'
-  },
-  {
-    icon: <Target className="h-6 w-6" />,
-    title: 'Strategic Execution',
-    description: 'Focused on delivering results that align with business goals, ensuring projects are completed on time and within budget.'
-  }
-];
-
-const uniqueValueMetrics: UniqueValueMetric[] = [
-  {
-    value: 15,
-    label: 'Years of Experience',
-    description: 'Proven track record in software development and technical leadership',
-    suffix: '+'
-  },
-  {
-    value: 50,
-    label: 'Projects Completed',
-    description: 'Successfully delivered solutions for diverse clients and industries',
-    suffix: '+'
-  },
-  {
-    value: 99,
-    label: 'Client Satisfaction',
-    description: 'Commitment to exceeding expectations and building long-term partnerships',
-    suffix: '%'
-  },
-  {
-    value: 3,
-    label: 'Industry Awards',
-    description: 'Recognized for innovation, design excellence, and technical achievement',
-    suffix: '+'
-  }
-];
-
+// Import images
+import circuitBoard from '@/assets/circuit-board.jpg';
+import robotInnovation from '@/assets/robot-innovation.jpg';
+import researchDesk from '@/assets/research-desk.jpg';
+import abstractNight from '@/assets/abstract-night.jpg';
+import caseStudy1Dashboard from '@/assets/case-study-1-dashboard.jpg';
+import caseStudy5Automation from '@/assets/case-study-5-automation.jpg';
+import caseStudy3Slides from '@/assets/case-study-3-slides.jpg';
+import caseStudy4Workspace from '@/assets/case-study-4-workspace.jpg';
 const Home = () => {
-  const { ref: heroRef, isInView: heroInView } = useInView();
-  const { ref: bridgingWorldsRef, isInView: bridgingWorldsInView } = useInView();
-  const { ref: aboutMeRef, isInView: aboutMeInView } = useInView();
-  const { ref: projectsRef, isInView: projectsInView } = useInView();
-  const { ref: contactRef, isInView: contactInView } = useInView();
-
+  const [isLoaded, setIsLoaded] = useState(false);
+  const heroRef = useRef(null);
+  const isHeroInView = useInView(heroRef, {
+    once: true
+  });
+  const navigate = useNavigate();
+  const handleViewCaseStudy = (projectTitle: string) => {
+    // Map project titles to case study IDs
+    const projectToCaseStudyMap: {
+      [key: string]: number;
+    } = {
+      "Soul Train's Eatery": 8,
+      "Souls Feeding Souls": 9,
+      "Visions of Hope": 10,
+      "Veteran's Benefits Beyond the VA Wall": 11,
+      "Discover El Salvador": 12
+    };
+    const caseStudyId = projectToCaseStudyMap[projectTitle];
+    if (caseStudyId) {
+      navigate('/case-studies', {
+        state: {
+          selectedStudyId: caseStudyId
+        }
+      });
+    }
+  };
   useEffect(() => {
-    document.title = "Home | Portfolio";
+    document.title = "Systems Analyst | UX Researcher | Agile Problem Solver";
+    window.scrollTo(0, 0);
+    setIsLoaded(true);
   }, []);
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* Hero Section */}
-      <section ref={heroRef} className="py-32 md:py-48 bg-gradient-to-br from-blue-100 to-indigo-200">
-        <div className="container-custom">
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 50 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
-              Crafting Digital Experiences
-            </h1>
-            <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed mb-12">
-              I am a full-stack developer passionate about creating innovative and user-centric web solutions.
-              With a blend of technical expertise and creative vision, I bring ideas to life, delivering exceptional
-              digital experiences.
+  // Animation variants
+  const containerVariants = {
+    hidden: {
+      opacity: 0
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        duration: 0.6
+      }
+    }
+  };
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+  const radarVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 1,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  // Research Stories Data
+  const researchStories = [{
+    title: "Engine Logistics Tracking System",
+    briefSummary: "Modernized tracking for F117 engines across 23 global bases with 45% faster reporting.",
+    visual: caseStudy1Dashboard,
+    challenge: "Engine maintenance teams across 23 bases struggled with manual tracking systems",
+    researchMethod: "Conducted 15+ user interviews and workflow observations across multiple sites",
+    keyInsight: "Users needed familiar interfaces with minimal training, not complex new systems",
+    solution: "Designed SharePoint CMS leveraging existing user mental models with Tableau dashboards",
+    userImpact: "Teams could find engine data in seconds instead of hours, reducing stress and improving accuracy",
+    metric: "45% faster reporting",
+    icon: Database,
+    tools: ["User Interviews", "Workflow Analysis", "SharePoint", "Tableau"],
+    reflection: "I'd conduct more cross-site usability testing to validate the interface earlier",
+    color: "systems",
+    caseStudyId: 1
+  }, {
+    title: "Data Entry Automation System",
+    briefSummary: "Automated DOD/Boeing GUI systems saving 26,000+ hours annually with 90% error reduction.",
+    visual: caseStudy5Automation,
+    challenge: "Data entry specialists experienced fatigue and errors from repetitive 2.5-hour daily tasks",
+    researchMethod: "Empathy mapping, task analysis, and error pattern identification with 12 users",
+    keyInsight: "Errors occurred due to cognitive overload, not lack of skill or attention",
+    solution: "Built VBA automation tool that preserved user control while eliminating repetition",
+    userImpact: "Users shifted from monotonous data entry to strategic analysis work, boosting job satisfaction",
+    metric: "80% time reduction, 90% error reduction",
+    icon: Clock,
+    tools: ["Task Analysis", "Empathy Mapping", "VBA", "SQL"],
+    reflection: "I'd include more stakeholders in the design process to ensure broader organizational buy-in",
+    color: "agile",
+    caseStudyId: 5
+  }, {
+    title: "Weekly Engine Removal Automation",
+    briefSummary: "Automated slide deck generation saving 12+ weeks per year with 98% faster process.",
+    visual: caseStudy3Slides,
+    challenge: "Analysts spent 9.6 hours weekly creating repetitive slide decks, causing burnout",
+    researchMethod: "Journey mapping and pain point analysis with operations teams",
+    keyInsight: "Manual slide creation was a barrier to timely decision-making at leadership level",
+    solution: "Designed form-driven automation that maintained presentation quality while saving time",
+    userImpact: "Analysts could focus on analysis instead of formatting, improving strategic insights",
+    metric: "98% faster process",
+    icon: TrendingUp,
+    tools: ["Journey Mapping", "C#", "JavaScript", "VBA"],
+    reflection: "I'd prototype multiple interface options to better understand user preferences",
+    color: "success",
+    caseStudyId: 3
+  }, {
+    title: "SharePoint Workspace System",
+    briefSummary: "Scaled team collaboration across 23 bases with 90% faster document finding.",
+    visual: caseStudy4Workspace,
+    challenge: "Growing teams faced communication breakdowns and document chaos",
+    researchMethod: "Organizational analysis and collaborative workflow studies",
+    keyInsight: "Information architecture needed to match team mental models and role hierarchies",
+    solution: "Created role-based SharePoint workspaces with intuitive navigation structures",
+    userImpact: "Team members could onboard faster and collaborate more effectively",
+    metric: "90% faster document finding, 70% faster onboarding",
+    icon: Users,
+    tools: ["Information Architecture", "SharePoint", "Power Automate"],
+    reflection: "I'd implement more iterative feedback loops during the workspace design phase",
+    color: "accent",
+    caseStudyId: 4
+  }];
+
+  // Military to Agile Journey
+  const journeyMilestones = [{
+    period: "2008-2012",
+    role: "US Air Force Systems Operations",
+    focus: "Mission-Critical Systems Management",
+    skills: ["F117 Engine Logistics", "Multi-Base Coordination", "Risk Management"],
+    icon: Shield
+  }, {
+    period: "2012-2018",
+    role: "Boeing Enterprise Systems Analyst",
+    focus: "Large-Scale Process Optimization",
+    skills: ["SharePoint Architecture", "SQL Development", "Workflow Automation"],
+    icon: Settings
+  }, {
+    period: "2018-Present",
+    role: "Agile UX Research & Systems Design",
+    focus: "User-Centered Problem Solving",
+    skills: ["Sprint Planning", "User Research", "Technical Implementation"],
+    icon: Rocket
+  }];
+
+  // Research-First Agile Toolkit
+  const researchToolkit = [{
+    phase: "Discovery Sprint",
+    methods: ["User Interviews", "Contextual Inquiry", "Stakeholder Mapping", "Journey Mapping"],
+    deliverables: ["User Personas", "Journey Maps", "Problem Definition", "Research Plan"],
+    duration: "1-2 weeks",
+    icon: Target,
+    insight: "Why are users struggling? What are their real needs vs. stated needs?"
+  }, {
+    phase: "Analysis Sprint",
+    methods: ["Affinity Mapping", "Behavioral Analysis", "Task Analysis", "Systems Thinking"],
+    deliverables: ["Insight Synthesis", "Opportunity Map", "Design Principles", "Requirements"],
+    duration: "1-2 weeks",
+    icon: BarChart3,
+    insight: "What patterns emerge? How do user needs connect to business goals?"
+  }, {
+    phase: "Solution Sprint",
+    methods: ["Co-design Sessions", "Rapid Prototyping", "Concept Testing", "Iterative Design"],
+    deliverables: ["Validated Concepts", "Interactive Prototypes", "Test Results", "Design System"],
+    duration: "2-4 weeks",
+    icon: Code,
+    insight: "Which solutions resonate? How do users actually interact with our ideas?"
+  }, {
+    phase: "Validation Sprint",
+    methods: ["Usability Testing", "A/B Testing", "Post-Launch Research", "Impact Measurement"],
+    deliverables: ["Usability Report", "Impact Metrics", "Iteration Plan", "Success Stories"],
+    duration: "1-2 weeks",
+    icon: CheckCircle,
+    insight: "Did we solve the right problem? What should we optimize next?"
+  }];
+
+  // Skills Arsenal
+  const skillsArsenal = [{
+    category: "Systems Analysis",
+    skills: ["Enterprise Architecture", "Database Design", "API Development", "Legacy Integration"],
+    icon: Database,
+    proficiency: 95
+  }, {
+    category: "UX Research",
+    skills: ["User Interviews", "Behavioral Analysis", "Journey Mapping", "Usability Testing"],
+    icon: Users,
+    proficiency: 90
+  }, {
+    category: "Agile Methodologies",
+    skills: ["Scrum Master", "Sprint Planning", "Backlog Management", "Retrospectives"],
+    icon: RefreshCw,
+    proficiency: 88
+  }, {
+    category: "Technical Development",
+    skills: ["React/JavaScript", "SQL/NoSQL", "VBA/Automation", "SharePoint"],
+    icon: Code,
+    proficiency: 92
+  }];
+
+  // Web Design Portfolio Data
+  const webDesigns = [{
+    title: "Soul Train's Eatery",
+    client: "Charleston Catering Company",
+    location: "Charleston, SC",
+    platform: "Lovable",
+    description: "Digital transformation for a local catering business, streamlining order management and customer experience.",
+    challenge: "Manual order taking causing errors, missed orders, and inefficient kitchen workflow during peak catering seasons.",
+    solution: "Intuitive ordering system with real-time inventory, automated notifications, and streamlined kitchen dashboard.",
+    assumptions: "Mobile-first usage by customers, staff comfortable with digital tools, integration with existing POS systems.",
+    limitations: "Limited budget for extensive customization, tight timeline for catering season launch, legacy payment system constraints.",
+    outcomes: "40% reduction in order errors, 60% faster order processing, improved customer satisfaction and repeat business.",
+    keyOutcomes: ["Automated catering operations, reducing order errors by 40% and processing time by 60%"],
+    features: ["Online Ordering", "Inventory Management", "Customer Dashboard", "Mobile Optimization", "Payment Integration"],
+    tools: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Stripe"],
+    category: "catering",
+    icon: Smartphone,
+    color: "emerald-500",
+    image: "photo-1488590528505-98d2b5aba04b",
+    link: "https://placeholder.com/website/soultrainseatery"
+  }, {
+    title: "Souls Feeding Souls",
+    client: "Community Nonprofit",
+    location: "North Charleston, SC",
+    platform: "Lovable",
+    description: "Volunteer coordination platform helping organize food distribution to underserved communities.",
+    challenge: "Inefficient volunteer scheduling, food waste due to poor coordination, and lack of community impact visibility.",
+    solution: "Comprehensive volunteer portal with scheduling, resource tracking, and impact metrics dashboard.",
+    assumptions: "Volunteers have basic smartphone access, consistent internet connectivity, willingness to adopt new technology.",
+    limitations: "Volunteer tech literacy varies, limited staff for training, dependency on donations for hosting costs.",
+    outcomes: "75% improvement in volunteer coordination efficiency, 50% reduction in food waste, increased community engagement.",
+    keyOutcomes: ["Streamlined volunteer coordination, improving efficiency by 75% and reducing food waste by 50%"],
+    features: ["Volunteer Scheduling", "Resource Tracking", "Impact Dashboard", "Communication Tools", "Donation Management"],
+    tools: ["React", "Node.js", "PostgreSQL", "Tailwind CSS", "SendGrid"],
+    category: "nonprofit",
+    icon: Heart,
+    color: "rose-500",
+    image: "photo-1498050108023-c5249f4df085",
+    link: "https://placeholder.com/website/soulsfeedingsouls"
+  }, {
+    title: "Visions of Hope",
+    client: "Youth Services Organization",
+    location: "Chicago, IL",
+    platform: "Webflow",
+    description: "Professional website showcasing comprehensive services and group homes for underserved youth.",
+    challenge: "Complex service offerings difficult to communicate, lack of professional online presence affecting funding opportunities.",
+    solution: "Clear service architecture with client journey mapping, professional design building trust with stakeholders.",
+    assumptions: "Professional appearance crucial for grant applications, staff need easy content management, mobile access important.",
+    limitations: "Compliance requirements for youth services, content approval workflows, budget constraints for ongoing maintenance.",
+    outcomes: "200% increase in service inquiries, improved grant application success rate, enhanced community trust and partnerships.",
+    keyOutcomes: ["Professional redesign increased service inquiries by 200% and improved grant success rates"],
+    features: ["Service Portfolios", "Staff Profiles", "Resource Center", "Contact Forms", "Accessibility Compliance"],
+    tools: ["Webflow", "Custom CSS", "JavaScript", "Form Integrations", "CMS"],
+    category: "youth-services",
+    icon: HomeIcon,
+    color: "blue-500",
+    image: "photo-1483058712412-4245e9b90334",
+    link: "https://placeholder.com/website/visionsofhope"
+  }, {
+    title: "Veteran's Benefits Beyond the VA Wall",
+    client: "Veterans Support Services",
+    location: "Worldwide",
+    platform: "Webflow",
+    description: "Comprehensive resource portal helping veterans navigate complex benefit systems beyond traditional VA services.",
+    challenge: "Veterans struggling to find and access benefits due to complex bureaucracy and scattered information sources.",
+    solution: "Intuitive resource portal with guided navigation, benefit calculators, and step-by-step application processes.",
+    assumptions: "Veterans have varying tech comfort levels, mobile access important, need for clear simple language over jargon.",
+    limitations: "Compliance with veteran service regulations, frequent policy changes requiring updates, limited marketing budget.",
+    outcomes: "500+ veterans successfully guided to benefits, 80% user satisfaction rate, partnerships with 15+ veteran organizations.",
+    keyOutcomes: ["Guided 500+ veterans to benefits with 80% user satisfaction through intuitive navigation"],
+    features: ["Benefit Calculator", "Resource Library", "Application Guides", "Success Stories", "Community Forum"],
+    tools: ["Webflow", "JavaScript", "API Integrations", "Form Processing", "Analytics"],
+    category: "veterans",
+    icon: Shield,
+    color: "amber-500",
+    image: "photo-1461749280684-dccba630e2f6",
+    link: "https://placeholder.com/website/veteransbenefits"
+  }, {
+    title: "Discover El Salvador",
+    client: "Personal Tour Guide Services",
+    location: "El Salvador",
+    platform: "Lovable",
+    description: "Immersive travel experience platform showcasing personalized jungle and volcano beach adventures.",
+    challenge: "Generic travel sites don't capture unique local experiences, difficulty communicating personalized tour value.",
+    solution: "Visual storytelling platform with immersive galleries, custom itinerary builder, and authentic local experiences.",
+    assumptions: "Visual appeal drives booking decisions, international travelers have good internet, social proof influences choices.",
+    limitations: "Content updates needed from non-technical tour guides, seasonal booking patterns, weather-dependent activities.",
+    outcomes: "300% increase in direct bookings, expanded international client base, featured in travel publications.",
+    keyOutcomes: ["Immersive storytelling drove 300% increase in direct bookings for personalized tours"],
+    features: ["Interactive Maps", "Photo Galleries", "Custom Itineraries", "Booking System", "Weather Integration"],
+    tools: ["React", "TypeScript", "Mapbox", "Cloudinary", "Payment APIs"],
+    category: "travel",
+    icon: Globe,
+    color: "teal-500",
+    image: "photo-1487058792275-0ad4aaf24ca7",
+    link: "https://placeholder.com/website/discoverelsalvador"
+  }];
+  return <div className="min-h-screen bg-background">
+      {/* Radar Hero Section */}
+      <motion.section ref={heroRef} initial="hidden" animate={isHeroInView ? "visible" : "hidden"} variants={containerVariants} className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero">
+        {/* Animated Radar Background */}
+        <motion.div variants={radarVariants} className="absolute inset-0 flex items-center justify-center opacity-10">
+          <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96">
+            <div className="absolute inset-0 rounded-full border-2 border-primary-glow radar-animation"></div>
+            <div className="absolute inset-4 sm:inset-8 rounded-full border border-primary-glow/50 radar-animation" style={{
+            animationDelay: '1s'
+          }}></div>
+            <div className="absolute inset-8 sm:inset-16 rounded-full border border-primary-glow/30 radar-animation" style={{
+            animationDelay: '2s'
+          }}></div>
+            <Radar className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 text-primary-glow" />
+          </div>
+        </motion.div>
+
+        <div className="container-custom relative z-10 px-3 sm:px-4 lg:px-6 xl:px-8">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-center">
+            {/* Hero Content */}
+            <motion.div variants={itemVariants} className="text-center lg:text-left">
+              <motion.div variants={itemVariants} className="mb-3 sm:mb-4 lg:mb-6">
+                <Badge variant="outline" className="mb-3 sm:mb-4 text-xs sm:text-sm lg:text-base py-1 sm:py-1.5 lg:py-2 px-2 sm:px-3 lg:px-4 border-primary-glow text-primary-glow">
+                  Systems Analyst • UX Researcher • Agile Problem Solver
+                </Badge>
+              </motion.div>
+              
+              <motion.h1 variants={itemVariants} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
+                I analyze{' '}
+                <span className="bg-gradient-to-r from-primary-glow to-accent bg-clip-text text-transparent">
+                  complex systems
+                </span>{' '}
+                and solve user problems through{' '}
+                <span className="bg-gradient-to-r from-agile-primary to-agile-secondary bg-clip-text text-transparent">
+                  Agile UX research
+                </span>
+              </motion.h1>
+
+              <motion.p variants={itemVariants} className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
+                Military precision meets modern product development. I bridge the gap between 
+                complex technical systems and user needs through systematic analysis and 
+                iterative design methodologies.
+              </motion.p>
+
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10 justify-center lg:justify-start">
+                <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
+                  View Case Studies
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+                <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
+                  Download Resume
+                </Button>
+              </motion.div>
+
+              {/* Key Metrics */}
+              <motion.div variants={itemVariants} className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 text-center max-w-sm sm:max-w-md lg:max-w-none mx-auto lg:mx-0">
+                <div className="py-3 sm:py-4">
+                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-primary-glow">26K+</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Hours Saved Annually</div>
+                </div>
+                <div className="py-3 sm:py-4 border-x border-border/20">
+                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-agile-primary">23</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Global Bases Unified</div>
+                </div>
+                <div className="py-3 sm:py-4">
+                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-accent">340%</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Max Conversion Increase</div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Interactive Systems Diagram */}
+            <motion.div variants={itemVariants} className="relative mt-6 lg:mt-0">
+              <Card className="glass border-primary-glow/20 shadow-systems">
+                <CardHeader className="p-4 sm:p-6">
+                  <CardTitle className="text-center text-primary-glow text-lg sm:text-xl">
+                    Systems Analysis Framework
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-4 sm:p-6">
+                  <div className="space-y-3 sm:space-y-4">
+                    {['User Problems', 'Systems Analysis', 'Agile Solutions', 'Measurable Results'].map((step, index) => <motion.div key={step} initial={{
+                    opacity: 0,
+                    x: 30
+                  }} animate={{
+                    opacity: 1,
+                    x: 0
+                  }} transition={{
+                    delay: index * 0.2 + 1
+                  }} className="flex items-center space-x-2 sm:space-x-3">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary-glow/20 flex items-center justify-center flex-shrink-0">
+                          <span className="text-xs sm:text-sm font-bold text-primary-glow">{index + 1}</span>
+                        </div>
+                        <span className="text-sm sm:text-base text-foreground">{step}</span>
+                        {index < 3 && <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground ml-auto" />}
+                      </motion.div>)}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <motion.div variants={itemVariants} className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <ChevronDown className="w-6 h-6 text-primary-glow animate-bounce" />
+        </motion.div>
+      </motion.section>
+
+      {/* Problem-Solution Matrix */}
+      <section className="section bg-background py-12 sm:py-16 lg:py-20">
+        <div className="container-custom px-3 sm:px-4 lg:px-6">
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center mb-12 sm:mb-16">
+            <Badge variant="outline" className="mb-3 sm:mb-4 border-agile-primary text-agile-primary text-xs sm:text-sm">
+              Research Stories
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
+              User Problems, <span className="text-agile-primary">Research-Driven Solutions</span>
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto px-2 sm:px-4 lg:px-0 leading-relaxed">
+              Each project tells a story of user challenges, research insights, and meaningful impact. 
+              Here's how I approach complex problems through systematic UX research.
             </p>
-            <div className="flex justify-center gap-4">
-              <Button size="lg">Explore Projects</Button>
-              <Button variant="outline" size="lg">Learn More</Button>
+          </motion.div>
+
+          {/* Research Stories Visual Intro */}
+          <motion.div initial={{
+          opacity: 0,
+          scale: 0.95
+        }} whileInView={{
+          opacity: 1,
+          scale: 1
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="mb-12 relative overflow-hidden rounded-xl">
+            <div className="relative h-48 sm:h-64 lg:h-80">
+              <img src={researchDesk} alt="UX Research workspace with code and analysis" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent flex items-center">
+                <div className="container-custom">
+                  <div className="max-w-lg">
+                    <Badge variant="outline" className="mb-3 border-primary-glow text-primary-glow">
+                      Research Process
+                    </Badge>
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-3">
+                      Where Analysis Meets <span className="text-primary-glow">Innovation</span>
+                    </h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">
+                      Every insight starts with systematic investigation and ends with meaningful user impact.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+            {researchStories.map((story, index) => <motion.div key={index} initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: index * 0.1,
+            duration: 0.6
+          }} whileHover={{
+            y: -10
+          }} className="h-full">
+                <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full flex flex-col overflow-hidden">
+                  {/* Visual Preview */}
+                  <div className="relative h-48 sm:h-56 overflow-hidden">
+                    <img src={story.visual} alt={`${story.title} preview`} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-1 leading-tight">
+                        {story.title}
+                      </h3>
+                      <p className="text-sm text-white/90 leading-tight">
+                        {story.briefSummary}
+                      </p>
+                    </div>
+                    <div className={`absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center ${story.color === 'systems' ? 'bg-systems-blue/20 backdrop-blur-sm' : story.color === 'agile' ? 'bg-agile-primary/20 backdrop-blur-sm' : story.color === 'success' ? 'bg-success/20 backdrop-blur-sm' : 'bg-accent/20 backdrop-blur-sm'}`}>
+                      <story.icon className={`w-5 h-5 ${story.color === 'systems' ? 'text-systems-blue' : story.color === 'agile' ? 'text-agile-primary' : story.color === 'success' ? 'text-success' : 'text-accent'}`} />
+                    </div>
+                  </div>
+
+                  <CardContent className="p-4 sm:p-5 lg:p-6 flex-1 flex flex-col">
+
+                    {/* Challenge */}
+                    <div className="mb-3 sm:mb-4">
+                      <Badge variant="outline" className="text-xs text-muted-foreground mb-2">
+                        USER CHALLENGE
+                      </Badge>
+                      <p className="text-xs sm:text-sm text-foreground leading-tight mb-2 sm:mb-3">
+                        {story.challenge}
+                      </p>
+                    </div>
+
+                    {/* Research Method */}
+                    <div className="mb-3 sm:mb-4">
+                      <Badge variant="outline" className="text-xs text-primary-glow mb-2">
+                        RESEARCH METHOD
+                      </Badge>
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-tight mb-2 sm:mb-3">
+                        {story.researchMethod}
+                      </p>
+                    </div>
+
+                    {/* Key Insight */}
+                    <div className="mb-3 sm:mb-4 p-2 sm:p-3 bg-accent/10 rounded-lg">
+                      <Badge variant="outline" className="text-xs text-accent mb-2">
+                        KEY INSIGHT
+                      </Badge>
+                      <p className="text-xs sm:text-sm text-accent font-medium leading-tight">
+                        "{story.keyInsight}"
+                      </p>
+                    </div>
+
+                    {/* Solution & Impact */}
+                    <div className="mb-4">
+                      <Badge variant="outline" className="text-xs text-success mb-2">
+                        SOLUTION & IMPACT
+                      </Badge>
+                      <p className="text-sm text-foreground leading-tight mb-2">
+                        {story.solution}
+                      </p>
+                      <p className="text-sm text-muted-foreground leading-tight">
+                        {story.userImpact}
+                      </p>
+                    </div>
+
+                    {/* Metric */}
+                    <div className={`text-center p-3 rounded-lg mb-4 ${story.color === 'systems' ? 'bg-systems-blue/10' : story.color === 'agile' ? 'bg-agile-primary/10' : story.color === 'success' ? 'bg-success/10' : 'bg-accent/10'}`}>
+                      <div className={`text-lg sm:text-xl lg:text-2xl font-bold ${story.color === 'systems' ? 'text-systems-blue' : story.color === 'agile' ? 'text-agile-primary' : story.color === 'success' ? 'text-success' : 'text-accent'}`}>
+                        {story.metric}
+                      </div>
+                    </div>
+
+                    {/* Tools Used */}
+                    <div className="mb-4">
+                      <h4 className="text-xs font-semibold text-muted-foreground mb-2">TOOLS USED</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {story.tools.map((tool, toolIndex) => <Badge key={toolIndex} variant="secondary" className="text-xs">
+                            {tool}
+                          </Badge>)}
+                      </div>
+                    </div>
+
+                    {/* Reflection */}
+                    <div className="border-t pt-3 mb-4">
+                      <Badge variant="outline" className="text-xs text-copper mb-2">
+                        WHAT I'D DO DIFFERENTLY
+                      </Badge>
+                      <p className="text-xs text-copper italic leading-tight">
+                        {story.reflection}
+                      </p>
+                    </div>
+
+                    {/* View Case Study Button */}
+                    <div className="mt-auto">
+                      <Button onClick={() => navigate('/case-studies', {
+                    state: {
+                      selectedStudyId: story.caseStudyId
+                    }
+                  })} className={`w-full ${story.color === 'systems' ? 'bg-systems-blue hover:bg-systems-blue/90' : story.color === 'agile' ? 'bg-agile-primary hover:bg-agile-primary/90' : story.color === 'success' ? 'bg-success hover:bg-success/90' : 'bg-accent hover:bg-accent/90'} text-white shadow-sm`} size="sm">
+                        <Eye className="w-4 h-4 mr-2" />
+                        View Case Study
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>)}
+          </div>
+
+          {/* View All Case Studies Button */}
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6,
+          delay: 0.4
+        }} className="text-center mt-12 sm:mt-16">
+            <Button onClick={() => navigate('/case-studies')} size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow px-8 py-4">
+              View All Case Studies
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
           </motion.div>
         </div>
       </section>
 
-      {/* Bridging Worlds Section */}
-      <section ref={bridgingWorldsRef} className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
-        <div className="container-custom">
-          {/* Section Header */}
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={bridgingWorldsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Bridging Worlds
+      {/* Recent Work Section */}
+      <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20">
+        <div className="container-custom px-3 sm:px-4 lg:px-6">
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center mb-12 sm:mb-16">
+            <Badge variant="outline" className="mb-4 sm:mb-6 border-accent text-accent text-xs sm:text-sm">
+              Web Development
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
+              Proven results through <span className="text-accent">systematic UX research</span>
+              <br className="hidden sm:block" />
+              and digital solutions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Where technical precision meets creative vision, I create solutions that transcend traditional boundaries
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+              Real-world applications demonstrating how systematic analysis and agile methodologies 
+              solve complex challenges and deliver measurable business impact.
             </p>
           </motion.div>
 
-          {/* Full-width Introductory Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={bridgingWorldsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-16"
-          >
-            <Card className="p-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-none shadow-2xl">
-              <div className="max-w-4xl mx-auto text-center">
-                <h3 className="text-2xl md:text-3xl font-bold mb-6">The Intersection of Innovation</h3>
-                <p className="text-lg md:text-xl leading-relaxed mb-8 opacity-90">
-                  My unique perspective comes from standing at the crossroads of technology and creativity, 
-                  military precision and artistic vision, strategic thinking and hands-on execution.
-                </p>
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="text-center">
-                    <Code className="h-8 w-8 mx-auto mb-3 text-blue-200" />
-                    <h4 className="font-semibold mb-2">Technical Mastery</h4>
-                    <p className="text-sm opacity-80">15+ years of development expertise</p>
-                  </div>
-                  <div className="text-center">
-                    <Palette className="h-8 w-8 mx-auto mb-3 text-purple-200" />
-                    <h4 className="font-semibold mb-2">Creative Vision</h4>
-                    <p className="text-sm opacity-80">Award-winning design solutions</p>
-                  </div>
-                  <div className="text-center">
-                    <Shield className="h-8 w-8 mx-auto mb-3 text-indigo-200" />
-                    <h4 className="font-semibold mb-2">Strategic Leadership</h4>
-                    <p className="text-sm opacity-80">Military-trained precision</p>
-                  </div>
-                </div>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
+            {webDesigns.map((project, index) => <WebDesignCard key={index} project={project} index={index} onViewCaseStudy={() => handleViewCaseStudy(project.title)} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* My Journey into User Research */}
+      <section className="py-16 sm:py-24 bg-muted/30">
+        <div className="container max-w-7xl mx-auto px-4">
+          {/* Header */}
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center mb-16">
+            <Badge variant="outline" className="mb-4 border-military-primary text-military-primary backdrop-blur-sm bg-background/50">
+              Bridging Worlds
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+              From Military Precision to <span className="text-gradient bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary bg-clip-text text-transparent">User-Centered Innovation</span>
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-4 sm:px-0">Bridging the gap between technical complexity and human needs.</p>
+          </motion.div>
+
+          {/* Full-width introductory card */}
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6,
+          delay: 0.1
+        }} className="mb-12">
+            <Card className="bg-background border border-border/50 shadow-sm">
+              <CardContent className="p-8">
+                <p className="text-muted-foreground leading-relaxed text-lg">While serving in the U.S. Air Force and later at Boeing, I began noticing a recurring issue: the systems we relied on often didn't align with how people actually worked. Applications were clunky, workflows were inefficient, and users — myself included — were left adapting to tools that didn't fit their needs. 
+
+
+Rather than accept the status quo, I took action. I began learning automation, programming, and systems analysis to improve the processes I worked within. I built tools, streamlined workflows, and started bridging the gap between users and the technology they depended on.</p>
+              </CardContent>
             </Card>
           </motion.div>
 
-          {/* Journey Timeline and Key Insights Grid */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            {/* Left Column - Journey Timeline */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={bridgingWorldsInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
-                <Calendar className="h-6 w-6 mr-3 text-blue-600" />
-                My Journey
-              </h3>
+          {/* Two Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left Column - Journey Steps Timeline */}
+            <div className="relative">
+              <h3 className="text-xl font-semibold mb-6 text-primary">Journey Steps</h3>
               
-              <div className="space-y-8">
-                {timelineEvents.map((event, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="flex flex-col items-center">
-                      <div className="w-3 h-3 bg-blue-600 rounded-full mt-2"></div>
-                      {index < timelineEvents.length - 1 && (
-                        <div className="w-0.5 h-16 bg-gray-300 mt-2"></div>
-                      )}
+              {/* Timeline Container */}
+              <div className="relative pl-8">
+                {/* Continuous vertical line */}
+                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30"></div>
+                
+                {/* Timeline Items */}
+                <div className="space-y-3">
+                  {/* Identifying the Problem */}
+                  <motion.div initial={{
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  duration: 0.6,
+                  delay: 0.1
+                }} className="relative">
+                    {/* Timeline node */}
+                    <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
+                      <Eye className="w-5 h-5 text-primary" />
                     </div>
-                    <div className="flex-1 pb-8">
-                      <div className="flex items-center gap-3 mb-2">
-                        <Badge variant="secondary" className="text-xs">
-                          {event.year}
+                    {/* Content */}
+                    <div className="pl-6">
+                      <h4 className="font-semibold mb-1">Identifying the Problem</h4>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                          U.S. Air Force & Boeing
                         </Badge>
-                        <span className="text-sm text-gray-500 flex items-center">
-                          <MapPin className="h-3 w-3 mr-1" />
-                          {event.location}
-                        </span>
-                      </div>
-                      <h4 className="font-semibold text-gray-900 mb-2">{event.title}</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">{event.description}</p>
+                      </p>
+                      <p className="text-base text-muted-foreground leading-relaxed">
+                        Noticed systems didn't align with how people actually worked. Applications were clunky, workflows inefficient.
+                      </p>
                     </div>
-                  </div>
-                ))}
+                  </motion.div>
+
+                  {/* Taking Action */}
+                  <motion.div initial={{
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  duration: 0.6,
+                  delay: 0.2
+                }} className="relative">
+                    {/* Timeline node */}
+                    <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
+                      <Zap className="w-5 h-5 text-primary" />
+                    </div>
+                    {/* Content */}
+                    <div className="pl-6">
+                      <h4 className="font-semibold mb-1">Taking Action</h4>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                          Learning & Building
+                        </Badge>
+                      </p>
+                      <p className="text-base text-muted-foreground leading-relaxed">
+                        Began learning automation, programming, and systems analysis to improve processes and bridge the user-technology gap.
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  {/* Leadership Recognition */}
+                  <motion.div initial={{
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  duration: 0.6,
+                  delay: 0.3
+                }} className="relative">
+                    {/* Timeline node */}
+                    <div className="absolute -left-4 top-2 w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center border-2 border-accent/30">
+                      <Trophy className="w-5 h-5 text-accent" />
+                    </div>
+                    {/* Content */}
+                    <div className="pl-6">
+                      <h4 className="font-semibold mb-1">Leadership Recognition</h4>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
+                          Continuous Improvement
+                        </Badge>
+                      </p>
+                      <p className="text-base text-muted-foreground leading-relaxed">Recognizing the value of my technical skills and user perspective, my superiors began rotating me into new roles to assess, modernize, and automate core systems.</p>
+                      <div className="mt-2 bg-accent/10 p-3 rounded-lg border-l-4 border-accent">
+                         <p className="text-base text-primary font-medium leading-relaxed italic">
+                           "Known for making the seemingly impossible impossible!"
+                         </p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* The Real Problem */}
+                  <motion.div initial={{
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  duration: 0.6,
+                  delay: 0.4
+                }} className="relative">
+                    {/* Timeline node */}
+                    <div className="absolute -left-4 top-2 w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center border-2 border-accent/30">
+                      <Target className="w-5 h-5 text-accent" />
+                    </div>
+                    {/* Content */}
+                    <div className="pl-6">
+                      <h4 className="font-semibold mb-1">The Real Problem</h4>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
+                          Communication & Alignment
+                        </Badge>
+                      </p>
+                      <p className="text-base text-muted-foreground leading-relaxed">
+                        Discovered the gap between users who couldn't express technical needs and developers lacking operational context.
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  {/* Formal Pursuit */}
+                  <motion.div initial={{
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  duration: 0.6,
+                  delay: 0.5
+                }} className="relative">
+                    {/* Timeline node */}
+                    <div className="absolute -left-4 top-2 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
+                      <GraduationCap className="w-5 h-5 text-primary" />
+                    </div>
+                    {/* Content */}
+                    <div className="pl-6">
+                      <h4 className="font-semibold mb-1">Formal Pursuit</h4>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                          User Research & Experience Design
+                        </Badge>
+                      </p>
+                      <p className="text-base text-muted-foreground leading-relaxed">
+                        Earned certifications, refined design practice, and expanded into full stack development.
+                      </p>
+                    </div>
+                  </motion.div>
+                </div>
               </div>
+            </div>
+
+            {/* Right Column - Insight Cards */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold mb-6 text-accent">Key Insights</h3>
+              
+              {/* The Realization */}
+              <motion.div initial={{
+              opacity: 0,
+              x: 20
+            }} whileInView={{
+              opacity: 1,
+              x: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6,
+              delay: 0.2
+            }}>
+                <Card className="bg-background border border-accent/30 shadow-sm">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
+                        <Lightbulb className="w-6 h-6 text-accent" />
+                      </div>
+                      <h4 className="text-lg font-semibold text-primary">The Realization</h4>
+                    </div>
+                    <p className="text-base text-muted-foreground leading-relaxed mb-4">
+                      The key insight was that successful technology solutions required someone who could understand both worlds — the technical possibilities and the human reality. Most users couldn't clearly express their needs in technical terms, and development teams didn't always have access to the full context of daily operations.
+                    </p>
+                    <div className="bg-accent/10 p-4 rounded-lg border-l-4 border-accent">
+                      <p className="text-base text-primary font-medium leading-relaxed">
+                        It wasn't a people problem — it was a communication and alignment problem. This led me to pursue formal UX education and begin my transition into user research.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              {/* Today's Mission */}
+              <motion.div initial={{
+              opacity: 0,
+              x: 20
+            }} whileInView={{
+              opacity: 1,
+              x: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6,
+              delay: 0.3
+            }}>
+                <Card className="bg-background border border-primary/30 shadow-sm">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
+                        <Rocket className="w-4 h-4 text-primary" />
+                      </div>
+                      <h4 className="font-semibold text-primary">Today's Mission</h4>
+                    </div>
+                    <p className="text-base text-muted-foreground leading-relaxed mb-3">
+                      I create research-driven, human-centered solutions that help teams build the right 
+                      products — the first time. My military background brings systematic rigor to UX research, 
+                      while my technical skills ensure feasible, implementable solutions.
+                    </p>
+                    <div className="flex flex-wrap gap-1">
+                      <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                        Google UX Design
+                      </Badge>
+                      <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                        Google UX Research & Test Early Designs
+                      </Badge>
+                      <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
+                        IBM DevOps, Cloud and Agile Foundations
+                      </Badge>
+                      <Badge variant="outline" className="text-xs border-accent/30 text-accent bg-accent/5">
+                        Google Prompting Essentials
+                      </Badge>
+                      <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                        Agile Development & Scrum
+                      </Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+          </div>
+
+
+          {/* Quote Section */}
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6,
+          delay: 0.7
+        }} className="text-center mt-16">
+            <Card className="bg-muted/50 border border-border/30 shadow-sm max-w-2xl mx-auto">
+              <CardContent className="p-8">
+                <blockquote className="text-lg font-medium text-foreground italic">
+                  "I am a translator between users and developers"
+                </blockquote>
+                <div className="flex items-center justify-center gap-2 mt-4">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Military Precision + UX Innovation</span>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Design Process */}
+      <DesignProcess />
+
+      {/* Process Philosophy */}
+      <section className="section bg-background">
+        <div className="container-custom">
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center mb-12">
+            <Badge variant="outline" className="mb-4 border-primary text-primary">
+              Design Philosophy
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+              Core <span className="text-gradient bg-gradient-to-r from-primary via-accent to-success bg-clip-text text-transparent">Principles</span>
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              The foundational beliefs that guide every design decision and research initiative.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <motion.div initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.1,
+            duration: 0.6
+          }}>
+              <Card className="glass border-none h-full">
+                <CardContent className="p-4 sm:p-6 text-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Search className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-semibold mb-2 text-foreground">Research-Driven</h3>
+                  <p className="text-muted-foreground text-xs sm:text-sm">
+                    Every decision is backed by real user data and operational context, not assumptions.
+                  </p>
+                </CardContent>
+              </Card>
             </motion.div>
 
-            {/* Right Column - Key Insights */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={bridgingWorldsInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
-                <Lightbulb className="h-6 w-6 mr-3 text-yellow-500" />
-                Key Insights
-              </h3>
+            <motion.div initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.2,
+            duration: 0.6
+          }}>
+              <Card className="glass border-none h-full">
+                <CardContent className="p-4 sm:p-6 text-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Users className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-semibold mb-2 text-foreground">Collaborative</h3>
+                  <p className="text-muted-foreground text-xs sm:text-sm">
+                    Bringing together stakeholders, users, and developers for aligned solutions.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-              <div className="space-y-6">
-                {keyInsights.map((insight, index) => (
-                  <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-blue-500">
-                    <div className="flex items-start gap-4">
-                      <div className="text-blue-600">
-                        {insight.icon}
+            <motion.div initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.3,
+            duration: 0.6
+          }}>
+              <Card className="glass border-none h-full">
+                <CardContent className="p-4 sm:p-6 text-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <TestTube className="w-6 h-6 sm:w-8 sm:h-8 text-success" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-semibold mb-2 text-foreground">Iterative</h3>
+                  <p className="text-muted-foreground text-xs sm:text-sm">
+                    Continuous testing and refinement ensure optimal performance and user satisfaction.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA to Insights Page */}
+      <section className="section bg-gradient-to-r from-primary/5 via-accent/5 to-success/5">
+        <div className="container-custom">
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center">
+            <Card className="glass border-primary/20 max-w-4xl mx-auto">
+              <CardContent className="p-8 sm:p-12">
+                <Badge variant="outline" className="mb-4 border-primary text-primary">
+                  Deep Dive Available
+                </Badge>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+                  Explore My <span className="text-gradient bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Research Methodologies</span>
+                </h2>
+                <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                  Dive deeper into the systematic approaches, tools, and insights that drive effective user-centered design. 
+                  From sprint-based problem solving to comprehensive research artifacts.
+                </p>
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => window.location.href = '/insights'}>
+                  View Research Insights <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
+
+      {/* Journey: Bridging the Gap */}
+      <section id="about" className="section bg-gradient-to-br from-background via-background/95 to-military-primary/5 relative overflow-hidden">
+        <div className="container-custom">
+          
+
+          {/* Journey Timeline & Insights Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
+            {/* Left Column: Milestone Timeline (60% on large screens) */}
+            <div className="lg:col-span-3">
+              <motion.div initial={{
+              opacity: 0,
+              x: -50
+            }} whileInView={{
+              opacity: 1,
+              x: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6
+            }} className="relative">
+                {/* Connecting Line */}
+                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-military-primary via-systems-blue to-agile-primary opacity-30 hidden sm:block"></div>
+                
+                <div className="space-y-8">
+                  {journeyMilestones.map((milestone, index) => (
+                    <motion.div key={index} className="flex items-start space-x-6">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                        <milestone.icon className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">{insight.title}</h4>
-                        <p className="text-gray-600 text-sm leading-relaxed">{insight.description}</p>
+                        <h4 className="text-lg font-semibold text-foreground">{milestone.role}</h4>
+                        <p className="text-sm text-muted-foreground">{milestone.period}</p>
+                        <p className="text-base text-muted-foreground mt-2">{milestone.focus}</p>
                       </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </motion.div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right Column: Key Insights (40% on large screens) */}
+            
           </div>
 
-          {/* "I am a translator" Quote Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={bridgingWorldsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="mb-16"
-          >
-            <Card className="p-8 bg-gradient-to-r from-emerald-500 to-teal-600 text-white border-none shadow-2xl">
-              <div className="text-center max-w-4xl mx-auto">
-                <blockquote className="text-2xl md:text-3xl font-light italic mb-6 leading-relaxed">
-                  "I am a translator between the language of possibility and the dialect of reality."
-                </blockquote>
-                <div className="w-24 h-1 bg-white/30 mx-auto mb-6"></div>
-                <p className="text-lg opacity-90 leading-relaxed">
-                  Every project is an opportunity to bridge the gap between what clients envision 
-                  and what technology can deliver, creating solutions that exceed expectations while 
-                  remaining grounded in practical execution.
-                </p>
-              </div>
-            </Card>
-          </motion.div>
-
-          {/* Bridge Effect Card - Moved here after translator quote */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={bridgingWorldsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 1.0 }}
-            className="mb-16"
-          >
-            <Card className="p-8 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white border-none shadow-2xl overflow-hidden relative">
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 left-0 w-full h-full">
-                  <div className="grid grid-cols-8 grid-rows-8 w-full h-full gap-1">
-                    {Array.from({ length: 64 }).map((_, i) => (
-                      <div key={i} className="bg-white/20 rounded-sm"></div>
-                    ))}
+          {/* Bridge Effect Card - moved after translator quote */}
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          delay: 0.9,
+          duration: 0.6
+        }} className="max-w-5xl mx-auto mt-16">
+            <Card className="glass border-accent/20 shadow-accent">
+              <CardContent className="p-6 sm:p-8 lg:p-12">
+                <div className="text-center mb-6 sm:mb-8">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-3 sm:mb-4">
+                    <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
                   </div>
-                </div>
-              </div>
-
-              <div className="relative z-10">
-                <div className="text-center mb-12">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mb-6">
-                    <Zap className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-bold mb-4">The Bridge Effect</h3>
-                  <p className="text-xl opacity-90 max-w-3xl mx-auto leading-relaxed">
-                    How I transform complex challenges into elegant solutions through strategic synthesis
+                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
+                    The Bridge Effect
+                  </h3>
+                  <p className="text-base sm:text-lg text-muted-foreground">
+                    Where technical expertise meets human understanding
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8 mb-12">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Brain className="h-6 w-6 text-blue-400" />
-                    </div>
-                    <h4 className="text-xl font-semibold mb-3">Analytical Thinking</h4>
-                    <p className="text-gray-300 leading-relaxed">
-                      Breaking down complex problems into manageable components while maintaining sight of the bigger picture
-                    </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                  <div>
+                    <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center">
+                      <Database className="w-5 h-5 text-systems-blue mr-2" />
+                      Technical Translation
+                    </h4>
+                    <ul className="space-y-3 text-muted-foreground">
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Convert complex technical requirements into user-friendly solutions</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Bridge communication gaps between developers and end users</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-systems-blue mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Ensure technical solutions align with business objectives</span>
+                      </li>
+                    </ul>
                   </div>
 
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Palette className="h-6 w-6 text-purple-400" />
-                    </div>
-                    <h4 className="text-xl font-semibold mb-3">Creative Synthesis</h4>
-                    <p className="text-gray-300 leading-relaxed">
-                      Combining technical constraints with creative possibilities to discover innovative pathways forward
-                    </p>
-                  </div>
-
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Target className="h-6 w-6 text-green-400" />
-                    </div>
-                    <h4 className="text-xl font-semibold mb-3">Practical Execution</h4>
-                    <p className="text-gray-300 leading-relaxed">
-                      Translating visionary concepts into tangible results through methodical implementation
-                    </p>
+                  <div>
+                    <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center">
+                      <Users className="w-5 h-5 text-agile-primary mr-2" />
+                      Human-Centered Impact
+                    </h4>
+                    <ul className="space-y-3 text-muted-foreground">
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Design with military precision but user empathy at the core</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Create solutions that are both powerful and accessible</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-agile-primary mt-0.5 mr-3 flex-shrink-0" />
+                        <span>Deliver measurable results through systematic user research</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
 
-                <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
-                  <h5 className="text-lg font-semibold mb-4 text-center">The Process in Action</h5>
-                  <div className="flex items-center justify-between text-sm">
-                    <div className="text-center flex-1">
-                      <div className="w-8 h-8 bg-blue-400 rounded-full mx-auto mb-2 flex items-center justify-center">
-                        <span className="text-white font-bold text-xs">1</span>
-                      </div>
-                      <span className="text-gray-300">Understand</span>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-gray-400 mx-2" />
-                    <div className="text-center flex-1">
-                      <div className="w-8 h-8 bg-purple-400 rounded-full mx-auto mb-2 flex items-center justify-center">
-                        <span className="text-white font-bold text-xs">2</span>
-                      </div>
-                      <span className="text-gray-300">Synthesize</span>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-gray-400 mx-2" />
-                    <div className="text-center flex-1">
-                      <div className="w-8 h-8 bg-green-400 rounded-full mx-auto mb-2 flex items-center justify-center">
-                        <span className="text-white font-bold text-xs">3</span>
-                      </div>
-                      <span className="text-gray-300">Execute</span>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-gray-400 mx-2" />
-                    <div className="text-center flex-1">
-                      <div className="w-8 h-8 bg-yellow-400 rounded-full mx-auto mb-2 flex items-center justify-center">
-                        <span className="text-white font-bold text-xs">4</span>
-                      </div>
-                      <span className="text-gray-300">Deliver</span>
-                    </div>
-                  </div>
+                <Separator className="my-8" />
+
+                <div className="text-center">
+                  <p className="text-lg text-muted-foreground italic">
+                    "I don't just build systems or design interfaces — I create bridges between 
+                    complex technology and human needs, ensuring solutions are both technically 
+                    sound and genuinely useful."
+                  </p>
                 </div>
-              </div>
+              </CardContent>
             </Card>
           </motion.div>
+        </div>
+      </section>
 
+      {/* Design Process */}
+      <DesignProcess />
+
+      {/* Process Philosophy */}
+      <section className="section bg-background">
+        <div className="container-custom">
           {/* Unique Value Metrics */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={bridgingWorldsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 1.2 }}
-          >
-            <div className="grid md:grid-cols-4 gap-6">
-              {uniqueValueMetrics.map((metric, index) => (
-                <Card key={index} className="p-6 text-center hover:shadow-lg transition-all duration-300 group hover:-translate-y-1">
-                  <div className="text-3xl font-bold text-blue-600 mb-2 group-hover:scale-110 transition-transform duration-300">
-                    <AnimatedCounter 
-                      end={metric.value} 
-                      duration={2000}
-                      delay={index * 200}
-                      suffix={metric.suffix}
-                    />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{metric.label}</h4>
-                  <p className="text-sm text-gray-600">{metric.description}</p>
-                </Card>
-              ))}
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          delay: 1,
+          duration: 0.6
+        }} className="mt-16">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {[{
+              metric: "3 Domains",
+              label: "Military • Enterprise • UX",
+              icon: Shield,
+              color: "military-primary"
+            }, {
+              metric: "15+ Years",
+              label: "Systems Experience",
+              icon: Clock,
+              color: "systems-blue"
+            }, {
+              metric: "100%",
+              label: "User Adoption Rate",
+              icon: Target,
+              color: "agile-primary"
+            }, {
+              metric: "∞",
+              label: "Translation Capability",
+              icon: GitBranch,
+              color: "accent"
+            }].map((item, index) => <Card key={index} className="glass border-none shadow-card text-center">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className={`w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4 ${item.color === 'military-primary' ? 'bg-military-primary/20' : item.color === 'systems-blue' ? 'bg-systems-blue/20' : item.color === 'agile-primary' ? 'bg-agile-primary/20' : 'bg-accent/20'}`}>
+                      <item.icon className={`w-6 h-6 ${item.color === 'military-primary' ? 'text-military-primary' : item.color === 'systems-blue' ? 'text-systems-blue' : item.color === 'agile-primary' ? 'text-agile-primary' : 'text-accent'}`} />
+                    </div>
+                    <div className={`text-3xl font-bold mb-1 ${item.color === 'success' ? 'text-success' : item.color === 'primary-glow' ? 'text-primary-glow' : item.color === 'agile-primary' ? 'text-agile-primary' : 'text-accent'}`}>
+                      {item.metric}
+                    </div>
+                    <div className="text-sm text-muted-foreground">{item.label}</div>
+                  </CardContent>
+                </Card>)}
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* About Me Section */}
-      <section ref={aboutMeRef} className="py-20 bg-gradient-to-br from-pink-50 via-red-50 to-yellow-100">
+      {/* Skills Arsenal */}
+      <section className="section gradient-subtle">
         <div className="container-custom">
-          {/* Section Header */}
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={aboutMeInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              About Me
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center mb-16">
+            <Badge variant="outline" className="mb-4 border-accent text-accent">
+              Skills Arsenal
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+              Technical Expertise Meets <span className="text-accent">User Focus</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              A brief overview of my background, skills, and passions that drive my work.
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
+              A unique combination of technical systems knowledge and user experience expertise, 
+              honed through military service and enterprise development.
             </p>
           </motion.div>
 
-          {/* Content Grid */}
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Left Column - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={aboutMeInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <img
-                src="https://images.unsplash.com/photo-1555952517-2e8e729e0b44?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1778&q=80"
-                alt="About Me"
-                className="rounded-2xl shadow-lg"
-              />
-            </motion.div>
-
-            {/* Right Column - Text Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={aboutMeInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                My Story
+          {/* Skills Visual Intro */}
+          <motion.div initial={{
+          opacity: 0,
+          scale: 0.95
+        }} whileInView={{
+          opacity: 1,
+          scale: 1
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+            <div>
+              <Badge variant="outline" className="mb-4 border-systems-blue text-systems-blue">
+                Technical Arsenal
+              </Badge>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
+                Innovation Through <span className="text-systems-blue">Systematic Mastery</span>
               </h3>
-              <p className="text-gray-700 leading-relaxed mb-8">
-                From my early days tinkering with computers to my current role as a full-stack developer,
-                I've always been driven by a passion for technology and a desire to create.
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
+                A comprehensive toolkit built through military precision, enterprise complexity, 
+                and modern UX methodologies—each skill sharpened for maximum impact.
               </p>
-              <p className="text-gray-700 leading-relaxed mb-8">
-                My background in the military instilled in me a strong work ethic, attention to detail,
-                and the ability to perform under pressure. These qualities, combined with my technical skills,
-                allow me to approach complex projects with confidence and deliver exceptional results.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                I am committed to continuous learning and staying up-to-date with the latest industry trends.
-                I believe that the best solutions are born from collaboration, and I thrive in team environments
-                where I can share my knowledge and learn from others.
-              </p>
-            </motion.div>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline" className="border-accent text-accent">Research</Badge>
+                <Badge variant="outline" className="border-accent text-accent">Analysis</Badge>
+                <Badge variant="outline" className="border-accent text-accent">Strategy</Badge>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-xl">
+              <div className="h-48 sm:h-64 lg:h-80">
+                <img src={robotInnovation} alt="Innovation and futuristic technology representation" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-l from-background/90 to-transparent"></div>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            {skillsArsenal.map((category, index) => <motion.div key={index} initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: index * 0.1,
+            duration: 0.6
+          }}>
+                <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300">
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 gap-3">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                          <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+                        </div>
+                        <CardTitle className="text-foreground text-lg sm:text-xl">{category.category}</CardTitle>
+                      </div>
+                      <Badge variant="outline" className="border-accent text-accent self-start sm:self-auto text-xs sm:text-sm">
+                        {category.proficiency}%
+                      </Badge>
+                    </div>
+                    
+                    {/* Proficiency Bar */}
+                    <div className="w-full bg-muted rounded-full h-2 mb-4">
+                      <motion.div initial={{
+                    width: 0
+                  }} whileInView={{
+                    width: `${category.proficiency}%`
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    delay: index * 0.2 + 0.5,
+                    duration: 1
+                  }} className="bg-accent h-2 rounded-full" />
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, skillIndex) => <Badge key={skillIndex} variant="secondary">
+                          {skill}
+                        </Badge>)}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>)}
           </div>
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section ref={projectsRef} className="py-20 bg-gradient-to-br from-yellow-50 via-lime-50 to-green-100">
+
+      {/* Mission Briefing CTA */}
+      <section id="contact" className="section bg-background">
         <div className="container-custom">
-          {/* Section Header */}
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={projectsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Projects
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              A curated selection of my most impactful projects, showcasing my skills and expertise.
-            </p>
-          </motion.div>
-
-          {/* Project Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Project Card 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={projectsInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Card className="hover:shadow-lg transition-shadow duration-300">
-                <img
-                  src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-                  alt="Project 1"
-                  className="rounded-t-md h-48 w-full object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Project Title 1</h3>
-                  <p className="text-gray-600 leading-relaxed mb-4">
-                    A brief description of the project, highlighting its key features and technologies used.
-                  </p>
-                  <Button variant="secondary">Learn More</Button>
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="text-center">
+            <Card className="glass border-primary-glow/20 shadow-glow max-w-4xl mx-auto">
+              <CardContent className="p-6 sm:p-8 lg:p-12">
+                <Badge variant="outline" className="mb-4 sm:mb-6 border-primary-glow text-primary-glow text-xs sm:text-sm">
+                  Mission Briefing
+                </Badge>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
+                  Ready to solve your next <span className="text-primary-glow">complex challenge</span>?
+                </h2>
+                <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
+                  Let's discuss how systematic analysis and agile UX research can transform 
+                  your user experience and business outcomes.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                  <Button size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
+                    Start a Project
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                  <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
+                    Schedule Consultation
+                  </Button>
                 </div>
-              </Card>
-            </motion.div>
-
-            {/* Project Card 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={projectsInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <Card className="hover:shadow-lg transition-shadow duration-300">
-                <img
-                  src="https://images.unsplash.com/photo-1517694712202-14f9da67817f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-                  alt="Project 2"
-                  className="rounded-t-md h-48 w-full object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Project Title 2</h3>
-                  <p className="text-gray-600 leading-relaxed mb-4">
-                    Another project description, showcasing different skills and technologies.
-                  </p>
-                  <Button variant="secondary">Learn More</Button>
-                </div>
-              </Card>
-            </motion.div>
-
-            {/* Project Card 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={projectsInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <Card className="hover:shadow-lg transition-shadow duration-300">
-                <img
-                  src="https://images.unsplash.com/photo-1505740420928-5e0e321c5d0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-                  alt="Project 3"
-                  className="rounded-t-md h-48 w-full object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Project Title 3</h3>
-                  <p className="text-gray-600 leading-relaxed mb-4">
-                    A third project example, demonstrating versatility and problem-solving abilities.
-                  </p>
-                  <Button variant="secondary">Learn More</Button>
-                </div>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section ref={contactRef} className="py-20 bg-gradient-to-br from-green-50 via-teal-50 to-cyan-100">
-        <div className="container-custom">
-          {/* Section Header */}
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={contactInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Contact
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Let's connect and discuss how I can help bring your ideas to life.
-            </p>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={contactInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <Card className="p-8 md:p-12 max-w-2xl mx-auto">
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    placeholder="Your Email"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    className="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    placeholder="Your Message"
-                  />
-                </div>
-                <Button className="w-full" size="lg">Send Message</Button>
-              </form>
+              </CardContent>
             </Card>
           </motion.div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 bg-gray-100 border-t">
-        <div className="container-custom text-center">
-          <p className="text-gray-600 text-sm">
-            &copy; {new Date().getFullYear()} Portfolio. All rights reserved.
-          </p>
+      {/* Footer Section */}
+      <footer className="section bg-muted/30 border-t border-border/20">
+        <div className="container-custom">
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-8">
+            {/* Contact Information */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-foreground mb-4">Contact</h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-primary-glow/20 flex items-center justify-center">
+                    <Users className="w-4 h-4 text-primary-glow" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-foreground">Professional Consultation</p>
+                    <p className="text-xs text-muted-foreground">Schedule a strategic discussion</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-agile-primary/20 flex items-center justify-center">
+                    <Settings className="w-4 h-4 text-agile-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-foreground">Systems Analysis</p>
+                    <p className="text-xs text-muted-foreground">Complex problem solving</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
+                    <Brain className="w-4 h-4 text-accent" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-foreground">UX Research</p>
+                    <p className="text-xs text-muted-foreground">User-centered solutions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Services */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-foreground mb-4">Services</h3>
+              <ul className="space-y-2">
+                <li className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                  Systems Analysis & Architecture
+                </li>
+                <li className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                  UX Research & User Testing
+                </li>
+                <li className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                  Agile Process Implementation
+                </li>
+                <li className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                  Digital Transformation
+                </li>
+                <li className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                  Technical Documentation
+                </li>
+                <li className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                  Stakeholder Alignment
+                </li>
+              </ul>
+            </div>
+
+            {/* Methodologies */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-foreground mb-4">Methodologies</h3>
+              <div className="space-y-3">
+                <Badge variant="outline" className="w-full justify-start border-primary-glow text-primary-glow">
+                  Sprint-Based Research
+                </Badge>
+                <Badge variant="outline" className="w-full justify-start border-agile-primary text-agile-primary">
+                  Agile Development
+                </Badge>
+                <Badge variant="outline" className="w-full justify-start border-systems-blue text-systems-blue">
+                  Systems Thinking
+                </Badge>
+                <Badge variant="outline" className="w-full justify-start border-accent text-accent">
+                  Design Thinking
+                </Badge>
+                <Badge variant="outline" className="w-full justify-start border-success text-success">
+                  Military Precision
+                </Badge>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-foreground mb-4">Navigation</h3>
+              <div className="space-y-3">
+                <Button variant="ghost" size="sm" className="w-full justify-start p-0 h-auto text-sm text-muted-foreground hover:text-foreground">
+                  Research Stories
+                </Button>
+                <Button variant="ghost" size="sm" className="w-full justify-start p-0 h-auto text-sm text-muted-foreground hover:text-foreground">
+                  Military Journey
+                </Button>
+                <Button variant="ghost" size="sm" className="w-full justify-start p-0 h-auto text-sm text-muted-foreground hover:text-foreground">
+                  Agile Toolkit
+                </Button>
+                <Button variant="ghost" size="sm" className="w-full justify-start p-0 h-auto text-sm text-muted-foreground hover:text-foreground">
+                  Research Artifacts
+                </Button>
+                <Button variant="ghost" size="sm" className="w-full justify-start p-0 h-auto text-sm text-muted-foreground hover:text-foreground">
+                  Skills Arsenal
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Footer Bottom */}
+          <motion.div initial={{
+          opacity: 0
+        }} whileInView={{
+          opacity: 1
+        }} viewport={{
+          once: true
+        }} transition={{
+          delay: 0.3,
+          duration: 0.6
+        }} className="pt-8 border-t border-border/20">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-primary-glow/20 flex items-center justify-center">
+                  <Shield className="w-4 h-4 text-primary-glow" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Systems Analyst & UX Researcher</p>
+                  <p className="text-xs text-muted-foreground">Military Precision • Agile Innovation • User-Centered Design</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-6">
+                <div className="text-center">
+                  <div className="text-lg font-bold text-primary-glow">26K+</div>
+                  <div className="text-xs text-muted-foreground">Hours Saved</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg font-bold text-agile-primary">23</div>
+                  <div className="text-xs text-muted-foreground">Global Bases</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg font-bold text-accent">340%</div>
+                  <div className="text-xs text-muted-foreground">Max Conversion</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-6 pt-6 border-t border-border/10 text-center">
+              <p className="text-xs text-muted-foreground">
+                © 2024 Systems Analysis & UX Research Portfolio. Bridging military precision with modern innovation.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Home;
