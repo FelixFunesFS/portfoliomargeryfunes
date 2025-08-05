@@ -102,17 +102,11 @@ const uniqueValueMetrics: UniqueValueMetric[] = [
 ];
 
 const Home = () => {
-  const [heroInView, setHeroInView] = useState(false);
-  const [bridgingWorldsInView, setBridgingWorldsInView] = useState(false);
-  const [aboutMeInView, setAboutMeInView] = useState(false);
-  const [projectsInView, setProjectsInView] = useState(false);
-  const [contactInView, setContactInView] = useState(false);
-
-  const heroRef = useInView(setHeroInView);
-  const bridgingWorldsRef = useInView(setBridgingWorldsInView);
-  const aboutMeRef = useInView(setAboutMeInView);
-  const projectsRef = useInView(setProjectsInView);
-  const contactRef = useInView(setContactInView);
+  const { ref: heroRef, isInView: heroInView } = useInView();
+  const { ref: bridgingWorldsRef, isInView: bridgingWorldsInView } = useInView();
+  const { ref: aboutMeRef, isInView: aboutMeInView } = useInView();
+  const { ref: projectsRef, isInView: projectsInView } = useInView();
+  const { ref: contactRef, isInView: contactInView } = useInView();
 
   useEffect(() => {
     document.title = "Home | Portfolio";
