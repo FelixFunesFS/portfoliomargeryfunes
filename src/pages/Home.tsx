@@ -461,7 +461,7 @@ const Home = () => {
     category: "travel",
     icon: Globe,
     color: "teal-500",
-    image: "https://discover-elsalvador.com/lovable-uploads/48df8a94-9669-4373-b7a4-74f8b3981052.png",
+    image: "/lovable-uploads/69ba1007-5e56-40a3-bd19-02ba0bca7d95.png",
     link: "https://discover-elsalvador.com"
   }];
   return <div className="min-h-screen bg-background">
