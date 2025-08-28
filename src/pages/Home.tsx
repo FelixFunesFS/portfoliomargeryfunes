@@ -338,6 +338,32 @@ const Home = () => {
       level: 88,
       proficiency: 'Advanced',
       description: 'Successfully managed distributed teams across multiple time zones and security clearance levels'
+    }],
+    'AI & Modern Development': [{
+      name: 'AI-Assisted Development',
+      level: 85,
+      proficiency: 'Advanced',
+      description: 'Leveraged AI tools like ChatGPT, Claude, and GitHub Copilot to accelerate development workflows, debug complex issues, and generate optimized code solutions'
+    }, {
+      name: 'Prompt Engineering',
+      level: 80,
+      proficiency: 'Foundational',
+      description: 'Crafted effective prompts for AI systems to serve as thought partners in problem-solving, code generation, and rapid prototyping across web development projects'
+    }, {
+      name: 'AI-Powered Prototyping',
+      level: 82,
+      proficiency: 'Advanced',
+      description: 'Utilized AI tools to speed up rapid prototyping, generate component variations, and explore multiple design solutions efficiently'
+    }, {
+      name: 'No-Code/Low-Code Development',
+      level: 88,
+      proficiency: 'Advanced',
+      description: 'Built responsive websites and applications using Webflow, Wix, Squarespace, and Elementor for rapid deployment and client solutions'
+    }, {
+      name: 'Continuous Learning & Adaptation',
+      level: 90,
+      proficiency: 'Expert',
+      description: 'Actively exploring emerging technologies, staying current with AI advancements, and adapting development workflows to leverage cutting-edge tools'
     }]
   };
 
