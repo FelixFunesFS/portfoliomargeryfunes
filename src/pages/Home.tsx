@@ -774,6 +774,41 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Client Testimonial */}
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-background to-muted/30">
+        <div className="container max-w-4xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <Card className="bg-card/50 backdrop-blur-sm border-primary/10 shadow-xl">
+              <CardContent className="p-8 sm:p-12">
+                <div className="flex justify-center mb-6">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14,17H7L2,22V4A2,2 0 0,1 4,2H20A2,2 0 0,1 22,4V15A2,2 0 0,1 20,17H14Z" />
+                    </svg>
+                  </div>
+                </div>
+                <blockquote className="text-lg sm:text-xl text-foreground/90 leading-relaxed mb-8 italic">
+                  "Margery is amazing at bridging user research and technical development. She has a way of understanding exactly what users need and translating that into logical, error-proof systems. Her ability to collaborate with development teams ensures the final product is intuitive, efficient, and user-centered. Thanks to her strong command of computational logic, she helps reduce errors before they ever reach the end user. Working with her is always inspiring, she delivers clarity where others get stuck."
+                </blockquote>
+                <div className="border-t border-primary/10 pt-6">
+                  <p className="font-semibold text-foreground">Steve Bautista</p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Senior Manager at the Boeing Company<br />
+                    Base Level Engine Management (BLEM)
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
       {/* About Section - Mission Capabilities */}
       <About />
 
