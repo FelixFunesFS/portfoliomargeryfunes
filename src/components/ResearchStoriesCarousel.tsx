@@ -81,7 +81,7 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({ stori
           <Carousel className="w-full">
             <CarouselContent>
               {stories.map((story, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
+                <CarouselItem key={index} className="basis-full">
                   <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
