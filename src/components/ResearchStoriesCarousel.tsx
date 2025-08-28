@@ -83,7 +83,7 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({ stori
 
   return (
     <section className="section">
-      <div className="container-custom">
+      <div className="max-w-none px-4 lg:px-8 xl:px-12">
         {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }} 
@@ -118,7 +118,7 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({ stori
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1, duration: 0.6 }}
-                      className="px-2"
+                      className="px-1 lg:px-2"
                     >
                       <Card className="overflow-hidden border-none bg-card/50 backdrop-blur-sm shadow-xl">
                         {/* Hero Metric Section */}
@@ -288,8 +288,8 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({ stori
                 );
               })}
             </CarouselContent>
-            <CarouselPrevious className="left-4 lg:-left-12 w-12 h-12 bg-background/80 backdrop-blur-sm border-2" />
-            <CarouselNext className="right-4 lg:-right-12 w-12 h-12 bg-background/80 backdrop-blur-sm border-2" />
+            <CarouselPrevious className="left-2 lg:-left-16 w-12 h-12 bg-background/80 backdrop-blur-sm border-2" />
+            <CarouselNext className="right-2 lg:-right-16 w-12 h-12 bg-background/80 backdrop-blur-sm border-2" />
           </Carousel>
         </div>
       </div>
