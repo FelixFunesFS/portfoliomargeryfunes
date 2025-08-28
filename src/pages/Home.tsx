@@ -229,7 +229,7 @@ const Home = () => {
       name: 'Systems Analysis',
       level: 98,
       proficiency: 'Expert',
-      description: 'Architected enterprise solutions serving 10,000+ users with complex workflow and data requirements'
+      description: 'Architected enterprise solutions through systematic logical frameworks, mapping complex data relationships and user workflows for 10,000+ users'
     }, {
       name: 'Strategic Planning (Vision & Roadmaps)',
       level: 95,
@@ -244,7 +244,7 @@ const Home = () => {
       name: 'Process Optimization',
       level: 95,
       proficiency: 'Expert',
-      description: 'Streamlined operations reducing task completion time by 40% through systematic workflow analysis'
+      description: 'Applied structured logical analysis to streamline operations, creating decision trees and automated workflows that reduced task completion time by 40%'
     }],
     'Design & Development': [{
       name: 'UX Design (Figma, Design Systems)',
@@ -261,6 +261,26 @@ const Home = () => {
       level: 85,
       proficiency: 'Advanced',
       description: 'Developed responsive web applications and component libraries using modern React patterns and TypeScript'
+    }, {
+      name: 'TypeScript',
+      level: 85,
+      proficiency: 'Advanced',
+      description: 'Developed type-safe applications with enhanced code reliability and developer experience using TypeScript across React projects'
+    }, {
+      name: 'Modern CSS/Tailwind',
+      level: 88,
+      proficiency: 'Advanced',
+      description: 'Built responsive, component-driven interfaces using Tailwind CSS utility-first approach and modern CSS techniques'
+    }, {
+      name: 'API Integration/REST',
+      level: 85,
+      proficiency: 'Advanced',
+      description: 'Integrated external APIs and built RESTful services, including Supabase backend integration for authentication and data management'
+    }, {
+      name: 'Version Control/Git',
+      level: 90,
+      proficiency: 'Expert',
+      description: 'Managed complex codebases using Git workflows, branching strategies, and collaborative development practices across distributed teams'
     }, {
       name: 'SharePoint Development',
       level: 90,
