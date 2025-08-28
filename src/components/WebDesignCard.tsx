@@ -50,9 +50,16 @@ const WebDesignCard: React.FC<WebDesignCardProps> = ({ project, index, onViewCas
           onClick={project.link ? () => window.open(project.link!, '_blank') : undefined}
         >
           <img 
-            src={`https://images.unsplash.com/${project.image}?auto=format&fit=crop&w=800&q=80`}
+            src={project.image.startsWith('http') 
+              ? project.image 
+              : `https://images.unsplash.com/${project.image}?auto=format&fit=crop&w=800&q=80`
+            }
             alt={`${project.title} project mockup`}
             className={`w-full h-full object-cover transition-transform duration-300 ${project.link ? 'group-hover:scale-105' : ''}`}
+            onError={(e) => {
+              // Fallback to a default image if the live image fails to load
+              e.currentTarget.src = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80';
+            }}
           />
           <div className={`absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent ${project.link ? 'group-hover:from-background/70 group-hover:via-background/10' : ''}`}></div>
           {project.link && (

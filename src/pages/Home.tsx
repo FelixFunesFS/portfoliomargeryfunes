@@ -367,7 +367,7 @@ const Home = () => {
     category: "youth-services",
     icon: HomeIcon,
     color: "blue-500",
-    image: "photo-1483058712412-4245e9b90334",
+    image: "https://visionsofhope.ngo/lovable-uploads/0456b6a1-9047-462a-841d-fea3c232a769.png",
     link: "https://visionsofhope.ngo"
   }, {
     title: "Veteran's Benefits Beyond the VA Wall",
@@ -386,7 +386,7 @@ const Home = () => {
     category: "veterans",
     icon: Shield,
     color: "amber-500",
-    image: "photo-1461749280684-dccba630e2f6",
+    image: "https://bbvaw.us/lovable-uploads/483fb5d8-4a1c-41f4-b486-c562266d8160.png",
     link: "https://bbvaw.us"
   }, {
     title: "Discover El Salvador",
@@ -405,7 +405,7 @@ const Home = () => {
     category: "travel",
     icon: Globe,
     color: "teal-500",
-    image: "photo-1487058792275-0ad4aaf24ca7",
+    image: "https://discover-elsalvador.com/lovable-uploads/48df8a94-9669-4373-b7a4-74f8b3981052.png",
     link: "https://discover-elsalvador.com"
   }];
   return <div className="min-h-screen bg-background">
