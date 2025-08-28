@@ -368,7 +368,7 @@ const Home = () => {
     icon: HomeIcon,
     color: "blue-500",
     image: "photo-1483058712412-4245e9b90334",
-    link: "https://placeholder.com/website/visionsofhope"
+    link: "https://visionsofhope.ngo"
   }, {
     title: "Veteran's Benefits Beyond the VA Wall",
     client: "Veterans Support Services",
@@ -387,7 +387,7 @@ const Home = () => {
     icon: Shield,
     color: "amber-500",
     image: "photo-1461749280684-dccba630e2f6",
-    link: "https://placeholder.com/website/veteransbenefits"
+    link: "https://bbvaw.us"
   }, {
     title: "Discover El Salvador",
     client: "Personal Tour Guide Services",
@@ -406,7 +406,7 @@ const Home = () => {
     icon: Globe,
     color: "teal-500",
     image: "photo-1487058792275-0ad4aaf24ca7",
-    link: "https://placeholder.com/website/discoverelsalvador"
+    link: "https://discover-elsalvador.com"
   }];
   return <div className="min-h-screen bg-background">
       {/* Radar Hero Section */}

@@ -45,13 +45,23 @@ const WebDesignCard: React.FC<WebDesignCardProps> = ({ project, index, onViewCas
     >
       <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full overflow-hidden">
         {/* Project Image/Mockup */}
-        <div className="h-48 sm:h-56 relative overflow-hidden bg-primary/10">
+        <div 
+          className={`h-48 sm:h-56 relative overflow-hidden bg-primary/10 ${project.link ? 'cursor-pointer group' : ''}`}
+          onClick={project.link ? () => window.open(project.link!, '_blank') : undefined}
+        >
           <img 
             src={`https://images.unsplash.com/${project.image}?auto=format&fit=crop&w=800&q=80`}
             alt={`${project.title} project mockup`}
-            className="w-full h-full object-cover"
+            className={`w-full h-full object-cover transition-transform duration-300 ${project.link ? 'group-hover:scale-105' : ''}`}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"></div>
+          <div className={`absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent ${project.link ? 'group-hover:from-background/70 group-hover:via-background/10' : ''}`}></div>
+          {project.link && (
+            <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+              <div className="bg-background/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
+                <ExternalLink className="w-6 h-6 text-primary" />
+              </div>
+            </div>
+          )}
           <div className="absolute bottom-4 left-4 right-4">
             <div className="flex items-center justify-between">
               <Badge variant="outline" className="border-accent text-accent bg-background/80 backdrop-blur-sm">
