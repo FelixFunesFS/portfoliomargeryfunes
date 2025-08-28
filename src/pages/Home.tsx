@@ -246,7 +246,7 @@ const Home = () => {
       proficiency: 'Expert',
       description: 'Applied structured logical analysis to streamline operations, creating decision trees and automated workflows that reduced task completion time by 40%'
     }],
-    'Design & Development': [{
+    'Design & Frontend Development': [{
       name: 'UX Design (Figma, Design Systems)',
       level: 88,
       proficiency: 'Advanced',
@@ -257,30 +257,40 @@ const Home = () => {
       proficiency: 'Advanced',
       description: 'Built high-fidelity prototypes and conducted iterative testing with 200+ users across multiple domains'
     }, {
+      name: 'HTML (Semantic & Accessible)',
+      level: 80,
+      proficiency: 'Foundational',
+      description: 'Built semantic, accessible web structures using modern HTML5 standards and ARIA guidelines for enterprise applications'
+    }, {
+      name: 'CSS (Modern Styling & Layout)',
+      level: 78,
+      proficiency: 'Foundational',
+      description: 'Crafted responsive layouts using CSS Grid, Flexbox, and modern CSS techniques including custom properties and animations'
+    }, {
       name: 'JavaScript/React',
-      level: 85,
-      proficiency: 'Advanced',
-      description: 'Developed responsive web applications and component libraries using modern React patterns and TypeScript'
+      level: 75,
+      proficiency: 'Foundational',
+      description: 'Developed interactive web applications using modern JavaScript ES6+ and React component architecture for complex user interfaces'
     }, {
       name: 'TypeScript',
-      level: 85,
-      proficiency: 'Advanced',
-      description: 'Developed type-safe applications with enhanced code reliability and developer experience using TypeScript across React projects'
+      level: 70,
+      proficiency: 'Foundational',
+      description: 'Enhanced JavaScript applications with TypeScript for improved code reliability, developer experience, and maintainable codebases'
     }, {
       name: 'Modern CSS/Tailwind',
-      level: 88,
-      proficiency: 'Advanced',
-      description: 'Built responsive, component-driven interfaces using Tailwind CSS utility-first approach and modern CSS techniques'
+      level: 75,
+      proficiency: 'Foundational',
+      description: 'Implemented design systems using Tailwind utility-first approach for consistent, maintainable, and responsive user interfaces'
+    }, {
+      name: 'Version Control/Git',
+      level: 78,
+      proficiency: 'Foundational',
+      description: 'Managed collaborative development workflows using Git branching strategies, code reviews, and deployment pipelines'
     }, {
       name: 'API Integration/REST',
       level: 85,
       proficiency: 'Advanced',
-      description: 'Integrated external APIs and built RESTful services, including Supabase backend integration for authentication and data management'
-    }, {
-      name: 'Version Control/Git',
-      level: 90,
-      proficiency: 'Expert',
-      description: 'Managed complex codebases using Git workflows, branching strategies, and collaborative development practices across distributed teams'
+      description: 'Connected frontend applications to backend services through RESTful APIs, including authentication, data management, and error handling'
     }, {
       name: 'SharePoint Development',
       level: 90,
