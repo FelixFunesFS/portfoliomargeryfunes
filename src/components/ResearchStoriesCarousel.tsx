@@ -43,238 +43,253 @@ interface ResearchStoriesCarouselProps {
 const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({ stories }) => {
   const navigate = useNavigate();
 
+  const getMetricPercentage = (metric: string): number => {
+    const numMatch = metric.match(/(\d+)%/);
+    return numMatch ? parseInt(numMatch[1]) : 75;
+  };
+
+  const getColorClasses = (color: string) => {
+    switch (color) {
+      case 'systems':
+        return {
+          bg: 'bg-systems-blue',
+          text: 'text-systems-blue',
+          bgLight: 'bg-systems-blue/10',
+          border: 'border-systems-blue/20'
+        };
+      case 'agile':
+        return {
+          bg: 'bg-agile-primary',
+          text: 'text-agile-primary',
+          bgLight: 'bg-agile-primary/10',
+          border: 'border-agile-primary/20'
+        };
+      case 'success':
+        return {
+          bg: 'bg-success',
+          text: 'text-success',
+          bgLight: 'bg-success/10',
+          border: 'border-success/20'
+        };
+      default:
+        return {
+          bg: 'bg-accent',
+          text: 'text-accent',
+          bgLight: 'bg-accent/10',
+          border: 'border-accent/20'
+        };
+    }
+  };
+
   return (
     <section className="section">
       <div className="container-custom">
+        {/* Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 50 }} 
+          initial={{ opacity: 0, y: 30 }} 
           whileInView={{ opacity: 1, y: 0 }} 
           viewport={{ once: true }} 
-          transition={{ duration: 0.8 }} 
-          className="mb-12 relative overflow-hidden rounded-xl"
+          transition={{ duration: 0.6 }} 
+          className="text-center mb-12"
         >
-          <div className="relative h-48 sm:h-64 lg:h-80">
-            <img 
-              src={stories[0]?.visual || ''} 
-              alt="UX Research workspace with code and analysis" 
-              className="w-full h-full object-cover" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent flex items-center">
-              <div className="container-custom">
-                <div className="max-w-lg">
-                  <Badge variant="outline" className="mb-3 border-primary-glow text-primary-glow">
-                    Research Process
-                  </Badge>
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-3">
-                    Where Analysis Meets <span className="text-primary-glow">Innovation</span>
-                  </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground">
-                    Every insight starts with systematic investigation and ends with meaningful user impact.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Badge variant="outline" className="mb-4 border-primary text-primary bg-primary/5">
+            Analytics Dashboard
+          </Badge>
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            Impact-Driven <span className="text-primary-glow">Research</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Data-driven insights that transform user experiences and deliver measurable business outcomes
+          </p>
         </motion.div>
 
-        <div className="relative lg:px-10 mb-12">
+        {/* Dashboard Carousel */}
+        <div className="relative">
           <Carousel className="w-full">
             <CarouselContent>
-              {stories.map((story, index) => (
-                <CarouselItem key={index} className="basis-full">
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, duration: 0.6 }}
-                    whileHover={{ y: -5 }}
-                    className="h-full px-2"
-                  >
-                    <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full flex flex-col overflow-hidden">
-                      {/* Visual Preview */}
-                      <div className="relative h-48 sm:h-56 overflow-hidden">
-                        <img 
-                          src={story.visual} 
-                          alt={`${story.title} preview`} 
-                          className="w-full h-full object-cover" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent" />
-                        <div className="absolute bottom-4 left-4 right-4">
-                          <h3 className="text-lg sm:text-xl font-bold text-white mb-1 leading-tight">
-                            {story.title}
-                          </h3>
-                          <p className="text-sm text-white/90 leading-tight">
-                            {story.briefSummary}
-                          </p>
-                        </div>
-                        <div className={`absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center ${
-                          story.color === 'systems' ? 'bg-systems-blue/20 backdrop-blur-sm' : 
-                          story.color === 'agile' ? 'bg-agile-primary/20 backdrop-blur-sm' : 
-                          story.color === 'success' ? 'bg-success/20 backdrop-blur-sm' : 
-                          'bg-accent/20 backdrop-blur-sm'
-                        }`}>
-                          <story.icon className={`w-5 h-5 ${
-                            story.color === 'systems' ? 'text-systems-blue' : 
-                            story.color === 'agile' ? 'text-agile-primary' : 
-                            story.color === 'success' ? 'text-success' : 
-                            'text-accent'
-                          }`} />
-                        </div>
-                      </div>
+              {stories.map((story, index) => {
+                const colors = getColorClasses(story.color);
+                const metricPercentage = getMetricPercentage(story.metric);
+                
+                return (
+                  <CarouselItem key={index} className="basis-full">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.6 }}
+                      className="px-2"
+                    >
+                      <Card className="overflow-hidden border-none bg-card/50 backdrop-blur-sm shadow-xl">
+                        {/* Hero Metric Section */}
+                        <div className={`relative ${colors.bgLight} ${colors.border} border-b`}>
+                          <div className="absolute inset-0 bg-gradient-to-br from-background/30 to-transparent" />
+                          <div className="relative p-8 lg:p-12">
+                            <div className="grid lg:grid-cols-3 gap-8 items-center">
+                              {/* Metric Display */}
+                              <div className="text-center lg:text-left">
+                                <div className="flex items-center justify-center lg:justify-start mb-4">
+                                  <div className={`p-3 rounded-full ${colors.bgLight} mr-4`}>
+                                    <story.icon className={`w-8 h-8 ${colors.text}`} />
+                                  </div>
+                                  <Badge variant="outline" className={`${colors.text} bg-background/80`}>
+                                    {story.color.toUpperCase()}
+                                  </Badge>
+                                </div>
+                                <div className={`text-5xl lg:text-6xl font-bold ${colors.text} mb-2`}>
+                                  {story.metric}
+                                </div>
+                                <p className="text-sm text-muted-foreground uppercase tracking-wide font-medium">
+                                  Impact Achieved
+                                </p>
+                                {/* Progress Bar */}
+                                <div className="mt-4 w-full bg-muted/30 rounded-full h-2">
+                                  <motion.div 
+                                    className={`h-2 rounded-full ${colors.bg}`}
+                                    initial={{ width: 0 }}
+                                    whileInView={{ width: `${metricPercentage}%` }}
+                                    transition={{ duration: 1.5, delay: 0.5 }}
+                                  />
+                                </div>
+                              </div>
 
-                      <CardContent className="p-4 sm:p-5 lg:p-6 flex-1 flex flex-col">
-                        {/* User Problem */}
-                        <div className="mb-3 sm:mb-4">
-                          <Badge variant="outline" className="text-xs text-red-500 bg-red-50 border-red-200 mb-2">
-                            USER PROBLEM
-                          </Badge>
-                          <p className="text-xs sm:text-sm text-foreground leading-tight mb-2 sm:mb-3">
-                            {story.userProblem || story.challenge}
-                          </p>
-                        </div>
-
-                        {/* User Voice Quote */}
-                        {story.userVoice && (
-                          <div className="mb-3 sm:mb-4 p-2 sm:p-3 bg-muted/50 rounded-lg border-l-4 border-primary-glow">
-                            <Badge variant="outline" className="text-xs text-primary-glow mb-2">
-                              USER VOICE
-                            </Badge>
-                            <p className="text-xs sm:text-sm text-muted-foreground italic leading-tight">
-                              "{story.userVoice}"
-                            </p>
-                          </div>
-                        )}
-
-                        {/* Research Method */}
-                        <div className="mb-3 sm:mb-4">
-                          <Badge variant="outline" className="text-xs text-primary-glow mb-2">
-                            RESEARCH METHOD
-                          </Badge>
-                          <p className="text-xs sm:text-sm text-muted-foreground leading-tight mb-2 sm:mb-3">
-                            {story.researchMethod}
-                          </p>
-                        </div>
-
-                        {/* Key Insight */}
-                        <div className="mb-3 sm:mb-4 p-2 sm:p-3 bg-accent/10 rounded-lg">
-                          <Badge variant="outline" className="text-xs text-accent mb-2">
-                            KEY INSIGHT
-                          </Badge>
-                          <p className="text-xs sm:text-sm text-accent font-medium leading-tight">
-                            "{story.keyInsight}"
-                          </p>
-                        </div>
-
-                        {/* Solution & Impact */}
-                        <div className="mb-4">
-                          <Badge variant="outline" className="text-xs text-success mb-2">
-                            SOLUTION & IMPACT
-                          </Badge>
-                          <p className="text-sm text-foreground leading-tight mb-2">
-                            {story.solution}
-                          </p>
-                          <p className="text-sm text-muted-foreground leading-tight mb-3">
-                            {story.userImpact}
-                          </p>
-                          {/* Business Impact */}
-                          <div className="bg-success/5 border border-success/20 rounded-lg p-3">
-                            <Badge variant="outline" className="text-xs text-success mb-2 bg-success/10">
-                              BUSINESS IMPACT
-                            </Badge>
-                            <p className="text-xs text-success font-medium">
-                              {story.caseStudyId === 1 && "Enhanced mission readiness and reduced operational risk across global defense operations"}
-                              {story.caseStudyId === 5 && "ROI of 5,200% through automation. Enabled strategic focus shift from manual tasks to analysis"}
-                              {story.caseStudyId === 3 && "Leadership gained 12+ weeks annually for strategic planning instead of manual reporting"}
-                              {story.caseStudyId === 4 && "Improved organizational scalability enabling rapid team expansion without communication breakdown"}
-                            </p>
+                              {/* Title & Summary */}
+                              <div className="lg:col-span-2">
+                                <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4 leading-tight">
+                                  {story.title}
+                                </h3>
+                                <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                                  {story.briefSummary}
+                                </p>
+                                <div className="flex flex-wrap gap-2">
+                                  {story.tools.slice(0, 4).map((tool, idx) => (
+                                    <Badge key={idx} variant="secondary" className="text-xs">
+                                      {tool}
+                                    </Badge>
+                                  ))}
+                                  {story.tools.length > 4 && (
+                                    <Badge variant="outline" className="text-xs">
+                                      +{story.tools.length - 4} more
+                                    </Badge>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
 
-                        {/* Metric */}
-                        <div className={`text-center p-3 rounded-lg mb-4 ${
-                          story.color === 'systems' ? 'bg-systems-blue/10' : 
-                          story.color === 'agile' ? 'bg-agile-primary/10' : 
-                          story.color === 'success' ? 'bg-success/10' : 
-                          'bg-accent/10'
-                        }`}>
-                          <div className={`text-lg sm:text-xl lg:text-2xl font-bold ${
-                            story.color === 'systems' ? 'text-systems-blue' : 
-                            story.color === 'agile' ? 'text-agile-primary' : 
-                            story.color === 'success' ? 'text-success' : 
-                            'text-accent'
-                          }`}>
-                            {story.metric}
+                        <CardContent className="p-8 lg:p-12">
+                          {/* Problem vs Solution Grid */}
+                          <div className="grid lg:grid-cols-2 gap-8 mb-10">
+                            {/* Problem */}
+                            <div className="space-y-4">
+                              <div className="flex items-center gap-3 mb-4">
+                                <div className="w-2 h-2 rounded-full bg-red-500" />
+                                <h4 className="font-semibold text-foreground uppercase tracking-wide text-sm">
+                                  Challenge
+                                </h4>
+                              </div>
+                              <div className="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800/30 rounded-lg p-6">
+                                <p className="text-foreground leading-relaxed">
+                                  {story.userProblem || story.challenge}
+                                </p>
+                                {story.userVoice && (
+                                  <div className="mt-4 pt-4 border-t border-red-200 dark:border-red-800/30">
+                                    <p className="text-sm italic text-red-700 dark:text-red-300">
+                                      "{story.userVoice}"
+                                    </p>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+
+                            {/* Solution */}
+                            <div className="space-y-4">
+                              <div className="flex items-center gap-3 mb-4">
+                                <div className="w-2 h-2 rounded-full bg-success" />
+                                <h4 className="font-semibold text-foreground uppercase tracking-wide text-sm">
+                                  Solution & Impact
+                                </h4>
+                              </div>
+                              <div className="bg-success/5 border border-success/20 rounded-lg p-6">
+                                <p className="text-foreground leading-relaxed mb-4">
+                                  {story.solution}
+                                </p>
+                                <div className="pt-4 border-t border-success/20">
+                                  <p className="text-sm text-success font-medium">
+                                    {story.userImpact}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
 
-                        {/* Research Artifacts Preview */}
-                        <ResearchArtifactPreview 
-                          storyId={story.caseStudyId} 
-                          artifacts={story.artifacts || []}
-                          onViewArtifact={(artifact) => console.log('View artifact:', artifact)}
-                        />
-
-                        {/* Tools Used */}
-                        <div className="mb-4">
-                          <h4 className="text-xs font-semibold text-muted-foreground mb-2">TOOLS USED</h4>
-                          <div className="flex flex-wrap gap-1">
-                            {story.tools.map((tool, toolIndex) => (
-                              <Badge key={toolIndex} variant="secondary" className="text-xs">
-                                {tool}
-                              </Badge>
-                            ))}
+                          {/* Key Insight Callout */}
+                          <div className={`${colors.bgLight} ${colors.border} border rounded-xl p-6 mb-8`}>
+                            <div className="flex items-start gap-4">
+                              <div className={`p-2 rounded-lg ${colors.bg}/20`}>
+                                <div className={`w-2 h-2 rounded-full ${colors.bg}`} />
+                              </div>
+                              <div>
+                                <h4 className={`font-semibold ${colors.text} mb-2 uppercase tracking-wide text-sm`}>
+                                  Key Insight
+                                </h4>
+                                <p className="text-foreground font-medium text-lg leading-relaxed">
+                                  {story.keyInsight}
+                                </p>
+                              </div>
+                            </div>
                           </div>
-                        </div>
 
-                        {/* Stakeholder Testimonial */}
-                        {story.stakeholderQuote && (
-                          <div className="mb-4 p-3 bg-secondary/20 rounded-lg border-l-4 border-secondary">
-                            <Badge variant="outline" className="text-xs text-secondary mb-2">
-                              STAKEHOLDER FEEDBACK
-                            </Badge>
-                            <p className="text-xs text-secondary italic leading-tight">
-                              "{story.stakeholderQuote}"
-                            </p>
+                          {/* Research Method & Business Impact */}
+                          <div className="grid lg:grid-cols-2 gap-8 mb-8">
+                            <div className="bg-muted/30 rounded-lg p-6">
+                              <h4 className="font-semibold text-foreground mb-3 uppercase tracking-wide text-sm">
+                                Research Method
+                              </h4>
+                              <p className="text-muted-foreground leading-relaxed">
+                                {story.researchMethod}
+                              </p>
+                            </div>
+                            <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
+                              <h4 className="font-semibold text-primary mb-3 uppercase tracking-wide text-sm">
+                                Business Impact
+                              </h4>
+                              <p className="text-primary font-medium leading-relaxed">
+                                {story.caseStudyId === 1 && "Enhanced mission readiness and reduced operational risk across global defense operations"}
+                                {story.caseStudyId === 5 && "ROI of 5,200% through automation. Enabled strategic focus shift from manual tasks to analysis"}
+                                {story.caseStudyId === 3 && "Leadership gained 12+ weeks annually for strategic planning instead of manual reporting"}
+                                {story.caseStudyId === 4 && "Improved organizational scalability enabling rapid team expansion without communication breakdown"}
+                              </p>
+                            </div>
                           </div>
-                        )}
 
-                        {/* Reflection */}
-                        <div className="border-t pt-3 mb-4">
-                          <Badge variant="outline" className="text-xs text-copper mb-2">
-                            WHAT I'D DO DIFFERENTLY
-                          </Badge>
-                          <p className="text-xs text-copper italic leading-tight">
-                            {story.reflection}
-                          </p>
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className="mt-auto flex gap-2">
-                          <Button 
-                            onClick={() => navigate('/case-studies', {
-                              state: { selectedStudyId: story.caseStudyId }
-                            })} 
-                            className={`flex-1 ${
-                              story.color === 'systems' ? 'bg-systems-blue hover:bg-systems-blue/90' : 
-                              story.color === 'agile' ? 'bg-agile-primary hover:bg-agile-primary/90' : 
-                              story.color === 'success' ? 'bg-success hover:bg-success/90' : 
-                              'bg-accent hover:bg-accent/90'
-                            } text-white shadow-sm`} 
-                            size="sm"
-                          >
-                            <Eye className="w-4 h-4 mr-2" />
-                            Full Case Study
-                          </Button>
-                          <PortfolioDownload variant="button" className="shrink-0" />
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </CarouselItem>
-              ))}
+                          {/* Action Buttons */}
+                          <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t">
+                            <Button 
+                              onClick={() => navigate('/case-studies', {
+                                state: { selectedStudyId: story.caseStudyId }
+                              })} 
+                              className={`${colors.bg} hover:opacity-90 text-white flex-1 h-12`}
+                              size="lg"
+                            >
+                              <Eye className="w-5 h-5 mr-2" />
+                              View Full Case Study
+                            </Button>
+                            <PortfolioDownload 
+                              variant="button" 
+                              className="sm:w-auto w-full h-12 bg-muted hover:bg-muted/80 text-foreground" 
+                            />
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  </CarouselItem>
+                );
+              })}
             </CarouselContent>
-            <CarouselPrevious className="lg:-left-5 left-2" />
-            <CarouselNext className="lg:-right-5 right-2" />
+            <CarouselPrevious className="left-4 lg:-left-12 w-12 h-12 bg-background/80 backdrop-blur-sm border-2" />
+            <CarouselNext className="right-4 lg:-right-12 w-12 h-12 bg-background/80 backdrop-blur-sm border-2" />
           </Carousel>
         </div>
       </div>
