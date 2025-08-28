@@ -83,7 +83,7 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({ stori
 
   return (
     <section className="section">
-      <div className="max-w-none px-4 lg:px-8 xl:px-12">
+      <div className="max-w-[95vw] mx-auto">
         {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }} 
