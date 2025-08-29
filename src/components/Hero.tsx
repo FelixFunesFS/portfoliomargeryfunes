@@ -203,7 +203,7 @@ const Hero = () => {
 
           <motion.div variants={slideUpVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25" asChild>
-              <a href="#projects">View My Work</a>
+              <a href="/case-studies">View My Work</a>
             </Button>
             <Button variant="outline" className="border-primary text-primary hover:bg-primary/10 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover:scale-105 transition-all duration-300" asChild>
               <a href="#contact">Let's Connect</a>
@@ -348,7 +348,7 @@ const Hero = () => {
         </motion.div>
       </motion.div>
       
-      <motion.a href="#projects" className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 text-primary/60 hover:text-primary transition-colors duration-300" aria-label="Scroll to projects" variants={floatVariants} initial="hidden" animate="visible">
+      <motion.a href="#about" className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 text-primary/60 hover:text-primary transition-colors duration-300" aria-label="Scroll to about" variants={floatVariants} initial="hidden" animate="visible">
         <ArrowDown size={20} className="sm:w-6 sm:h-6" />
       </motion.a>
     </section>;
