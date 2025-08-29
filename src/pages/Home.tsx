@@ -272,6 +272,11 @@ const Home = () => {
       proficiency: 'Foundational',
       description: 'Developed interactive web applications using modern JavaScript ES6+ and React component architecture for complex user interfaces'
     }, {
+      name: 'SEO (Search Engine Optimization)',
+      level: 82,
+      proficiency: 'Advanced',
+      description: 'Implemented comprehensive SEO strategies including technical optimization, semantic HTML, meta tags, structured data, performance optimization, and analytics tracking to improve search visibility and user experience'
+    }, {
       name: 'TypeScript',
       level: 70,
       proficiency: 'Foundational',
