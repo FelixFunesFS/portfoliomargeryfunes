@@ -19,6 +19,9 @@ const Navbar = () => {
     name: 'Home',
     href: '#home'
   }, {
+    name: 'Projects',
+    href: '#projects'
+  }, {
     name: 'Case Studies',
     href: '/case-studies'
   }, {
