@@ -1,64 +1,24 @@
-import React, { useEffect, useRef } from 'react';
-import { ArrowDown, Code, Palette, Users } from 'lucide-react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { ArrowDown, Code, Palette, Users, Sparkles, Zap, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { Interactive3DParticles } from './Interactive3DParticles';
+import { TypewriterText } from './TypewriterText';
+import { ParallaxElement } from './ParallaxElement';
 const Hero = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isLoaded, setIsLoaded] = useState(false);
 
-    // Particles removed for cleaner background
-    const particles: Particle[] = [];
-    class Particle {
-      x: number;
-      y: number;
-      size: number;
-      speedX: number;
-      speedY: number;
-      constructor() {
-        this.x = 0;
-        this.y = 0;
-        this.size = 0;
-        this.speedX = 0;
-        this.speedY = 0;
-      }
-      update() {
-        // No animation needed
-      }
-      draw() {
-        // No drawing needed
-      }
-    }
-    const init = () => {
-      // No particles to initialize
-    };
-    const connect = () => {
-      // Line connections removed for cleaner look
-    };
-    const animate = () => {
-      if (!ctx) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // No particles to animate
-
-      requestAnimationFrame(animate);
-    };
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    window.addEventListener('resize', handleResize);
-    init();
-    animate();
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
   }, []);
+
+  useEffect(() => {
+    window.addEventListener('mousemove', handleMouseMove);
+    setIsLoaded(true);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [handleMouseMove]);
   const containerVariants = {
     hidden: {
       opacity: 0
@@ -123,26 +83,43 @@ const Hero = () => {
   return <section id="home" className="relative flex items-center justify-center min-h-screen overflow-hidden px-4 sm:px-6">
       <canvas ref={canvasRef} className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-muted/20 z-0" />
       
-      {/* Animated Gradient Spots */}
-      <motion.div className="absolute top-20 left-1/4 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-accent/30 to-accent/10 rounded-full blur-3xl" animate={{
-      x: [0, 30, -20, 0],
-      y: [0, -20, 30, 0],
-      scale: [1, 1.2, 0.8, 1]
-    }} transition={{
-      duration: 8,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }} />
-      <motion.div className="absolute bottom-32 right-1/4 w-24 h-24 sm:w-36 sm:h-36 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl" animate={{
-      x: [0, -25, 15, 0],
-      y: [0, 25, -15, 0],
-      scale: [1, 0.7, 1.3, 1]
-    }} transition={{
-      duration: 6,
-      repeat: Infinity,
-      ease: "easeInOut",
-      delay: 1
-    }} />
+      {/* Interactive 3D Particles */}
+      {isLoaded && <Interactive3DParticles mousePosition={mousePosition} />}
+      
+      {/* Enhanced Animated Gradient Spots with Parallax */}
+      <ParallaxElement speed={0.3} direction="up">
+        <motion.div 
+          className="absolute top-20 left-1/4 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-accent/40 to-accent/10 rounded-full blur-3xl" 
+          animate={{
+            x: [0, 40, -30, 0],
+            y: [0, -30, 40, 0],
+            scale: [1, 1.3, 0.7, 1],
+            rotate: [0, 180, 360]
+          }} 
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} 
+        />
+      </ParallaxElement>
+      <ParallaxElement speed={0.4} direction="down">
+        <motion.div 
+          className="absolute bottom-32 right-1/4 w-24 h-24 sm:w-36 sm:h-36 bg-gradient-to-br from-primary/30 to-accent/25 rounded-full blur-2xl" 
+          animate={{
+            x: [0, -35, 25, 0],
+            y: [0, 35, -25, 0],
+            scale: [1, 0.6, 1.4, 1],
+            rotate: [360, 180, 0]
+          }} 
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }} 
+        />
+      </ParallaxElement>
       <motion.div className="absolute top-1/2 right-10 w-20 h-20 sm:w-28 sm:h-28 bg-gradient-to-br from-accent/25 to-primary/15 rounded-full blur-xl" animate={{
       x: [0, 20, -30, 0],
       y: [0, -30, 20, 0],
@@ -172,26 +149,50 @@ const Hero = () => {
           </motion.div>
 
           <motion.h1 variants={scaleVariants} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground mb-4 sm:mb-6 leading-tight tracking-tight font-medium xl:text-8xl">
-            Margery Funes
+            <TypewriterText text="Margery Funes" delay={800} speed={120} />
           </motion.h1>
 
           <motion.div variants={slideUpVariants} className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gradient">
-              UX/UI Designer & Developer
+              <TypewriterText text="UX/UI Designer & Developer" delay={2000} speed={80} />
             </h2>
             <div className="flex justify-center lg:justify-start gap-3 sm:gap-4">
-              <div className="flex items-center gap-1.5 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full">
-                <Code className="w-3 h-3 sm:w-4 sm:h-4" />
-                <span className="text-xs sm:text-sm">Code</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full">
-                <Palette className="w-3 h-3 sm:w-4 sm:h-4" />
-                <span className="text-xs sm:text-sm">Design</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full">
-                <Users className="w-3 h-3 sm:w-4 sm:h-4" />
-                <span className="text-xs sm:text-sm">Research</span>
-              </div>
+              <motion.div 
+                className="flex items-center gap-1.5 text-muted-foreground bg-muted/40 backdrop-blur-sm px-3 py-2 rounded-full border border-primary/20 hover:border-primary/40 transition-all cursor-pointer group"
+                whileHover={{ 
+                  scale: 1.05, 
+                  backgroundColor: 'hsl(var(--primary) / 0.1)',
+                  boxShadow: '0 4px 20px hsl(var(--primary) / 0.3)'
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Code className="w-3 h-3 sm:w-4 sm:h-4 group-hover:text-primary transition-colors" />
+                <span className="text-xs sm:text-sm group-hover:text-primary transition-colors">Code</span>
+              </motion.div>
+              <motion.div 
+                className="flex items-center gap-1.5 text-muted-foreground bg-muted/40 backdrop-blur-sm px-3 py-2 rounded-full border border-accent/20 hover:border-accent/40 transition-all cursor-pointer group"
+                whileHover={{ 
+                  scale: 1.05, 
+                  backgroundColor: 'hsl(var(--accent) / 0.1)',
+                  boxShadow: '0 4px 20px hsl(var(--accent) / 0.3)'
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Palette className="w-3 h-3 sm:w-4 sm:h-4 group-hover:text-accent transition-colors" />
+                <span className="text-xs sm:text-sm group-hover:text-accent transition-colors">Design</span>
+              </motion.div>
+              <motion.div 
+                className="flex items-center gap-1.5 text-muted-foreground bg-muted/40 backdrop-blur-sm px-3 py-2 rounded-full border border-success/20 hover:border-success/40 transition-all cursor-pointer group"
+                whileHover={{ 
+                  scale: 1.05, 
+                  backgroundColor: 'hsl(var(--success) / 0.1)',
+                  boxShadow: '0 4px 20px hsl(var(--success) / 0.3)'
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Users className="w-3 h-3 sm:w-4 sm:h-4 group-hover:text-success transition-colors" />
+                <span className="text-xs sm:text-sm group-hover:text-success transition-colors">Research</span>
+              </motion.div>
             </div>
           </motion.div>
 
@@ -246,53 +247,104 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Profile Picture */}
+        {/* Enhanced Profile Picture Section */}
         <motion.div className="flex-shrink-0 order-1 lg:order-2 relative" variants={scaleVariants}>
-          <div className="relative">
-            {/* Decorative Elements */}
-            <motion.div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/30 to-primary/20 rounded-full blur-xl" animate={{
-            rotate: [0, 180, 360],
-            scale: [1, 1.1, 1]
-          }} transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "linear"
-          }} />
-            <motion.div className="absolute -inset-2 bg-gradient-to-r from-accent/30 to-primary/30 rounded-full" animate={{
-            rotate: [360, 180, 0]
-          }} transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "linear"
-          }} />
-            
-            {/* Profile Image */}
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-background shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face" alt="Margery Funes - UX/UI Designer & Developer" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700 ease-out" />
+          <ParallaxElement speed={0.2} direction="up">
+            <div className="relative">
+              {/* Enhanced Decorative Elements */}
+              <motion.div 
+                className="absolute -inset-6 bg-gradient-to-r from-primary/30 via-accent/40 to-primary/30 rounded-full blur-2xl" 
+                animate={{
+                  rotate: [0, 180, 360],
+                  scale: [1, 1.2, 1],
+                  opacity: [0.7, 1, 0.7]
+                }} 
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  ease: "linear"
+                }} 
+              />
+              <motion.div 
+                className="absolute -inset-3 bg-gradient-to-r from-accent/40 to-primary/40 rounded-full blur-lg" 
+                animate={{
+                  rotate: [360, 180, 0],
+                  scale: [1.1, 0.9, 1.1]
+                }} 
+                transition={{
+                  duration: 7,
+                  repeat: Infinity,
+                  ease: "linear"
+                }} 
+              />
               
-              {/* Overlay gradient for depth */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/10 rounded-full" />
+              {/* Profile Image with Enhanced Effects */}
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-background shadow-2xl group">
+                <img 
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face" 
+                  alt="Margery Funes - UX/UI Designer & Developer" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" 
+                />
+                
+                {/* Enhanced overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/15 via-transparent to-accent/15 rounded-full group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500" />
+                
+                {/* Pulse effect on hover */}
+                <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-20 bg-gradient-to-r from-primary to-accent transition-opacity duration-300" />
+              </div>
+              
+              {/* Enhanced Floating Elements with Icons */}
+              <motion.div 
+                className="absolute top-8 -right-6 w-8 h-8 bg-primary rounded-full shadow-lg flex items-center justify-center text-primary-foreground"
+                animate={{
+                  y: [0, -15, 0],
+                  x: [0, 8, 0],
+                  rotate: [0, 360]
+                }} 
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <Sparkles className="w-4 h-4" />
+              </motion.div>
+              
+              <motion.div 
+                className="absolute bottom-12 -left-8 w-10 h-10 bg-accent rounded-full shadow-lg flex items-center justify-center text-accent-foreground"
+                animate={{
+                  y: [0, 12, 0],
+                  x: [0, -5, 0],
+                  rotate: [360, 0]
+                }} 
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1
+                }}
+              >
+                <Zap className="w-5 h-5" />
+              </motion.div>
+              
+              <motion.div 
+                className="absolute top-1/3 -left-4 w-6 h-6 bg-success rounded-full shadow-lg flex items-center justify-center text-success-foreground"
+                animate={{
+                  y: [0, -8, 0],
+                  x: [0, -3, 0],
+                  scale: [1, 1.2, 1]
+                }} 
+                transition={{
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 2
+                }}
+              >
+                <Target className="w-3 h-3" />
+              </motion.div>
             </div>
-            
-            {/* Floating Elements */}
-            <motion.div className="absolute top-8 -right-4 w-4 h-4 bg-primary rounded-full shadow-lg" animate={{
-            y: [0, -10, 0],
-            x: [0, 5, 0]
-          }} transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} />
-            <motion.div className="absolute bottom-12 -left-6 w-6 h-6 bg-accent rounded-full shadow-lg" animate={{
-            y: [0, 8, 0],
-            x: [0, -3, 0]
-          }} transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }} />
-          </div>
+          </ParallaxElement>
         </motion.div>
       </motion.div>
       
