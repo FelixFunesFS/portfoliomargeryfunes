@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
-import About from '@/components/About';
 import ResearchMethodology from '@/components/ResearchMethodology';
 import { Target, Zap, TrendingUp, Users, BarChart3, Layers, GitBranch, RefreshCw, CheckCircle, ArrowRight, Radar, Settings, Database, Code, LineChart, Shield, Rocket, Brain, Clock, Award, ChevronDown, Eye, MapPin, ExternalLink, Globe, Monitor, Smartphone, Heart, Home as HomeIcon, Trophy, GraduationCap, Lightbulb, Search, TestTube, Download, Calendar } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,15 +10,13 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import WebDesignCard from '@/components/WebDesignCard';
 import DesignProcess from '@/components/DesignProcess';
-import ProfessionalImpactMetrics from '@/components/ProfessionalImpactMetrics';
+import UnifiedImpactMetrics from '@/components/UnifiedImpactMetrics';
 import CareerProgression from '@/components/CareerProgression';
 import SkillItem from '@/components/SkillItem';
 import FeaturedCapabilitiesCarousel from '@/components/FeaturedCapabilitiesCarousel';
 import InteractiveCapabilityMap from '@/components/InteractiveCapabilityMap';
 import SkillsEvolutionTimeline from '@/components/SkillsEvolutionTimeline';
-import ResearchImpactGlance from '@/components/ResearchImpactGlance';
 import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
-import ResearchConsultationCTA from '@/components/ResearchConsultationCTA';
 import PortfolioDownload from '@/components/PortfolioDownload';
 import ResearchStoriesCarousel from '@/components/ResearchStoriesCarousel';
 import elSalvadorImage from '@/assets/el-salvador-tourism.png';
@@ -596,15 +593,8 @@ const Home = () => {
         </motion.div>
       </motion.section>
 
-      {/* Professional Impact Metrics */}
-      <ProfessionalImpactMetrics />
-
-      {/* Research Philosophy Section */}
-      
-
-
-      {/* Research Impact at a Glance - New Section */}
-      <ResearchImpactGlance />
+      {/* Unified Impact Metrics */}
+      <UnifiedImpactMetrics />
 
       {/* Enhanced Leadership Testimonial */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
@@ -847,9 +837,6 @@ const Home = () => {
           </motion.div>
 
           <ResearchStoriesCarousel stories={researchStories} />
-
-          {/* Enhanced Research Consultation CTA */}
-          <ResearchConsultationCTA />
         </div>
       </section>
 
@@ -862,110 +849,66 @@ const Home = () => {
       {/* Skills Evolution Timeline */}
       <SkillsEvolutionTimeline />
 
-      {/* Skills Arsenal - Positioned Higher for Better Priority */}
-      <section className="section gradient-subtle">
+      {/* Mission-Driven Design Philosophy & Journey */}
+      <section id="about" className="section bg-gradient-to-br from-accent/30 via-background to-muted/20">
         <div className="container-custom">
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6
-        }} className="text-center mb-16">
-             <Badge variant="outline" className="mb-4 border-accent text-accent">
-               Core UX Research Skills
-             </Badge>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-                Research Methods & <span className="text-accent">Technical Expertise</span>
-              </h2>
-              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
-                A systematic approach to user research combining proven methodologies with technical implementation capabilities.
-              </p>
-
-              {/* Filter Buttons */}
-              <div className="flex flex-wrap justify-center gap-3 mt-8">
-                {filterCategories.map(category => <Button key={category} variant={selectedFilter === category ? "default" : "outline"} onClick={() => setSelectedFilter(category)} className="transition-all duration-300">
-                    {category}
-                  </Button>)}
-              </div>
-          </motion.div>
-
-          {/* Skills Visual Intro */}
-          <motion.div initial={{
-          opacity: 0,
-          scale: 0.95
-        }} whileInView={{
-          opacity: 1,
-          scale: 1
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
-            <div>
-              <Badge variant="outline" className="mb-4 border-systems-blue text-systems-blue">
-                Technical Arsenal
-              </Badge>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
-                Innovation Through <span className="text-systems-blue">Systematic Mastery</span>
-              </h3>
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
-                A comprehensive toolkit built through military precision, enterprise complexity, 
-                and modern UX methodologies—each skill sharpened for maximum impact.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="outline" className="border-accent text-accent">Research</Badge>
-                <Badge variant="outline" className="border-accent text-accent">Analysis</Badge>
-                <Badge variant="outline" className="border-accent text-accent">Strategy</Badge>
-              </div>
-            </div>
-            <div className="relative overflow-hidden rounded-xl">
-              <div className="h-48 sm:h-64 lg:h-80">
-                <img src={robotInnovation} alt="Innovation and futuristic technology representation" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-l from-background/90 to-transparent"></div>
-              </div>
-            </div>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            {Object.entries(filteredSkillCategories).map(([category, skills], index) => <motion.div key={category} initial={{
-            opacity: 0,
-            y: 50
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: index * 0.1,
-            duration: 0.6
-          }}>
-                <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300">
-                  <CardHeader className="p-4 sm:p-6">
-                    <CardTitle className="text-foreground text-lg sm:text-xl mb-4">
-                      {category}
-                    </CardTitle>
-                    <div className="space-y-3">
-                      {skills.map((skill, skillIndex) => <SkillItem key={skill.name} name={skill.name} level={skill.level} proficiency={skill.proficiency} description={skill.description} delay={index * 100 + skillIndex * 50} />)}
-                    </div>
-                  </CardHeader>
-                </Card>
-              </motion.div>)}
+          {/* Mission Capabilities Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
+              Mission-Driven Design Philosophy
+            </h2>
+            <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
+              Combining 8 years of military precision with advanced UX methodologies to create 
+              systems that perform under pressure and deliver exceptional user outcomes.
+            </p>
           </div>
-        </div>
-      </section>
+          
+          {/* Mission Capabilities Grid */}
+          <div className="mb-20">
+            <h3 className="text-2xl font-semibold mb-8 text-center">Mission Capabilities</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Card className="glass border-none hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-6 text-center">
+                  <div className="flex justify-center mb-4">
+                    <Target className="w-10 h-10 text-primary" />
+                  </div>
+                  <h4 className="text-xl font-semibold mb-3">Systems Design & Analysis</h4>
+                  <p className="text-muted-foreground text-sm">Military-trained approach to complex system design with precision and strategic thinking.</p>
+                </CardContent>
+              </Card>
+              <Card className="glass border-none hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-6 text-center">
+                  <div className="flex justify-center mb-4">
+                    <Shield className="w-10 h-10 text-primary" />
+                  </div>
+                  <h4 className="text-xl font-semibold mb-3">Mission-Critical UX</h4>
+                  <p className="text-muted-foreground text-sm">User experiences designed for high-stakes environments where failure is not an option.</p>
+                </CardContent>
+              </Card>
+              <Card className="glass border-none hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-6 text-center">
+                  <div className="flex justify-center mb-4">
+                    <Code className="w-10 h-10 text-primary" />
+                  </div>
+                  <h4 className="text-xl font-semibold mb-3">Process Automation</h4>
+                  <p className="text-muted-foreground text-sm">Streamlining workflows through intelligent automation and systems integration.</p>
+                </CardContent>
+              </Card>
+              <Card className="glass border-none hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-6 text-center">
+                  <div className="flex justify-center mb-4">
+                    <Users className="w-10 h-10 text-primary" />
+                  </div>
+                  <h4 className="text-xl font-semibold mb-3">Leadership & Training</h4>
+                  <p className="text-muted-foreground text-sm">Leading cross-functional teams with military discipline and strategic coordination.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
 
-
-      {/* About Section - Mission Capabilities */}
-      <About />
-
-      {/* My Journey into User Research */}
-      <section className="py-16 sm:py-24 bg-muted/30">
-        <div className="container max-w-7xl mx-auto px-4">
+          {/* Journey Section - Header */}
+          <Separator className="my-16" />
+          
           {/* Header */}
           <motion.div initial={{
           opacity: 0,
@@ -1611,21 +1554,6 @@ const Home = () => {
                 <div>
                   <p className="text-sm font-medium text-foreground">Systems Analyst & UX Researcher</p>
                   <p className="text-xs text-muted-foreground">Military Precision • Agile Innovation • User-Centered Design</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-6">
-                <div className="text-center">
-                  <div className="text-lg font-bold text-primary-glow">26K+</div>
-                  <div className="text-xs text-muted-foreground">Hours Saved</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-lg font-bold text-agile-primary">23</div>
-                  <div className="text-xs text-muted-foreground">Global Bases</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-lg font-bold text-accent">340%</div>
-                  <div className="text-xs text-muted-foreground">Max Conversion</div>
                 </div>
               </div>
             </div>
