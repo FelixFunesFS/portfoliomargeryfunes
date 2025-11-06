@@ -854,7 +854,7 @@ const Home = () => {
           once: true
         }} transition={{
           duration: 0.6
-        }} className="text-center mb-8 sm:mb-12">
+        }} className="text-center mb-6 sm:mb-8">
             <Badge variant="outline" className="mb-3 sm:mb-4 border-agile-primary text-agile-primary text-xs sm:text-sm">
               Research Stories
             </Badge>
@@ -865,21 +865,6 @@ const Home = () => {
               Each project tells a story of user challenges, research insights, and meaningful impact. 
               Here's how I approach complex problems through systematic UX research.
             </p>
-          </motion.div>
-
-          {/* Research Stories Visual Intro */}
-          <motion.div initial={{
-          opacity: 0,
-          scale: 0.95
-        }} whileInView={{
-          opacity: 1,
-          scale: 1
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="mb-12 relative overflow-hidden rounded-xl">
-            
           </motion.div>
 
           <ResearchStoriesCarousel stories={researchStories} />

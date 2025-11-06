@@ -73,7 +73,7 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({
         };
     }
   };
-  return <section className="section">
+  return <div className="py-0">
       <div className="max-w-[95vw] mx-auto">
         {/* Header */}
         
@@ -97,7 +97,7 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({
                 }} transition={{
                   delay: index * 0.1,
                   duration: 0.6
-                }} className="px-1 lg:px-2">
+                }} className="px-2 lg:px-4">
                       <Card className="overflow-hidden border-none bg-card/50 backdrop-blur-sm shadow-xl">
                         {/* Hero Metric Section */}
                         <div className={`relative ${colors.bgLight} ${colors.border} border-b`}>
@@ -154,9 +154,9 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({
                           </div>
                         </div>
 
-                        <CardContent className="p-8 lg:p-12">
+                        <CardContent className="p-6 lg:p-8">
                           {/* Problem vs Solution Grid */}
-                          <div className="grid lg:grid-cols-2 gap-8 mb-10">
+                          <div className="grid lg:grid-cols-2 gap-6 mb-8">
                             {/* Problem */}
                             <div className="space-y-4">
                               <div className="flex items-center gap-3 mb-4">
@@ -199,7 +199,7 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({
                           </div>
 
                           {/* Key Insight Callout */}
-                          <div className={`${colors.bgLight} ${colors.border} border rounded-xl p-6 mb-8`}>
+                          <div className={`${colors.bgLight} ${colors.border} border rounded-xl p-6 mb-6`}>
                             <div className="flex items-start gap-4">
                               <div className={`p-2 rounded-lg ${colors.bg}/20`}>
                                 <div className={`w-2 h-2 rounded-full ${colors.bg}`} />
@@ -216,7 +216,7 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({
                           </div>
 
                           {/* Research Method & Business Impact */}
-                          <div className="grid lg:grid-cols-2 gap-8 mb-8">
+                          <div className="grid lg:grid-cols-2 gap-6 mb-6">
                             <div className="bg-muted/30 rounded-lg p-6">
                               <h4 className="font-semibold text-foreground mb-3 uppercase tracking-wide text-sm">
                                 Research Method
@@ -261,6 +261,6 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({
           </Carousel>
         </div>
       </div>
-    </section>;
+    </div>;
 };
 export default ResearchStoriesCarousel;
