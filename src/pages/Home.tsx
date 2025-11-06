@@ -11,7 +11,8 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import WebDesignCard from '@/components/WebDesignCard';
 import DesignProcess from '@/components/DesignProcess';
-import ProfessionalImpact from '@/components/ProfessionalImpact';
+import ProfessionalImpactMetrics from '@/components/ProfessionalImpactMetrics';
+import CareerProgression from '@/components/CareerProgression';
 import SkillItem from '@/components/SkillItem';
 import ResearchImpactGlance from '@/components/ResearchImpactGlance';
 import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
@@ -579,6 +580,9 @@ const Home = () => {
           <ChevronDown className="w-6 h-6 text-primary-glow animate-bounce" />
         </motion.div>
       </motion.section>
+
+      {/* Professional Impact Metrics */}
+      <ProfessionalImpactMetrics />
 
       {/* Research Philosophy Section */}
       
@@ -1325,8 +1329,8 @@ const Home = () => {
       {/* Design Process */}
       <DesignProcess />
 
-      {/* Professional Impact */}
-      <ProfessionalImpact />
+      {/* Career Progression Timeline */}
+      <CareerProgression />
 
       {/* Recent Work Section */}
       <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20">
