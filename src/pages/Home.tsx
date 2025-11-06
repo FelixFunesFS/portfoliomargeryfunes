@@ -16,6 +16,7 @@ import CareerProgression from '@/components/CareerProgression';
 import SkillItem from '@/components/SkillItem';
 import FeaturedCapabilitiesCarousel from '@/components/FeaturedCapabilitiesCarousel';
 import InteractiveCapabilityMap from '@/components/InteractiveCapabilityMap';
+import SkillsEvolutionTimeline from '@/components/SkillsEvolutionTimeline';
 import ResearchImpactGlance from '@/components/ResearchImpactGlance';
 import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
 import ResearchConsultationCTA from '@/components/ResearchConsultationCTA';
@@ -857,6 +858,9 @@ const Home = () => {
 
       {/* Interactive Capability Map */}
       <InteractiveCapabilityMap skills={allSkills} />
+
+      {/* Skills Evolution Timeline */}
+      <SkillsEvolutionTimeline />
 
       {/* Skills Arsenal - Positioned Higher for Better Priority */}
       <section className="section gradient-subtle">
