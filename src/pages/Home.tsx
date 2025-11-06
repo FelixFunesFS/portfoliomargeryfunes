@@ -28,6 +28,7 @@ import caseStudy1Dashboard from '@/assets/case-study-1-dashboard.jpg';
 import caseStudy5Automation from '@/assets/case-study-5-automation.jpg';
 import caseStudy3Slides from '@/assets/case-study-3-slides.jpg';
 import caseStudy4Workspace from '@/assets/case-study-4-workspace.jpg';
+import discoverElSalvador from '@/assets/discover-el-salvador.png';
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const heroRef = useRef(null);
@@ -466,7 +467,7 @@ const Home = () => {
     category: "travel",
     icon: Globe,
     color: "teal-500",
-    image: "/lovable-uploads/69ba1007-5e56-40a3-bd19-02ba0bca7d95.png",
+    image: discoverElSalvador,
     link: "https://discover-elsalvador.com"
   }];
   return <div className="min-h-screen bg-background">
