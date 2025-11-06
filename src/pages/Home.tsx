@@ -18,6 +18,7 @@ import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
 import ResearchConsultationCTA from '@/components/ResearchConsultationCTA';
 import PortfolioDownload from '@/components/PortfolioDownload';
 import ResearchStoriesCarousel from '@/components/ResearchStoriesCarousel';
+import elSalvadorImage from '@/assets/el-salvador-tourism.png';
 
 // Import images
 import circuitBoard from '@/assets/circuit-board.jpg';
@@ -466,7 +467,7 @@ const Home = () => {
     category: "travel",
     icon: Globe,
     color: "teal-500",
-    image: "/lovable-uploads/69ba1007-5e56-40a3-bd19-02ba0bca7d95.png",
+    image: elSalvadorImage,
     link: "https://discover-elsalvador.com"
   }];
   return <div className="min-h-screen bg-background">
