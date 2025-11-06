@@ -630,105 +630,123 @@ const Home = () => {
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-systems-blue/10"></div>
         <div className="absolute inset-0">
-          <motion.div
-            className="absolute top-20 left-1/4 w-96 h-96 rounded-full bg-primary-glow/20 blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          ></motion.div>
-          <motion.div
-            className="absolute bottom-20 right-1/4 w-80 h-80 rounded-full bg-systems-cyan/20 blur-3xl"
-            animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.4, 0.2, 0.4],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-          ></motion.div>
+          <motion.div className="absolute top-20 left-1/4 w-96 h-96 rounded-full bg-primary-glow/20 blur-3xl" animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3]
+        }} transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}></motion.div>
+          <motion.div className="absolute bottom-20 right-1/4 w-80 h-80 rounded-full bg-systems-cyan/20 blur-3xl" animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.4, 0.2, 0.4]
+        }} transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}></motion.div>
         </div>
 
         <div className="container max-w-5xl mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30,
+          scale: 0.95
+        }} whileInView={{
+          opacity: 1,
+          y: 0,
+          scale: 1
+        }} transition={{
+          duration: 0.8,
+          ease: "easeOut"
+        }} viewport={{
+          once: true
+        }} className="text-center">
             {/* Professional Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: -10
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.2
+          }} viewport={{
+            once: true
+          }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
               <span className="text-sm font-medium text-primary">Leadership Testimonial</span>
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
             </motion.div>
 
             {/* Enhanced Testimonial Card */}
-            <motion.div
-              className="glass relative group"
-              style={{
-                background: "linear-gradient(135deg, hsl(var(--card) / 0.8), hsl(var(--card) / 0.6))",
-                backdropFilter: "blur(20px)",
-                border: "1px solid hsl(var(--primary) / 0.2)",
-                boxShadow: "var(--shadow-glow), inset 0 1px 0 hsl(var(--card) / 0.3)",
-              }}
-              whileHover={{ 
-                scale: 1.02, 
-                boxShadow: "var(--shadow-glow), 0 0 60px hsl(var(--primary-glow) / 0.4), inset 0 1px 0 hsl(var(--card) / 0.3)" 
-              }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-            >
+            <motion.div className="glass relative group" style={{
+            background: "linear-gradient(135deg, hsl(var(--card) / 0.8), hsl(var(--card) / 0.6))",
+            backdropFilter: "blur(20px)",
+            border: "1px solid hsl(var(--primary) / 0.2)",
+            boxShadow: "var(--shadow-glow), inset 0 1px 0 hsl(var(--card) / 0.3)"
+          }} whileHover={{
+            scale: 1.02,
+            boxShadow: "var(--shadow-glow), 0 0 60px hsl(var(--primary-glow) / 0.4), inset 0 1px 0 hsl(var(--card) / 0.3)"
+          }} transition={{
+            duration: 0.3,
+            ease: "easeOut"
+          }}>
               <CardContent className="p-10 sm:p-16 relative">
                 {/* Floating Quote Icon */}
-                <motion.div
-                  className="absolute -top-6 left-1/2 transform -translate-x-1/2"
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.4, type: "spring", stiffness: 200 }}
-                  viewport={{ once: true }}
-                >
+                <motion.div className="absolute -top-6 left-1/2 transform -translate-x-1/2" initial={{
+                opacity: 0,
+                scale: 0
+              }} whileInView={{
+                opacity: 1,
+                scale: 1
+              }} transition={{
+                duration: 0.5,
+                delay: 0.4,
+                type: "spring",
+                stiffness: 200
+              }} viewport={{
+                once: true
+              }}>
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center shadow-glow group-hover:shadow-[0_0_40px_hsl(var(--primary-glow)_/_0.6)] transition-all duration-300">
-                    <motion.svg 
-                      className="w-6 h-6 text-primary-foreground" 
-                      fill="currentColor" 
-                      viewBox="0 0 24 24"
-                      animate={{ rotate: [0, 5, -5, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                      <path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.738.406-1.091.746-.363.332-.738.696-1.032 1.15-.309.435-.542.942-.638 1.43-.094.52-.007.95.247 1.263.27.318.743.496 1.257.496.732 0 1.325-.593 1.325-1.325S7.232 10 6.5 10zm8 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.738.406-1.091.746-.363.332-.738.696-1.032 1.15-.309.435-.542.942-.638 1.43-.094.52-.007.95.247 1.263.27.318.743.496 1.257.496.732 0 1.325-.593 1.325-1.325S15.232 10 14.5 10z"/>
+                    <motion.svg className="w-6 h-6 text-primary-foreground" fill="currentColor" viewBox="0 0 24 24" animate={{
+                    rotate: [0, 5, -5, 0]
+                  }} transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}>
+                      <path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.738.406-1.091.746-.363.332-.738.696-1.032 1.15-.309.435-.542.942-.638 1.43-.094.52-.007.95.247 1.263.27.318.743.496 1.257.496.732 0 1.325-.593 1.325-1.325S7.232 10 6.5 10zm8 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.738.406-1.091.746-.363.332-.738.696-1.032 1.15-.309.435-.542.942-.638 1.43-.094.52-.007.95.247 1.263.27.318.743.496 1.257.496.732 0 1.325-.593 1.325-1.325S15.232 10 14.5 10z" />
                     </motion.svg>
                   </div>
                 </motion.div>
 
                 {/* Quote Text with Staggered Animation */}
-                <motion.blockquote 
-                  className="text-xl sm:text-2xl text-foreground leading-relaxed mb-10 relative z-10"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  viewport={{ once: true }}
-                >
-                  <motion.span
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                    viewport={{ once: true }}
-                  >
+                <motion.blockquote className="text-xl sm:text-2xl text-foreground leading-relaxed mb-10 relative z-10" initial={{
+                opacity: 0
+              }} whileInView={{
+                opacity: 1
+              }} transition={{
+                duration: 0.8,
+                delay: 0.6
+              }} viewport={{
+                once: true
+              }}>
+                  <motion.span initial={{
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} transition={{
+                  duration: 0.6,
+                  delay: 0.8
+                }} viewport={{
+                  once: true
+                }}>
                     "Margery is amazing at{" "}
                     <span className="bg-gradient-to-r from-primary to-systems-blue bg-clip-text text-transparent font-semibold">
                       bridging user research and technical development
@@ -746,20 +764,26 @@ const Home = () => {
                 </motion.blockquote>
 
                 {/* Professional Attribution with Boeing Styling */}
-                <motion.div
-                  className="relative"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.0 }}
-                  viewport={{ once: true }}
-                >
+                <motion.div className="relative" initial={{
+                opacity: 0,
+                y: 20
+              }} whileInView={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                duration: 0.6,
+                delay: 1.0
+              }} viewport={{
+                once: true
+              }}>
                   <div className="flex items-center justify-center gap-4 pt-8 border-t border-gradient-to-r from-transparent via-primary/20 to-transparent">
                     {/* Aviation Icon */}
-                    <motion.div
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-systems-blue to-primary flex items-center justify-center shadow-lg"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
+                    <motion.div className="w-10 h-10 rounded-full bg-gradient-to-br from-systems-blue to-primary flex items-center justify-center shadow-lg" whileHover={{
+                    scale: 1.1,
+                    rotate: 5
+                  }} transition={{
+                    duration: 0.2
+                  }}>
                       <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z" />
                       </svg>
@@ -781,11 +805,11 @@ const Home = () => {
                     </div>
 
                     {/* Verification Badge */}
-                    <motion.div
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-success to-mint flex items-center justify-center shadow-lg"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.2 }}
-                    >
+                    <motion.div className="w-10 h-10 rounded-full bg-gradient-to-br from-success to-mint flex items-center justify-center shadow-lg" whileHover={{
+                    scale: 1.1
+                  }} transition={{
+                    duration: 0.2
+                  }}>
                       <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" />
                       </svg>
@@ -794,31 +818,23 @@ const Home = () => {
                 </motion.div>
 
                 {/* Subtle Floating Elements */}
-                <motion.div
-                  className="absolute top-4 right-4 w-2 h-2 rounded-full bg-primary/30"
-                  animate={{
-                    y: [-5, 5, -5],
-                    opacity: [0.3, 0.7, 0.3],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                ></motion.div>
-                <motion.div
-                  className="absolute bottom-4 left-4 w-1.5 h-1.5 rounded-full bg-systems-cyan/40"
-                  animate={{
-                    y: [5, -5, 5],
-                    opacity: [0.4, 0.8, 0.4],
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
-                  }}
-                ></motion.div>
+                <motion.div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-primary/30" animate={{
+                y: [-5, 5, -5],
+                opacity: [0.3, 0.7, 0.3]
+              }} transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}></motion.div>
+                <motion.div className="absolute bottom-4 left-4 w-1.5 h-1.5 rounded-full bg-systems-cyan/40" animate={{
+                y: [5, -5, 5],
+                opacity: [0.4, 0.8, 0.4]
+              }} transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1
+              }}></motion.div>
               </CardContent>
             </motion.div>
           </motion.div>
@@ -863,24 +879,7 @@ const Home = () => {
         }} transition={{
           duration: 0.8
         }} className="mb-12 relative overflow-hidden rounded-xl">
-            <div className="relative h-48 sm:h-64 lg:h-80">
-              <img src={researchDesk} alt="UX Research workspace with code and analysis" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent flex items-center">
-                <div className="container-custom">
-                  <div className="max-w-lg">
-                    <Badge variant="outline" className="mb-3 border-primary-glow text-primary-glow">
-                      Research Process
-                    </Badge>
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-3">
-                      Where Analysis Meets <span className="text-primary-glow">Innovation</span>
-                    </h3>
-                    <p className="text-sm sm:text-base text-muted-foreground">
-                      Every insight starts with systematic investigation and ends with meaningful user impact.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </motion.div>
 
           <ResearchStoriesCarousel stories={researchStories} />

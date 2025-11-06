@@ -2,19 +2,12 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Eye } from 'lucide-react';
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious
-} from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
 import PortfolioDownload from '@/components/PortfolioDownload';
-
 interface ResearchStory {
   title: string;
   briefSummary: string;
@@ -28,26 +21,26 @@ interface ResearchStory {
   solution: string;
   userImpact: string;
   metric: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{
+    className?: string;
+  }>;
   tools: string[];
   artifacts: string[];
   reflection: string;
   color: string;
   caseStudyId: number;
 }
-
 interface ResearchStoriesCarouselProps {
   stories: ResearchStory[];
 }
-
-const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({ stories }) => {
+const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({
+  stories
+}) => {
   const navigate = useNavigate();
-
   const getMetricPercentage = (metric: string): number => {
     const numMatch = metric.match(/(\d+)%/);
     return numMatch ? parseInt(numMatch[1]) : 75;
   };
-
   const getColorClasses = (color: string) => {
     switch (color) {
       case 'systems':
@@ -80,46 +73,31 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({ stori
         };
     }
   };
-
-  return (
-    <section className="section">
+  return <section className="section">
       <div className="max-w-[95vw] mx-auto">
         {/* Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }} 
-          transition={{ duration: 0.6 }} 
-          className="text-center mb-12"
-        >
-          <Badge variant="outline" className="mb-4 border-primary text-primary bg-primary/5">
-            Analytics Dashboard
-          </Badge>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Impact-Driven <span className="text-primary-glow">Research</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Data-driven insights that transform user experiences and deliver measurable business outcomes
-          </p>
-        </motion.div>
+        
 
         {/* Dashboard Carousel */}
         <div className="relative">
           <Carousel className="w-full">
             <CarouselContent>
               {stories.map((story, index) => {
-                const colors = getColorClasses(story.color);
-                const metricPercentage = getMetricPercentage(story.metric);
-                
-                return (
-                  <CarouselItem key={index} className="basis-full">
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1, duration: 0.6 }}
-                      className="px-1 lg:px-2"
-                    >
+              const colors = getColorClasses(story.color);
+              const metricPercentage = getMetricPercentage(story.metric);
+              return <CarouselItem key={index} className="basis-full">
+                    <motion.div initial={{
+                  opacity: 0,
+                  scale: 0.95
+                }} whileInView={{
+                  opacity: 1,
+                  scale: 1
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  delay: index * 0.1,
+                  duration: 0.6
+                }} className="px-1 lg:px-2">
                       <Card className="overflow-hidden border-none bg-card/50 backdrop-blur-sm shadow-xl">
                         {/* Hero Metric Section */}
                         <div className={`relative ${colors.bgLight} ${colors.border} border-b`}>
@@ -144,12 +122,14 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({ stori
                                 </p>
                                 {/* Progress Bar */}
                                 <div className="mt-4 w-full bg-muted/30 rounded-full h-2">
-                                  <motion.div 
-                                    className={`h-2 rounded-full ${colors.bg}`}
-                                    initial={{ width: 0 }}
-                                    whileInView={{ width: `${metricPercentage}%` }}
-                                    transition={{ duration: 1.5, delay: 0.5 }}
-                                  />
+                                  <motion.div className={`h-2 rounded-full ${colors.bg}`} initial={{
+                                width: 0
+                              }} whileInView={{
+                                width: `${metricPercentage}%`
+                              }} transition={{
+                                duration: 1.5,
+                                delay: 0.5
+                              }} />
                                 </div>
                               </div>
 
@@ -162,16 +142,12 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({ stori
                                   {story.briefSummary}
                                 </p>
                                 <div className="flex flex-wrap gap-2">
-                                  {story.tools.slice(0, 4).map((tool, idx) => (
-                                    <Badge key={idx} variant="secondary" className="text-xs">
+                                  {story.tools.slice(0, 4).map((tool, idx) => <Badge key={idx} variant="secondary" className="text-xs">
                                       {tool}
-                                    </Badge>
-                                  ))}
-                                  {story.tools.length > 4 && (
-                                    <Badge variant="outline" className="text-xs">
+                                    </Badge>)}
+                                  {story.tools.length > 4 && <Badge variant="outline" className="text-xs">
                                       +{story.tools.length - 4} more
-                                    </Badge>
-                                  )}
+                                    </Badge>}
                                 </div>
                               </div>
                             </div>
@@ -193,13 +169,11 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({ stori
                                 <p className="text-foreground leading-relaxed">
                                   {story.userProblem || story.challenge}
                                 </p>
-                                {story.userVoice && (
-                                  <div className="mt-4 pt-4 border-t border-red-200 dark:border-red-800/30">
+                                {story.userVoice && <div className="mt-4 pt-4 border-t border-red-200 dark:border-red-800/30">
                                     <p className="text-sm italic text-red-700 dark:text-red-300">
                                       "{story.userVoice}"
                                     </p>
-                                  </div>
-                                )}
+                                  </div>}
                               </div>
                             </div>
 
@@ -266,35 +240,27 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({ stori
 
                           {/* Action Buttons */}
                           <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t">
-                            <Button 
-                              onClick={() => navigate('/case-studies', {
-                                state: { selectedStudyId: story.caseStudyId }
-                              })} 
-                              className={`${colors.bg} hover:opacity-90 text-white flex-1 h-12`}
-                              size="lg"
-                            >
+                            <Button onClick={() => navigate('/case-studies', {
+                          state: {
+                            selectedStudyId: story.caseStudyId
+                          }
+                        })} className={`${colors.bg} hover:opacity-90 text-white flex-1 h-12`} size="lg">
                               <Eye className="w-5 h-5 mr-2" />
                               View Full Case Study
                             </Button>
-                            <PortfolioDownload 
-                              variant="button" 
-                              className="sm:w-auto w-full h-12 bg-muted hover:bg-muted/80 text-foreground" 
-                            />
+                            <PortfolioDownload variant="button" className="sm:w-auto w-full h-12 bg-muted hover:bg-muted/80 text-foreground" />
                           </div>
                         </CardContent>
                       </Card>
                     </motion.div>
-                  </CarouselItem>
-                );
-              })}
+                  </CarouselItem>;
+            })}
             </CarouselContent>
             <CarouselPrevious className="left-2 lg:-left-16 w-12 h-12 bg-background/80 backdrop-blur-sm border-2" />
             <CarouselNext className="right-2 lg:-right-16 w-12 h-12 bg-background/80 backdrop-blur-sm border-2" />
           </Carousel>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ResearchStoriesCarousel;
