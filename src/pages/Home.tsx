@@ -14,6 +14,7 @@ import DesignProcess from '@/components/DesignProcess';
 import ProfessionalImpactMetrics from '@/components/ProfessionalImpactMetrics';
 import CareerProgression from '@/components/CareerProgression';
 import SkillItem from '@/components/SkillItem';
+import FeaturedCapabilitiesCarousel from '@/components/FeaturedCapabilitiesCarousel';
 import ResearchImpactGlance from '@/components/ResearchImpactGlance';
 import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
 import ResearchConsultationCTA from '@/components/ResearchConsultationCTA';
@@ -32,6 +33,7 @@ import caseStudy3Slides from '@/assets/case-study-3-slides.jpg';
 import caseStudy4Workspace from '@/assets/case-study-4-workspace.jpg';
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [selectedFilter, setSelectedFilter] = useState<string>('All');
   const heroRef = useRef(null);
   const isHeroInView = useInView(heroRef, {
     once: true
@@ -216,6 +218,8 @@ const Home = () => {
   }];
 
   // Skills Arsenal with detailed breakdown and descriptions
+  const filterCategories = ['All', 'UX Research & Design', 'Design & Frontend Development', 'Automation & Tools', 'Leadership & Collaboration', 'AI & Modern Development'];
+
   const skillCategories = {
     'UX Research & Design': [{
       name: 'User Research & Testing',
@@ -373,6 +377,15 @@ const Home = () => {
       description: 'Actively exploring emerging technologies, staying current with AI advancements, and adapting development workflows to leverage cutting-edge tools'
     }]
   };
+
+  // Flatten skills for filtering
+  const allSkills = Object.entries(skillCategories).flatMap(([category, skills]) => 
+    skills.map(skill => ({ ...skill, category }))
+  );
+
+  const filteredSkillCategories = selectedFilter === 'All' 
+    ? skillCategories 
+    : { [selectedFilter]: skillCategories[selectedFilter as keyof typeof skillCategories] };
 
   // Web Design Portfolio Data
   const webDesigns = [{
@@ -838,6 +851,9 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Featured Capabilities Carousel */}
+      <FeaturedCapabilitiesCarousel />
+
       {/* Skills Arsenal - Positioned Higher for Better Priority */}
       <section className="section gradient-subtle">
         <div className="container-custom">
@@ -852,15 +868,29 @@ const Home = () => {
         }} transition={{
           duration: 0.6
         }} className="text-center mb-16">
-            <Badge variant="outline" className="mb-4 border-accent text-accent">
-              Core UX Research Skills
-            </Badge>
-             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-               Research Methods & <span className="text-accent">Technical Expertise</span>
-             </h2>
-             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
-               A systematic approach to user research combining proven methodologies with technical implementation capabilities.
-             </p>
+             <Badge variant="outline" className="mb-4 border-accent text-accent">
+               Core UX Research Skills
+             </Badge>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+                Research Methods & <span className="text-accent">Technical Expertise</span>
+              </h2>
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
+                A systematic approach to user research combining proven methodologies with technical implementation capabilities.
+              </p>
+
+              {/* Filter Buttons */}
+              <div className="flex flex-wrap justify-center gap-3 mt-8">
+                {filterCategories.map((category) => (
+                  <Button
+                    key={category}
+                    variant={selectedFilter === category ? "default" : "outline"}
+                    onClick={() => setSelectedFilter(category)}
+                    className="transition-all duration-300"
+                  >
+                    {category}
+                  </Button>
+                ))}
+              </div>
           </motion.div>
 
           {/* Skills Visual Intro */}
@@ -901,7 +931,7 @@ const Home = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            {Object.entries(skillCategories).map(([category, skills], index) => <motion.div key={category} initial={{
+            {Object.entries(filteredSkillCategories).map(([category, skills], index) => <motion.div key={category} initial={{
             opacity: 0,
             y: 50
           }} whileInView={{
