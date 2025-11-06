@@ -15,6 +15,7 @@ import ProfessionalImpactMetrics from '@/components/ProfessionalImpactMetrics';
 import CareerProgression from '@/components/CareerProgression';
 import SkillItem from '@/components/SkillItem';
 import FeaturedCapabilitiesCarousel from '@/components/FeaturedCapabilitiesCarousel';
+import InteractiveCapabilityMap from '@/components/InteractiveCapabilityMap';
 import ResearchImpactGlance from '@/components/ResearchImpactGlance';
 import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
 import ResearchConsultationCTA from '@/components/ResearchConsultationCTA';
@@ -380,7 +381,7 @@ const Home = () => {
 
   // Flatten skills for filtering
   const allSkills = Object.entries(skillCategories).flatMap(([category, skills]) => 
-    skills.map(skill => ({ ...skill, category }))
+    skills.map(skill => ({ ...skill, category, proficiency: skill.proficiency as 'Expert' | 'Advanced' | 'Foundational' }))
   );
 
   const filteredSkillCategories = selectedFilter === 'All' 
@@ -853,6 +854,9 @@ const Home = () => {
 
       {/* Featured Capabilities Carousel */}
       <FeaturedCapabilitiesCarousel />
+
+      {/* Interactive Capability Map */}
+      <InteractiveCapabilityMap skills={allSkills} />
 
       {/* Skills Arsenal - Positioned Higher for Better Priority */}
       <section className="section gradient-subtle">
