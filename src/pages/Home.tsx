@@ -854,7 +854,7 @@ const Home = () => {
           once: true
         }} transition={{
           duration: 0.6
-        }} className="text-center mb-12 sm:mb-16">
+        }} className="text-center mb-8 sm:mb-12">
             <Badge variant="outline" className="mb-3 sm:mb-4 border-agile-primary text-agile-primary text-xs sm:text-sm">
               Research Stories
             </Badge>
