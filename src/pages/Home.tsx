@@ -221,7 +221,6 @@ const Home = () => {
 
   // Skills Arsenal with detailed breakdown and descriptions
   const filterCategories = ['All', 'UX Research & Design', 'Design & Frontend Development', 'Automation & Tools', 'Leadership & Collaboration', 'AI & Modern Development'];
-
   const skillCategories = {
     'UX Research & Design': [{
       name: 'User Research & Testing',
@@ -381,13 +380,14 @@ const Home = () => {
   };
 
   // Flatten skills for filtering
-  const allSkills = Object.entries(skillCategories).flatMap(([category, skills]) => 
-    skills.map(skill => ({ ...skill, category, proficiency: skill.proficiency as 'Expert' | 'Advanced' | 'Foundational' }))
-  );
-
-  const filteredSkillCategories = selectedFilter === 'All' 
-    ? skillCategories 
-    : { [selectedFilter]: skillCategories[selectedFilter as keyof typeof skillCategories] };
+  const allSkills = Object.entries(skillCategories).flatMap(([category, skills]) => skills.map(skill => ({
+    ...skill,
+    category,
+    proficiency: skill.proficiency as 'Expert' | 'Advanced' | 'Foundational'
+  })));
+  const filteredSkillCategories = selectedFilter === 'All' ? skillCategories : {
+    [selectedFilter]: skillCategories[selectedFilter as keyof typeof skillCategories]
+  };
 
   // Web Design Portfolio Data
   const webDesigns = [{
@@ -888,16 +888,9 @@ const Home = () => {
 
               {/* Filter Buttons */}
               <div className="flex flex-wrap justify-center gap-3 mt-8">
-                {filterCategories.map((category) => (
-                  <Button
-                    key={category}
-                    variant={selectedFilter === category ? "default" : "outline"}
-                    onClick={() => setSelectedFilter(category)}
-                    className="transition-all duration-300"
-                  >
+                {filterCategories.map(category => <Button key={category} variant={selectedFilter === category ? "default" : "outline"} onClick={() => setSelectedFilter(category)} className="transition-all duration-300">
                     {category}
-                  </Button>
-                ))}
+                  </Button>)}
               </div>
           </motion.div>
 
@@ -1366,7 +1359,7 @@ const Home = () => {
       <DesignProcess />
 
       {/* Career Progression Timeline */}
-      <CareerProgression />
+      
 
       {/* Recent Work Section */}
       <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20">
