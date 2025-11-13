@@ -29,5 +29,19 @@ export const caseStudy2: CaseStudy = {
     { label: "Processing Speed", value: "62% faster", percentage: 62 },
     { label: "Accuracy Improvement", value: "25%", percentage: 25 },
     { label: "Manual Entry Reduction", value: "80%", percentage: 80 }
-  ]
+  ],
+  reflection: {
+    whatWorkedWell: [
+      "Comprehensive error logging caught edge cases during testing that would have caused production failures",
+      "Created validation checkpoints that users could verify before committing data",
+      "Modular code structure made debugging and updates efficient across 1200+ engines"
+    ],
+    lessonsLearned: "Building trust in automation requires transparency. Users need to see what's happening behind the scenes, not just get results. The validation checkpoints were the key to adoption.",
+    wouldDoDifferently: [
+      "Add real-time progress indicators for long-running processes to reduce anxiety",
+      "Build a 'dry run' mode for users to test without affecting live data",
+      "Implement automated alerts for data anomalies instead of relying on manual spot-checks"
+    ],
+    potentialImpact: "Dry run mode and automated alerts could reduce quality assurance time by 50% (~120 hours/year) and catch errors 2 days earlier on average."
+  }
 };

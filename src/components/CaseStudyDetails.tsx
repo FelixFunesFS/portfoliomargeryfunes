@@ -95,6 +95,76 @@ const CaseStudyDetails: React.FC<CaseStudyDetailsProps> = ({ study, onClose }) =
             </h2>
             <p className="text-muted-foreground">{study.uxImpact}</p>
           </section>
+
+          {/* Growth & Reflection Section */}
+          <section className="bg-gradient-to-br from-amber-500/5 to-orange-500/5 rounded-xl p-6 border border-amber-500/20">
+            <h2 className="text-xl font-semibold mb-4 flex items-center text-amber-600 dark:text-amber-400">
+              <span className="bg-amber-500/10 text-amber-600 dark:text-amber-400 p-1 rounded-md mr-2">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/>
+                </svg>
+              </span>
+              Growth & Reflection
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Left Column */}
+              <div className="space-y-4">
+                <div>
+                  <h3 className="font-semibold mb-2 flex items-center text-foreground">
+                    <Check size={16} className="mr-2 text-success" />
+                    What Worked Well
+                  </h3>
+                  <ul className="space-y-2">
+                    {study.reflection.whatWorkedWell.map((item, index) => (
+                      <li key={index} className="flex items-start text-sm text-muted-foreground">
+                        <span className="mr-2 mt-1">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold mb-2 flex items-center text-foreground">
+                    <span className="mr-2 text-amber-500">💡</span>
+                    Key Lesson Learned
+                  </h3>
+                  <p className="text-sm text-muted-foreground italic border-l-2 border-amber-500 pl-4">
+                    {study.reflection.lessonsLearned}
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Column */}
+              <div className="space-y-4">
+                <div>
+                  <h3 className="font-semibold mb-2 flex items-center text-foreground">
+                    <span className="mr-2">→</span>
+                    What I'd Do Differently
+                  </h3>
+                  <ul className="space-y-2">
+                    {study.reflection.wouldDoDifferently.map((item, index) => (
+                      <li key={index} className="flex items-start text-sm text-muted-foreground">
+                        <span className="mr-2 mt-1">→</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-background/50 rounded-lg p-4 border border-border">
+                  <h3 className="font-semibold mb-2 flex items-center text-foreground">
+                    <span className="mr-2">📊</span>
+                    Potential Impact
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {study.reflection.potentialImpact}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
         </motion.div>
         
         <motion.div 

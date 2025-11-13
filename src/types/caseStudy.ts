@@ -19,4 +19,10 @@ export interface CaseStudy {
     value: string;
     percentage: number;
   }[];
+  reflection: {
+    whatWorkedWell: string[];
+    lessonsLearned: string;
+    wouldDoDifferently: string[];
+    potentialImpact: string;
+  };
 }

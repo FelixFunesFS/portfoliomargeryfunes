@@ -27,5 +27,19 @@ export const caseStudy3: CaseStudy = {
   uxImpact: "Massive time savings, reduced frustration, and consistent slide quality.",
   metrics: [
     { label: "Time Reduction", value: "98% faster", percentage: 98 }
-  ]
+  ],
+  reflection: {
+    whatWorkedWell: [
+      "Form-driven UI made complex data entry feel simple - eliminated 23 fields of manual work",
+      "Template-based approach ensured brand consistency across all 23 bases automatically",
+      "Built-in data validation prevented formatting errors before they reached PowerPoint"
+    ],
+    lessonsLearned: "The biggest time-saver wasn't the automation itself - it was eliminating decision fatigue. Users spent 40% of their time just deciding which template to use and where to put data.",
+    wouldDoDifferently: [
+      "Add a 'preview before generate' feature to catch mistakes earlier in the workflow",
+      "Create preset configurations for common scenarios to reduce form fields by 60%",
+      "Build version control into the tool - users often needed to regenerate previous weeks"
+    ],
+    potentialImpact: "Preview mode and presets could reduce the 5-minute process to under 2 minutes, saving an additional 90 hours/year across all analysts."
+  }
 };

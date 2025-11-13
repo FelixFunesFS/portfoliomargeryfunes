@@ -28,5 +28,19 @@ export const caseStudy7: CaseStudy = {
     { label: "Miscommunication Reduction", value: "65%", percentage: 65 },
     { label: "Revenue Saved", value: "25%", percentage: 25 },
     { label: "Customer Satisfaction", value: "30% increase", percentage: 30 }
-  ]
+  ],
+  reflection: {
+    whatWorkedWell: [
+      "Structured intake form converted vague requests into actionable requirements",
+      "Photo upload feature eliminated 'I thought you meant...' conversations about setup",
+      "Iterative approach meant we could add fields as new edge cases emerged"
+    ],
+    lessonsLearned: "Forms need to feel like a conversation, not an interrogation. Strategic use of conditional fields and helpful tooltips increased completion rates from 60% to 95%.",
+    wouldDoDifferently: [
+      "Add a cost estimator that updates in real-time as customers fill the form",
+      "Include examples/photos for ambiguous fields (what does 'elegant' vs 'casual' mean?)",
+      "Send confirmation summary immediately after submission to catch errors early"
+    ],
+    potentialImpact: "Real-time cost estimator could increase quote acceptance by 20% (~$15K additional revenue/year) and reduce pricing negotiation back-and-forth by 50%."
+  }
 };
