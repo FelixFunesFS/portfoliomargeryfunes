@@ -28,6 +28,9 @@ const Navbar = () => {
     name: 'Insights',
     href: '/insights'
   }, {
+    name: 'Components',
+    href: '/components'
+  }, {
     name: 'About',
     href: '#about'
   }, {
