@@ -28,5 +28,19 @@ export const caseStudy5: CaseStudy = {
   metrics: [
     { label: "Time Saved", value: "80%", percentage: 80 },
     { label: "Error Reduction", value: "90%", percentage: 90 }
-  ]
+  ],
+  reflection: {
+    whatWorkedWell: [
+      "HTML parsing approach was resilient - worked across multiple GUI system updates without breaking",
+      "SQL data integration eliminated 90% of manual typing by pre-filling common entries",
+      "Simple Excel interface meant zero learning curve for 50+ non-technical users"
+    ],
+    lessonsLearned: "Understanding the psychology of repetitive work was critical. Users weren't just making mistakes - they were developing unhealthy coping mechanisms (copying data to sticky notes) that introduced more errors.",
+    wouldDoDifferently: [
+      "Add batch processing for multiple records simultaneously - some users handled 10+ entries/day",
+      "Build error recovery features for network interruptions during GUI interaction",
+      "Create audit logs to track which entries were automated vs manual for quality control"
+    ],
+    potentialImpact: "Batch processing could save an additional 30 minutes/day per heavy user (~130 hours/year) and audit logs would provide compliance documentation worth ~$50K in audit costs."
+  }
 };

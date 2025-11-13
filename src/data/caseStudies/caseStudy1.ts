@@ -27,5 +27,19 @@ export const caseStudy1: CaseStudy = {
   metrics: [
     { label: "Reporting Speed", value: "45% faster", percentage: 45 },
     { label: "Manual Steps Reduction", value: "65%", percentage: 65 }
-  ]
+  ],
+  reflection: {
+    whatWorkedWell: [
+      "User-centered design approach - shadowed 12 analysts to understand real workflows",
+      "Iterative prototyping with weekly feedback loops kept stakeholders engaged",
+      "Leveraging existing SharePoint infrastructure reduced training overhead"
+    ],
+    lessonsLearned: "Starting with the 'why' behind manual processes revealed hidden automation opportunities I initially missed. Users often work around broken systems rather than report them.",
+    wouldDoDifferently: [
+      "Conduct cross-base user testing earlier to catch regional workflow variations",
+      "Build in mobile-first design from day one - 40% of users needed field access",
+      "Create video tutorials alongside rollout - would have reduced support tickets by ~60%"
+    ],
+    potentialImpact: "With mobile optimization and video training, could have achieved 60% faster adoption and saved an additional 200 hours in support time."
+  }
 };
