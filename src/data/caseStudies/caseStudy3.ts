@@ -41,5 +41,8 @@ export const caseStudy3: CaseStudy = {
       "Build version control into the tool - users often needed to regenerate previous weeks"
     ],
     potentialImpact: "Preview mode and presets could reduce the 5-minute process to under 2 minutes, saving an additional 90 hours/year across all analysts."
-  }
+  },
+  userVoice: "Creating these slides every week felt like Groundhog Day. Same tedious process, different numbers. I dreaded Monday mornings.",
+  stakeholderQuote: "We got 12 weeks of analyst time back per year. They're now focusing on strategic analysis instead of slide formatting. - Operations Lead",
+  userProblem: "Weekly slide deck creation consumed nearly 10 hours across the team with frequent formatting errors"
 };

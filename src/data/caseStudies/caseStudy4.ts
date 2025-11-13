@@ -41,5 +41,8 @@ export const caseStudy4: CaseStudy = {
       "Create interactive onboarding tours instead of static documentation - would boost retention"
     ],
     potentialImpact: "Search functionality and analytics could reduce onboarding time to 2-3 days (from current 1 week) and identify 15-20 workflow improvements within the first month."
-  }
+  },
+  userVoice: "Before the workspace system, I wasted hours just trying to find the right document version. Now everything is instantly accessible.",
+  stakeholderQuote: "This platform became the operational backbone for 23 bases. Best ROI we've seen on any SharePoint deployment. - IT Director",
+  userProblem: "Teams across 23 bases struggled with fragmented documentation and lack of visibility into tasks"
 };

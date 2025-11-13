@@ -43,5 +43,8 @@ export const caseStudy2: CaseStudy = {
       "Implement automated alerts for data anomalies instead of relying on manual spot-checks"
     ],
     potentialImpact: "Dry run mode and automated alerts could reduce quality assurance time by 50% (~120 hours/year) and catch errors 2 days earlier on average."
-  }
+  },
+  userVoice: "The manual process was mind-numbing. After entering data for hundreds of engines, you start questioning if you got the numbers right.",
+  stakeholderQuote: "The automation eliminated our biggest source of data quality issues. Worth every penny of development time. - Program Manager",
+  userProblem: "Manual data entry led to inaccuracies and delays in engine cycle tracking, affecting critical leasing agreements"
 };

@@ -25,4 +25,7 @@ export interface CaseStudy {
     wouldDoDifferently: string[];
     potentialImpact: string;
   };
+  userVoice?: string;
+  stakeholderQuote?: string;
+  userProblem?: string;
 }
