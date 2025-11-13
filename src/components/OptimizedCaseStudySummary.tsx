@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { caseStudiesData } from '@/data/caseStudies';
 
 const OptimizedCaseStudySummary = () => {
+  const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Filter to prioritize military-related case studies
@@ -25,6 +27,12 @@ const OptimizedCaseStudySummary = () => {
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + militaryFirst.length) % militaryFirst.length);
+  };
+
+  const handleViewFullCaseStudy = () => {
+    navigate('/case-studies', { 
+      state: { selectedStudyId: currentStudy.id } 
+    });
   };
 
   const truncateText = (text: string, maxLength: number) => {
@@ -113,13 +121,11 @@ const OptimizedCaseStudySummary = () => {
                   </div>
 
                   <Button 
-                    className="w-full bg-primary hover:bg-primary/90"
-                    asChild
+                    className="w-full bg-primary hover:bg-primary/90 flex items-center justify-center gap-2"
+                    onClick={handleViewFullCaseStudy}
                   >
-                    <a href="/case-studies" className="flex items-center justify-center gap-2">
-                      View Full Case Study
-                      <ExternalLink size={16} />
-                    </a>
+                    View Full Case Study
+                    <ExternalLink size={16} />
                   </Button>
                 </CardContent>
               </Card>
