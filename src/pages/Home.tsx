@@ -13,7 +13,6 @@ import DesignProcess from '@/components/DesignProcess';
 import UnifiedImpactMetrics from '@/components/UnifiedImpactMetrics';
 import CareerProgression from '@/components/CareerProgression';
 import SkillItem from '@/components/SkillItem';
-import FeaturedCapabilitiesCarousel from '@/components/FeaturedCapabilitiesCarousel';
 import InteractiveCapabilityMap from '@/components/InteractiveCapabilityMap';
 import SkillsEvolutionTimeline from '@/components/SkillsEvolutionTimeline';
 import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
@@ -891,9 +890,6 @@ const Home = () => {
           <ResearchStoriesCarousel stories={researchStories} />
         </div>
       </section>
-
-      {/* Featured Capabilities Carousel */}
-      <FeaturedCapabilitiesCarousel />
 
       {/* Interactive Capability Map */}
       <InteractiveCapabilityMap skills={allSkills} />
