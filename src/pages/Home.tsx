@@ -564,21 +564,6 @@ const Home = () => {
                   </Button>
                 </motion.div>
 
-              {/* Key Metrics */}
-              <motion.div variants={itemVariants} className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 text-center max-w-sm sm:max-w-md lg:max-w-none mx-auto lg:mx-0">
-                <div className="py-3 sm:py-4">
-                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-primary-glow">26K+</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Hours Saved Annually</div>
-                </div>
-                <div className="py-3 sm:py-4 border-x border-border/20">
-                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-agile-primary">23</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Global Bases Unified</div>
-                </div>
-                <div className="py-3 sm:py-4">
-                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-accent">340%</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Max Conversion Increase</div>
-                </div>
-              </motion.div>
             </motion.div>
 
             {/* Interactive Systems Diagram */}
