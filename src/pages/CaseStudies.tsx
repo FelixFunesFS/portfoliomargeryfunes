@@ -337,6 +337,83 @@ const CaseStudies = () => {
                     </CardContent>
                   </Card>
                 </motion.div>
+
+                {/* Reflection & Continuous Improvement */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.6 }}
+                >
+                  <Card className="glass border-primary/20 shadow-card">
+                    <CardHeader>
+                      <CardTitle className="flex items-center space-x-2 text-foreground">
+                        <RefreshCw className="w-5 h-5 text-primary" />
+                        <span>Reflection & Continuous Improvement</span>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                      {/* What Worked Well */}
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-success" />
+                          What Worked Well
+                        </h4>
+                        <ul className="space-y-2">
+                          {study.reflection.whatWorkedWell.map((item, index) => (
+                            <li key={index} className="flex items-start space-x-2">
+                              <span className="text-success mt-1">✓</span>
+                              <span className="text-muted-foreground">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <Separator />
+
+                      {/* Lessons Learned */}
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                          <Shield className="w-4 h-4 text-primary" />
+                          Key Lesson Learned
+                        </h4>
+                        <p className="text-muted-foreground italic bg-primary/5 p-4 rounded-lg border-l-4 border-primary">
+                          "{study.reflection.lessonsLearned}"
+                        </p>
+                      </div>
+
+                      <Separator />
+
+                      {/* Would Do Differently */}
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                          <TrendingUp className="w-4 h-4 text-agile-primary" />
+                          Would Do Differently
+                        </h4>
+                        <ul className="space-y-2">
+                          {study.reflection.wouldDoDifferently.map((item, index) => (
+                            <li key={index} className="flex items-start space-x-2">
+                              <span className="text-agile-primary mt-1">→</span>
+                              <span className="text-muted-foreground">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <Separator />
+
+                      {/* Potential Impact */}
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                          <BarChart3 className="w-4 h-4 text-success" />
+                          Potential Future Impact
+                        </h4>
+                        <p className="text-muted-foreground bg-success/5 p-4 rounded-lg border-l-4 border-success">
+                          {study.reflection.potentialImpact}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               </div>
 
               {/* Sidebar */}
