@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Eye } from 'lucide-react';
+import { Eye, Lightbulb, ArrowRight } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -26,7 +26,12 @@ interface ResearchStory {
   }>;
   tools: string[];
   artifacts: string[];
-  reflection: string;
+  reflection: {
+    whatWorkedWell: string[];
+    lessonsLearned: string;
+    wouldDoDifferently: string[];
+    potentialImpact: string;
+  };
   color: string;
   caseStudyId: number;
 }
@@ -211,6 +216,40 @@ const ResearchStoriesCarousel: React.FC<ResearchStoriesCarouselProps> = ({
                                 <p className="text-foreground font-medium text-lg leading-relaxed">
                                   {story.keyInsight}
                                 </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* What I Learned - Growth Mindset Section */}
+                          <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/30 rounded-xl p-6 mb-6">
+                            <div className="flex items-start gap-4 mb-4">
+                              <div className="p-2 rounded-lg bg-amber-500/20">
+                                <Lightbulb className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                              </div>
+                              <div className="flex-1">
+                                <h4 className="font-semibold text-amber-700 dark:text-amber-400 mb-3 uppercase tracking-wide text-sm">
+                                  What I Learned
+                                </h4>
+                                <p className="text-foreground font-medium leading-relaxed mb-4 italic">
+                                  {story.reflection.lessonsLearned}
+                                </p>
+                                
+                                {/* What I'd Do Differently */}
+                                {story.reflection.wouldDoDifferently && story.reflection.wouldDoDifferently.length > 0 && (
+                                  <div className="space-y-2">
+                                    <p className="text-sm font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-wide">
+                                      What I'd Do Differently:
+                                    </p>
+                                    <ul className="space-y-2">
+                                      {story.reflection.wouldDoDifferently.slice(0, 2).map((item, idx) => (
+                                        <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                          <ArrowRight className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                                          <span>{item}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
                               </div>
                             </div>
                           </div>

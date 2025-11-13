@@ -123,7 +123,20 @@ const Home = () => {
     icon: Database,
     tools: ["User Interviews", "Workflow Analysis", "SharePoint", "Tableau"],
     artifacts: ["User Journey Maps", "Persona Documentation", "Usability Test Results"],
-    reflection: "I'd conduct more cross-site usability testing to validate the interface earlier",
+    reflection: {
+      whatWorkedWell: [
+        "User-centered design approach - shadowed 12 analysts to understand real workflows",
+        "Iterative prototyping with weekly feedback loops kept stakeholders engaged",
+        "Leveraging existing SharePoint infrastructure reduced training overhead"
+      ],
+      lessonsLearned: "Starting with the 'why' behind manual processes revealed hidden automation opportunities I initially missed. Users often work around broken systems rather than report them.",
+      wouldDoDifferently: [
+        "Conduct cross-base user testing earlier to catch regional workflow variations",
+        "Build in mobile-first design from day one - 40% of users needed field access",
+        "Create video tutorials alongside rollout - would have reduced support tickets by ~60%"
+      ],
+      potentialImpact: "With mobile optimization and video training, could have achieved 60% faster adoption and saved an additional 200 hours in support time."
+    },
     color: "systems",
     caseStudyId: 1
   }, {
@@ -142,7 +155,20 @@ const Home = () => {
     icon: Clock,
     tools: ["Task Analysis", "Empathy Mapping", "VBA", "SQL"],
     artifacts: ["Task Flow Diagrams", "Error Pattern Analysis", "User Satisfaction Surveys"],
-    reflection: "I'd include more stakeholders in the design process to ensure broader organizational buy-in",
+    reflection: {
+      whatWorkedWell: [
+        "HTML parsing approach was resilient - worked across multiple GUI system updates without breaking",
+        "SQL data integration eliminated 90% of manual typing by pre-filling common entries",
+        "Simple Excel interface meant zero learning curve for 50+ non-technical users"
+      ],
+      lessonsLearned: "Understanding the psychology of repetitive work was critical. Users weren't just making mistakes - they were developing unhealthy coping mechanisms (copying data to sticky notes) that introduced more errors.",
+      wouldDoDifferently: [
+        "Add batch processing for multiple records simultaneously - some users handled 10+ entries/day",
+        "Build error recovery features for network interruptions during GUI interaction",
+        "Create audit logs to track which entries were automated vs manual for quality control"
+      ],
+      potentialImpact: "Batch processing could save an additional 30 minutes/day per heavy user (~130 hours/year) and audit logs would provide compliance documentation worth ~$50K in audit costs."
+    },
     color: "agile",
     caseStudyId: 5
   }, {
@@ -161,7 +187,20 @@ const Home = () => {
     icon: TrendingUp,
     tools: ["Journey Mapping", "C#", "JavaScript", "VBA"],
     artifacts: ["Process Journey Maps", "Pain Point Analysis", "Automation Workflows"],
-    reflection: "I'd prototype multiple interface options to better understand user preferences",
+    reflection: {
+      whatWorkedWell: [
+        "Form-driven UI made complex data entry feel simple - eliminated 23 fields of manual work",
+        "Template-based approach ensured brand consistency across all 23 bases automatically",
+        "Built-in data validation prevented formatting errors before they reached PowerPoint"
+      ],
+      lessonsLearned: "The biggest time-saver wasn't the automation itself - it was eliminating decision fatigue. Users spent 40% of their time just deciding which template to use and where to put data.",
+      wouldDoDifferently: [
+        "Add a 'preview before generate' feature to catch mistakes earlier in the workflow",
+        "Create preset configurations for common scenarios to reduce form fields by 60%",
+        "Build version control into the tool - users often needed to regenerate previous weeks"
+      ],
+      potentialImpact: "Preview mode and presets could reduce the 5-minute process to under 2 minutes, saving an additional 90 hours/year across all analysts."
+    },
     color: "success",
     caseStudyId: 3
   }, {
@@ -180,7 +219,20 @@ const Home = () => {
     icon: Users,
     tools: ["Information Architecture", "SharePoint", "Power Automate"],
     artifacts: ["IA Sitemaps", "Role-Based Workflows", "Collaboration Patterns"],
-    reflection: "I'd implement more iterative feedback loops during the workspace design phase",
+    reflection: {
+      whatWorkedWell: [
+        "Role-based access controls prevented information overload - users only saw what they needed",
+        "CMS-driven architecture let non-technical staff update content without IT support",
+        "Integrated dashboards eliminated need to switch between 5+ different tools"
+      ],
+      lessonsLearned: "Scalability isn't just about handling more users - it's about maintaining simplicity as complexity grows. The modular workspace design was crucial for this.",
+      wouldDoDifferently: [
+        "Implement search functionality from day one - users still relied on folder navigation too much",
+        "Add usage analytics to identify underutilized features and confusing workflows",
+        "Create interactive onboarding tours instead of static documentation - would boost retention"
+      ],
+      potentialImpact: "Search functionality and analytics could reduce onboarding time to 2-3 days (from current 1 week) and identify 15-20 workflow improvements within the first month."
+    },
     color: "accent",
     caseStudyId: 4
   }];
