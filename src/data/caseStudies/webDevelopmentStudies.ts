@@ -43,7 +43,21 @@ export const webDevelopmentStudies: CaseStudy[] = [
         value: "4.8/5",
         percentage: 96
       }
-    ]
+    ],
+    reflection: {
+      whatWorkedWell: [
+        "Real-time inventory integration prevented overselling during peak catering events",
+        "Customer order history feature drove 35% repeat business - people love reordering favorites",
+        "Kitchen dashboard reduced miscommunication between front-of-house and prep staff by 70%"
+      ],
+      lessonsLearned: "Mobile-first wasn't just a design principle - it was critical to success. 80% of orders came from mobile devices during events, and the kitchen staff used tablets exclusively. Desktop-first would have failed.",
+      wouldDoDifferently: [
+        "Add real-time order tracking notifications for customers - 'Your food is being prepared' would reduce anxiety calls by ~40%",
+        "Build dietary restriction filters earlier - came up in 60% of catering orders and had to be added post-launch",
+        "Create preset menu packages instead of à la carte only - analysis showed 70% of orders fit 3 common patterns"
+      ],
+      potentialImpact: "Order tracking and preset packages could reduce customer service calls by 50% (~8 hours/week) and increase average order value by 25% through strategic upselling."
+    }
   },
   {
     id: 9,
@@ -86,7 +100,21 @@ export const webDevelopmentStudies: CaseStudy[] = [
         value: "40%",
         percentage: 40
       }
-    ]
+    ],
+    reflection: {
+      whatWorkedWell: [
+        "Impact dashboard made volunteers feel connected to mission - seeing '2,500 meals served' drove 40% retention boost",
+        "Automated shift reminders reduced no-shows from 30% to 8% - simple SMS made huge difference",
+        "Volunteer forum created peer support network that coordinators didn't have to manage"
+      ],
+      lessonsLearned: "Volunteers aren't just looking for logistics - they want to feel the impact of their work. The metrics dashboard wasn't about tracking efficiency; it was about creating emotional connection to the mission.",
+      wouldDoDifferently: [
+        "Add gamification/recognition system - volunteers mentioned wanting to see their individual impact (meals served, hours contributed)",
+        "Build skill-based matching earlier - discovered 20% volunteer turnover from poor role fit",
+        "Create emergency shift coverage feature - last-minute cancellations caused 80% of coordination stress"
+      ],
+      potentialImpact: "Recognition system and emergency coverage features could increase volunteer retention to 90% (from 70%) and reduce coordinator stress hours by 60% (~5 hours/week saved)."
+    }
   },
   {
     id: 10,
@@ -129,7 +157,21 @@ export const webDevelopmentStudies: CaseStudy[] = [
         value: "25%",
         percentage: 25
       }
-    ]
+    ],
+    reflection: {
+      whatWorkedWell: [
+        "Impact stories with real photos/testimonials (anonymized) made abstract services tangible for funders",
+        "Clear service architecture helped families understand 'what do you actually do?' - reduced confused intake calls by 60%",
+        "Staff-managed CMS empowered non-technical team to keep content fresh without IT dependency"
+      ],
+      lessonsLearned: "Grant success wasn't just about looking professional - it was about making it easy for funders to write about us. We included pre-written summary paragraphs and stat cards they could copy directly into applications.",
+      wouldDoDifferently: [
+        "Add a 'For Funders' portal with downloadable impact reports and statistics - currently manual process taking 4 hours per grant",
+        "Build automated compliance documentation generator for youth services regulations",
+        "Create intake form integration to capture 'how did you hear about us?' data for measuring web impact"
+      ],
+      potentialImpact: "Funder portal could save 200+ hours/year in grant prep and increase applications submitted by 40%. Intake tracking would quantify web conversion rates for future optimization."
+    }
   },
   {
     id: 11,
@@ -172,7 +214,21 @@ export const webDevelopmentStudies: CaseStudy[] = [
         value: "45%",
         percentage: 45
       }
-    ]
+    ],
+    reflection: {
+      whatWorkedWell: [
+        "Plain language approach tested with actual veterans - eliminated bureaucratic jargon that caused 70% abandonment",
+        "Step-by-step guided processes broke overwhelming applications into manageable 5-minute chunks",
+        "Community forum became most valuable feature - peer validation more trusted than official guidance"
+      ],
+      lessonsLearned: "Accessibility isn't just about screen readers - it's about cognitive load. Veterans dealing with PTSD, TBI, or high stress needed information architecture that didn't overwhelm. Breaking applications into tiny steps was more important than the visual design.",
+      wouldDoDifferently: [
+        "Add benefit eligibility screener upfront - 40% of users spent time on benefits they weren't eligible for",
+        "Build SMS/email checkpoints for long applications - discovered many started applications but forgot to finish",
+        "Create printable checklists for offline document gathering - many veterans don't have consistent internet"
+      ],
+      potentialImpact: "Eligibility screener and application reminders could increase completion rates from 55% to 80% (helping 225 additional veterans/year) and reduce frustrated support inquiries by 60%."
+    }
   },
   {
     id: 12,
@@ -215,6 +271,20 @@ export const webDevelopmentStudies: CaseStudy[] = [
         value: "150%",
         percentage: 100
       }
-    ]
+    ],
+    reflection: {
+      whatWorkedWell: [
+        "High-quality visual storytelling created emotional connection before price discussion - 80% who viewed galleries booked",
+        "Custom itinerary builder let travelers feel in control while subtly guiding them toward profitable tour combinations",
+        "Social proof from travel publications gave instant credibility for first-time international bookers"
+      ],
+      lessonsLearned: "Luxury travel isn't about features - it's about selling the transformation. The most successful pages didn't list amenities; they showed the feeling of standing at a waterfall or watching sunset from a volcano. The itinerary builder was less about customization and more about storytelling.",
+      wouldDoDifferently: [
+        "Add live chat during high-traffic hours (8-11pm EST when Americans research) - lost ~15% of interested visitors who had questions",
+        "Build weather-based dynamic pricing - rainy season had 40% capacity but same fixed pricing",
+        "Create referral program earlier - 30% of bookings came from word-of-mouth but no incentive system"
+      ],
+      potentialImpact: "Live chat during peak hours could capture additional $50K/year in bookings. Dynamic pricing would increase rainy season bookings by 25% (~$30K). Referral program could drive 40% more bookings through existing satisfied customers."
+    }
   }
 ];
