@@ -80,16 +80,35 @@ const OptimizedCaseStudySummary = () => {
 
                   <div className="space-y-4 mb-6">
                     <div>
-                      <h4 className="font-semibold text-sm text-primary mb-2">PROBLEM</h4>
-                      <p className="text-sm text-muted-foreground">
+                      <h4 className="font-semibold text-sm text-primary mb-2">THE CHALLENGE</h4>
+                      <p className="text-sm text-muted-foreground mb-3">
                         {truncateText(currentStudy.problem, 150)}
                       </p>
+                      
+                      {/* User Voice Quote */}
+                      {currentStudy.userVoice && (
+                        <div className="mt-3 p-3 bg-accent/10 border-l-2 border-accent rounded-r">
+                          <p className="text-xs italic text-muted-foreground">
+                            "{currentStudy.userVoice}"
+                          </p>
+                          <span className="text-xs text-accent mt-1 block">— User Interview Insight</span>
+                        </div>
+                      )}
                     </div>
                     <div>
-                      <h4 className="font-semibold text-sm text-primary mb-2">SOLUTION</h4>
-                      <p className="text-sm text-muted-foreground">
+                      <h4 className="font-semibold text-sm text-primary mb-2">THE SOLUTION & IMPACT</h4>
+                      <p className="text-sm text-muted-foreground mb-3">
                         {truncateText(currentStudy.solution, 150)}
                       </p>
+                      
+                      {/* Stakeholder Quote */}
+                      {currentStudy.stakeholderQuote && (
+                        <div className="mt-3 p-3 bg-success/10 border-l-2 border-success rounded-r">
+                          <p className="text-xs italic text-muted-foreground">
+                            "{currentStudy.stakeholderQuote}"
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -149,6 +168,50 @@ const OptimizedCaseStudySummary = () => {
                     </p>
                   </CardContent>
                 </Card>
+
+                {/* Reflection & Growth */}
+                {currentStudy.reflection && (
+                  <Card className="glass border-none">
+                    <CardContent className="p-6">
+                      <h4 className="font-semibold mb-4 text-amber-600 dark:text-amber-400 flex items-center gap-2">
+                        <span>GROWTH & REFLECTION</span>
+                      </h4>
+                      
+                      <div className="space-y-4">
+                        {/* What Worked Well */}
+                        <div>
+                          <h5 className="text-xs font-semibold text-primary mb-2">What Worked Well</h5>
+                          <ul className="space-y-1">
+                            {currentStudy.reflection.whatWorkedWell.slice(0, 2).map((item, idx) => (
+                              <li key={idx} className="text-xs text-muted-foreground flex gap-2">
+                                <span className="text-success flex-shrink-0">✓</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        {/* Lessons Learned */}
+                        <div>
+                          <h5 className="text-xs font-semibold text-primary mb-2">Key Learning</h5>
+                          <p className="text-xs text-muted-foreground italic">
+                            {truncateText(currentStudy.reflection.lessonsLearned, 120)}
+                          </p>
+                        </div>
+                        
+                        {/* Would Do Differently */}
+                        {currentStudy.reflection.wouldDoDifferently.length > 0 && (
+                          <div>
+                            <h5 className="text-xs font-semibold text-primary mb-2">Future Improvements</h5>
+                            <p className="text-xs text-muted-foreground">
+                              {truncateText(currentStudy.reflection.wouldDoDifferently[0], 100)}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
               </div>
             </div>
 

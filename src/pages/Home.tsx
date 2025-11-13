@@ -3,6 +3,8 @@ import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import ResearchMethodology from '@/components/ResearchMethodology';
+import OptimizedHero from '@/components/OptimizedHero';
+import OptimizedCaseStudySummary from '@/components/OptimizedCaseStudySummary';
 import { Target, Zap, TrendingUp, Users, BarChart3, Layers, GitBranch, RefreshCw, CheckCircle, ArrowRight, Radar, Settings, Database, Code, LineChart, Shield, Rocket, Brain, Clock, Award, ChevronDown, Eye, MapPin, ExternalLink, Globe, Monitor, Smartphone, Heart, Home as HomeIcon, Trophy, GraduationCap, Lightbulb, Search, TestTube, Download, Calendar } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -17,7 +19,6 @@ import InteractiveCapabilityMap from '@/components/InteractiveCapabilityMap';
 import SkillsEvolutionTimeline from '@/components/SkillsEvolutionTimeline';
 import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
 import PortfolioDownload from '@/components/PortfolioDownload';
-import ResearchStoriesCarousel from '@/components/ResearchStoriesCarousel';
 import elSalvadorImage from '@/assets/el-salvador-tourism.png';
 
 // Import images
@@ -503,6 +504,9 @@ const Home = () => {
     link: "https://discover-elsalvador.com"
   }];
   return <div className="min-h-screen bg-background">
+      {/* Optimized Hero Section */}
+      <OptimizedHero />
+
       {/* Radar Hero Section */}
       <motion.section ref={heroRef} initial="hidden" animate={isHeroInView ? "visible" : "hidden"} variants={containerVariants} className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero">
         {/* Animated Radar Background */}
@@ -855,7 +859,7 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <ResearchStoriesCarousel stories={researchStories} />
+          <OptimizedCaseStudySummary />
         </div>
       </section>
 

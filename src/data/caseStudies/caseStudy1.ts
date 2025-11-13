@@ -41,5 +41,8 @@ export const caseStudy1: CaseStudy = {
       "Create video tutorials alongside rollout - would have reduced support tickets by ~60%"
     ],
     potentialImpact: "With mobile optimization and video training, could have achieved 60% faster adoption and saved an additional 200 hours in support time."
-  }
+  },
+  userVoice: "I spend more time hunting for engine data than actually maintaining aircraft. It's frustrating when mission readiness depends on information I can't quickly find.",
+  stakeholderQuote: "This system transformed our global operations. We finally have real-time visibility into our most critical assets. - Operations Director, Boeing Defense",
+  userProblem: "Engine maintenance teams spent hours searching through multiple systems to track critical components"
 };
