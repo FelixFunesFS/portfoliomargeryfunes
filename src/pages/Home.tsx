@@ -15,7 +15,10 @@ import DesignProcess from '@/components/DesignProcess';
 import UnifiedImpactMetrics from '@/components/UnifiedImpactMetrics';
 import CareerProgression from '@/components/CareerProgression';
 import SkillItem from '@/components/SkillItem';
-import InteractiveCapabilityMap from '@/components/InteractiveCapabilityMap';
+import CoreCompetenciesGrid from '@/components/CoreCompetenciesGrid';
+import SoftSkillsShowcase from '@/components/SoftSkillsShowcase';
+import TechnicalSkillsMatrix from '@/components/TechnicalSkillsMatrix';
+import SkillsInAction from '@/components/SkillsInAction';
 import SkillsEvolutionTimeline from '@/components/SkillsEvolutionTimeline';
 import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
 import PortfolioDownload from '@/components/PortfolioDownload';
@@ -863,8 +866,17 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Interactive Capability Map */}
-      <InteractiveCapabilityMap skills={allSkills} />
+      {/* Core Competencies - What recruiters see FIRST */}
+      <CoreCompetenciesGrid />
+
+      {/* Soft Skills & Leadership - Explicitly highlighted */}
+      <SoftSkillsShowcase />
+
+      {/* Technical Skills - Detailed but scannable */}
+      <TechnicalSkillsMatrix skills={allSkills} />
+
+      {/* Skills in Action - Connect skills to outcomes */}
+      <SkillsInAction />
 
       {/* Skills Evolution Timeline */}
       <SkillsEvolutionTimeline />
