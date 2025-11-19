@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, Code, Palette, Users, Shield } from 'lucide-react';
+import { ArrowDown, Code, Palette, Users, Shield, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -28,13 +28,14 @@ const OptimizedHero = () => {
             Margery Funes
           </h1>
 
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 lg:gap-6 mb-6 sm:mb-8">
-          <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-primary">
-            UX/UI Designer & Systems Analyst • 6+ Years Experience
+          <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-primary mb-2">
+            UX Engineer & Systems Designer
           </h2>
-          <p className="text-sm sm:text-base text-muted-foreground mt-2 font-medium">
-            Military → UX Transition Specialist | Mission-Critical Design Solutions
+          <p className="text-sm sm:text-base text-muted-foreground font-medium">
+            20+ Years Experience | Aerospace & Defense | Bilingual (English/Spanish)
           </p>
+
+          <div className="mt-4 sm:mt-6 mb-6 sm:mb-8">
             <div className="flex justify-center lg:justify-start gap-2 sm:gap-3 flex-wrap">
               <div className="flex items-center gap-1 text-muted-foreground bg-muted/30 px-2 py-1 rounded-full text-xs sm:text-sm">
                 <Code className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -51,10 +52,29 @@ const OptimizedHero = () => {
             </div>
           </div>
 
-          <p className="text-muted-foreground max-w-xl lg:max-w-2xl mb-6 sm:mb-8 lg:mb-10 text-sm sm:text-base lg:text-lg leading-relaxed px-2 sm:px-0">
+          <p className="text-muted-foreground max-w-xl lg:max-w-2xl mb-6 text-sm sm:text-base lg:text-lg leading-relaxed px-2 sm:px-0">
             Military-trained systems analyst and UX designer creating mission-critical digital solutions.
             I bring precision, leadership, and strategic thinking to every design challenge.
           </p>
+
+          {/* What I Solve For You */}
+          <div className="mb-6 sm:mb-8 lg:mb-10 px-2 sm:px-0">
+            <h3 className="text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">What I Solve For You</h3>
+            <ul className="space-y-2 sm:space-y-3 max-w-xl lg:max-w-2xl">
+              <li className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-muted-foreground">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
+                <span><strong className="text-foreground">Workflow Optimization:</strong> Streamline complex processes and reduce operational bottlenecks through systems-level analysis</span>
+              </li>
+              <li className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-muted-foreground">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
+                <span><strong className="text-foreground">Human-Centered Design:</strong> Create intuitive interfaces that reduce cognitive load and improve user satisfaction</span>
+              </li>
+              <li className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-muted-foreground">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
+                <span><strong className="text-foreground">Automation & Integration:</strong> Leverage AI and low-code platforms to deliver scalable, efficient solutions</span>
+              </li>
+            </ul>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mb-6 sm:mb-8">
             <Button 
