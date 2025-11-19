@@ -28,6 +28,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import { caseStudiesData } from '@/data/caseStudies';
+import Footer from '@/components/Footer';
 import { webDevelopmentStudies } from '@/data/caseStudies/webDevelopmentStudies';
 import { CaseStudy } from '@/types/caseStudy';
 
@@ -758,6 +759,8 @@ const CaseStudies = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };
