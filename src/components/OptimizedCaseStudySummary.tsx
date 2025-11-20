@@ -34,6 +34,13 @@ const OptimizedCaseStudySummary = () => {
   const truncateText = (text: string, maxLength: number) => {
     return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
   };
+
+  // Filter out outcomes that are already represented in metrics to avoid redundancy
+  const isNumericOutcome = (outcome: string): boolean => {
+    const hasPercent = outcome.includes('%');
+    const hasNumber = /\d+/.test(outcome);
+    return (hasPercent || hasNumber) && currentStudy.metrics && currentStudy.metrics.length > 0;
+  };
   return <div className="container-custom">
         <div className="relative max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
@@ -98,35 +105,47 @@ const OptimizedCaseStudySummary = () => {
                 </Button>
               </div>
 
-              {/* Impact Metrics */}
+              {/* Impact & Outcomes - Consolidated */}
               <div className="space-y-6">
                 <Card className="glass border-none">
                   <CardContent className="p-6">
-                    <h4 className="font-semibold text-lg mb-5 text-primary">KEY OUTCOMES</h4>
-                    <div className="space-y-4">
-                      {currentStudy.keyOutcomes.map((outcome, index) => <div key={index} className="flex items-center gap-3">
-                          <div className="w-2.5 h-2.5 bg-primary rounded-full flex-shrink-0" />
-                          <span className="text-base">{outcome}</span>
-                        </div>)}
+                    <h4 className="font-semibold text-lg mb-5 text-primary">IMPACT & OUTCOMES</h4>
+                    
+                    {/* Quantitative Metrics - Big Visual Cards */}
+                    {currentStudy.metrics && currentStudy.metrics.length > 0 && (
+                      <div className="grid grid-cols-2 gap-3 mb-5">
+                        {currentStudy.metrics.map((metric, index) => (
+                          <div key={index} className="text-center p-4 bg-accent/20 rounded-lg">
+                            <div className="text-3xl font-bold text-primary mb-1">
+                              {metric.value}
+                            </div>
+                            <div className="text-xs text-muted-foreground leading-tight">
+                              {metric.label}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    
+                    {/* Subtle Divider (only if both sections exist) */}
+                    {currentStudy.metrics && currentStudy.metrics.length > 0 && 
+                     currentStudy.keyOutcomes.some(outcome => !isNumericOutcome(outcome)) && (
+                      <div className="border-t border-border/30 mb-5" />
+                    )}
+                    
+                    {/* Qualitative Outcomes - Bullet List */}
+                    <div className="space-y-3">
+                      {currentStudy.keyOutcomes
+                        .filter(outcome => !isNumericOutcome(outcome))
+                        .map((outcome, index) => (
+                          <div key={index} className="flex items-start gap-3">
+                            <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-2" />
+                            <span className="text-sm">{outcome}</span>
+                          </div>
+                        ))}
                     </div>
                   </CardContent>
                 </Card>
-
-                {currentStudy.metrics && <Card className="glass border-none">
-                    <CardContent className="p-6">
-                      <h4 className="font-semibold text-lg mb-5 text-primary">IMPACT METRICS</h4>
-                      <div className="grid grid-cols-1 gap-5">
-                        {currentStudy.metrics.map((metric, index) => <div key={index} className="text-center p-6 bg-accent/20 rounded-lg">
-                            <div className="text-3xl font-bold text-primary mb-2">
-                              {metric.value}
-                            </div>
-                            <div className="text-sm text-muted-foreground">
-                              {metric.label}
-                            </div>
-                          </div>)}
-                      </div>
-                    </CardContent>
-                  </Card>}
 
                 <Card className="glass border-none">
                   <CardContent className="p-6">
