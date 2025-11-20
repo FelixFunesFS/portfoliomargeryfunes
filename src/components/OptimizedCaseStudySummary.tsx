@@ -34,14 +34,11 @@ const OptimizedCaseStudySummary = () => {
   const truncateText = (text: string, maxLength: number) => {
     return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
   };
-  return <section id="case-studies" className="section bg-gradient-to-br from-muted/20 via-background to-accent/10">
-      <div className="container-custom">
-        
-
+  return <div className="container-custom">
         <div className="relative max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
               {/* Case Study Content */}
-              <div className="p-8 bg-background/50 backdrop-blur-sm rounded-lg border border-border/50">
+              <div className="p-6 bg-background/50 backdrop-blur-sm rounded-lg border border-border/50">
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex-1">
                     <h3 className="text-3xl font-bold mb-2 line-clamp-2">
@@ -65,7 +62,7 @@ const OptimizedCaseStudySummary = () => {
                     </Badge>}
                 </div>
 
-                <div className="space-y-4 mb-6">
+                <div className="space-y-3 mb-5">
                   <div>
                     <h4 className="font-semibold text-base text-primary mb-2">THE CHALLENGE</h4>
                     <p className="text-base text-muted-foreground mb-3">
@@ -104,7 +101,7 @@ const OptimizedCaseStudySummary = () => {
               {/* Impact Metrics */}
               <div className="space-y-6">
                 <Card className="glass border-none">
-                  <CardContent className="p-8">
+                  <CardContent className="p-6">
                     <h4 className="font-semibold text-lg mb-5 text-primary">KEY OUTCOMES</h4>
                     <div className="space-y-4">
                       {currentStudy.keyOutcomes.map((outcome, index) => <div key={index} className="flex items-center gap-3">
@@ -116,7 +113,7 @@ const OptimizedCaseStudySummary = () => {
                 </Card>
 
                 {currentStudy.metrics && <Card className="glass border-none">
-                    <CardContent className="p-8">
+                    <CardContent className="p-6">
                       <h4 className="font-semibold text-lg mb-5 text-primary">IMPACT METRICS</h4>
                       <div className="grid grid-cols-1 gap-5">
                         {currentStudy.metrics.map((metric, index) => <div key={index} className="text-center p-6 bg-accent/20 rounded-lg">
@@ -132,7 +129,7 @@ const OptimizedCaseStudySummary = () => {
                   </Card>}
 
                 <Card className="glass border-none">
-                  <CardContent className="p-8">
+                  <CardContent className="p-6">
                     <h4 className="font-semibold text-lg mb-3 text-primary">UX IMPACT</h4>
                     <p className="text-base text-muted-foreground">
                       {currentStudy.uxImpact}
@@ -142,12 +139,12 @@ const OptimizedCaseStudySummary = () => {
 
                 {/* Reflection & Growth */}
                 {currentStudy.reflection && <Card className="glass border-none">
-                    <CardContent className="p-8">
-                      <h4 className="font-semibold text-lg mb-5 text-amber-600 dark:text-amber-400 flex items-center gap-2">
+                    <CardContent className="p-6">
+                      <h4 className="font-semibold text-lg mb-4 text-amber-600 dark:text-amber-400 flex items-center gap-2">
                         <span>GROWTH & REFLECTION</span>
                       </h4>
                       
-                      <div className="space-y-5">
+                      <div className="space-y-4">
                         {/* What Worked Well */}
                         <div>
                           <h5 className="text-sm font-semibold text-primary mb-3">What Worked Well</h5>
@@ -181,7 +178,7 @@ const OptimizedCaseStudySummary = () => {
             </div>
 
           {/* Navigation Controls */}
-          <div className="flex items-center justify-between mt-8">
+          <div className="flex items-center justify-between mt-6">
             <Button variant="outline" size="sm" onClick={handlePrev} className="flex items-center gap-2">
               <ChevronLeft size={16} />
               Previous
@@ -197,7 +194,6 @@ const OptimizedCaseStudySummary = () => {
             </Button>
           </div>
         </div>
-      </div>
-    </section>;
+      </div>;
 };
 export default OptimizedCaseStudySummary;
