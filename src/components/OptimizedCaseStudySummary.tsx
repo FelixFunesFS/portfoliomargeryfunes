@@ -41,91 +41,89 @@ const OptimizedCaseStudySummary = () => {
         <div className="relative max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               {/* Case Study Content */}
-              <Card className="glass border-none">
-                <CardContent className="p-8">
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold mb-2 line-clamp-2">
-                        {currentStudy.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm mb-4">
-                        {currentStudy.myRole.title}
-                      </p>
-                    </div>
-                    <Badge variant="outline" className="ml-4 flex-shrink-0 text-primary border-primary/30">
-                      Case Study {activeIndex + 1}
-                    </Badge>
+              <div className="p-8 bg-background/50 backdrop-blur-sm rounded-lg border border-border/50">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="flex-1">
+                    <h3 className="text-3xl font-bold mb-2 line-clamp-2">
+                      {currentStudy.title}
+                    </h3>
+                    <p className="text-muted-foreground text-base mb-4">
+                      {currentStudy.myRole.title}
+                    </p>
                   </div>
+                  <Badge variant="outline" className="ml-4 flex-shrink-0 text-primary border-primary/30">
+                    Case Study {activeIndex + 1}
+                  </Badge>
+                </div>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {currentStudy.tools.slice(0, 4).map((tool, index) => <Badge key={index} variant="secondary" className="text-xs">
-                        {tool}
-                      </Badge>)}
-                    {currentStudy.tools.length > 4 && <Badge variant="outline" className="text-xs">
-                        +{currentStudy.tools.length - 4}
-                      </Badge>}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {currentStudy.tools.slice(0, 4).map((tool, index) => <Badge key={index} variant="secondary" className="text-sm">
+                      {tool}
+                    </Badge>)}
+                  {currentStudy.tools.length > 4 && <Badge variant="outline" className="text-sm">
+                      +{currentStudy.tools.length - 4}
+                    </Badge>}
+                </div>
+
+                <div className="space-y-4 mb-6">
+                  <div>
+                    <h4 className="font-semibold text-base text-primary mb-2">THE CHALLENGE</h4>
+                    <p className="text-base text-muted-foreground mb-3">
+                      {truncateText(currentStudy.problem, 150)}
+                    </p>
+                    
+                    {/* User Voice Quote */}
+                    {currentStudy.userVoice && <div className="mt-3 p-4 bg-accent/10 border-l-2 border-accent rounded-r">
+                        <p className="text-sm italic text-muted-foreground">
+                          "{currentStudy.userVoice}"
+                        </p>
+                        <span className="text-sm text-accent mt-1 block">— User Interview Insight</span>
+                      </div>}
                   </div>
-
-                  <div className="space-y-4 mb-6">
-                    <div>
-                      <h4 className="font-semibold text-sm text-primary mb-2">THE CHALLENGE</h4>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        {truncateText(currentStudy.problem, 150)}
-                      </p>
-                      
-                      {/* User Voice Quote */}
-                      {currentStudy.userVoice && <div className="mt-3 p-3 bg-accent/10 border-l-2 border-accent rounded-r">
-                          <p className="text-xs italic text-muted-foreground">
-                            "{currentStudy.userVoice}"
-                          </p>
-                          <span className="text-xs text-accent mt-1 block">— User Interview Insight</span>
-                        </div>}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-sm text-primary mb-2">THE SOLUTION & IMPACT</h4>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        {truncateText(currentStudy.solution, 150)}
-                      </p>
-                      
-                      {/* Stakeholder Quote */}
-                      {currentStudy.stakeholderQuote && <div className="mt-3 p-3 bg-success/10 border-l-2 border-success rounded-r">
-                          <p className="text-xs italic text-muted-foreground">
-                            "{currentStudy.stakeholderQuote}"
-                          </p>
-                        </div>}
-                    </div>
+                  <div>
+                    <h4 className="font-semibold text-base text-primary mb-2">THE SOLUTION & IMPACT</h4>
+                    <p className="text-base text-muted-foreground mb-3">
+                      {truncateText(currentStudy.solution, 150)}
+                    </p>
+                    
+                    {/* Stakeholder Quote */}
+                    {currentStudy.stakeholderQuote && <div className="mt-3 p-4 bg-success/10 border-l-2 border-success rounded-r">
+                        <p className="text-sm italic text-muted-foreground">
+                          "{currentStudy.stakeholderQuote}"
+                        </p>
+                      </div>}
                   </div>
+                </div>
 
-                  <Button className="w-full bg-primary hover:bg-primary/90 flex items-center justify-center gap-2" onClick={handleViewFullCaseStudy}>
-                    View Full Case Study
-                    <ExternalLink size={16} />
-                  </Button>
-                </CardContent>
-              </Card>
+                <Button className="w-full bg-primary hover:bg-primary/90 flex items-center justify-center gap-2" onClick={handleViewFullCaseStudy}>
+                  View Full Case Study
+                  <ExternalLink size={16} />
+                </Button>
+              </div>
 
               {/* Impact Metrics */}
               <div className="space-y-6">
                 <Card className="glass border-none">
-                  <CardContent className="p-6">
-                    <h4 className="font-semibold mb-4 text-primary">KEY OUTCOMES</h4>
-                    <div className="space-y-3">
+                  <CardContent className="p-8">
+                    <h4 className="font-semibold text-lg mb-5 text-primary">KEY OUTCOMES</h4>
+                    <div className="space-y-4">
                       {currentStudy.keyOutcomes.map((outcome, index) => <div key={index} className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
-                          <span className="text-sm">{outcome}</span>
+                          <div className="w-2.5 h-2.5 bg-primary rounded-full flex-shrink-0" />
+                          <span className="text-base">{outcome}</span>
                         </div>)}
                     </div>
                   </CardContent>
                 </Card>
 
                 {currentStudy.metrics && <Card className="glass border-none">
-                    <CardContent className="p-6">
-                      <h4 className="font-semibold mb-4 text-primary">IMPACT METRICS</h4>
-                      <div className="grid grid-cols-1 gap-4">
-                        {currentStudy.metrics.map((metric, index) => <div key={index} className="text-center p-4 bg-accent/20 rounded-lg">
-                            <div className="text-2xl font-bold text-primary mb-1">
+                    <CardContent className="p-8">
+                      <h4 className="font-semibold text-lg mb-5 text-primary">IMPACT METRICS</h4>
+                      <div className="grid grid-cols-1 gap-5">
+                        {currentStudy.metrics.map((metric, index) => <div key={index} className="text-center p-6 bg-accent/20 rounded-lg">
+                            <div className="text-3xl font-bold text-primary mb-2">
                               {metric.value}
                             </div>
-                            <div className="text-xs text-muted-foreground">
+                            <div className="text-sm text-muted-foreground">
                               {metric.label}
                             </div>
                           </div>)}
@@ -134,9 +132,9 @@ const OptimizedCaseStudySummary = () => {
                   </Card>}
 
                 <Card className="glass border-none">
-                  <CardContent className="p-6">
-                    <h4 className="font-semibold mb-2 text-primary">UX IMPACT</h4>
-                    <p className="text-sm text-muted-foreground">
+                  <CardContent className="p-8">
+                    <h4 className="font-semibold text-lg mb-3 text-primary">UX IMPACT</h4>
+                    <p className="text-base text-muted-foreground">
                       {currentStudy.uxImpact}
                     </p>
                   </CardContent>
@@ -144,17 +142,17 @@ const OptimizedCaseStudySummary = () => {
 
                 {/* Reflection & Growth */}
                 {currentStudy.reflection && <Card className="glass border-none">
-                    <CardContent className="p-6">
-                      <h4 className="font-semibold mb-4 text-amber-600 dark:text-amber-400 flex items-center gap-2">
+                    <CardContent className="p-8">
+                      <h4 className="font-semibold text-lg mb-5 text-amber-600 dark:text-amber-400 flex items-center gap-2">
                         <span>GROWTH & REFLECTION</span>
                       </h4>
                       
-                      <div className="space-y-4">
+                      <div className="space-y-5">
                         {/* What Worked Well */}
                         <div>
-                          <h5 className="text-xs font-semibold text-primary mb-2">What Worked Well</h5>
-                          <ul className="space-y-1">
-                            {currentStudy.reflection.whatWorkedWell.slice(0, 2).map((item, idx) => <li key={idx} className="text-xs text-muted-foreground flex gap-2">
+                          <h5 className="text-sm font-semibold text-primary mb-3">What Worked Well</h5>
+                          <ul className="space-y-2">
+                            {currentStudy.reflection.whatWorkedWell.slice(0, 2).map((item, idx) => <li key={idx} className="text-sm text-muted-foreground flex gap-2">
                                 <span className="text-success flex-shrink-0">✓</span>
                                 <span>{item}</span>
                               </li>)}
@@ -163,16 +161,16 @@ const OptimizedCaseStudySummary = () => {
                         
                         {/* Lessons Learned */}
                         <div>
-                          <h5 className="text-xs font-semibold text-primary mb-2">Key Learning</h5>
-                          <p className="text-xs text-muted-foreground italic">
+                          <h5 className="text-sm font-semibold text-primary mb-3">Key Learning</h5>
+                          <p className="text-sm text-muted-foreground italic">
                             {truncateText(currentStudy.reflection.lessonsLearned, 120)}
                           </p>
                         </div>
                         
                         {/* Would Do Differently */}
                         {currentStudy.reflection.wouldDoDifferently.length > 0 && <div>
-                            <h5 className="text-xs font-semibold text-primary mb-2">Future Improvements</h5>
-                            <p className="text-xs text-muted-foreground">
+                            <h5 className="text-sm font-semibold text-primary mb-3">Future Improvements</h5>
+                            <p className="text-sm text-muted-foreground">
                               {truncateText(currentStudy.reflection.wouldDoDifferently[0], 100)}
                             </p>
                           </div>}
