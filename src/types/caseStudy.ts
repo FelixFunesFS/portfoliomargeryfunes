@@ -28,4 +28,17 @@ export interface CaseStudy {
   userVoice?: string;
   stakeholderQuote?: string;
   userProblem?: string;
+  artifacts?: {
+    type: 'journey-map' | 'persona' | 'wireframe' | 'prototype' | 'usability-test' | 'flow-diagram' | 'research-report' | 'analytics';
+    title: string;
+    description: string;
+    image?: string;
+    date?: string;
+  }[];
+  researchProcess?: {
+    phase: string;
+    activities: string[];
+    deliverables: string[];
+    duration: string;
+  }[];
 }
