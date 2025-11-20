@@ -46,5 +46,81 @@ export const caseStudy2: CaseStudy = {
   },
   userVoice: "The manual process was mind-numbing. After entering data for hundreds of engines, you start questioning if you got the numbers right.",
   stakeholderQuote: "The automation eliminated our biggest source of data quality issues. Worth every penny of development time. - Program Manager",
-  userProblem: "Manual data entry led to inaccuracies and delays in engine cycle tracking, affecting critical leasing agreements"
+  userProblem: "Manual data entry led to inaccuracies and delays in engine cycle tracking, affecting critical leasing agreements",
+  artifacts: [
+    {
+      type: 'flow-diagram',
+      title: 'OQAR Data Extraction Logic Flow',
+      description: 'Technical documentation showing parsing logic, validation checkpoints, and data transformation rules for 1200+ engines',
+      image: '/assets/circuit-board.jpg',
+      date: 'Week 1'
+    },
+    {
+      type: 'wireframe',
+      title: 'Validation Interface Mockups',
+      description: 'User-friendly validation screens allowing analysts to verify extracted data before committing to production systems',
+      image: '/assets/coding-workspace.jpg',
+      date: 'Week 2'
+    },
+    {
+      type: 'usability-test',
+      title: 'Edge Case Testing Documentation',
+      description: 'Comprehensive error logging and edge case scenarios discovered during testing phase with 50+ sample OQAR files',
+      image: '/assets/research-desk.jpg',
+      date: 'Week 3'
+    },
+    {
+      type: 'analytics',
+      title: 'Pre/Post Automation Metrics Analysis',
+      description: 'Data quality metrics showing 25% accuracy improvement and 62% processing speed increase across 6-month period',
+      image: '/assets/case-study-1-dashboard.jpg',
+      date: 'Month 6'
+    }
+  ],
+  researchProcess: [
+    {
+      phase: 'Discovery',
+      activities: [
+        'Interviewed analysts about manual data entry pain points',
+        'Analyzed OQAR file formats and data structures',
+        'Documented existing workflow and error patterns',
+        'Identified automation opportunities'
+      ],
+      deliverables: ['Pain point analysis', 'Technical requirements', 'OQAR format documentation'],
+      duration: '1 week'
+    },
+    {
+      phase: 'Design',
+      activities: [
+        'Designed parsing algorithm and validation logic',
+        'Created user validation interface wireframes',
+        'Planned error handling and edge case scenarios',
+        'Defined success metrics and KPIs'
+      ],
+      deliverables: ['Algorithm design', 'Wireframes', 'Error handling matrix'],
+      duration: '1 week'
+    },
+    {
+      phase: 'Development',
+      activities: [
+        'Built JavaScript/VBA parsing tool',
+        'Implemented validation checkpoints',
+        'Created comprehensive error logging',
+        'Developed user interface for data verification'
+      ],
+      deliverables: ['Working automation tool', 'Validation interface', 'Error logs'],
+      duration: '3 weeks'
+    },
+    {
+      phase: 'Testing & Refinement',
+      activities: [
+        'Tested with 50+ sample OQAR files',
+        'Caught and fixed edge cases',
+        'User acceptance testing with analysts',
+        'Iterative refinement based on feedback'
+      ],
+      deliverables: ['Test results', 'Bug fixes', 'Final validated tool'],
+      duration: '2 weeks'
+    }
+  ]
 };
