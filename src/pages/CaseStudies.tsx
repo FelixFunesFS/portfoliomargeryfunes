@@ -291,35 +291,11 @@ const CaseStudies = () => {
                   </Card>
                 </motion.div>
 
-                {/* Research Artifacts */}
-                {study.artifacts && study.artifacts.length > 0 && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.35, duration: 0.6 }}
-                  >
-                    <Card className="glass border-none shadow-card">
-                      <CardHeader>
-                        <CardTitle className="flex items-center space-x-2 text-foreground">
-                          <FileText className="w-5 h-5 text-primary" />
-                          <span>Research Artifacts</span>
-                        </CardTitle>
-                        <p className="text-sm text-muted-foreground mt-2">
-                          Visual documentation of the research process, from discovery to validation
-                        </p>
-                      </CardHeader>
-                      <CardContent>
-                        <ResearchArtifactGallery artifacts={study.artifacts} />
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                )}
-
                 {/* UX Impact */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4, duration: 0.6 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
                 >
                   <Card className="glass border-none shadow-card">
                     <CardHeader>
@@ -340,7 +316,7 @@ const CaseStudies = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.6 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
                 >
                   <Card className="glass border-none shadow-card">
                     <CardHeader>
@@ -369,7 +345,7 @@ const CaseStudies = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.6 }}
+                  transition={{ delay: 0.5, duration: 0.6 }}
                 >
                   <Card className="glass border-primary/20 shadow-card">
                     <CardHeader>
@@ -441,6 +417,30 @@ const CaseStudies = () => {
                     </CardContent>
                   </Card>
                 </motion.div>
+
+                {/* Research Artifacts */}
+                {study.artifacts && study.artifacts.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.6 }}
+                  >
+                    <Card className="glass border-none shadow-card">
+                      <CardHeader>
+                        <CardTitle className="flex items-center space-x-2 text-foreground">
+                          <FileText className="w-5 h-5 text-primary" />
+                          <span>Research Artifacts</span>
+                        </CardTitle>
+                        <p className="text-sm text-muted-foreground mt-2">
+                          Visual documentation of the research process, from discovery to validation
+                        </p>
+                      </CardHeader>
+                      <CardContent>
+                        <ResearchArtifactGallery artifacts={study.artifacts} />
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                )}
               </div>
 
               {/* Sidebar */}
