@@ -6,9 +6,9 @@ interface InViewOptions {
   rootMargin?: string;
 }
 
-export const useInView = (options: InViewOptions = {}) => {
+export const useInView = <T extends HTMLElement = HTMLDivElement>(options: InViewOptions = {}) => {
   const [isInView, setIsInView] = useState(false);
-  const ref = useRef<HTMLElement | null>(null);
+  const ref = useRef<T | null>(null);
 
   useEffect(() => {
     if (!ref.current) return;

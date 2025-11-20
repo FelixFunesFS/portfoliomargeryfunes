@@ -5,9 +5,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { caseStudiesData } from '@/data/caseStudies';
+import { motion } from 'framer-motion';
+import { useInView } from '@/hooks/useInView';
+import { useCountUp } from '@/hooks/useCountUp';
 const OptimizedCaseStudySummary = () => {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
+  const { ref: metricsRef, isInView } = useInView({ threshold: 0.3 });
 
   // Filter to prioritize military-related case studies
   const militaryFirst = [...caseStudiesData].sort((a, b) => {
@@ -40,6 +44,64 @@ const OptimizedCaseStudySummary = () => {
     const hasPercent = outcome.includes('%');
     const hasNumber = /\d+/.test(outcome);
     return (hasPercent || hasNumber) && currentStudy.metrics && currentStudy.metrics.length > 0;
+  };
+
+  // Parse metric value to extract number for counting animation
+  const parseMetricValue = (value: string): { number: number; suffix: string; prefix: string } => {
+    // Match patterns like "45%", "$2M", "65% ↓", "3x", etc.
+    const match = value.match(/^(.*?)(\d+(?:\.\d+)?)(.*)$/);
+    
+    if (!match) return { number: 0, suffix: value, prefix: '' };
+    
+    const [, prefix, numberStr, suffix] = match;
+    return {
+      number: parseFloat(numberStr),
+      suffix: suffix.trim(),
+      prefix: prefix.trim()
+    };
+  };
+
+  // Component to handle individual metric animation
+  const AnimatedMetricCard = ({ metric, isInView, index }: { 
+    metric: { value: string; label: string }; 
+    isInView: boolean;
+    index: number;
+  }) => {
+    const { number, suffix, prefix } = parseMetricValue(metric.value);
+    const animatedNumber = useCountUp({ 
+      end: number, 
+      duration: 1500, 
+      isInView 
+    });
+
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, y: 20 }}
+        animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 20 }}
+        transition={{ 
+          duration: 0.5, 
+          delay: index * 0.1,
+          ease: "easeOut"
+        }}
+        className="text-center p-4 bg-accent/20 rounded-lg"
+      >
+        <div className="text-3xl font-bold text-primary mb-1">
+          {prefix && <span>{prefix}</span>}
+          <motion.span
+            key={isInView ? 'counting' : 'reset'}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {animatedNumber}
+          </motion.span>
+          {suffix && <span>{suffix}</span>}
+        </div>
+        <div className="text-xs text-muted-foreground leading-tight">
+          {metric.label}
+        </div>
+      </motion.div>
+    );
   };
   return <div className="container-custom">
         <div className="relative max-w-6xl mx-auto">
@@ -111,18 +173,16 @@ const OptimizedCaseStudySummary = () => {
                   <CardContent className="p-6">
                     <h4 className="font-semibold text-lg mb-5 text-primary">IMPACT & OUTCOMES</h4>
                     
-                    {/* Quantitative Metrics - Big Visual Cards */}
+                    {/* Quantitative Metrics - Big Visual Cards with Animation */}
                     {currentStudy.metrics && currentStudy.metrics.length > 0 && (
-                      <div className="grid grid-cols-2 gap-3 mb-5">
+                      <div ref={metricsRef} className="grid grid-cols-2 gap-3 mb-5">
                         {currentStudy.metrics.map((metric, index) => (
-                          <div key={index} className="text-center p-4 bg-accent/20 rounded-lg">
-                            <div className="text-3xl font-bold text-primary mb-1">
-                              {metric.value}
-                            </div>
-                            <div className="text-xs text-muted-foreground leading-tight">
-                              {metric.label}
-                            </div>
-                          </div>
+                          <AnimatedMetricCard 
+                            key={`${activeIndex}-${index}`}
+                            metric={metric} 
+                            isInView={isInView}
+                            index={index}
+                          />
                         ))}
                       </div>
                     )}
