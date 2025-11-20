@@ -825,7 +825,7 @@ const Home = () => {
       </section>
 
       {/* Problem-Solution Matrix */}
-      <section className="section bg-background py-12 sm:py-16 lg:py-20">
+      <section className="section bg-gradient-to-br from-muted/20 via-background to-accent/10 py-12 sm:py-16 lg:py-20">
         <div className="container-custom px-3 sm:px-4 lg:px-6">
           <motion.div initial={{
           opacity: 0,
