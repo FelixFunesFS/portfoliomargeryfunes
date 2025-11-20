@@ -837,7 +837,7 @@ const Home = () => {
           once: true
         }} transition={{
           duration: 0.6
-        }} className="text-center mb-6 sm:mb-8">
+        }} className="text-center mb-4 sm:mb-6">
             <Badge variant="outline" className="mb-3 sm:mb-4 border-agile-primary text-agile-primary text-xs sm:text-sm">Case Studies</Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
               User Problems, <span className="text-agile-primary">Research-Driven Solutions</span>
