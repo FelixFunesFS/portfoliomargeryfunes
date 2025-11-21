@@ -43,7 +43,7 @@ const WebDesignCard: React.FC<WebDesignCardProps> = ({ project, index }) => {
       <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full overflow-hidden">
         {/* Project Image/Mockup */}
         <div 
-          className={`h-48 sm:h-56 relative overflow-hidden bg-primary/10 ${project.link ? 'cursor-pointer group' : ''}`}
+          className={`h-[202px] sm:h-[234px] relative overflow-hidden bg-primary/10 ${project.link ? 'cursor-pointer group' : ''}`}
           onClick={project.link ? () => window.open(project.link!, '_blank') : undefined}
         >
           <img 
