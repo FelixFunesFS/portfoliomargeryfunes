@@ -244,13 +244,18 @@ const Home = () => {
   }];
 
   // Skills Arsenal with detailed breakdown and descriptions
-  const filterCategories = ['All', 'UX Research & Design', 'Full Stack Development', 'AI Development & Automation'];
+  const filterCategories = ['All', 'UX Research', 'Full Stack Development', 'AI Development & Automation'];
   const skillCategories = {
-    'UX Research & Design': [{
+    'UX Research': [{
       name: 'User Research & Testing',
       level: 94,
       proficiency: 'Expert',
       description: 'Conducted 50+ user interviews, surveys, and usability testing sessions across military and civilian domains. Led journey mapping and persona development for enterprise systems.'
+    }, {
+      name: 'UX Design (Figma, Design Systems)',
+      level: 88,
+      proficiency: 'Advanced',
+      description: 'Created comprehensive design systems and user interfaces for enterprise applications and military tools'
     }, {
       name: 'Systems Analysis',
       level: 98,
@@ -273,11 +278,6 @@ const Home = () => {
       description: 'Applied structured logical analysis to streamline operations, creating decision trees and automated workflows that reduced task completion time by 40%'
     }],
     'Full Stack Development': [{
-      name: 'UX Design (Figma, Design Systems)',
-      level: 88,
-      proficiency: 'Advanced',
-      description: 'Created comprehensive design systems and user interfaces for enterprise applications and military tools'
-    }, {
       name: 'Prototyping (Interactive Flows, User Testing)',
       level: 85,
       proficiency: 'Advanced',
