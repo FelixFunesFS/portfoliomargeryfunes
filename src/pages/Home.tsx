@@ -453,7 +453,7 @@ const Home = () => {
     image: elSalvadorImage,
     link: "https://discover-elsalvador.com"
   }, {
-    title: "Veteran's Benefits Beyond the VA Wall",
+    title: "Benefits Beyond the VA Wall",
     client: "Veterans Support Services",
     location: "Worldwide",
     platform: "Webflow",
