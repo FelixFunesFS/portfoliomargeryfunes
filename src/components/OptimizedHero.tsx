@@ -2,10 +2,8 @@ import React from 'react';
 import { ArrowDown, Code, Palette, Users, Shield, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-
 const OptimizedHero = () => {
-  return (
-    <section id="home" className="relative flex items-center justify-center min-h-screen overflow-hidden px-2 sm:px-4 lg:px-6">
+  return <section id="home" className="relative flex items-center justify-center min-h-screen overflow-hidden px-2 sm:px-4 lg:px-6">
       {/* Static Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-muted/20" />
       
@@ -77,42 +75,16 @@ const OptimizedHero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mb-6 sm:mb-8">
-            <Button 
-              className="bg-primary hover:bg-primary-light text-primary-foreground px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 text-sm sm:text-base lg:text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25 focus-visible:ring-offset-2 min-h-[44px]" 
-              asChild
-            >
+            <Button className="bg-primary hover:bg-primary-light text-primary-foreground px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 text-sm sm:text-base lg:text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25 focus-visible:ring-offset-2 min-h-[44px]" asChild>
               <a href="/resume.pdf" target="_blank">Download Resume</a>
             </Button>
-            <Button 
-              variant="outline" 
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 text-sm sm:text-base lg:text-lg hover:scale-105 transition-all duration-300 focus-visible:ring-offset-2 min-h-[44px]" 
-              asChild
-            >
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 text-sm sm:text-base lg:text-lg hover:scale-105 transition-all duration-300 focus-visible:ring-offset-2 min-h-[44px]" asChild>
               <a href="#about">Skills Overview</a>
             </Button>
           </div>
 
           {/* Enhanced Stats with Military Context */}
-          <div className="mt-8 sm:mt-12 lg:mt-16 grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 xl:gap-8 w-full max-w-xs sm:max-w-sm lg:max-w-none mx-auto lg:mx-0">
-            <div className="text-center lg:text-left">
-              <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-primary">
-                8
-              </div>
-              <div className="text-xs sm:text-sm text-muted-foreground mt-1">Years Military</div>
-            </div>
-            <div className="text-center lg:text-left">
-              <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-primary">
-                1200+
-              </div>
-              <div className="text-xs sm:text-sm text-muted-foreground mt-1">Aircraft Systems</div>
-            </div>
-            <div className="text-center lg:text-left">
-              <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-primary">
-                87%
-              </div>
-              <div className="text-xs sm:text-sm text-muted-foreground mt-1">Error Reduction</div>
-            </div>
-          </div>
+          
         </div>
 
         {/* Profile Picture with Military Theme */}
@@ -124,13 +96,7 @@ const OptimizedHero = () => {
             
             {/* Profile Image */}
             <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden border-4 border-background shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face" 
-                alt="Margery Funes - Military-trained UX Designer" 
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700 ease-out"
-                loading="eager"
-                decoding="async"
-              />
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face" alt="Margery Funes - Military-trained UX Designer" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700 ease-out" loading="eager" decoding="async" />
               
               {/* Military-themed overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/10 rounded-full" />
@@ -143,15 +109,9 @@ const OptimizedHero = () => {
         </div>
       </div>
       
-      <a 
-        href="#military-experience" 
-        className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 text-primary/60 hover:text-primary transition-colors duration-300" 
-        aria-label="Scroll to military experience"
-      >
+      <a href="#military-experience" className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 text-primary/60 hover:text-primary transition-colors duration-300" aria-label="Scroll to military experience">
         <ArrowDown size={20} className="sm:w-6 sm:h-6" />
       </a>
-    </section>
-  );
+    </section>;
 };
-
 export default OptimizedHero;
