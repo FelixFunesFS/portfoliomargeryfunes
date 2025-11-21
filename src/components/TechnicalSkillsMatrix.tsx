@@ -1,17 +1,10 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/components/ui/hover-card';
-import { Download, Info } from 'lucide-react';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
+import { Download } from 'lucide-react';
 
 interface Skill {
   name: string;
@@ -59,7 +52,6 @@ const itemVariants = {
 };
 
 export default function TechnicalSkillsMatrix({ skills }: TechnicalSkillsMatrixProps) {
-  const [expandedCategories, setExpandedCategories] = useState<string[]>(CATEGORY_ORDER);
 
   const getProficiencyColor = (proficiency: string) => {
     switch (proficiency) {
@@ -89,11 +81,6 @@ export default function TechnicalSkillsMatrix({ skills }: TechnicalSkillsMatrixP
     return { expert, advanced, foundational, total: categorySkills.length };
   };
 
-  const toggleAllCategories = () => {
-    setExpandedCategories(prev => 
-      prev.length === CATEGORY_ORDER.length ? [] : CATEGORY_ORDER
-    );
-  };
 
   const handleExport = () => {
     const csvContent = [
@@ -176,10 +163,7 @@ export default function TechnicalSkillsMatrix({ skills }: TechnicalSkillsMatrixP
                   <div className="text-sm text-muted-foreground">Foundational</div>
                 </div>
               </div>
-              <div className="flex gap-4 justify-center mt-6">
-                <Button variant="outline" size="sm" onClick={toggleAllCategories}>
-                  {expandedCategories.length === CATEGORY_ORDER.length ? 'Collapse All' : 'Expand All'}
-                </Button>
+              <div className="flex justify-center mt-6">
                 <Button variant="outline" size="sm" onClick={handleExport}>
                   <Download className="w-4 h-4 mr-2" />
                   Export CSV
@@ -189,141 +173,114 @@ export default function TechnicalSkillsMatrix({ skills }: TechnicalSkillsMatrixP
           </Card>
         </motion.div>
 
-        {/* Skills Accordion by Category */}
-        <Accordion
-          type="multiple" 
-          value={expandedCategories}
-          onValueChange={setExpandedCategories}
-          className="space-y-4"
-        >
+        {/* 3-Column Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {Object.entries(groupedSkills).map(([category, categorySkills]) => {
             const stats = getCategoryStats(categorySkills);
             
             return (
-              <AccordionItem 
-                key={category} 
-                value={category}
-                className="border rounded-lg border-border bg-card"
+              <Card 
+                key={category}
+                className="border-2 overflow-hidden"
+                style={{ borderTopColor: CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS] }}
               >
-                <AccordionTrigger className="px-6 hover:no-underline">
-                  <div className="flex items-center justify-between w-full pr-4">
-                    <div className="flex items-center gap-4">
-                      <div 
-                        className="h-8 w-1 rounded-full" 
-                        style={{ backgroundColor: CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS] }}
-                      />
-                      <div className="text-left">
-                        <h3 className="text-xl font-semibold text-foreground">
-                          {category}
-                        </h3>
-                        <div className="flex gap-3 mt-1 text-xs">
-                          {stats.expert > 0 && (
-                            <span style={{ color: getProficiencyColor('Expert') }} className="font-medium">
-                              ● Expert: {stats.expert}
-                            </span>
-                          )}
-                          {stats.advanced > 0 && (
-                            <span style={{ color: getProficiencyColor('Advanced') }} className="font-medium">
-                              ● Advanced: {stats.advanced}
-                            </span>
-                          )}
-                          {stats.foundational > 0 && (
-                            <span className="text-muted-foreground font-medium">
-                              ● Foundational: {stats.foundational}
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                    <Badge 
-                      variant="outline" 
-                      className="ml-auto mr-4"
-                      style={{ 
-                        borderColor: CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS],
-                        color: CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS]
-                      }}
-                    >
-                      {stats.total} skills
-                    </Badge>
+                {/* Category Header */}
+                <div 
+                  className="p-4 border-b"
+                  style={{ 
+                    backgroundColor: CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS] + '10',
+                    borderBottomColor: CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS] + '30'
+                  }}
+                >
+                  <h3 className="text-lg font-bold text-foreground mb-2">
+                    {category}
+                  </h3>
+                  <div className="flex gap-2 text-xs flex-wrap">
+                    {stats.expert > 0 && (
+                      <Badge variant="outline" className="text-xs">
+                        {stats.expert} Expert
+                      </Badge>
+                    )}
+                    {stats.advanced > 0 && (
+                      <Badge variant="outline" className="text-xs">
+                        {stats.advanced} Advanced
+                      </Badge>
+                    )}
+                    {stats.foundational > 0 && (
+                      <Badge variant="secondary" className="text-xs">
+                        {stats.foundational} Foundational
+                      </Badge>
+                    )}
                   </div>
-                </AccordionTrigger>
-                
-                <AccordionContent className="px-6 pb-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
-                    {categorySkills.map((skill) => (
-                      <HoverCard key={skill.name}>
-                        <HoverCardTrigger asChild>
-                          <Card 
-                            className="cursor-pointer hover:shadow-lg transition-all duration-300 border-l-4 h-full" 
-                            style={{ borderLeftColor: getProficiencyColor(skill.proficiency) }}
-                            aria-label={`View details for ${skill.name}`}
-                          >
-                            <CardContent className="p-4 h-full flex flex-col">
-                              {/* Skill Name + Badge Row */}
-                              <div className="flex items-start justify-between gap-2 mb-3">
-                                <div className="flex items-center gap-2 flex-1 min-w-0">
-                                  <div 
-                                    className="w-2 h-2 rounded-full flex-shrink-0" 
-                                    style={{ backgroundColor: getProficiencyColor(skill.proficiency) }}
-                                  />
-                                  <h4 className="text-base font-semibold text-foreground truncate">
-                                    {skill.name}
-                                  </h4>
-                                </div>
-                                <Badge
-                                  className="text-xs font-semibold px-2 py-0.5 flex-shrink-0"
-                                  style={{
-                                    backgroundColor: getProficiencyColor(skill.proficiency) + '20',
-                                    borderColor: getProficiencyColor(skill.proficiency),
-                                    color: getProficiencyColor(skill.proficiency),
-                                    border: '1px solid'
-                                  }}
-                                >
-                                  {skill.proficiency}
-                                </Badge>
-                              </div>
+                </div>
 
-                              {/* Progress Bar + Percentage */}
-                              <div className="space-y-2 mt-auto">
-                                <div className="flex items-center justify-between">
-                                  <span className="text-2xl font-bold" style={{ color: getProficiencyColor(skill.proficiency) }}>
-                                    {skill.level}%
-                                  </span>
-                                </div>
-                                <Progress 
-                                  value={skill.level} 
-                                  className="h-2"
-                                  style={{
-                                    '--progress-background': getProficiencyColor(skill.proficiency)
-                                  } as React.CSSProperties}
-                                />
-                              </div>
-
-                              {/* Hover Hint */}
-                              <div className="flex items-center gap-1 mt-3 text-xs text-muted-foreground">
-                                <Info className="w-3 h-3" />
-                                <span>Hover for details</span>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        </HoverCardTrigger>
-                        
-                        <HoverCardContent className="w-80" side="top" align="center">
-                          <div className="space-y-2">
-                            <h4 className="font-semibold text-foreground">{skill.name}</h4>
-                            <p className="text-sm text-muted-foreground leading-relaxed">
-                              {skill.description}
-                            </p>
+                {/* Skills List */}
+                <CardContent className="p-4 space-y-4">
+                  {categorySkills.map((skill) => (
+                    <HoverCard key={skill.name}>
+                      <HoverCardTrigger asChild>
+                        <div className="space-y-2 cursor-pointer hover:bg-accent/5 p-2 -m-2 rounded transition-colors">
+                          {/* Skill Name + Proficiency Badge */}
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-sm font-semibold text-foreground">
+                              {skill.name}
+                            </span>
+                            <Badge
+                              variant="outline"
+                              className="text-xs px-1.5 py-0"
+                              style={{
+                                borderColor: getProficiencyColor(skill.proficiency),
+                                color: getProficiencyColor(skill.proficiency)
+                              }}
+                            >
+                              {skill.proficiency.charAt(0)}
+                            </Badge>
                           </div>
-                        </HoverCardContent>
-                      </HoverCard>
-                    ))}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
+                          
+                          {/* Progress Bar + Level */}
+                          <div className="flex items-center gap-2">
+                            <Progress 
+                              value={skill.level} 
+                              className="h-1.5 flex-1"
+                            />
+                            <span 
+                              className="text-xs font-bold tabular-nums w-8 text-right"
+                              style={{ color: getProficiencyColor(skill.proficiency) }}
+                            >
+                              {skill.level}%
+                            </span>
+                          </div>
+                        </div>
+                      </HoverCardTrigger>
+                      
+                      <HoverCardContent className="w-72" side="top">
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between">
+                            <h4 className="font-semibold text-sm">{skill.name}</h4>
+                            <Badge
+                              variant="outline"
+                              className="text-xs"
+                              style={{
+                                backgroundColor: getProficiencyColor(skill.proficiency) + '20',
+                                borderColor: getProficiencyColor(skill.proficiency),
+                                color: getProficiencyColor(skill.proficiency)
+                              }}
+                            >
+                              {skill.proficiency}
+                            </Badge>
+                          </div>
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            {skill.description}
+                          </p>
+                        </div>
+                      </HoverCardContent>
+                    </HoverCard>
+                  ))}
+                </CardContent>
+              </Card>
             );
           })}
-        </Accordion>
+        </div>
       </div>
     </section>
   );
