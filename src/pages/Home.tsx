@@ -842,24 +842,42 @@ const Home = () => {
       {/* Soft Skills & Leadership - Explicitly highlighted */}
       <SoftSkillsShowcase />
 
-      {/* Technical Skills - Detailed but scannable */}
-      <TechnicalSkillsMatrix skills={allSkills} />
-
-      {/* Skills in Action - Connect skills to outcomes */}
-      <SkillsInAction />
-
-      {/* Skills Evolution Timeline */}
-      <SkillsEvolutionTimeline />
-
-      {/* Mission-Driven Design Philosophy & Journey */}
-      <section id="about" className="section bg-gradient-to-br from-accent/30 via-background to-muted/20">
+      {/* Journey: Bridging the Gap */}
+      <section id="about" className="section bg-gradient-to-br from-background via-background/95 to-military-primary/5 relative overflow-hidden">
         <div className="container-custom">
-          {/* Mission Capabilities Header */}
-          
-          
-          {/* Mission Capabilities Grid */}
           
 
+          {/* Journey Timeline & Insights Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
+            {/* Left Column: Milestone Timeline (60% on large screens) */}
+            <div className="lg:col-span-3">
+              <motion.div initial={{
+              opacity: 0,
+              x: -50
+            }} whileInView={{
+              opacity: 1,
+              x: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6
+            }} className="relative">
+                {/* Connecting Line */}
+                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-military-primary via-systems-blue to-agile-primary opacity-30 hidden sm:block"></div>
+                
+              </motion.div>
+            </div>
+
+            {/* Right Column: Key Insights (40% on large screens) */}
+            
+          </div>
+
+        </div>
+      </section>
+
+      {/* Mission-Driven Design Philosophy */}
+      <section className="section bg-gradient-to-br from-accent/30 via-background to-muted/20">
+        <div className="container-custom">
           {/* Journey Section - Header */}
           <Separator className="my-16" />
           
@@ -1292,40 +1310,15 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Technical Skills - Detailed but scannable */}
+      <TechnicalSkillsMatrix skills={allSkills} />
 
+      {/* Skills in Action - Connect skills to outcomes */}
+      <SkillsInAction />
 
-      {/* Journey: Bridging the Gap */}
-      <section id="about" className="section bg-gradient-to-br from-background via-background/95 to-military-primary/5 relative overflow-hidden">
-        <div className="container-custom">
-          
+      {/* Skills Evolution Timeline */}
+      <SkillsEvolutionTimeline />
 
-          {/* Journey Timeline & Insights Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
-            {/* Left Column: Milestone Timeline (60% on large screens) */}
-            <div className="lg:col-span-3">
-              <motion.div initial={{
-              opacity: 0,
-              x: -50
-            }} whileInView={{
-              opacity: 1,
-              x: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6
-            }} className="relative">
-                {/* Connecting Line */}
-                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-military-primary via-systems-blue to-agile-primary opacity-30 hidden sm:block"></div>
-                
-              </motion.div>
-            </div>
-
-            {/* Right Column: Key Insights (40% on large screens) */}
-            
-          </div>
-
-        </div>
-      </section>
 
 
 
