@@ -252,11 +252,6 @@ const Home = () => {
       proficiency: 'Expert',
       description: 'Conducted 50+ user interviews, surveys, and usability testing sessions across military and civilian domains. Led journey mapping and persona development for enterprise systems.'
     }, {
-      name: 'UX Design & Prototyping',
-      level: 88,
-      proficiency: 'Advanced',
-      description: 'Created comprehensive design systems and interactive prototypes tested with 200+ users across multiple domains using Figma and modern design tools.'
-    }, {
       name: 'Systems Analysis',
       level: 98,
       proficiency: 'Expert',
@@ -276,26 +271,6 @@ const Home = () => {
       level: 95,
       proficiency: 'Expert',
       description: 'Applied structured logical analysis to streamline operations, creating decision trees and automated workflows that reduced task completion time by 40%'
-    }, {
-      name: 'Military Leadership (Team Command, Operations)',
-      level: 100,
-      proficiency: 'Expert',
-      description: 'Commanded teams of 50+ personnel in high-stakes operational environments with zero tolerance for failure'
-    }, {
-      name: 'Cross-functional Teams',
-      level: 95,
-      proficiency: 'Expert',
-      description: 'Coordinated diverse teams across engineering, design, operations, and executive stakeholder groups'
-    }, {
-      name: 'Stakeholder Management (Executive Communication)',
-      level: 90,
-      proficiency: 'Expert',
-      description: 'Presented strategic initiatives to C-suite executives and senior military leadership with measurable outcomes'
-    }, {
-      name: 'Remote Coordination',
-      level: 88,
-      proficiency: 'Advanced',
-      description: 'Successfully managed distributed teams across multiple time zones and security clearance levels'
     }],
     'Full Stack Development': [{
       name: 'UX Design (Figma, Design Systems)',
@@ -313,10 +288,10 @@ const Home = () => {
       proficiency: 'Foundational',
       description: 'Built semantic, accessible web structures using modern HTML5 standards and ARIA guidelines for enterprise applications'
     }, {
-      name: 'CSS (Modern Styling & Layout)',
-      level: 78,
+      name: 'CSS & Modern Styling (Tailwind, Grid, Flexbox)',
+      level: 77,
       proficiency: 'Foundational',
-      description: 'Crafted responsive layouts using CSS Grid, Flexbox, and modern CSS techniques including custom properties and animations'
+      description: 'Crafted responsive layouts using CSS Grid, Flexbox, Tailwind utility-first approach, and modern CSS techniques including custom properties and animations'
     }, {
       name: 'JavaScript/React',
       level: 75,
@@ -332,11 +307,6 @@ const Home = () => {
       level: 70,
       proficiency: 'Foundational',
       description: 'Enhanced JavaScript applications with TypeScript for improved code reliability, developer experience, and maintainable codebases'
-    }, {
-      name: 'Modern CSS/Tailwind',
-      level: 75,
-      proficiency: 'Foundational',
-      description: 'Implemented design systems using Tailwind utility-first approach for consistent, maintainable, and responsive user interfaces'
     }, {
       name: 'Version Control/Git',
       level: 78,
@@ -354,20 +324,10 @@ const Home = () => {
       description: 'Built custom solutions, workflows, and integrations for enterprise environments serving thousands of users'
     }],
     'AI Development & Automation': [{
-      name: 'AI-Assisted Development',
-      level: 85,
-      proficiency: 'Advanced',
-      description: 'Leveraged AI tools like ChatGPT, Claude, and GitHub Copilot to accelerate development workflows, debug complex issues, and generate optimized code solutions'
-    }, {
-      name: 'Prompt Engineering',
-      level: 80,
-      proficiency: 'Foundational',
-      description: 'Crafted effective prompts for AI systems to serve as thought partners in problem-solving, code generation, and rapid prototyping across web development projects'
-    }, {
-      name: 'AI-Powered Prototyping',
+      name: 'AI-Augmented Development (Prompting, Prototyping, Code Gen)',
       level: 82,
       proficiency: 'Advanced',
-      description: 'Utilized AI tools to speed up rapid prototyping, generate component variations, and explore multiple design solutions efficiently'
+      description: 'Leveraged AI tools like ChatGPT, Claude, and GitHub Copilot to accelerate development workflows, craft effective prompts for problem-solving, generate optimized code solutions, and rapidly prototype component variations'
     }, {
       name: 'No-Code/Low-Code Development',
       level: 88,
