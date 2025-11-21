@@ -375,13 +375,13 @@ const Home = () => {
     client: "Charleston Catering Company",
     location: "Charleston, SC",
     platform: "Lovable",
-    description: "Digital transformation for a local catering business, streamlining order management and customer experience.",
+    description: "User research revealed catering clients struggled with unclear menu options and complex ordering. Designed intuitive system prioritizing visual menu discovery and simplified ordering flow.",
     challenge: "Manual order taking causing errors, missed orders, and inefficient kitchen workflow during peak catering seasons.",
-    solution: "Intuitive ordering system with real-time inventory, automated notifications, and streamlined kitchen dashboard.",
+    solution: "Research-informed ordering system with real-time inventory, automated notifications, and streamlined kitchen dashboard based on user workflow analysis.",
     assumptions: "Mobile-first usage by customers, staff comfortable with digital tools, integration with existing POS systems.",
     limitations: "Limited budget for extensive customization, tight timeline for catering season launch, legacy payment system constraints.",
     outcomes: "40% reduction in order errors, 60% faster order processing, improved customer satisfaction and repeat business.",
-    keyOutcomes: ["Automated catering operations, reducing order errors by 40% and processing time by 60%"],
+    keyOutcomes: ["User research insights drove 40% reduction in order errors and 60% faster processing"],
     features: ["Online Ordering", "Inventory Management", "Customer Dashboard", "Mobile Optimization", "Payment Integration"],
     tools: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Stripe"],
     category: "catering",
@@ -394,13 +394,13 @@ const Home = () => {
     client: "Personal Tour Guide Services",
     location: "El Salvador",
     platform: "Lovable",
-    description: "Immersive travel experience platform showcasing personalized jungle and volcano beach adventures.",
+    description: "Research showed travelers wanted authentic local experiences beyond generic tours. Designed immersive storytelling platform highlighting personalized jungle and volcano beach adventures.",
     challenge: "Generic travel sites don't capture unique local experiences, difficulty communicating personalized tour value.",
-    solution: "Visual storytelling platform with immersive galleries, custom itinerary builder, and authentic local experiences.",
+    solution: "Visual storytelling platform informed by traveler preference research, featuring immersive galleries and custom itinerary builder for authentic experiences.",
     assumptions: "Visual appeal drives booking decisions, international travelers have good internet, social proof influences choices.",
     limitations: "Content updates needed from non-technical tour guides, seasonal booking patterns, weather-dependent activities.",
     outcomes: "300% increase in direct bookings, expanded international client base, featured in travel publications.",
-    keyOutcomes: ["Immersive storytelling drove 300% increase in direct bookings for personalized tours"],
+    keyOutcomes: ["Research-driven storytelling increased direct bookings by 300%"],
     features: ["Interactive Maps", "Photo Galleries", "Custom Itineraries", "Booking System", "Weather Integration"],
     tools: ["React", "TypeScript", "Mapbox", "Cloudinary", "Payment APIs"],
     category: "travel",
@@ -413,13 +413,13 @@ const Home = () => {
     client: "Veterans Support Services",
     location: "Worldwide",
     platform: "Webflow",
-    description: "Comprehensive resource portal helping veterans navigate complex benefit systems beyond traditional VA services.",
+    description: "Discovered veterans struggled with complex benefit bureaucracy through user interviews. Designed intuitive resource portal with guided navigation based on veteran mental models.",
     challenge: "Veterans struggling to find and access benefits due to complex bureaucracy and scattered information sources.",
-    solution: "Intuitive resource portal with guided navigation, benefit calculators, and step-by-step application processes.",
+    solution: "User research-informed portal with intuitive navigation, benefit calculators, and step-by-step processes matching veteran comprehension patterns.",
     assumptions: "Veterans have varying tech comfort levels, mobile access important, need for clear simple language over jargon.",
     limitations: "Compliance with veteran service regulations, frequent policy changes requiring updates, limited marketing budget.",
     outcomes: "500+ veterans successfully guided to benefits, 80% user satisfaction rate, partnerships with 15+ veteran organizations.",
-    keyOutcomes: ["Guided 500+ veterans to benefits with 80% user satisfaction through intuitive navigation"],
+    keyOutcomes: ["User-centered design guided 500+ veterans to benefits with 80% satisfaction"],
     features: ["Benefit Calculator", "Resource Library", "Application Guides", "Success Stories", "Community Forum"],
     tools: ["Webflow", "JavaScript", "API Integrations", "Form Processing", "Analytics"],
     category: "veterans",
@@ -432,13 +432,13 @@ const Home = () => {
     client: "Youth Services Organization",
     location: "Chicago, IL",
     platform: "Webflow",
-    description: "Professional website showcasing comprehensive services and group homes for underserved youth.",
+    description: "Stakeholder research identified need for professional credibility to secure funding. Mapped client journeys to create clear service architecture building trust with grantors.",
     challenge: "Complex service offerings difficult to communicate, lack of professional online presence affecting funding opportunities.",
-    solution: "Clear service architecture with client journey mapping, professional design building trust with stakeholders.",
+    solution: "Research-backed information architecture with client journey mapping and professional design informed by stakeholder needs analysis.",
     assumptions: "Professional appearance crucial for grant applications, staff need easy content management, mobile access important.",
     limitations: "Compliance requirements for youth services, content approval workflows, budget constraints for ongoing maintenance.",
     outcomes: "200% increase in service inquiries, improved grant application success rate, enhanced community trust and partnerships.",
-    keyOutcomes: ["Professional redesign increased service inquiries by 200% and improved grant success rates"],
+    keyOutcomes: ["Research-informed redesign increased inquiries by 200% and grant success"],
     features: ["Service Portfolios", "Staff Profiles", "Resource Center", "Contact Forms", "Accessibility Compliance"],
     tools: ["Webflow", "Custom CSS", "JavaScript", "Form Integrations", "CMS"],
     category: "youth-services",
@@ -453,6 +453,11 @@ const Home = () => {
 
       {/* Unified Impact Metrics */}
       <UnifiedImpactMetrics />
+
+      {/* Research Methodology - PRIMARY EXPERTISE */}
+      <section className="border-t-4 border-primary/20">
+        <ResearchMethodology />
+      </section>
 
       {/* Case Studies - PRIMARY EXPERTISE */}
       <section className="section bg-gradient-to-br from-muted/20 via-background to-accent/10 py-12 sm:py-16 lg:py-20 border-t-4 border-primary/20">
@@ -470,11 +475,11 @@ const Home = () => {
         }} className="text-center mb-4 sm:mb-6">
             <Badge variant="outline" className="mb-3 sm:mb-4 px-4 py-2 text-primary border-primary/30 bg-primary/5 text-xs sm:text-sm">Primary Expertise</Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
-              User Problems, <span className="text-agile-primary">Research-Driven Solutions</span>
+              Research-Driven <span className="text-agile-primary">Case Studies</span>
             </h2>
             <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto px-2 sm:px-4 lg:px-0 leading-relaxed">
-              Each project tells a story of user challenges, research insights, and meaningful impact. 
-              Here's how I approach complex problems through systematic UX research.
+              Each project begins with deep user research to uncover real needs. 
+              Here's how I translate insights into meaningful impact through systematic discovery, synthesis, and validation.
             </p>
           </motion.div>
 
@@ -906,8 +911,6 @@ const Home = () => {
 
       {/* Design Process */}
       <DesignProcess />
-
-      {/* Career Progression Timeline */}
       
 
       {/* Recent Work - SUPPORTING CAPABILITY */}
@@ -928,13 +931,11 @@ const Home = () => {
               Supporting Capability
             </Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
-              Proven results through <span className="text-accent">systematic UX research</span>
-              <br className="hidden sm:block" />
-              and digital solutions
+              Research-to-Reality: <span className="text-accent">Implementation Projects</span>
             </h2>
             <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-              Real-world applications demonstrating how systematic analysis and agile methodologies 
-              solve complex challenges and deliver measurable business impact.
+              Technical implementations grounded in user research findings. Each project demonstrates how research insights 
+              translate into functional solutions that solve real user problems and deliver measurable outcomes.
             </p>
           </motion.div>
 
