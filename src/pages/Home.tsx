@@ -26,6 +26,7 @@ import Footer from '@/components/Footer';
 import elSalvadorImage from '@/assets/el-salvador-tourism.png';
 import soulTrainHomepage from '@/assets/soul-train-homepage.png';
 import visionsOfHopeHero from '@/assets/visions-of-hope-hero.png';
+import bbvawHero from '@/assets/bbvaw-hero.png';
 
 // Import images
 import circuitBoard from '@/assets/circuit-board.jpg';
@@ -487,7 +488,7 @@ const Home = () => {
     category: "veterans",
     icon: Shield,
     color: "amber-500",
-    image: "https://bbvaw.us/lovable-uploads/483fb5d8-4a1c-41f4-b486-c562266d8160.png",
+    image: bbvawHero,
     link: "https://bbvaw.us"
   }, {
     title: "Discover El Salvador",
