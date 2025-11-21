@@ -27,11 +27,24 @@ const OptimizedHero = () => {
           </h1>
 
           <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-primary mb-2">
-            UX Engineer & Systems Designer
+            UX Researcher & Human-Centered Designer
           </h2>
-          <p className="text-sm sm:text-base text-muted-foreground font-medium">
+          <p className="text-sm sm:text-base text-muted-foreground font-medium mb-3">
             20+ Years Experience | Aerospace & Defense | Bilingual (English/Spanish)
           </p>
+          
+          {/* Research Credentials Badge */}
+          <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-4">
+            <Badge variant="secondary" className="px-3 py-1.5 bg-primary/10 text-primary border-primary/20">
+              50+ User Interviews
+            </Badge>
+            <Badge variant="secondary" className="px-3 py-1.5 bg-primary/10 text-primary border-primary/20">
+              200+ Usability Sessions
+            </Badge>
+            <Badge variant="secondary" className="px-3 py-1.5 bg-primary/10 text-primary border-primary/20">
+              25+ Journey Maps
+            </Badge>
+          </div>
 
           <div className="mt-4 sm:mt-6 mb-6 sm:mb-8">
             <div className="flex justify-center lg:justify-start gap-2 sm:gap-3 flex-wrap">
