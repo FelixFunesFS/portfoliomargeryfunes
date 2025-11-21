@@ -24,6 +24,7 @@ import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
 import PortfolioDownload from '@/components/PortfolioDownload';
 import Footer from '@/components/Footer';
 import elSalvadorImage from '@/assets/el-salvador-tourism.png';
+import soulTrainHomepage from '@/assets/soul-train-homepage.png';
 
 // Import images
 import circuitBoard from '@/assets/circuit-board.jpg';
@@ -428,7 +429,7 @@ const Home = () => {
     category: "catering",
     icon: Smartphone,
     color: "emerald-500",
-    image: "photo-1488590528505-98d2b5aba04b",
+    image: soulTrainHomepage,
     link: "https://train-catering-creations.lovable.app"
   }, {
     title: "Souls Feeding Souls",

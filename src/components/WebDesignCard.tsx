@@ -47,9 +47,12 @@ const WebDesignCard: React.FC<WebDesignCardProps> = ({ project, index }) => {
           onClick={project.link ? () => window.open(project.link!, '_blank') : undefined}
         >
           <img 
-            src={project.image.startsWith('http') 
-              ? project.image 
-              : `https://images.unsplash.com/${project.image}?auto=format&fit=crop&w=800&q=80`
+            src={
+              typeof project.image === 'string' && project.image.startsWith('http') 
+                ? project.image 
+                : typeof project.image === 'string' && project.image.includes('/')
+                ? project.image
+                : `https://images.unsplash.com/${project.image}?auto=format&fit=crop&w=800&q=80`
             }
             alt={`${project.title} project mockup`}
             className={`w-full h-full object-cover transition-transform duration-300 ${project.link ? 'group-hover:scale-105' : ''}`}
