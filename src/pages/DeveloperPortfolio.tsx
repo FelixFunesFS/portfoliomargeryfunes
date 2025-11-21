@@ -8,10 +8,14 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import TechnicalSkillsMatrix from '@/components/TechnicalSkillsMatrix';
 import { webDevelopmentStudies } from '@/data/caseStudies/webDevelopmentStudies';
+import { caseStudiesData } from '@/data/caseStudies';
 import soulTrainHomepage from '@/assets/soul-train-homepage.png';
 import visionsOfHopeHero from '@/assets/visions-of-hope-hero.png';
 import bbvawHero from '@/assets/bbvaw-hero.png';
 import elSalvadorImage from '@/assets/el-salvador-tourism.png';
+import circuitBoard from '@/assets/circuit-board.jpg';
+import codingWorkspace from '@/assets/coding-workspace.jpg';
+import automationImage from '@/assets/case-study-5-automation.jpg';
 
 const DeveloperPortfolio = () => {
   const [typedCode, setTypedCode] = useState('');
@@ -97,10 +101,42 @@ const DeveloperPortfolio = () => {
   ];
 
   const projectImages: { [key: number]: string } = {
+    // Technical case studies
+    1: circuitBoard,
+    2: codingWorkspace,
+    5: automationImage,
+    // Web applications
     8: soulTrainHomepage,
     10: visionsOfHopeHero,
     11: bbvawHero,
     12: elSalvadorImage,
+  };
+
+  // Technical narrative rewrites for developer audience
+  const technicalNarrative: { [key: number]: {
+    technicalChallenge: string;
+    implementation: string;
+    platformBadge: string;
+    impactScale: string;
+  } } = {
+    1: {
+      technicalChallenge: "Architected real-time SQL-powered tracking system for F117 engines serving 40+ global military bases with 99.9% uptime requirement and zero data loss tolerance",
+      implementation: "Designed distributed SharePoint CMS with SQL integration for real-time data synchronization across time zones. Built Tableau dashboards with automated refresh pipeline and role-based access control for 200+ analysts. Implemented data validation layer preventing cascading failures.",
+      platformBadge: "🏢 Enterprise System",
+      impactScale: "$500K+ annual value · 40+ bases · 200+ users"
+    },
+    2: {
+      technicalChallenge: "Built automated data extraction pipeline processing 1200+ OQAR aviation maintenance files with 15+ format variations, eliminating 98% of manual data entry while maintaining 100% accuracy requirement",
+      implementation: "Developed intelligent parsing algorithm handling variable OQAR file formats using JavaScript pattern matching. Integrated SQL data sources for auto-population of common entries. Created validation checkpoint system with rollback capabilities and granular error logging for production debugging.",
+      platformBadge: "🤖 Desktop Automation",
+      impactScale: "$2M saved over 5 years · 25+ daily users · 1200+ engines"
+    },
+    5: {
+      technicalChallenge: "Designed VBA automation tool for legacy DOD/Boeing GUI systems with no API access, eliminating 2.5 hours of daily repetitive data entry across 50+ screens while ensuring flight safety compliance",
+      implementation: "Built HTML parsing engine to map and populate GUI screen elements dynamically. Connected SQL databases for intelligent pre-filling of common entries. Implemented error recovery system for network interruptions and offline functionality requirement.",
+      platformBadge: "🤖 Legacy System Integration",
+      impactScale: "26,000 hours saved annually · 50+ users · 90% error reduction"
+    }
   };
 
   const philosophy = [
@@ -283,7 +319,7 @@ const DeveloperPortfolio = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
             <Badge className="mb-4 bg-success/10 text-success border-success/20">
               <Rocket className="w-3 h-3 mr-1" />
@@ -293,87 +329,194 @@ const DeveloperPortfolio = () => {
               Production Applications
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Full-stack applications built from architecture to deployment
+              From enterprise automation to full-stack web applications
             </p>
           </motion.div>
 
-          <div className="space-y-12">
-            {webDevelopmentStudies.filter(study => [8, 10, 11, 12].includes(study.id)).map((project, idx) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-              >
-                <Card className="overflow-hidden border-border/50 hover:border-primary/30 transition-all">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {/* Project Image */}
-                    <div className="relative overflow-hidden group">
-                      <img
-                        src={projectImages[project.id]}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
-                        <Button className="bg-primary text-primary-foreground">
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          View Live
-                        </Button>
-                      </div>
-                    </div>
+          {/* Enterprise Automation & Systems */}
+          <div className="mb-20">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="h-px flex-1 bg-primary/20" />
+              <h3 className="text-xl font-bold text-primary flex items-center gap-2">
+                <Terminal className="w-5 h-5" />
+                Enterprise Automation & Systems
+              </h3>
+              <div className="h-px flex-1 bg-primary/20" />
+            </div>
+            <div className="space-y-8">
+              {caseStudiesData.filter(study => [2, 1, 5].includes(study.id)).map((project, idx) => {
+                const narrative = technicalNarrative[project.id];
+                return (
+                  <motion.div
+                    key={project.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                  >
+                    <Card className="overflow-hidden border-border/50 hover:border-primary/30 transition-all">
+                      <div className="grid md:grid-cols-2 gap-6">
+                        {/* Project Image */}
+                        <div className="relative overflow-hidden group h-64 md:h-auto">
+                          <img
+                            src={projectImages[project.id]}
+                            alt={project.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
 
-                    {/* Project Details */}
-                    <CardContent className="p-6 lg:p-8">
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tools.slice(0, 4).map((tool, i) => (
-                          <Badge key={i} variant="outline" className="text-xs">
-                            {tool}
+                        {/* Project Details */}
+                        <CardContent className="p-6 lg:p-8">
+                          {/* Platform Badge + Impact Scale */}
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            <Badge className="bg-primary/10 text-primary border-primary/20">
+                              {narrative.platformBadge}
+                            </Badge>
+                            <Badge variant="outline" className="text-xs text-muted-foreground">
+                              {narrative.impactScale}
+                            </Badge>
+                          </div>
+
+                          <h3 className="text-2xl font-bold text-foreground mb-4">{project.title}</h3>
+                          
+                          {/* Tech Stack */}
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {project.tools.slice(0, 5).map((tool, i) => (
+                              <Badge key={i} variant="outline" className="text-xs">
+                                {tool}
+                              </Badge>
+                            ))}
+                          </div>
+
+                          {/* Technical Challenge */}
+                          <div className="mb-4">
+                            <h4 className="text-sm font-semibold text-primary mb-2 flex items-center gap-2">
+                              <Terminal className="w-4 h-4" />
+                              Technical Challenge
+                            </h4>
+                            <p className="text-sm text-muted-foreground">{narrative.technicalChallenge}</p>
+                          </div>
+
+                          {/* Implementation */}
+                          <div className="mb-4">
+                            <h4 className="text-sm font-semibold text-success mb-2 flex items-center gap-2">
+                              <Code className="w-4 h-4" />
+                              Implementation
+                            </h4>
+                            <p className="text-sm text-muted-foreground">{narrative.implementation}</p>
+                          </div>
+
+                          {/* UX Advantage */}
+                          <div className="p-4 bg-accent/5 border border-accent/20 rounded-lg">
+                            <h4 className="text-sm font-semibold text-accent mb-2">🎯 UX Advantage</h4>
+                            <p className="text-sm text-muted-foreground">{project.uxImpact}</p>
+                          </div>
+                        </CardContent>
+                      </div>
+                    </Card>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Full-Stack Web Applications */}
+          <div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="h-px flex-1 bg-accent/20" />
+              <h3 className="text-xl font-bold text-accent flex items-center gap-2">
+                <Code className="w-5 h-5" />
+                Full-Stack Web Applications
+              </h3>
+              <div className="h-px flex-1 bg-accent/20" />
+            </div>
+            <div className="space-y-8">
+              {webDevelopmentStudies.filter(study => [8, 10, 11, 12].includes(study.id)).map((project, idx) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                >
+                  <Card className="overflow-hidden border-border/50 hover:border-primary/30 transition-all">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {/* Project Image */}
+                      <div className="relative overflow-hidden group h-64 md:h-auto cursor-pointer">
+                        <img
+                          src={projectImages[project.id]}
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
+                          <Button className="bg-primary text-primary-foreground">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            View Live
+                          </Button>
+                        </div>
+                      </div>
+
+                      {/* Project Details */}
+                      <CardContent className="p-6 lg:p-8">
+                        {/* Platform Badge */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          <Badge className="bg-accent/10 text-accent border-accent/20">
+                            🌐 Web Application
                           </Badge>
-                        ))}
-                      </div>
-                      <h3 className="text-2xl font-bold text-foreground mb-3">{project.title}</h3>
-                      
-                      {/* Technical Challenge */}
-                      <div className="mb-4">
-                        <h4 className="text-sm font-semibold text-primary mb-2 flex items-center gap-2">
-                          <Terminal className="w-4 h-4" />
-                          Technical Challenge
-                        </h4>
-                        <p className="text-sm text-muted-foreground">{project.problem}</p>
-                      </div>
+                        </div>
 
-                      {/* Implementation */}
-                      <div className="mb-4">
-                        <h4 className="text-sm font-semibold text-success mb-2 flex items-center gap-2">
-                          <Code className="w-4 h-4" />
-                          Implementation
-                        </h4>
-                        <p className="text-sm text-muted-foreground">{project.solution}</p>
-                      </div>
-
-                      {/* UX Advantage */}
-                      <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-lg">
-                        <h4 className="text-sm font-semibold text-accent mb-2">🎯 UX Advantage</h4>
-                        <p className="text-sm text-muted-foreground">{project.uxImpact}</p>
-                      </div>
-
-                      {/* Metrics */}
-                      {project.metrics && (
-                        <div className="grid grid-cols-2 gap-3">
-                          {project.metrics.slice(0, 2).map((metric, i) => (
-                            <div key={i} className="text-center p-3 bg-muted/30 rounded-lg border border-border/50">
-                              <p className="text-2xl font-bold text-primary">{metric.value}</p>
-                              <p className="text-xs text-muted-foreground">{metric.label}</p>
-                            </div>
+                        <h3 className="text-2xl font-bold text-foreground mb-4">{project.title}</h3>
+                        
+                        {/* Tech Stack */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.tools.slice(0, 4).map((tool, i) => (
+                            <Badge key={i} variant="outline" className="text-xs">
+                              {tool}
+                            </Badge>
                           ))}
                         </div>
-                      )}
-                    </CardContent>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+
+                        {/* Technical Challenge */}
+                        <div className="mb-4">
+                          <h4 className="text-sm font-semibold text-primary mb-2 flex items-center gap-2">
+                            <Terminal className="w-4 h-4" />
+                            Technical Challenge
+                          </h4>
+                          <p className="text-sm text-muted-foreground">{project.problem}</p>
+                        </div>
+
+                        {/* Implementation */}
+                        <div className="mb-4">
+                          <h4 className="text-sm font-semibold text-success mb-2 flex items-center gap-2">
+                            <Code className="w-4 h-4" />
+                            Implementation
+                          </h4>
+                          <p className="text-sm text-muted-foreground">{project.solution}</p>
+                        </div>
+
+                        {/* UX Advantage */}
+                        <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-lg">
+                          <h4 className="text-sm font-semibold text-accent mb-2">🎯 UX Advantage</h4>
+                          <p className="text-sm text-muted-foreground">{project.uxImpact}</p>
+                        </div>
+
+                        {/* Metrics */}
+                        {project.metrics && (
+                          <div className="grid grid-cols-2 gap-3">
+                            {project.metrics.slice(0, 2).map((metric, i) => (
+                              <div key={i} className="text-center p-3 bg-muted/30 rounded-lg border border-border/50">
+                                <p className="text-2xl font-bold text-primary">{metric.value}</p>
+                                <p className="text-xs text-muted-foreground">{metric.label}</p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </CardContent>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
