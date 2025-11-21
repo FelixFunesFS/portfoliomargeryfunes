@@ -434,25 +434,6 @@ const Home = () => {
     image: soulTrainHomepage,
     link: "https://train-catering-creations.lovable.app"
   }, {
-    title: "Souls Feeding Souls",
-    client: "Community Nonprofit",
-    location: "North Charleston, SC",
-    platform: "Lovable",
-    description: "Volunteer coordination platform helping organize food distribution to underserved communities.",
-    challenge: "Inefficient volunteer scheduling, food waste due to poor coordination, and lack of community impact visibility.",
-    solution: "Comprehensive volunteer portal with scheduling, resource tracking, and impact metrics dashboard.",
-    assumptions: "Volunteers have basic smartphone access, consistent internet connectivity, willingness to adopt new technology.",
-    limitations: "Volunteer tech literacy varies, limited staff for training, dependency on donations for hosting costs.",
-    outcomes: "75% improvement in volunteer coordination efficiency, 50% reduction in food waste, increased community engagement.",
-    keyOutcomes: ["Streamlined volunteer coordination, improving efficiency by 75% and reducing food waste by 50%"],
-    features: ["Volunteer Scheduling", "Resource Tracking", "Impact Dashboard", "Communication Tools", "Donation Management"],
-    tools: ["React", "Node.js", "PostgreSQL", "Tailwind CSS", "SendGrid"],
-    category: "nonprofit",
-    icon: Heart,
-    color: "rose-500",
-    image: "photo-1498050108023-c5249f4df085",
-    link: "https://placeholder.com/website/soulsfeedingsouls"
-  }, {
     title: "Visions of Hope",
     client: "Youth Services Organization",
     location: "Chicago, IL",
