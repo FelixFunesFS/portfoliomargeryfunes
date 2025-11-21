@@ -25,6 +25,7 @@ import PortfolioDownload from '@/components/PortfolioDownload';
 import Footer from '@/components/Footer';
 import elSalvadorImage from '@/assets/el-salvador-tourism.png';
 import soulTrainHomepage from '@/assets/soul-train-homepage.png';
+import visionsOfHopeHero from '@/assets/visions-of-hope-hero.png';
 
 // Import images
 import circuitBoard from '@/assets/circuit-board.jpg';
@@ -467,7 +468,7 @@ const Home = () => {
     category: "youth-services",
     icon: HomeIcon,
     color: "blue-500",
-    image: "https://visionsofhope.ngo/lovable-uploads/0456b6a1-9047-462a-841d-fea3c232a769.png",
+    image: visionsOfHopeHero,
     link: "https://visionsofhope.ngo"
   }, {
     title: "Veteran's Benefits Beyond the VA Wall",
