@@ -64,7 +64,7 @@ const Home = () => {
     }
   };
   useEffect(() => {
-    document.title = "UX Researcher | Systems Analyst | Human-Centered Problem Solver";
+    document.title = "UX Researcher & Human-Centered Designer | Margery Funes";
     window.scrollTo(0, 0);
     setIsLoaded(true);
   }, []);
@@ -451,105 +451,11 @@ const Home = () => {
       {/* Optimized Hero Section */}
       <OptimizedHero />
 
-      {/* Radar Hero Section */}
-      <motion.section ref={heroRef} initial="hidden" animate={isHeroInView ? "visible" : "hidden"} variants={containerVariants} className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero">
-        {/* Animated Radar Background */}
-        <motion.div variants={radarVariants} className="absolute inset-0 flex items-center justify-center opacity-10">
-          <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96">
-            <div className="absolute inset-0 rounded-full border-2 border-primary-glow radar-animation"></div>
-            <div className="absolute inset-4 sm:inset-8 rounded-full border border-primary-glow/50 radar-animation" style={{
-            animationDelay: '1s'
-          }}></div>
-            <div className="absolute inset-8 sm:inset-16 rounded-full border border-primary-glow/30 radar-animation" style={{
-            animationDelay: '2s'
-          }}></div>
-            <Radar className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 text-primary-glow" />
-          </div>
-        </motion.div>
-
-        <div className="container-custom relative z-10 px-3 sm:px-4 lg:px-6 xl:px-8">
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-center">
-            {/* Hero Content */}
-            <motion.div variants={itemVariants} className="text-center lg:text-left">
-              <motion.div variants={itemVariants} className="mb-3 sm:mb-4 lg:mb-6">
-                 <Badge variant="outline" className="mb-3 sm:mb-4 text-xs sm:text-sm lg:text-base py-1 sm:py-1.5 lg:py-2 px-2 sm:px-3 lg:px-4 border-primary-glow text-primary-glow">
-                   UX Researcher • Systems Analyst • Human-Centered Problem Solver
-                 </Badge>
-              </motion.div>
-              
-               <motion.h1 variants={itemVariants} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
-                 I solve{' '}
-                 <span className="bg-gradient-to-r from-primary-glow to-accent bg-clip-text text-transparent">
-                   user problems
-                 </span>{' '}
-                 through systematic UX research, bridging{' '}
-                 <span className="bg-gradient-to-r from-agile-primary to-agile-secondary bg-clip-text text-transparent">
-                   technical complexity with human needs
-                 </span>
-               </motion.h1>
-
-               <motion.p variants={itemVariants} className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
-                 Military precision meets human empathy. I bring systematic research methodologies 
-                 to uncover deep user insights, then collaborate with teams to build solutions 
-                 that truly serve human needs.
-               </motion.p>
-
-                <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10 justify-center lg:justify-start">
-                  <Button onClick={() => navigate('/case-studies')} size="lg" className="bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
-                    View Research Case Studies
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                  <Button variant="outline" size="lg" className="border-primary-glow text-primary-glow hover:bg-primary-glow/10 min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-4 w-full sm:w-auto">
-                    <Calendar className="mr-2 w-4 h-4" />
-                    Schedule Research Consultation
-                  </Button>
-                </motion.div>
-
-            </motion.div>
-
-            {/* Interactive Systems Diagram */}
-            <motion.div variants={itemVariants} className="relative mt-6 lg:mt-0">
-              <Card className="glass border-primary-glow/20 shadow-systems">
-                <CardHeader className="p-4 sm:p-6">
-                  <CardTitle className="text-center text-primary-glow text-lg sm:text-xl">
-                    Systems Analysis Framework
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="p-4 sm:p-6">
-                  <div className="space-y-3 sm:space-y-4">
-                    {['User Problems', 'Systems Analysis', 'Agile Solutions', 'Measurable Results'].map((step, index) => <motion.div key={step} initial={{
-                    opacity: 0,
-                    x: 30
-                  }} animate={{
-                    opacity: 1,
-                    x: 0
-                  }} transition={{
-                    delay: index * 0.2 + 1
-                  }} className="flex items-center space-x-2 sm:space-x-3">
-                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary-glow/20 flex items-center justify-center flex-shrink-0">
-                          <span className="text-xs sm:text-sm font-bold text-primary-glow">{index + 1}</span>
-                        </div>
-                        <span className="text-sm sm:text-base text-foreground">{step}</span>
-                        {index < 3 && <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground ml-auto" />}
-                      </motion.div>)}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <motion.div variants={itemVariants} className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <ChevronDown className="w-6 h-6 text-primary-glow animate-bounce" />
-        </motion.div>
-      </motion.section>
-
       {/* Unified Impact Metrics */}
       <UnifiedImpactMetrics />
 
-      {/* Problem-Solution Matrix */}
-      <section className="section bg-gradient-to-br from-muted/20 via-background to-accent/10 py-12 sm:py-16 lg:py-20">
+      {/* Case Studies - PRIMARY EXPERTISE */}
+      <section className="section bg-gradient-to-br from-muted/20 via-background to-accent/10 py-12 sm:py-16 lg:py-20 border-t-4 border-primary/20">
         <div className="container-custom px-3 sm:px-4 lg:px-6">
           <motion.div initial={{
           opacity: 0,
@@ -562,7 +468,7 @@ const Home = () => {
         }} transition={{
           duration: 0.6
         }} className="text-center mb-4 sm:mb-6">
-            <Badge variant="outline" className="mb-3 sm:mb-4 border-agile-primary text-agile-primary text-xs sm:text-sm">Case Studies</Badge>
+            <Badge variant="outline" className="mb-3 sm:mb-4 px-4 py-2 text-primary border-primary/30 bg-primary/5 text-xs sm:text-sm">Primary Expertise</Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
               User Problems, <span className="text-agile-primary">Research-Driven Solutions</span>
             </h2>
@@ -576,14 +482,38 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Core Competencies - What recruiters see FIRST */}
-      <CoreCompetenciesGrid />
+      {/* Core Competencies - PRIMARY EXPERTISE */}
+      <section className="border-t-4 border-primary/20">
+        <CoreCompetenciesGrid />
+      </section>
 
-      {/* Soft Skills & Leadership - Explicitly highlighted */}
-      <SoftSkillsShowcase />
+      {/* Soft Skills & Leadership - PRIMARY EXPERTISE */}
+      <section className="border-t-4 border-primary/20">
+        <SoftSkillsShowcase />
+      </section>
 
-      {/* Technical Skills - Detailed but scannable */}
-      <TechnicalSkillsMatrix skills={allSkills} />
+      {/* Technical Capabilities - SUPPORTING CAPABILITY */}
+      <section className="border-t-2 border-accent/20 bg-gradient-to-br from-background via-muted/10 to-background">
+        <div className="container-custom py-16 lg:py-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <Badge variant="outline" className="mb-4 px-4 py-2 text-accent border-accent/30 bg-accent/5">
+              Supporting Capability
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+              Technical Capabilities
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg">
+              From Research to Implementation: Technical skills that bring user insights to life
+            </p>
+          </motion.div>
+          <TechnicalSkillsMatrix skills={allSkills} />
+        </div>
+      </section>
 
       {/* Journey: Bridging the Gap */}
       <section id="about" className="section bg-gradient-to-br from-accent/30 via-background to-muted/20 py-16 lg:py-20">
@@ -980,8 +910,8 @@ const Home = () => {
       {/* Career Progression Timeline */}
       
 
-      {/* Recent Work Section */}
-      <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20">
+      {/* Recent Work - SUPPORTING CAPABILITY */}
+      <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20 border-t-2 border-accent/20">
         <div className="container-custom px-3 sm:px-4 lg:px-6">
           <motion.div initial={{
           opacity: 0,
@@ -994,8 +924,8 @@ const Home = () => {
         }} transition={{
           duration: 0.6
         }} className="text-center mb-12 sm:mb-16">
-            <Badge variant="outline" className="mb-4 sm:mb-6 border-accent text-accent text-xs sm:text-sm">
-              Web Development
+            <Badge variant="outline" className="mb-4 sm:mb-6 px-4 py-2 text-accent border-accent/30 bg-accent/5 text-xs sm:text-sm">
+              Supporting Capability
             </Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
               Proven results through <span className="text-accent">systematic UX research</span>
