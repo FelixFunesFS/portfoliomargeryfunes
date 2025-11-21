@@ -17,6 +17,7 @@ import CareerProgression from '@/components/CareerProgression';
 import SkillItem from '@/components/SkillItem';
 import CoreCompetenciesGrid from '@/components/CoreCompetenciesGrid';
 import SoftSkillsShowcase from '@/components/SoftSkillsShowcase';
+import { TrainingCertifications } from '@/components/TrainingCertifications';
 import TechnicalSkillsMatrix from '@/components/TechnicalSkillsMatrix';
 import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
 import PortfolioDownload from '@/components/PortfolioDownload';
@@ -495,6 +496,11 @@ const Home = () => {
       {/* Soft Skills & Leadership - PRIMARY EXPERTISE */}
       <section className="border-t-4 border-primary/20">
         <SoftSkillsShowcase />
+      </section>
+
+      {/* Training & Certifications - PRIMARY EXPERTISE */}
+      <section className="border-t-4 border-primary/20">
+        <TrainingCertifications />
       </section>
 
       {/* Technical Capabilities - SUPPORTING CAPABILITY */}
