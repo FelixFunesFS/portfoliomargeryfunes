@@ -244,7 +244,7 @@ const Home = () => {
   }];
 
   // Skills Arsenal with detailed breakdown and descriptions
-  const filterCategories = ['All', 'UX Research & Design', 'Design & Frontend Development', 'Automation & Tools', 'Leadership & Collaboration', 'AI & Modern Development'];
+  const filterCategories = ['All', 'UX Research & Design', 'Full Stack Development', 'AI Development & Automation'];
   const skillCategories = {
     'UX Research & Design': [{
       name: 'User Research & Testing',
@@ -276,8 +276,28 @@ const Home = () => {
       level: 95,
       proficiency: 'Expert',
       description: 'Applied structured logical analysis to streamline operations, creating decision trees and automated workflows that reduced task completion time by 40%'
+    }, {
+      name: 'Military Leadership (Team Command, Operations)',
+      level: 100,
+      proficiency: 'Expert',
+      description: 'Commanded teams of 50+ personnel in high-stakes operational environments with zero tolerance for failure'
+    }, {
+      name: 'Cross-functional Teams',
+      level: 95,
+      proficiency: 'Expert',
+      description: 'Coordinated diverse teams across engineering, design, operations, and executive stakeholder groups'
+    }, {
+      name: 'Stakeholder Management (Executive Communication)',
+      level: 90,
+      proficiency: 'Expert',
+      description: 'Presented strategic initiatives to C-suite executives and senior military leadership with measurable outcomes'
+    }, {
+      name: 'Remote Coordination',
+      level: 88,
+      proficiency: 'Advanced',
+      description: 'Successfully managed distributed teams across multiple time zones and security clearance levels'
     }],
-    'Design & Frontend Development': [{
+    'Full Stack Development': [{
       name: 'UX Design (Figma, Design Systems)',
       level: 88,
       proficiency: 'Advanced',
@@ -333,49 +353,7 @@ const Home = () => {
       proficiency: 'Expert',
       description: 'Built custom solutions, workflows, and integrations for enterprise environments serving thousands of users'
     }],
-    'Automation & Tools': [{
-      name: 'VBA/Automation',
-      level: 88,
-      proficiency: 'Advanced',
-      description: 'Automated complex data processing tasks, reducing manual effort by 80% for financial and operational reporting'
-    }, {
-      name: 'SQL/Database',
-      level: 82,
-      proficiency: 'Advanced',
-      description: 'Designed and optimized database structures for mission-critical applications with complex data relationships'
-    }, {
-      name: 'Tableau/Analytics',
-      level: 80,
-      proficiency: 'Advanced',
-      description: 'Created executive dashboards and data visualizations supporting strategic decision-making for leadership teams'
-    }, {
-      name: 'Power Platform',
-      level: 85,
-      proficiency: 'Advanced',
-      description: 'Developed end-to-end business solutions using Power Apps, Power Automate, and Power BI for enterprise workflows'
-    }],
-    'Leadership & Collaboration': [{
-      name: 'Military Leadership (Team Command, Operations)',
-      level: 100,
-      proficiency: 'Expert',
-      description: 'Commanded teams of 50+ personnel in high-stakes operational environments with zero tolerance for failure'
-    }, {
-      name: 'Cross-functional Teams',
-      level: 95,
-      proficiency: 'Expert',
-      description: 'Coordinated diverse teams across engineering, design, operations, and executive stakeholder groups'
-    }, {
-      name: 'Stakeholder Management (Executive Communication)',
-      level: 90,
-      proficiency: 'Expert',
-      description: 'Presented strategic initiatives to C-suite executives and senior military leadership with measurable outcomes'
-    }, {
-      name: 'Remote Coordination',
-      level: 88,
-      proficiency: 'Advanced',
-      description: 'Successfully managed distributed teams across multiple time zones and security clearance levels'
-    }],
-    'AI & Modern Development': [{
+    'AI Development & Automation': [{
       name: 'AI-Assisted Development',
       level: 85,
       proficiency: 'Advanced',
@@ -400,6 +378,26 @@ const Home = () => {
       level: 90,
       proficiency: 'Expert',
       description: 'Actively exploring emerging technologies, staying current with AI advancements, and adapting development workflows to leverage cutting-edge tools'
+    }, {
+      name: 'VBA/Automation',
+      level: 88,
+      proficiency: 'Advanced',
+      description: 'Automated complex data processing tasks, reducing manual effort by 80% for financial and operational reporting'
+    }, {
+      name: 'SQL/Database',
+      level: 82,
+      proficiency: 'Advanced',
+      description: 'Designed and optimized database structures for mission-critical applications with complex data relationships'
+    }, {
+      name: 'Tableau/Analytics',
+      level: 80,
+      proficiency: 'Advanced',
+      description: 'Created executive dashboards and data visualizations supporting strategic decision-making for leadership teams'
+    }, {
+      name: 'Power Platform',
+      level: 85,
+      proficiency: 'Advanced',
+      description: 'Developed end-to-end business solutions using Power Apps, Power Automate, and Power BI for enterprise workflows'
     }]
   };
 
