@@ -112,7 +112,7 @@ export default function TechnicalSkillsMatrix({ skills }: TechnicalSkillsMatrixP
   };
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-gradient-to-b from-background via-background to-muted/20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -121,165 +121,162 @@ export default function TechnicalSkillsMatrix({ skills }: TechnicalSkillsMatrixP
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
             Technical Skills Matrix
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive overview of technical capabilities across research, design, and development
+            A dynamic showcase of technical capabilities across UX research, development, and AI automation
           </p>
         </motion.div>
 
-        {/* At-a-Glance Summary */}
+        {/* Compact Summary Bar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-8"
+          className="mb-12"
         >
-          <Card className="border-accent/20">
-            <CardContent className="p-6">
-              <div className="grid md:grid-cols-4 gap-6 items-center">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-foreground mb-2">{skills.length}</div>
-                  <div className="text-sm text-muted-foreground">Total Skills</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold mb-2" style={{ color: getProficiencyColor('Expert') }}>
-                    {totalStats.expert}
-                  </div>
-                  <div className="text-sm text-muted-foreground">Expert Level</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold mb-2" style={{ color: getProficiencyColor('Advanced') }}>
-                    {totalStats.advanced}
-                  </div>
-                  <div className="text-sm text-muted-foreground">Advanced Level</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold mb-2" style={{ color: getProficiencyColor('Foundational') }}>
-                    {totalStats.foundational}
-                  </div>
-                  <div className="text-sm text-muted-foreground">Foundational</div>
-                </div>
-              </div>
-              <div className="flex justify-center mt-6">
-                <Button variant="outline" size="sm" onClick={handleExport}>
-                  <Download className="w-4 h-4 mr-2" />
-                  Export CSV
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="flex flex-wrap items-center justify-center gap-4 p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 shadow-lg">
+            <div className="flex items-center gap-2">
+              <span className="text-2xl font-bold text-primary">{skills.length}</span>
+              <span className="text-sm text-muted-foreground">Skills</span>
+            </div>
+            <div className="h-6 w-px bg-border" />
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: getProficiencyColor('Expert') }} />
+              <span className="text-sm"><span className="font-bold" style={{ color: getProficiencyColor('Expert') }}>{totalStats.expert}</span> Expert</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: getProficiencyColor('Advanced') }} />
+              <span className="text-sm"><span className="font-bold" style={{ color: getProficiencyColor('Advanced') }}>{totalStats.advanced}</span> Advanced</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: getProficiencyColor('Foundational') }} />
+              <span className="text-sm"><span className="font-bold" style={{ color: getProficiencyColor('Foundational') }}>{totalStats.foundational}</span> Foundational</span>
+            </div>
+            <div className="h-6 w-px bg-border hidden md:block" />
+            <Button variant="ghost" size="sm" onClick={handleExport} className="gap-2">
+              <Download className="w-4 h-4" />
+              <span className="hidden sm:inline">Export CSV</span>
+            </Button>
+          </div>
         </motion.div>
 
-        {/* 3-Column Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Object.entries(groupedSkills).map(([category, categorySkills]) => {
-            const stats = getCategoryStats(categorySkills);
-            
-            return (
-              <Card 
-                key={category}
-                className="border-2 overflow-hidden"
-                style={{ borderTopColor: CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS] }}
-              >
-                {/* Category Header */}
+        {/* Badge Gallery - Tag Cloud Layout */}
+        <div className="space-y-12">
+          {Object.entries(groupedSkills).map(([category, categorySkills], categoryIndex) => (
+            <motion.div
+              key={category}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+            >
+              {/* Category Header */}
+              <div className="flex items-center gap-3 mb-6">
                 <div 
-                  className="p-4 border-b"
-                  style={{ 
-                    backgroundColor: CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS] + '10',
-                    borderBottomColor: CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS] + '30'
-                  }}
-                >
-                  <h3 className="text-lg font-bold text-foreground mb-2">
-                    {category}
-                  </h3>
-                  <div className="flex gap-2 text-xs flex-wrap">
-                    {stats.expert > 0 && (
-                      <Badge variant="outline" className="text-xs">
-                        {stats.expert} Expert
-                      </Badge>
-                    )}
-                    {stats.advanced > 0 && (
-                      <Badge variant="outline" className="text-xs">
-                        {stats.advanced} Advanced
-                      </Badge>
-                    )}
-                    {stats.foundational > 0 && (
-                      <Badge variant="secondary" className="text-xs">
-                        {stats.foundational} Foundational
-                      </Badge>
-                    )}
-                  </div>
-                </div>
+                  className="w-1 h-8 rounded-full"
+                  style={{ backgroundColor: CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS] }}
+                />
+                <h3 className="text-2xl font-bold text-foreground">
+                  {category}
+                </h3>
+                <div 
+                  className="h-px flex-1 opacity-20"
+                  style={{ backgroundColor: CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS] }}
+                />
+              </div>
 
-                {/* Skills List */}
-                <CardContent className="p-4 space-y-4">
-                  {categorySkills.map((skill) => (
-                    <HoverCard key={skill.name}>
-                      <HoverCardTrigger asChild>
-                        <div className="space-y-2 cursor-pointer hover:bg-accent/5 p-2 -m-2 rounded transition-colors">
-                          {/* Skill Name + Proficiency Badge */}
-                          <div className="flex items-center justify-between gap-2">
-                            <span className="text-sm font-semibold text-foreground">
+              {/* Tag Cloud Pills */}
+              <div className="flex flex-wrap gap-3">
+                {categorySkills.map((skill, skillIndex) => {
+                  const proficiencyColor = getProficiencyColor(skill.proficiency);
+                  const categoryColor = CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS];
+                  
+                  // Size based on proficiency
+                  const sizeClasses = skill.proficiency === 'Expert' 
+                    ? 'px-6 py-3 text-base font-bold' 
+                    : skill.proficiency === 'Advanced'
+                    ? 'px-5 py-2.5 text-sm font-semibold'
+                    : 'px-4 py-2 text-sm font-medium';
+
+                  return (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
+                    >
+                      <HoverCard>
+                        <HoverCardTrigger asChild>
+                          <button
+                            className={`
+                              ${sizeClasses}
+                              rounded-full border-2 
+                              transition-all duration-200 
+                              hover:scale-105 hover:shadow-lg
+                              cursor-pointer
+                              backdrop-blur-sm
+                              group
+                            `}
+                            style={{
+                              backgroundColor: `${categoryColor}15`,
+                              borderColor: proficiencyColor,
+                              color: proficiencyColor,
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.backgroundColor = `${proficiencyColor}20`;
+                              e.currentTarget.style.boxShadow = `0 8px 16px ${proficiencyColor}30`;
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.backgroundColor = `${categoryColor}15`;
+                              e.currentTarget.style.boxShadow = 'none';
+                            }}
+                          >
+                            <span className="flex items-center gap-2">
                               {skill.name}
+                              <span className="text-xs opacity-70 font-normal">
+                                {skill.level}%
+                              </span>
                             </span>
-                            <Badge
-                              variant="outline"
-                              className="text-xs px-1.5 py-0"
-                              style={{
-                                borderColor: getProficiencyColor(skill.proficiency),
-                                color: getProficiencyColor(skill.proficiency)
-                              }}
-                            >
-                              {skill.proficiency.charAt(0)}
-                            </Badge>
+                          </button>
+                        </HoverCardTrigger>
+                        
+                        <HoverCardContent className="w-80" side="top">
+                          <div className="space-y-3">
+                            <div className="flex items-start justify-between gap-3">
+                              <div>
+                                <h4 className="font-bold text-base mb-1">{skill.name}</h4>
+                                <div className="flex items-center gap-2">
+                                  <Badge
+                                    variant="outline"
+                                    className="text-xs"
+                                    style={{
+                                      backgroundColor: `${proficiencyColor}20`,
+                                      borderColor: proficiencyColor,
+                                      color: proficiencyColor
+                                    }}
+                                  >
+                                    {skill.proficiency}
+                                  </Badge>
+                                  <span className="text-xs text-muted-foreground">{skill.level}% proficiency</span>
+                                </div>
+                              </div>
+                            </div>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              {skill.description}
+                            </p>
                           </div>
-                          
-                          {/* Progress Bar + Level */}
-                          <div className="flex items-center gap-2">
-                            <Progress 
-                              value={skill.level} 
-                              className="h-1.5 flex-1"
-                            />
-                            <span 
-                              className="text-xs font-bold tabular-nums w-8 text-right"
-                              style={{ color: getProficiencyColor(skill.proficiency) }}
-                            >
-                              {skill.level}%
-                            </span>
-                          </div>
-                        </div>
-                      </HoverCardTrigger>
-                      
-                      <HoverCardContent className="w-72" side="top">
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between">
-                            <h4 className="font-semibold text-sm">{skill.name}</h4>
-                            <Badge
-                              variant="outline"
-                              className="text-xs"
-                              style={{
-                                backgroundColor: getProficiencyColor(skill.proficiency) + '20',
-                                borderColor: getProficiencyColor(skill.proficiency),
-                                color: getProficiencyColor(skill.proficiency)
-                              }}
-                            >
-                              {skill.proficiency}
-                            </Badge>
-                          </div>
-                          <p className="text-xs text-muted-foreground leading-relaxed">
-                            {skill.description}
-                          </p>
-                        </div>
-                      </HoverCardContent>
-                    </HoverCard>
-                  ))}
-                </CardContent>
-              </Card>
-            );
-          })}
+                        </HoverCardContent>
+                      </HoverCard>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
