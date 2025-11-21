@@ -429,7 +429,7 @@ const Home = () => {
     icon: Smartphone,
     color: "emerald-500",
     image: "photo-1488590528505-98d2b5aba04b",
-    link: "https://placeholder.com/website/soultrainseatery"
+    link: "https://train-catering-creations.lovable.app"
   }, {
     title: "Souls Feeding Souls",
     client: "Community Nonprofit",
@@ -1303,7 +1303,7 @@ const Home = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
-            {webDesigns.map((project, index) => <WebDesignCard key={index} project={project} index={index} onViewCaseStudy={() => handleViewCaseStudy(project.title)} />)}
+            {webDesigns.map((project, index) => <WebDesignCard key={index} project={project} index={index} />)}
           </div>
         </div>
       </section>

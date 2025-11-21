@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { ChevronDown, ExternalLink, Eye, MapPin, TrendingUp, Target } from 'lucide-react';
+import { ExternalLink, MapPin, TrendingUp } from 'lucide-react';
 
 interface WebDesignProject {
   title: string;
@@ -30,11 +29,9 @@ interface WebDesignProject {
 interface WebDesignCardProps {
   project: WebDesignProject;
   index: number;
-  onViewCaseStudy: () => void;
 }
 
-const WebDesignCard: React.FC<WebDesignCardProps> = ({ project, index, onViewCaseStudy }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const WebDesignCard: React.FC<WebDesignCardProps> = ({ project, index }) => {
 
   return (
     <motion.div
@@ -134,85 +131,6 @@ const WebDesignCard: React.FC<WebDesignCardProps> = ({ project, index, onViewCas
             )}
           </div>
         </CardHeader>
-        
-        <CardContent className="p-4 sm:p-6 pt-0">
-          <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
-            <CollapsibleTrigger asChild>
-              <Button variant="ghost" className="w-full justify-between p-0 h-auto mb-4">
-                <span className="text-sm font-medium">View More Details</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
-              </Button>
-            </CollapsibleTrigger>
-            
-            <CollapsibleContent className="space-y-3">
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: isExpanded ? 1 : 0, height: isExpanded ? 'auto' : 0 }}
-                transition={{ duration: 0.3 }}
-                className="space-y-3"
-              >
-                <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-3">
-                  <h4 className="text-sm font-semibold text-destructive mb-1">Challenge</h4>
-                  <p className="text-xs text-foreground">{project.challenge}</p>
-                </div>
-                
-                <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-3">
-                  <h4 className="text-sm font-semibold text-emerald-600 mb-1">Solution</h4>
-                  <p className="text-xs text-foreground">{project.solution}</p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3">
-                    <h4 className="text-xs font-semibold text-amber-600 mb-1">Assumptions</h4>
-                    <p className="text-xs text-foreground">{project.assumptions}</p>
-                  </div>
-                  <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-3">
-                    <h4 className="text-xs font-semibold text-blue-600 mb-1">Limitations</h4>
-                    <p className="text-xs text-foreground">{project.limitations}</p>
-                  </div>
-                </div>
-
-                <div className="bg-primary/10 border border-primary/20 rounded-lg p-3">
-                  <h4 className="text-sm font-semibold text-primary mb-1">Outcomes</h4>
-                  <p className="text-xs text-foreground">{project.outcomes}</p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-semibold text-foreground mb-2">Tools & Technologies</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tools.map((tool, toolIndex) => (
-                      <Badge key={toolIndex} variant="outline" className="text-xs">
-                        {tool}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            </CollapsibleContent>
-          </Collapsible>
-
-          <div className="flex gap-2 mt-4">
-            <Button 
-              size="sm" 
-              className="flex-1 bg-primary-glow hover:bg-primary-glow/90 text-primary-foreground shadow-glow"
-              onClick={onViewCaseStudy}
-            >
-              <Target className="w-3 h-3 mr-2" />
-              View Case Study
-            </Button>
-            {project.link && (
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="flex-1 border-accent text-accent hover:bg-accent/10"
-                onClick={() => window.open(project.link!, '_blank')}
-              >
-                <ExternalLink className="w-3 h-3 mr-2" />
-                Live Site
-              </Button>
-            )}
-          </div>
-        </CardContent>
       </Card>
     </motion.div>
   );
