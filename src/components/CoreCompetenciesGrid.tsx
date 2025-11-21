@@ -52,15 +52,6 @@ const coreCompetencies: CoreCompetency[] = [
     color: 'hsl(var(--accent))'
   },
   {
-    name: 'Frontend Development',
-    icon: Code,
-    proficiency: 'Advanced',
-    impactStatement: 'Built 20+ interfaces with modern tech stack',
-    yearsExperience: 5,
-    highlightMetric: '20+ interfaces',
-    color: 'hsl(var(--success))'
-  },
-  {
     name: 'Data Analysis',
     icon: BarChart3,
     proficiency: 'Expert',
@@ -86,15 +77,6 @@ const coreCompetencies: CoreCompetency[] = [
     yearsExperience: 12,
     highlightMetric: '50+ personnel',
     color: 'hsl(var(--accent))'
-  },
-  {
-    name: 'Process Optimization',
-    icon: Zap,
-    proficiency: 'Expert',
-    impactStatement: 'Reduced task completion time by 40% through automation',
-    yearsExperience: 8,
-    highlightMetric: '40% faster',
-    color: 'hsl(var(--success))'
   }
 ];
 
@@ -145,7 +127,7 @@ export default function CoreCompetenciesGrid() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {coreCompetencies.map((competency, index) => {
             const Icon = competency.icon;

@@ -18,8 +18,6 @@ import SkillItem from '@/components/SkillItem';
 import CoreCompetenciesGrid from '@/components/CoreCompetenciesGrid';
 import SoftSkillsShowcase from '@/components/SoftSkillsShowcase';
 import TechnicalSkillsMatrix from '@/components/TechnicalSkillsMatrix';
-import SkillsInAction from '@/components/SkillsInAction';
-import SkillsEvolutionTimeline from '@/components/SkillsEvolutionTimeline';
 import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
 import PortfolioDownload from '@/components/PortfolioDownload';
 import Footer from '@/components/Footer';
@@ -1270,16 +1268,6 @@ const Home = () => {
 
       {/* Technical Skills - Detailed but scannable */}
       <TechnicalSkillsMatrix skills={allSkills} />
-
-      {/* Skills in Action - Connect skills to outcomes */}
-      <SkillsInAction />
-
-      {/* Skills Evolution Timeline */}
-      <SkillsEvolutionTimeline />
-
-
-
-
 
       {/* Mission Briefing CTA */}
       <section id="contact" className="section bg-background">
