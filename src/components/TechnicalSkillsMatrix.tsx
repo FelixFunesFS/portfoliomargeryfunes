@@ -4,7 +4,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { Download } from 'lucide-react';
+import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/components/ui/hover-card';
+import { Download, Info } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -248,22 +249,29 @@ export default function TechnicalSkillsMatrix({ skills }: TechnicalSkillsMatrixP
                 </AccordionTrigger>
                 
                 <AccordionContent className="px-6 pb-4">
-                  <div className="grid gap-3 pt-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
                     {categorySkills.map((skill) => (
-                      <Card key={skill.name} className="hover:shadow-md transition-shadow duration-300 border-l-4" style={{ borderLeftColor: getProficiencyColor(skill.proficiency) }}>
-                        <CardContent className="p-5">
-                          <div className="grid md:grid-cols-[1fr,auto] gap-4 items-start">
-                            <div className="space-y-2">
-                              <div className="flex items-center gap-3">
-                                <div 
-                                  className="w-2 h-2 rounded-full flex-shrink-0" 
-                                  style={{ backgroundColor: getProficiencyColor(skill.proficiency) }}
-                                />
-                                <h4 className="text-lg font-semibold text-foreground">
-                                  {skill.name}
-                                </h4>
+                      <HoverCard key={skill.name}>
+                        <HoverCardTrigger asChild>
+                          <Card 
+                            className="cursor-pointer hover:shadow-lg transition-all duration-300 border-l-4 h-full" 
+                            style={{ borderLeftColor: getProficiencyColor(skill.proficiency) }}
+                            aria-label={`View details for ${skill.name}`}
+                          >
+                            <CardContent className="p-4 h-full flex flex-col">
+                              {/* Skill Name + Badge Row */}
+                              <div className="flex items-start justify-between gap-2 mb-3">
+                                <div className="flex items-center gap-2 flex-1 min-w-0">
+                                  <div 
+                                    className="w-2 h-2 rounded-full flex-shrink-0" 
+                                    style={{ backgroundColor: getProficiencyColor(skill.proficiency) }}
+                                  />
+                                  <h4 className="text-base font-semibold text-foreground truncate">
+                                    {skill.name}
+                                  </h4>
+                                </div>
                                 <Badge
-                                  className="text-xs font-semibold px-2 py-1"
+                                  className="text-xs font-semibold px-2 py-0.5 flex-shrink-0"
                                   style={{
                                     backgroundColor: getProficiencyColor(skill.proficiency) + '20',
                                     borderColor: getProficiencyColor(skill.proficiency),
@@ -274,26 +282,41 @@ export default function TechnicalSkillsMatrix({ skills }: TechnicalSkillsMatrixP
                                   {skill.proficiency}
                                 </Badge>
                               </div>
-                              <p className="text-sm text-muted-foreground leading-relaxed">
-                                {skill.description}
-                              </p>
-                            </div>
-                            
-                            <div className="md:w-32 space-y-2 md:text-right">
-                              <div className="text-3xl font-bold" style={{ color: getProficiencyColor(skill.proficiency) }}>
-                                {skill.level}%
+
+                              {/* Progress Bar + Percentage */}
+                              <div className="space-y-2 mt-auto">
+                                <div className="flex items-center justify-between">
+                                  <span className="text-2xl font-bold" style={{ color: getProficiencyColor(skill.proficiency) }}>
+                                    {skill.level}%
+                                  </span>
+                                </div>
+                                <Progress 
+                                  value={skill.level} 
+                                  className="h-2"
+                                  style={{
+                                    '--progress-background': getProficiencyColor(skill.proficiency)
+                                  } as React.CSSProperties}
+                                />
                               </div>
-                              <Progress 
-                                value={skill.level} 
-                                className="h-2 md:w-full w-32"
-                                style={{
-                                  '--progress-background': getProficiencyColor(skill.proficiency)
-                                } as React.CSSProperties}
-                              />
-                            </div>
+
+                              {/* Hover Hint */}
+                              <div className="flex items-center gap-1 mt-3 text-xs text-muted-foreground">
+                                <Info className="w-3 h-3" />
+                                <span>Hover for details</span>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </HoverCardTrigger>
+                        
+                        <HoverCardContent className="w-80" side="top" align="center">
+                          <div className="space-y-2">
+                            <h4 className="font-semibold text-foreground">{skill.name}</h4>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              {skill.description}
+                            </p>
                           </div>
-                        </CardContent>
-                      </Card>
+                        </HoverCardContent>
+                      </HoverCard>
                     ))}
                   </div>
                 </AccordionContent>
