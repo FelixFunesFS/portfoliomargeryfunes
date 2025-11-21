@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
-import ResearchMethodology from '@/components/ResearchMethodology';
+import ResearchMethodologyAndProcess from '@/components/ResearchMethodologyAndProcess';
 import OptimizedHero from '@/components/OptimizedHero';
 import OptimizedCaseStudySummary from '@/components/OptimizedCaseStudySummary';
 import { Target, Zap, TrendingUp, Users, BarChart3, Layers, GitBranch, RefreshCw, CheckCircle, ArrowRight, Radar, Settings, Database, Code, LineChart, Shield, Rocket, Brain, Clock, Award, ChevronDown, Eye, MapPin, ExternalLink, Globe, Monitor, Smartphone, Heart, Home as HomeIcon, Trophy, GraduationCap, Lightbulb, Search, TestTube, Download, Calendar } from 'lucide-react';
@@ -11,7 +11,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import WebDesignCard from '@/components/WebDesignCard';
-import DesignProcess from '@/components/DesignProcess';
+
 import UnifiedImpactMetrics from '@/components/UnifiedImpactMetrics';
 import CareerProgression from '@/components/CareerProgression';
 import SkillItem from '@/components/SkillItem';
@@ -454,9 +454,9 @@ const Home = () => {
       {/* Unified Impact Metrics */}
       <UnifiedImpactMetrics />
 
-      {/* Research Methodology - PRIMARY EXPERTISE */}
+      {/* Research Methodology & Design Process - PRIMARY EXPERTISE */}
       <section className="border-t-4 border-primary/20">
-        <ResearchMethodology />
+        <ResearchMethodologyAndProcess />
       </section>
 
       {/* Case Studies - PRIMARY EXPERTISE */}
@@ -909,8 +909,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Design Process */}
-      <DesignProcess />
       
 
       {/* Recent Work - SUPPORTING CAPABILITY */}
