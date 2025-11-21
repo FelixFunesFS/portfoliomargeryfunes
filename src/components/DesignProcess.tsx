@@ -148,48 +148,8 @@ const DesignProcess = () => {
                 </CardContent>
                 </Card>
               </div>
-            ))}
+           ))}
            </div>
-
-          {/* Research Philosophy & Methodologies */}
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            viewport={{ once: true }} 
-            transition={{ delay: 0.6, duration: 0.6 }} 
-            className="mt-12 max-w-4xl mx-auto"
-          >
-            <Card className="glass border-accent/20 shadow-card">
-              <CardContent className="p-6 sm:p-8">
-                <div className="text-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-4 sm:mb-6">
-                    <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-4">
-                    Research Philosophy & Methodologies
-                  </h3>
-                  <p className="text-base sm:text-lg text-muted-foreground italic leading-relaxed mb-6">
-                    "Every artifact tells a story. Whether it's a journey map revealing user pain points 
-                    or a systems diagram showing technical constraints, I believe in making the invisible visible. 
-                    Good research isn't just about gathering data—it's about creating shared understanding 
-                    that transforms how teams think about problems."
-                  </p>
-                  <div className="mb-6">
-                    <Badge variant="outline" className="border-accent text-accent">
-                      Always ask "Why?" before "How?"
-                    </Badge>
-                  </div>
-                  <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                    Dive deeper into the systematic approaches, tools, and insights that drive effective user-centered design. 
-                    From sprint-based problem solving to comprehensive research artifacts.
-                  </p>
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => window.location.href = '/insights'}>
-                    Explore Research Insights <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
 
       </div>
     </section>
