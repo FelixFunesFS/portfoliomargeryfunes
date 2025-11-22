@@ -476,7 +476,7 @@ const Home = () => {
         }} className="text-center mb-4 sm:mb-6">
             <Badge variant="outline" className="mb-3 sm:mb-4 px-4 py-2 text-primary border-primary/30 bg-primary/5 text-xs sm:text-sm">Primary Expertise</Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
-              Research-Driven <span className="text-agile-primary">Case Studies</span>
+              <span className="text-primary">Research-Driven</span> <span className="text-accent">Case Studies</span>
             </h2>
             <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto px-2 sm:px-4 lg:px-0 leading-relaxed">
               Each project begins with deep user research to uncover real needs. 
@@ -521,7 +521,7 @@ const Home = () => {
               Supporting Capability
             </Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-foreground">
-              Technical Capabilities
+              <span className="bg-gradient-to-r from-systems-blue to-systems-cyan bg-clip-text text-transparent">Technical Capabilities</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg">
               From Research to Implementation: Technical skills that bring user insights to life
@@ -940,7 +940,7 @@ const Home = () => {
               Supporting Capability
             </Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
-              Research-to-Reality: <span className="text-accent">Implementation Projects</span>
+              <span className="text-primary">Research-to-Reality:</span> <span className="text-accent">Implementation Projects</span>
             </h2>
             <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
               Technical implementations grounded in user research findings. Each project demonstrates how research insights 

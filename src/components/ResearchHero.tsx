@@ -169,19 +169,37 @@ const ResearchCredentialsBar = () => {
       icon: Users,
       count: interviewCount,
       label: 'User Interviews',
-      description: 'Conducted'
+      description: 'Conducted',
+      colorScheme: {
+        iconBg: 'bg-primary/10',
+        iconColor: 'text-primary',
+        countColor: 'text-primary',
+        hoverBorder: 'hover:border-primary/30'
+      }
     },
     {
       icon: TestTube,
       count: testCount,
       label: 'Usability Tests',
-      description: 'Sessions'
+      description: 'Sessions',
+      colorScheme: {
+        iconBg: 'bg-accent/10',
+        iconColor: 'text-accent',
+        countColor: 'text-accent',
+        hoverBorder: 'hover:border-accent/30'
+      }
     },
     {
       icon: Map,
       count: journeyCount,
       label: 'Journey Maps',
-      description: 'Created'
+      description: 'Created',
+      colorScheme: {
+        iconBg: 'bg-success/10',
+        iconColor: 'text-success',
+        countColor: 'text-success',
+        hoverBorder: 'hover:border-success/30'
+      }
     }
   ];
 
@@ -204,14 +222,14 @@ const ResearchCredentialsBar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
             >
-              <div className="relative backdrop-blur-sm bg-card/30 border border-border/50 rounded-lg p-4 hover:bg-card/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+              <div className={`relative backdrop-blur-sm bg-card/30 border border-border/50 rounded-lg p-4 hover:bg-card/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 ${cred.colorScheme.hoverBorder}`}>
                 <div className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-primary" />
+                  <div className={`flex-shrink-0 w-10 h-10 rounded-full ${cred.colorScheme.iconBg} flex items-center justify-center`}>
+                    <Icon className={`w-5 h-5 ${cred.colorScheme.iconColor}`} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-baseline gap-1">
-                      <span className="text-2xl font-bold text-foreground">
+                      <span className={`text-2xl font-bold ${cred.colorScheme.countColor}`}>
                         {cred.count}+
                       </span>
                     </div>

@@ -123,7 +123,7 @@ const ResearchMethodologyAndProcess = () => {
             Primary Expertise
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Research Methodology & Design Process
+            Research <span className="bg-gradient-to-r from-primary via-systems-cyan to-accent bg-clip-text text-transparent">Methodology & Design Process</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A comprehensive, evidence-based approach combining systematic research methods with agile delivery. 

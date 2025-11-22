@@ -114,7 +114,7 @@ export default function SoftSkillsShowcase() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            Core Soft Skills
+            Soft Skills & <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Leadership</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Essential human-centered capabilities for effective leadership and collaboration
