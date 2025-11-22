@@ -134,10 +134,6 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                             <p className="text-muted-foreground line-clamp-1 max-w-full">
                               {phase.activities[0]} {phase.activities.length > 1 && `+${phase.activities.length - 1} more`}
                             </p>
-                            <div className="flex items-center gap-1 text-[10px] text-muted-foreground/70">
-                              <Clock className="w-3 h-3" />
-                              <span>{phase.duration}</span>
-                            </div>
                           </div>
                         </div>
                       </AccordionTrigger>
@@ -221,10 +217,6 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                       <p className="text-xs text-muted-foreground line-clamp-1 text-left">
                         {phase.activities[0]} {phase.activities.length > 1 && `+${phase.activities.length - 1} more`}
                       </p>
-                      <div className="flex items-center gap-1 text-[10px] text-muted-foreground/70">
-                        <Clock className="w-3 h-3" />
-                        <span>{phase.duration}</span>
-                      </div>
                     </div>
                   </AccordionTrigger>
                   
