@@ -7,10 +7,8 @@ import heroTechLayer1 from '@/assets/hero-tech-layer-1.jpg';
 import heroTechLayer2 from '@/assets/hero-tech-layer-2.jpg';
 
 const ResearchHero = () => {
-  // Parallax effect for radar circles and background layers
+  // Parallax effect for background layers
   const { scrollY } = useScroll();
-  const radarY = useTransform(scrollY, [0, 500], [0, -150]);
-  const radarOpacity = useTransform(scrollY, [0, 300], [1, 0]);
   
   // Parallax for tech background layers (slower movement for depth)
   const layer1Y = useTransform(scrollY, [0, 500], [0, -80]);
@@ -57,47 +55,6 @@ const ResearchHero = () => {
         />
       </motion.div>
 
-      {/* Decorative Radar Circles Background with Parallax */}
-      <motion.div 
-        className="absolute inset-0 flex items-center justify-center pointer-events-none"
-        style={{ y: radarY, opacity: radarOpacity }}
-      >
-        {[1, 2, 3, 4].map((circle) => (
-          <motion.div
-            key={circle}
-            className="absolute rounded-full border border-primary/10"
-            style={{
-              width: `${circle * 200}px`,
-              height: `${circle * 200}px`,
-            }}
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ 
-              scale: 1, 
-              opacity: [0.05, 0.1, 0.05],
-            }}
-            transition={{
-              duration: 3,
-              delay: circle * 0.2,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          />
-        ))}
-        
-        {/* Rotating radar sweep effect */}
-        <motion.div
-          className="absolute w-[800px] h-[800px] rounded-full"
-          style={{
-            background: 'conic-gradient(from 0deg, transparent 0%, hsl(var(--primary) / 0.15) 10%, transparent 20%)',
-          }}
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-      </motion.div>
 
       {/* Content */}
       <div className="relative z-10 container-custom px-6 py-16 space-y-8">

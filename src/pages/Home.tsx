@@ -457,16 +457,8 @@ const Home = () => {
       {/* Research Hero Section */}
       <ResearchHero />
 
-      {/* Brand Marquee */}
-      <BrandMarquee />
-
       {/* Unified Impact Metrics */}
       <UnifiedImpactMetrics />
-
-      {/* Research Methodology & Design Process - PRIMARY EXPERTISE */}
-      <section className="border-t-4 border-primary/20">
-        <ResearchMethodologyAndProcess />
-      </section>
 
       {/* Case Studies - PRIMARY EXPERTISE */}
       <section className="section bg-gradient-to-br from-muted/20 via-background to-accent/10 py-12 sm:py-16 lg:py-20 border-t-4 border-primary/20">
@@ -494,6 +486,11 @@ const Home = () => {
 
           <ProcessStoryGrid limit={4} featuredId={1} className="max-w-[1400px] mx-auto" />
         </div>
+      </section>
+
+      {/* Research Methodology & Design Process - PRIMARY EXPERTISE */}
+      <section className="border-t-4 border-primary/20">
+        <ResearchMethodologyAndProcess />
       </section>
 
       {/* Core Competencies - PRIMARY EXPERTISE */}
@@ -1172,6 +1169,9 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Brand Marquee */}
+      <BrandMarquee />
 
       {/* Mission Briefing CTA */}
       <section id="contact" className="section bg-background">
