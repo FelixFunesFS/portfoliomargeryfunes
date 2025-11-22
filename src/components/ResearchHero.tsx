@@ -3,12 +3,18 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Download, Target, BookOpen, Calendar } from 'lucide-react';
+import heroTechLayer1 from '@/assets/hero-tech-layer-1.jpg';
+import heroTechLayer2 from '@/assets/hero-tech-layer-2.jpg';
 
 const ResearchHero = () => {
-  // Parallax effect for radar circles
+  // Parallax effect for radar circles and background layers
   const { scrollY } = useScroll();
   const radarY = useTransform(scrollY, [0, 500], [0, -150]);
   const radarOpacity = useTransform(scrollY, [0, 300], [1, 0]);
+  
+  // Parallax for tech background layers (slower movement for depth)
+  const layer1Y = useTransform(scrollY, [0, 500], [0, -80]);
+  const layer2Y = useTransform(scrollY, [0, 500], [0, -120]);
 
   const handleDownloadResume = () => {
     window.open('/resume.pdf', '_blank');
@@ -30,6 +36,27 @@ const ResearchHero = () => {
 
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/20">
+      {/* Parallax Tech Background Layers */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        style={{ y: layer1Y }}
+      >
+        <div 
+          className="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-luminosity"
+          style={{ backgroundImage: `url(${heroTechLayer1})` }}
+        />
+      </motion.div>
+      
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        style={{ y: layer2Y }}
+      >
+        <div 
+          className="absolute inset-0 opacity-15 bg-cover bg-center mix-blend-screen"
+          style={{ backgroundImage: `url(${heroTechLayer2})` }}
+        />
+      </motion.div>
+
       {/* Decorative Radar Circles Background with Parallax */}
       <motion.div 
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
