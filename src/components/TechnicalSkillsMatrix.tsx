@@ -115,8 +115,38 @@ export default function TechnicalSkillsMatrix({ skills }: TechnicalSkillsMatrixP
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-background via-background to-muted/10">
-      <div className="container mx-auto px-4">
+    <section className="relative py-20 bg-gradient-to-b from-background via-background to-muted/10 overflow-hidden">
+      {/* Code Snippet Marquee Background */}
+      <div className="absolute inset-0 pointer-events-none opacity-5">
+        <div className="absolute inset-0 flex items-center">
+          <div className="animate-marquee whitespace-nowrap text-xs font-mono text-muted-foreground">
+            <span className="inline-block px-8">const research = async () =&gt; &#123; &#125;</span>
+            <span className="inline-block px-8">interface User &#123; id: string; needs: string[]; &#125;</span>
+            <span className="inline-block px-8">useEffect(() =&gt; &#123; analyzeData(); &#125;, [data])</span>
+            <span className="inline-block px-8">const findings = await synthesize(insights)</span>
+            <span className="inline-block px-8">type Skill = &#123; name: string; level: number; &#125;</span>
+            <span className="inline-block px-8">return optimizedSolution;</span>
+            <span className="inline-block px-8">const research = async () =&gt; &#123; &#125;</span>
+            <span className="inline-block px-8">interface User &#123; id: string; needs: string[]; &#125;</span>
+            <span className="inline-block px-8">useEffect(() =&gt; &#123; analyzeData(); &#125;, [data])</span>
+            <span className="inline-block px-8">const findings = await synthesize(insights)</span>
+          </div>
+        </div>
+        <div className="absolute inset-0 flex items-center top-1/3">
+          <div className="animate-marquee-reverse whitespace-nowrap text-xs font-mono text-muted-foreground">
+            <span className="inline-block px-8">SELECT * FROM users WHERE persona_match = true</span>
+            <span className="inline-block px-8">git commit -m "implement user feedback"</span>
+            <span className="inline-block px-8">npm run build &amp;&amp; deploy --production</span>
+            <span className="inline-block px-8">function validateAccessibility(component) &#123; &#125;</span>
+            <span className="inline-block px-8">const metrics = &#123; nps: 85, csat: 92 &#125;</span>
+            <span className="inline-block px-8">import &#123; research, design, implement &#125; from 'process'</span>
+            <span className="inline-block px-8">SELECT * FROM users WHERE persona_match = true</span>
+            <span className="inline-block px-8">git commit -m "implement user feedback"</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-3xl font-bold text-foreground mb-2">
