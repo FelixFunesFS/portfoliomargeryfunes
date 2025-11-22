@@ -46,6 +46,11 @@ export const caseStudy5: CaseStudy = {
   userVoice: "By hour two of data entry, my brain feels like mush. I know I'm making mistakes, but the system requires perfect accuracy for flight safety.",
   stakeholderQuote: "The ROI was immediate. Our analysts went from data entry zombies to strategic thinkers overnight. - Engineering Manager, Boeing",
   userProblem: "Data entry specialists faced exhaustion from repetitive 2.5-hour daily tasks leading to frequent errors",
+  researchScale: {
+    testSessions: 12,
+    participants: 50,
+    artifacts: 4
+  },
   artifacts: [
     {
       type: 'persona',

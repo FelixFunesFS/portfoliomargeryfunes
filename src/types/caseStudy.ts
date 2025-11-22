@@ -41,4 +41,10 @@ export interface CaseStudy {
     deliverables: string[];
     duration: string;
   }[];
+  researchScale?: {
+    interviews?: number;
+    testSessions?: number;
+    participants?: number;
+    artifacts?: number;
+  };
 }
