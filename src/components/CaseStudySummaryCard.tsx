@@ -140,59 +140,36 @@ export const CaseStudySummaryCard = ({
               </div>
             </div>
 
-            {/* RIGHT COLUMN: Growth & Reflection + Methods/Results */}
+            {/* RIGHT COLUMN: Key Results + Methods */}
             <div className="space-y-5">
-              {/* GROWTH & REFLECTION */}
-              {caseStudy.reflection && (
-                <div className="space-y-5">
-                  <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400">
-                    <div className="w-1 h-6 bg-amber-600 dark:bg-amber-400 rounded-full" />
-                    <h4 className="font-semibold text-sm uppercase tracking-wider">Growth & Reflection</h4>
+              {/* KEY RESULTS - MOVED TO TOP FOR IMMEDIATE IMPACT */}
+              {caseStudy.metrics && caseStudy.metrics.length > 0 && (
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
+                    <div className="w-1 h-6 bg-green-600 dark:bg-green-400 rounded-full" />
+                    <h4 className="font-semibold text-sm uppercase tracking-wider">Key Results</h4>
                   </div>
-
-                  <div className="pl-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
-                    {/* LEFT: What Worked Well + Future Optimizations */}
-                    <div className="space-y-4">
-                      {caseStudy.reflection.whatWorkedWell && caseStudy.reflection.whatWorkedWell.length > 0 && (
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
-                            <CheckCircle2 className="w-4 h-4" />
-                            <h5 className="font-semibold text-sm uppercase tracking-wide">What Worked Well</h5>
+                  
+                  <div className="pl-4">
+                    <div className="grid grid-cols-2 gap-3">
+                      {caseStudy.metrics.slice(0, 4).map((metric, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: index * 0.1 }}
+                          viewport={{ once: true }}
+                          className="p-4 rounded-lg bg-green-500/10 border border-green-500/20"
+                        >
+                          <div className="flex items-center gap-1.5 mb-1">
+                            <TrendingUp className="w-4 h-4 text-green-600 dark:text-green-400" />
+                            <span className="text-2xl font-bold text-green-600 dark:text-green-400">
+                              {metric.value}
+                            </span>
                           </div>
-                          <ul className="space-y-1.5 pl-6 text-xs text-muted-foreground">
-                            {caseStudy.reflection.whatWorkedWell.slice(0, 2).map((item, index) => (
-                              <li key={index} className="list-disc">{item}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {caseStudy.reflection.wouldDoDifferently && caseStudy.reflection.wouldDoDifferently.length > 0 && (
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400">
-                            <RefreshCw className="w-4 h-4" />
-                            <h5 className="font-semibold text-sm uppercase tracking-wide">Future Optimizations</h5>
-                          </div>
-                          <ul className="space-y-1.5 pl-6 text-xs text-muted-foreground">
-                            {caseStudy.reflection.wouldDoDifferently.slice(0, 2).map((item, index) => (
-                              <li key={index} className="list-disc">{item}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* RIGHT: Key Lesson */}
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2 text-primary">
-                        <Lightbulb className="w-4 h-4" />
-                        <h5 className="font-semibold text-sm uppercase tracking-wide">Key Lesson</h5>
-                      </div>
-                      <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
-                        <p className="text-sm text-foreground leading-relaxed">
-                          {caseStudy.reflection.lessonsLearned}
-                        </p>
-                      </div>
+                          <p className="text-xs text-muted-foreground line-clamp-1">{metric.label}</p>
+                        </motion.div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -223,40 +200,73 @@ export const CaseStudySummaryCard = ({
                 </div>
               )}
 
-              {/* KEY RESULTS */}
-              {caseStudy.metrics && caseStudy.metrics.length > 0 && (
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-teal-600 dark:text-teal-400">
-                    <div className="w-1 h-6 bg-teal-600 dark:bg-teal-400 rounded-full" />
-                    <h4 className="font-semibold text-sm uppercase tracking-wider">Key Results</h4>
+            </div>
+          </div>
+
+          {/* GROWTH & REFLECTION - Now Collapsible */}
+          {caseStudy.reflection && (
+            <Collapsible className="border-t border-border/30 pt-5">
+              <CollapsibleTrigger className="w-full group">
+                <div className="flex items-center justify-between w-full hover:bg-amber-500/5 transition-colors rounded-lg p-3">
+                  <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400">
+                    <Lightbulb className="w-5 h-5" />
+                    <h4 className="font-semibold text-sm uppercase tracking-wider">Growth & Lessons Learned</h4>
                   </div>
-                  
-                  <div className="pl-4">
-                    <div className="grid grid-cols-2 gap-3">
-                      {caseStudy.metrics.slice(0, 4).map((metric, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: index * 0.1 }}
-                          viewport={{ once: true }}
-                          className="p-2.5 rounded-lg bg-teal-500/10 border border-teal-500/20"
-                        >
-                          <div className="flex items-center gap-1.5 mb-1">
-                            <TrendingUp className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-                            <span className="text-lg font-bold text-teal-600 dark:text-teal-400">
-                              {metric.value}
-                            </span>
-                          </div>
-                          <p className="text-xs text-muted-foreground line-clamp-1">{metric.label}</p>
-                        </motion.div>
-                      ))}
+                  <ChevronDown className={cn(
+                    "w-4 h-4 text-amber-600 dark:text-amber-400 transition-transform duration-300 group-data-[state=open]:rotate-180"
+                  )} />
+                </div>
+              </CollapsibleTrigger>
+
+              <CollapsibleContent className="pt-4">
+                <div className="pl-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
+                  {/* LEFT: What Worked Well + Future Optimizations */}
+                  <div className="space-y-4">
+                    {caseStudy.reflection.whatWorkedWell && caseStudy.reflection.whatWorkedWell.length > 0 && (
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
+                          <CheckCircle2 className="w-4 h-4" />
+                          <h5 className="font-semibold text-sm uppercase tracking-wide">What Worked Well</h5>
+                        </div>
+                        <ul className="space-y-1.5 pl-6 text-xs text-muted-foreground">
+                          {caseStudy.reflection.whatWorkedWell.slice(0, 2).map((item, index) => (
+                            <li key={index} className="list-disc">{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {caseStudy.reflection.wouldDoDifferently && caseStudy.reflection.wouldDoDifferently.length > 0 && (
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400">
+                          <RefreshCw className="w-4 h-4" />
+                          <h5 className="font-semibold text-sm uppercase tracking-wide">Future Optimizations</h5>
+                        </div>
+                        <ul className="space-y-1.5 pl-6 text-xs text-muted-foreground">
+                          {caseStudy.reflection.wouldDoDifferently.slice(0, 2).map((item, index) => (
+                            <li key={index} className="list-disc">{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* RIGHT: Key Lesson */}
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-primary">
+                      <Lightbulb className="w-4 h-4" />
+                      <h5 className="font-semibold text-sm uppercase tracking-wide">Key Lesson</h5>
+                    </div>
+                    <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
+                      <p className="text-sm text-foreground leading-relaxed">
+                        {caseStudy.reflection.lessonsLearned}
+                      </p>
                     </div>
                   </div>
                 </div>
-              )}
-            </div>
-          </div>
+              </CollapsibleContent>
+            </Collapsible>
+          )}
 
           {/* BOTTOM SECTION: Expandable Research Process */}
           {caseStudy.researchProcess && caseStudy.researchProcess.length > 0 && (
