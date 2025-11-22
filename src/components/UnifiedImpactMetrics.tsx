@@ -33,7 +33,7 @@ const UnifiedImpactMetrics = () => {
   ];
 
   return (
-    <section className="py-12">
+    <section className="py-12 bg-muted/30">
       <div className="container-custom">
         <div className="text-center mb-12">
           <Badge variant="outline" className="mb-4 border-primary text-primary">

@@ -7,10 +7,6 @@ import Home from "./pages/Home";
 import CaseStudies from "./pages/CaseStudies";
 import Insights from "./pages/Insights";
 import DeveloperPortfolio from "./pages/DeveloperPortfolio";
-import ResearchHub from "./pages/ResearchHub";
-import ResearchJournal from "./pages/ResearchJournal";
-import BrightStudio from "./pages/BrightStudio";
-import UXShowcase from "./pages/UXShowcase";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,10 +22,6 @@ const App = () => (
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/developer" element={<DeveloperPortfolio />} />
-          <Route path="/research-hub" element={<ResearchHub />} />
-          <Route path="/research-journal" element={<ResearchJournal />} />
-          <Route path="/studio" element={<BrightStudio />} />
-          <Route path="/ux-showcase" element={<UXShowcase />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
