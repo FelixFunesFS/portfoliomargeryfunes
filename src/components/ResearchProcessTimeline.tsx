@@ -77,6 +77,11 @@ const getPhaseColor = (phase: string) => {
 };
 
 export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTimelineProps) => {
+  // Auto-expand phase accordions on desktop
+  const defaultExpandedPhases = typeof window !== 'undefined' && window.innerWidth >= 1024
+    ? phases.map((_, index) => `phase-${index}`)
+    : [];
+
   return (
     <div className={cn("w-full", className)}>
       {/* Desktop: Horizontal Timeline */}
@@ -116,7 +121,7 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                   )}
                   
                   {/* Phase Card with Accordion */}
-                  <Accordion type="single" collapsible className="w-full">
+                  <Accordion type="multiple" defaultValue={defaultExpandedPhases} className="w-full">
                     <AccordionItem 
                       value={`phase-${index}`} 
                       className={cn(
