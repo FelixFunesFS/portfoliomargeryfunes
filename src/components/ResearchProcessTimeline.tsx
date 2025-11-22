@@ -126,7 +126,7 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                     >
                       <AccordionTrigger className="px-4 pt-4 pb-2 hover:no-underline [&[data-state=open]]:pb-2 min-h-[48px] sm:min-h-[44px]">
                         <div className="flex flex-col items-center gap-2 w-full">
-                          <h4 className={cn("font-semibold text-center text-base sm:text-lg", colors.text)}>
+                          <h4 className={cn("font-semibold text-center text-sm sm:text-base", colors.text)}>
                             {phase.phase}
                           </h4>
                           
@@ -211,7 +211,7 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                 >
                   <AccordionTrigger className="px-3 pt-3 pb-2 hover:no-underline min-h-[48px]">
                     <div className="flex flex-col items-start gap-2 w-full pr-2">
-                      <h4 className={cn("font-semibold text-base", colors.text)}>
+                      <h4 className={cn("font-semibold text-sm", colors.text)}>
                         {phase.phase}
                       </h4>
                       <p className="text-xs text-muted-foreground line-clamp-1 text-left">
