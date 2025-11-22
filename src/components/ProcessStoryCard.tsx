@@ -27,7 +27,7 @@ export const ProcessStoryCard = ({ caseStudy, featured = false, className }: Pro
       className={className}
     >
       <Card className={cn(
-        "overflow-hidden hover:shadow-2xl transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm",
+        "overflow-hidden hover:shadow-2xl transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm min-h-[600px] flex flex-col",
         featured && "border-primary/30"
       )}>
         <CardHeader className="space-y-4 pb-4">
