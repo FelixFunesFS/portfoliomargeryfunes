@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Clock, FileText } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock, FileText, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 interface ProcessPhase {
   phase: string;
@@ -114,41 +115,54 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                     </div>
                   )}
                   
-                  {/* Phase Card */}
-                  <div className={cn(
-                    "p-4 rounded-lg border backdrop-blur-sm hover:shadow-lg transition-all duration-300",
-                    colors.bg, colors.border
-                  )}>
-                    <h4 className={cn("font-semibold mb-2 text-center", colors.text)}>
-                      {phase.phase}
-                    </h4>
-                    
-                    <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground mb-3">
-                      <Clock className="w-3 h-3" />
-                      <span>{phase.duration}</span>
-                    </div>
-                    
-                    <div className="space-y-2 text-xs">
-                      <div>
-                        <p className="font-medium text-foreground/80 mb-1">Activities:</p>
-                        <ul className="space-y-0.5 text-muted-foreground">
-                          {phase.activities.slice(0, 2).map((activity, i) => (
-                            <li key={i} className="line-clamp-1">• {activity}</li>
-                          ))}
-                          {phase.activities.length > 2 && (
-                            <li className="text-xs italic">+{phase.activities.length - 2} more</li>
-                          )}
-                        </ul>
-                      </div>
+                  {/* Phase Card with Accordion */}
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem 
+                      value={`phase-${index}`} 
+                      className={cn(
+                        "rounded-lg border backdrop-blur-sm transition-all duration-300",
+                        colors.bg, colors.border
+                      )}
+                    >
+                      <AccordionTrigger className="px-4 pt-4 pb-2 hover:no-underline [&[data-state=open]]:pb-2">
+                        <div className="flex flex-col items-center gap-2 w-full">
+                          <h4 className={cn("font-semibold text-center", colors.text)}>
+                            {phase.phase}
+                          </h4>
+                          
+                          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                            <Clock className="w-3 h-3" />
+                            <span>{phase.duration}</span>
+                          </div>
+                        </div>
+                      </AccordionTrigger>
                       
-                      <div className="flex items-start gap-1">
-                        <FileText className="w-3 h-3 mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground line-clamp-2">
-                          {phase.deliverables.join(", ")}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                      <AccordionContent className="px-4 pb-4 pt-2">
+                        <div className="space-y-3 text-xs">
+                          <div>
+                            <p className="font-medium text-foreground/80 mb-1.5">Activities:</p>
+                            <ul className="space-y-1 text-muted-foreground">
+                              {phase.activities.map((activity, i) => (
+                                <li key={i}>• {activity}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          
+                          <div>
+                            <p className="font-medium text-foreground/80 mb-1.5">Deliverables:</p>
+                            <div className="flex items-start gap-1.5">
+                              <FileText className="w-3 h-3 mt-0.5 flex-shrink-0 text-muted-foreground" />
+                              <ul className="space-y-1 text-muted-foreground">
+                                {phase.deliverables.map((deliverable, i) => (
+                                  <li key={i}>• {deliverable}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </motion.div>
               );
             })}
@@ -185,42 +199,53 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                 </div>
               </div>
               
-              {/* Phase Card */}
-              <div className={cn(
-                "p-3 rounded-lg border backdrop-blur-sm",
-                colors.bg, colors.border
-              )}>
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className={cn("font-semibold", colors.text)}>
-                    {phase.phase}
-                  </h4>
-                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <Clock className="w-3 h-3" />
-                    <span>{phase.duration}</span>
-                  </div>
-                </div>
-                
-                <div className="space-y-2 text-xs">
-                  <div>
-                    <p className="font-medium text-foreground/80 mb-1">Activities:</p>
-                    <ul className="space-y-0.5 text-muted-foreground">
-                      {phase.activities.map((activity, i) => (
-                        <li key={i}>• {activity}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <p className="font-medium text-foreground/80 mb-1">Deliverables:</p>
-                    <div className="flex items-start gap-1">
-                      <FileText className="w-3 h-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">
-                        {phase.deliverables.join(", ")}
-                      </span>
+              {/* Phase Card with Accordion */}
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem 
+                  value={`phase-mobile-${index}`}
+                  className={cn(
+                    "rounded-lg border backdrop-blur-sm",
+                    colors.bg, colors.border
+                  )}
+                >
+                  <AccordionTrigger className="px-3 pt-3 pb-2 hover:no-underline">
+                    <div className="flex items-center justify-between w-full pr-2">
+                      <h4 className={cn("font-semibold", colors.text)}>
+                        {phase.phase}
+                      </h4>
+                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                        <Clock className="w-3 h-3" />
+                        <span>{phase.duration}</span>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
+                  </AccordionTrigger>
+                  
+                  <AccordionContent className="px-3 pb-3 pt-1">
+                    <div className="space-y-2 text-xs">
+                      <div>
+                        <p className="font-medium text-foreground/80 mb-1">Activities:</p>
+                        <ul className="space-y-0.5 text-muted-foreground">
+                          {phase.activities.map((activity, i) => (
+                            <li key={i}>• {activity}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <p className="font-medium text-foreground/80 mb-1">Deliverables:</p>
+                        <ul className="space-y-0.5 text-muted-foreground">
+                          {phase.deliverables.map((deliverable, i) => (
+                            <li key={i} className="flex items-start gap-1">
+                              <FileText className="w-3 h-3 mt-0.5 flex-shrink-0" />
+                              <span>{deliverable}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </motion.div>
           );
         })}
