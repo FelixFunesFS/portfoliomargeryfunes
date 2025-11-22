@@ -22,7 +22,7 @@
 
     /* 30% - Primary Deep Blue (supporting color) */
     --primary: 200 98% 39%;
-    --primary-foreground: 204 100% 97%;
+    --primary-foreground: 60 9.0909% 97.8431%;
     --primary-glow: 215 75% 45%;
 
     /* Secondary - Lighter blue variation */
@@ -30,7 +30,7 @@
     --secondary-foreground: 38 92.126% 50.1961%;
 
     /* 10% - Accent Complementary Orange (pop color) */
-    --accent: 210 40% 98%;
+    --accent: 193 82.2785% 30.9804%;
     --accent-foreground: 38 92.126% 50.1961%;
 
     /* Success - Complementary teal */
