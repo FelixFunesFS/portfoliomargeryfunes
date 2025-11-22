@@ -160,66 +160,63 @@ export const CaseStudySummaryCard = ({
                 </div>
               </div>
 
-              {/* Research Methods (50%) + Key Results (50%) */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* RESEARCH METHODS */}
-                {caseStudy.researchMethods && caseStudy.researchMethods.length > 0 && (
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-violet-600 dark:text-violet-400">
-                      <div className="w-1 h-6 bg-violet-600 dark:bg-violet-400 rounded-full" />
-                      <h4 className="font-semibold text-sm uppercase tracking-wider">Research Methods</h4>
-                    </div>
-                    
-                    <div className="pl-4">
-                      <ResearchMethodsBadges 
-                        methods={caseStudy.researchMethods.slice(0, 5)}
-                        className="flex-wrap gap-2"
-                      />
-                      {caseStudy.researchMethods.length > 5 && (
-                        <Badge 
-                          variant="outline" 
-                          className="mt-2 text-xs bg-muted/50 border-muted-foreground/20"
-                        >
-                          +{caseStudy.researchMethods.length - 5} more
-                        </Badge>
-                      )}
-                    </div>
+              {/* RESEARCH METHODS (Full Width) */}
+              {caseStudy.researchMethods && caseStudy.researchMethods.length > 0 && (
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-violet-600 dark:text-violet-400">
+                    <div className="w-1 h-6 bg-violet-600 dark:bg-violet-400 rounded-full" />
+                    <h4 className="font-semibold text-sm uppercase tracking-wider">Research Methods</h4>
                   </div>
-                )}
+                  
+                  <div className="pl-4">
+                    <ResearchMethodsBadges 
+                      methods={caseStudy.researchMethods.slice(0, 5)}
+                      className="flex-wrap gap-2"
+                    />
+                    {caseStudy.researchMethods.length > 5 && (
+                      <Badge 
+                        variant="outline" 
+                        className="mt-2 text-xs bg-muted/50 border-muted-foreground/20"
+                      >
+                        +{caseStudy.researchMethods.length - 5} more
+                      </Badge>
+                    )}
+                  </div>
+                </div>
+              )}
 
-                {/* KEY RESULTS */}
-                {caseStudy.metrics && caseStudy.metrics.length > 0 && (
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-teal-600 dark:text-teal-400">
-                      <div className="w-1 h-6 bg-teal-600 dark:bg-teal-400 rounded-full" />
-                      <h4 className="font-semibold text-sm uppercase tracking-wider">Key Results</h4>
-                    </div>
-                    
-                    <div className="pl-4">
-                      <div className="grid grid-cols-2 gap-2.5">
-                        {caseStudy.metrics.slice(0, 4).map((metric, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="p-2.5 rounded-lg bg-teal-500/10 border border-teal-500/20"
-                          >
-                            <div className="flex items-center gap-1.5 mb-1">
-                              <TrendingUp className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-                              <span className="text-lg font-bold text-teal-600 dark:text-teal-400">
-                                {metric.value}
-                              </span>
-                            </div>
-                            <p className="text-[10px] text-muted-foreground line-clamp-1">{metric.label}</p>
-                          </motion.div>
-                        ))}
-                      </div>
+              {/* KEY RESULTS (Full Width with 50/50 Metric Cards) */}
+              {caseStudy.metrics && caseStudy.metrics.length > 0 && (
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-teal-600 dark:text-teal-400">
+                    <div className="w-1 h-6 bg-teal-600 dark:bg-teal-400 rounded-full" />
+                    <h4 className="font-semibold text-sm uppercase tracking-wider">Key Results</h4>
+                  </div>
+                  
+                  <div className="pl-4">
+                    <div className="grid grid-cols-2 gap-3">
+                      {caseStudy.metrics.slice(0, 4).map((metric, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: index * 0.1 }}
+                          viewport={{ once: true }}
+                          className="p-2.5 rounded-lg bg-teal-500/10 border border-teal-500/20"
+                        >
+                          <div className="flex items-center gap-1.5 mb-1">
+                            <TrendingUp className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+                            <span className="text-lg font-bold text-teal-600 dark:text-teal-400">
+                              {metric.value}
+                            </span>
+                          </div>
+                          <p className="text-[10px] text-muted-foreground line-clamp-1">{metric.label}</p>
+                        </motion.div>
+                      ))}
                     </div>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
 
