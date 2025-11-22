@@ -27,6 +27,13 @@ export const caseStudy6: CaseStudy = {
   metrics: [
     { label: "Response Time", value: "83% faster", percentage: 83 }
   ],
+  researchMethods: [
+    'User Interviews',
+    'Empathy Mapping',
+    'Journey Mapping',
+    'User Flow Design',
+    'Iterative Testing'
+  ],
   reflection: {
     whatWorkedWell: [
       "Mobile-first design meant owners could respond to quotes on-the-go during busy events",

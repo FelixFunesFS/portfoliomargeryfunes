@@ -45,6 +45,14 @@ export const caseStudy1: CaseStudy = {
   userVoice: "I spend more time hunting for engine data than actually maintaining aircraft. It's frustrating when mission readiness depends on information I can't quickly find.",
   stakeholderQuote: "This system transformed our global operations. We finally have real-time visibility into our most critical assets. - Operations Director, Boeing Defense",
   userProblem: "Engine maintenance teams spent hours searching through multiple systems to track critical components",
+  researchMethods: [
+    'User Interviews',
+    'Workflow Shadowing',
+    'Journey Mapping',
+    'Stakeholder Interviews',
+    'Usability Testing',
+    'Pattern Analysis'
+  ],
   artifacts: [
     {
       type: 'journey-map',

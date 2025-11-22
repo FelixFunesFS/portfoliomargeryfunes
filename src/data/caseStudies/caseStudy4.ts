@@ -45,6 +45,13 @@ export const caseStudy4: CaseStudy = {
   userVoice: "Before the workspace system, I wasted hours just trying to find the right document version. Now everything is instantly accessible.",
   stakeholderQuote: "This platform became the operational backbone for 23 bases. Best ROI we've seen on any SharePoint deployment. - IT Director",
   userProblem: "Teams across 23 bases struggled with fragmented documentation and lack of visibility into tasks",
+  researchMethods: [
+    'Cross-Base User Research',
+    'Workflow Observation',
+    'Information Architecture Design',
+    'Usability Testing',
+    'Role-Based Testing'
+  ],
   researchScale: {
     interviews: 23,
     testSessions: 15,

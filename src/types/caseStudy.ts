@@ -47,4 +47,5 @@ export interface CaseStudy {
     participants?: number;
     artifacts?: number;
   };
+  researchMethods?: string[];
 }
