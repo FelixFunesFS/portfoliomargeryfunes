@@ -126,16 +126,16 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                     >
                       <AccordionTrigger className="px-4 pt-4 pb-2 hover:no-underline [&[data-state=open]]:pb-2 min-h-[48px] sm:min-h-[44px]">
                         <div className="flex flex-col items-center w-full">
-                          <h4 className={cn("font-semibold text-center text-xs sm:text-sm", colors.text)}>
+                          <h4 className={cn("font-semibold text-center text-xs sm:text-sm lg:text-base", colors.text)}>
                             {phase.phase}
                           </h4>
                         </div>
                       </AccordionTrigger>
                       
                       <AccordionContent className="px-4 pb-4 pt-2">
-                        <div className="space-y-3 text-xs">
+                        <div className="space-y-3 text-xs sm:text-sm md:text-base">
                           <div>
-                            <p className="font-medium text-foreground/80 mb-1.5">Activities:</p>
+                            <p className="font-medium text-foreground/80 mb-1.5 text-xs sm:text-sm md:text-base">Activities:</p>
                             <ul className="space-y-1 text-muted-foreground">
                               {phase.activities.map((activity, i) => (
                                 <li key={i}>• {activity}</li>
@@ -144,7 +144,7 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                           </div>
                           
                           <div>
-                            <p className="font-medium text-foreground/80 mb-1.5">Deliverables:</p>
+                            <p className="font-medium text-foreground/80 mb-1.5 text-xs sm:text-sm md:text-base">Deliverables:</p>
                             <div className="flex items-start gap-1.5">
                               <FileText className="w-3 h-3 mt-0.5 flex-shrink-0 text-muted-foreground" />
                               <ul className="space-y-1 text-muted-foreground">
@@ -205,16 +205,16 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                 >
                   <AccordionTrigger className="px-3 pt-3 pb-2 hover:no-underline min-h-[48px]">
                     <div className="flex flex-col items-start w-full pr-2">
-                      <h4 className={cn("font-semibold text-xs", colors.text)}>
+                      <h4 className={cn("font-semibold text-xs sm:text-sm", colors.text)}>
                         {phase.phase}
                       </h4>
                     </div>
                   </AccordionTrigger>
                   
                   <AccordionContent className="px-3 pb-3 pt-1">
-                    <div className="space-y-2 text-xs">
+                    <div className="space-y-2 text-xs sm:text-sm">
                       <div>
-                        <p className="font-medium text-foreground/80 mb-1">Activities:</p>
+                        <p className="font-medium text-foreground/80 mb-1 text-xs sm:text-sm">Activities:</p>
                         <ul className="space-y-0.5 text-muted-foreground">
                           {phase.activities.map((activity, i) => (
                             <li key={i}>• {activity}</li>
@@ -223,7 +223,7 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                       </div>
                       
                       <div>
-                        <p className="font-medium text-foreground/80 mb-1">Deliverables:</p>
+                        <p className="font-medium text-foreground/80 mb-1 text-xs sm:text-sm">Deliverables:</p>
                         <ul className="space-y-0.5 text-muted-foreground">
                           {phase.deliverables.map((deliverable, i) => (
                             <li key={i} className="flex items-start gap-1">
