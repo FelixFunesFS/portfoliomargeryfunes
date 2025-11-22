@@ -88,9 +88,9 @@ export const CaseStudySummaryCard = ({
         </CardHeader>
 
         <CardContent className="flex-1 flex flex-col px-6 sm:px-8 md:px-10 lg:px-12 py-4 sm:py-5 md:py-6 space-y-6">
-          {/* TOP SECTION: Challenge/Solution (40%) + Research Process Timeline (60%) */}
-          <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-6">
-            
+          {/* TOP SECTION: Challenge/Solution (50%) + Key Results/Methods (50%) */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="lg:border-r lg:border-border/30 lg:pr-6">
             {/* LEFT COLUMN: Challenge + Solution */}
             <div className="space-y-5 flex flex-col">
               {/* THE CHALLENGE */}
@@ -117,7 +117,7 @@ export const CaseStudySummaryCard = ({
               </div>
 
               {/* SOLUTION & IMPACT */}
-              <div className="space-y-3 flex-1">
+              <div className="space-y-3 flex-1 pt-5 border-t border-border/20">
                 <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
                   <div className="w-1 h-6 bg-green-600 dark:bg-green-400 rounded-full" />
                   <h4 className="font-semibold text-sm uppercase tracking-wider">Solution & Impact</h4>
@@ -138,6 +138,7 @@ export const CaseStudySummaryCard = ({
                   )}
                 </div>
               </div>
+            </div>
             </div>
 
             {/* RIGHT COLUMN: Key Results + Methods */}
@@ -177,9 +178,9 @@ export const CaseStudySummaryCard = ({
 
               {/* RESEARCH METHODS */}
               {caseStudy.researchMethods && caseStudy.researchMethods.length > 0 && (
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-violet-600 dark:text-violet-400">
-                    <div className="w-1 h-6 bg-violet-600 dark:bg-violet-400 rounded-full" />
+                <div className="space-y-3 pt-5 border-t border-border/20">
+                  <div className="flex items-center gap-2 text-primary">
+                    <div className="w-1 h-6 bg-primary rounded-full" />
                     <h4 className="font-semibold text-sm uppercase tracking-wider">Research Methods</h4>
                   </div>
                   
@@ -273,7 +274,7 @@ export const CaseStudySummaryCard = ({
             <Collapsible
               open={isProcessExpanded}
               onOpenChange={setIsProcessExpanded}
-              className="border-t-2 border-primary/30 pt-4"
+              className="border-t border-border/30 pt-5"
             >
               <CollapsibleTrigger className="w-full group">
                 <div className="flex items-center justify-between w-full hover:bg-primary/5 transition-colors rounded-lg p-3">
@@ -297,14 +298,14 @@ export const CaseStudySummaryCard = ({
           )}
 
           {/* View Full Case Study Button */}
-          <div className="pt-2">
+          <div className="pt-2 border-t border-border/20">
             <Button
               onClick={() => {
                 navigate('/case-studies', { 
                   state: { selectedStudyId: caseStudy.id } 
                 });
               }}
-              className="w-full group"
+              className="w-full group mt-4"
               variant="outline"
             >
               <span>View Full Case Study</span>
