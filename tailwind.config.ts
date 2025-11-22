@@ -132,6 +132,10 @@ export default {
 				bounce: {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				'marquee': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-50%)' }
 				}
 			},
 			animation: {
@@ -153,6 +157,7 @@ export default {
 				'fade-in-delay-2': 'fade-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards',
 				'fade-in-delay-3': 'fade-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards',
 				'fade-in-delay-4': 'fade-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards',
+				'marquee': 'marquee 50s linear infinite',
 			},
 			fontFamily: {
 				'sans': ['Inter', 'sans-serif']
