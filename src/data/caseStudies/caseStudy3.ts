@@ -45,6 +45,12 @@ export const caseStudy3: CaseStudy = {
   userVoice: "Creating these slides every week felt like Groundhog Day. Same tedious process, different numbers. I dreaded Monday mornings.",
   stakeholderQuote: "We got 12 weeks of analyst time back per year. They're now focusing on strategic analysis instead of slide formatting. - Operations Lead",
   userProblem: "Weekly slide deck creation consumed nearly 10 hours across the team with frequent formatting errors",
+  researchScale: {
+    interviews: 23,
+    testSessions: 8,
+    participants: 23,
+    artifacts: 4
+  },
   artifacts: [
     {
       type: 'research-report',

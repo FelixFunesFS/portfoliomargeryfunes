@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, ExternalLink, Users, Map, FileText, FlaskConical, Workflow, FileSearch } from 'lucide-react';
+import { ArrowRight, ExternalLink, Users, Map, FileText, FlaskConical, Workflow, FileSearch, Target, Zap, Heart, FolderTree } from 'lucide-react';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -20,6 +21,33 @@ const artifactIconMap = {
   'flow-diagram': { icon: Workflow, label: 'Flow Diagrams', color: 'text-cyan-500' },
   'research-report': { icon: FileSearch, label: 'Research Report', color: 'text-pink-500' }
 } as const;
+
+const skillFocusMap: Record<number, { primary: string; secondary: string; icon: any; color: string }> = {
+  1: { 
+    primary: 'User Research & Discovery', 
+    secondary: 'Systems Analysis',
+    icon: Target,
+    color: 'bg-blue-500/10 text-blue-600 border-blue-500/30'
+  },
+  5: { 
+    primary: 'Workflow Optimization', 
+    secondary: 'Usability Testing',
+    icon: Zap,
+    color: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/30'
+  },
+  3: { 
+    primary: 'Empathy Research', 
+    secondary: 'Process Automation',
+    icon: Heart,
+    color: 'bg-pink-500/10 text-pink-600 border-pink-500/30'
+  },
+  4: { 
+    primary: 'Information Architecture', 
+    secondary: 'Scalability Design',
+    icon: FolderTree,
+    color: 'bg-purple-500/10 text-purple-600 border-purple-500/30'
+  }
+};
 
 const BentoGridCaseStudies = () => {
   const navigate = useNavigate();
@@ -99,6 +127,8 @@ const FeaturedCard = ({ study, onNavigate, variants }: {
   variants: any;
 }) => {
   const { ref, isInView } = useInView({ threshold: 0.3 });
+  const skillFocus = skillFocusMap[study.id];
+  const SkillIcon = skillFocus?.icon || Target;
 
   return (
     <motion.div
@@ -113,10 +143,18 @@ const FeaturedCard = ({ study, onNavigate, variants }: {
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
           <CardContent className="p-8 relative z-10 flex flex-col h-full">
-            <div className="flex items-start justify-between mb-4">
-              <Badge variant="outline" className="bg-primary/10 text-primary border-primary/30 font-semibold">
-                Featured Case Study
-              </Badge>
+            <div className="flex items-start justify-between mb-4 flex-wrap gap-2">
+              <div className="flex gap-2 flex-wrap">
+                <Badge variant="outline" className="bg-primary/10 text-primary border-primary/30 font-semibold">
+                  Featured Case Study
+                </Badge>
+                {skillFocus && (
+                  <Badge variant="outline" className={`${skillFocus.color} font-semibold flex items-center gap-1.5`}>
+                    <SkillIcon className="h-3 w-3" />
+                    {skillFocus.primary}
+                  </Badge>
+                )}
+              </div>
               <Badge variant="secondary" className="text-xs">
                 {study.myRole.title}
               </Badge>
@@ -126,26 +164,82 @@ const FeaturedCard = ({ study, onNavigate, variants }: {
               {study.title}
             </h3>
 
-            {/* Research Artifacts - Priority Display */}
+            {/* Research Scale Metrics */}
+            {study.researchScale && (
+              <div className="mb-6 p-4 bg-primary/5 rounded-lg border border-primary/10">
+                <h4 className="text-xs font-semibold text-primary mb-3 uppercase tracking-wide">
+                  Research Scale
+                </h4>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {study.researchScale.interviews && (
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-primary">{study.researchScale.interviews}+</div>
+                      <div className="text-xs text-muted-foreground">Interviews</div>
+                    </div>
+                  )}
+                  {study.researchScale.testSessions && (
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-primary">{study.researchScale.testSessions}+</div>
+                      <div className="text-xs text-muted-foreground">Test Sessions</div>
+                    </div>
+                  )}
+                  {study.researchScale.participants && (
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-primary">{study.researchScale.participants}+</div>
+                      <div className="text-xs text-muted-foreground">Participants</div>
+                    </div>
+                  )}
+                  {study.researchScale.artifacts && (
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-primary">{study.researchScale.artifacts}</div>
+                      <div className="text-xs text-muted-foreground">Artifacts</div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Research Artifacts with Hover Preview */}
             {study.artifacts && study.artifacts.length > 0 && (
               <div className="mb-4">
                 <h4 className="text-xs font-semibold text-primary mb-2 uppercase tracking-wide flex items-center gap-2">
                   <FlaskConical className="h-3.5 w-3.5" />
-                  Research Methods Used
+                  Research Artifacts
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {study.artifacts.map((artifact, index) => {
                     const artifactInfo = artifactIconMap[artifact.type];
                     const Icon = artifactInfo?.icon || FileText;
                     return (
-                      <Badge 
-                        key={index} 
-                        variant="outline" 
-                        className={`text-xs bg-accent/10 border-accent/30 ${artifactInfo?.color || 'text-accent'} flex items-center gap-1.5`}
-                      >
-                        <Icon className="h-3 w-3" />
-                        {artifactInfo?.label || artifact.type}
-                      </Badge>
+                      <HoverCard key={index}>
+                        <HoverCardTrigger asChild>
+                          <Badge 
+                            variant="outline" 
+                            className={`text-xs bg-accent/10 border-accent/30 ${artifactInfo?.color || 'text-accent'} flex items-center gap-1.5 cursor-help hover:bg-accent/20 transition-colors`}
+                          >
+                            <Icon className="h-3 w-3" />
+                            {artifactInfo?.label || artifact.type}
+                          </Badge>
+                        </HoverCardTrigger>
+                        <HoverCardContent className="w-80 z-50" side="top">
+                          <div className="space-y-2">
+                            <div className="flex items-start gap-2">
+                              <Icon className={`h-5 w-5 ${artifactInfo?.color} flex-shrink-0 mt-0.5`} />
+                              <div>
+                                <h4 className="text-sm font-semibold mb-1">{artifact.title}</h4>
+                                <p className="text-xs text-muted-foreground leading-relaxed">
+                                  {artifact.description}
+                                </p>
+                                {artifact.date && (
+                                  <div className="text-xs text-primary mt-2 font-medium">
+                                    Timeline: {artifact.date}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        </HoverCardContent>
+                      </HoverCard>
                     );
                   })}
                 </div>
@@ -209,6 +303,8 @@ const MediumCard = ({ study, onNavigate, variants }: {
   variants: any;
 }) => {
   const { ref, isInView } = useInView({ threshold: 0.3 });
+  const skillFocus = skillFocusMap[study.id];
+  const SkillIcon = skillFocus?.icon || Target;
   
   // Get hero metric (first metric or create one from key outcome)
   const heroMetric = study.metrics && study.metrics.length > 0 
@@ -241,36 +337,75 @@ const MediumCard = ({ study, onNavigate, variants }: {
           onClick={() => onNavigate(study.id)}
         >
           <CardContent className="p-6 relative z-10 flex flex-col h-full">
-            <Badge variant="outline" className="mb-3 w-fit text-xs">
-              {study.myRole.title}
-            </Badge>
+            <div className="flex items-center justify-between mb-3 gap-2">
+              {skillFocus && (
+                <Badge variant="outline" className={`text-xs ${skillFocus.color} font-semibold flex items-center gap-1`}>
+                  <SkillIcon className="h-3 w-3" />
+                  {skillFocus.primary}
+                </Badge>
+              )}
+              <Badge variant="secondary" className="text-xs opacity-70">
+                {study.myRole.title}
+              </Badge>
+            </div>
 
             <h3 className="text-xl font-bold mb-3 line-clamp-2 group-hover:text-primary transition-colors">
               {study.title}
             </h3>
 
-            {/* Research Methods (Priority) + Tools (Secondary) */}
-            <div className="flex flex-wrap gap-2 mb-3">
-              {study.artifacts && study.artifacts.slice(0, 2).map((artifact, index) => {
-                const artifactInfo = artifactIconMap[artifact.type];
-                const Icon = artifactInfo?.icon || FileText;
-                return (
+        {/* Research Scale Mini-Indicator */}
+        {study.researchScale && (
+          <div className="flex gap-3 mb-3 text-xs text-muted-foreground">
+            {study.researchScale.interviews && (
+              <span className="font-semibold text-primary">{study.researchScale.interviews}+ Interviews</span>
+            )}
+            {study.researchScale.testSessions && (
+              <span className="font-semibold text-primary">{study.researchScale.testSessions}+ Tests</span>
+            )}
+            {!study.researchScale.interviews && study.researchScale.participants && (
+              <span className="font-semibold text-primary">{study.researchScale.participants}+ Participants</span>
+            )}
+          </div>
+        )}
+
+        {/* Research Artifacts with Hover Preview */}
+        <div className="flex flex-wrap gap-2 mb-3">
+          {study.artifacts && study.artifacts.slice(0, 3).map((artifact, index) => {
+            const artifactInfo = artifactIconMap[artifact.type];
+            const Icon = artifactInfo?.icon || FileText;
+            return (
+              <HoverCard key={`artifact-${index}`}>
+                <HoverCardTrigger asChild>
                   <Badge 
-                    key={`artifact-${index}`}
                     variant="outline" 
-                    className={`text-xs bg-accent/10 border-accent/30 ${artifactInfo?.color} flex items-center gap-1`}
+                    className={`text-xs bg-accent/10 border-accent/30 ${artifactInfo?.color} flex items-center gap-1 cursor-help hover:bg-accent/20 transition-colors`}
                   >
                     <Icon className="h-3 w-3" />
                     {artifactInfo?.label}
                   </Badge>
-                );
-              })}
-              {study.tools.slice(0, 2).map((tool, index) => (
-                <Badge key={`tool-${index}`} variant="secondary" className="text-xs opacity-70">
-                  {tool}
-                </Badge>
-              ))}
-            </div>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80 z-50" side="top">
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2">
+                      <Icon className={`h-5 w-5 ${artifactInfo?.color} flex-shrink-0 mt-0.5`} />
+                      <div>
+                        <h4 className="text-sm font-semibold mb-1">{artifact.title}</h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          {artifact.description}
+                        </p>
+                        {artifact.date && (
+                          <div className="text-xs text-primary mt-2 font-medium">
+                            Timeline: {artifact.date}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
+            );
+          })}
+        </div>
 
             {/* Hero Metric */}
             <div ref={ref} className="text-center p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 border border-primary/20">
@@ -284,9 +419,18 @@ const MediumCard = ({ study, onNavigate, variants }: {
               </div>
             </div>
 
-            <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-grow">
+            <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
               {study.problem}
             </p>
+
+            {/* User Voice Quote */}
+            {study.userVoice && (
+              <div className="mt-auto pt-3 border-t border-border/50">
+                <p className="text-xs text-muted-foreground italic line-clamp-2">
+                  "{study.userVoice}"
+                </p>
+              </div>
+            )}
 
             <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
               <Button variant="outline" size="sm" className="w-full text-xs">
@@ -306,6 +450,8 @@ const WideCard = ({ study, onNavigate, variants }: {
   onNavigate: (id: number) => void;
   variants: any;
 }) => {
+  const skillFocus = skillFocusMap[study.id];
+  const SkillIcon = skillFocus?.icon || Target;
   const truncateText = (text: string, maxLength: number) => {
     return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
   };
@@ -320,10 +466,18 @@ const WideCard = ({ study, onNavigate, variants }: {
           <CardContent className="p-6 h-full flex flex-col md:flex-row gap-6">
             {/* Left side - Content */}
             <div className="flex-1 flex flex-col">
-              <div className="flex items-start justify-between mb-3">
-                <Badge variant="outline" className="text-xs">
-                  {study.myRole.title}
-                </Badge>
+              <div className="flex items-start justify-between mb-3 flex-wrap gap-2">
+                <div className="flex gap-2">
+                  {skillFocus && (
+                    <Badge variant="outline" className={`text-xs ${skillFocus.color} font-semibold flex items-center gap-1`}>
+                      <SkillIcon className="h-3 w-3" />
+                      {skillFocus.primary}
+                    </Badge>
+                  )}
+                  <Badge variant="secondary" className="text-xs opacity-70">
+                    {study.myRole.title}
+                  </Badge>
+                </div>
                 {study.metrics && study.metrics.length > 0 && (
                   <Badge className="bg-success/20 text-success border-success/30 text-xs">
                     {study.metrics[0].value}
@@ -335,12 +489,34 @@ const WideCard = ({ study, onNavigate, variants }: {
                 {study.title}
               </h3>
 
+              {/* Research Scale Mini-Indicator */}
+              {study.researchScale && (
+                <div className="flex gap-3 mb-3 text-xs">
+                  {study.researchScale.interviews && (
+                    <span className="font-semibold text-primary">{study.researchScale.interviews}+ Interviews</span>
+                  )}
+                  {study.researchScale.testSessions && (
+                    <span className="font-semibold text-primary">{study.researchScale.testSessions}+ Tests</span>
+                  )}
+                  {study.researchScale.participants && (
+                    <span className="font-semibold text-primary">{study.researchScale.participants}+ Participants</span>
+                  )}
+                </div>
+              )}
+
               <div className="grid md:grid-cols-2 gap-4 mb-4 flex-grow">
                 <div>
                   <h4 className="text-xs font-semibold text-primary mb-2 uppercase">Problem</h4>
-                  <p className="text-sm text-muted-foreground line-clamp-3">
+                  <p className="text-sm text-muted-foreground line-clamp-2">
                     {truncateText(study.problem, 120)}
                   </p>
+                  {study.userVoice && (
+                    <div className="p-2 mt-2 bg-accent/5 border-l-2 border-accent rounded-r">
+                      <p className="text-xs text-muted-foreground italic line-clamp-2">
+                        "{study.userVoice}"
+                      </p>
+                    </div>
+                  )}
                 </div>
                 <div>
                   <h4 className="text-xs font-semibold text-primary mb-2 uppercase">Solution</h4>
@@ -350,27 +526,43 @@ const WideCard = ({ study, onNavigate, variants }: {
                 </div>
               </div>
 
-              {/* Research Methods (Priority) + Tools */}
+              {/* Research Artifacts with Hover Preview */}
               <div className="flex flex-wrap gap-2 mt-auto">
-                {study.artifacts?.slice(0, 2).map((artifact, index) => {
+                {study.artifacts?.slice(0, 3).map((artifact, index) => {
                   const artifactInfo = artifactIconMap[artifact.type];
                   const Icon = artifactInfo?.icon || FileText;
                   return (
-                    <Badge 
-                      key={`artifact-${index}`}
-                      variant="outline" 
-                      className={`text-xs bg-accent/10 border-accent/30 ${artifactInfo?.color} flex items-center gap-1`}
-                    >
-                      <Icon className="h-3 w-3" />
-                      {artifactInfo?.label}
-                    </Badge>
+                    <HoverCard key={`artifact-${index}`}>
+                      <HoverCardTrigger asChild>
+                        <Badge 
+                          variant="outline" 
+                          className={`text-xs bg-accent/10 border-accent/30 ${artifactInfo?.color} flex items-center gap-1 cursor-help hover:bg-accent/20 transition-colors`}
+                        >
+                          <Icon className="h-3 w-3" />
+                          {artifactInfo?.label}
+                        </Badge>
+                      </HoverCardTrigger>
+                      <HoverCardContent className="w-80 z-50" side="top">
+                        <div className="space-y-2">
+                          <div className="flex items-start gap-2">
+                            <Icon className={`h-5 w-5 ${artifactInfo?.color} flex-shrink-0 mt-0.5`} />
+                            <div>
+                              <h4 className="text-sm font-semibold mb-1">{artifact.title}</h4>
+                              <p className="text-xs text-muted-foreground leading-relaxed">
+                                {artifact.description}
+                              </p>
+                              {artifact.date && (
+                                <div className="text-xs text-primary mt-2 font-medium">
+                                  Timeline: {artifact.date}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </HoverCardContent>
+                    </HoverCard>
                   );
                 })}
-                {study.tools.slice(0, 3).map((tool, index) => (
-                  <Badge key={`tool-${index}`} variant="secondary" className="text-xs opacity-70">
-                    {tool}
-                  </Badge>
-                ))}
               </div>
             </div>
 
