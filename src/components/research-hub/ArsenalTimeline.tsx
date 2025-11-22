@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Award, Code, Brain, Wrench } from 'lucide-react';
-import arsenalTimelineBg from '@/assets/research-hub/arsenal-timeline-bg.jpg';
+import arsenalTimelineBg from '@/assets/research-hub/arsenal-timeline-bg.webp';
 
 interface Tool {
   id: string;
@@ -130,8 +130,10 @@ const ArsenalTimeline = () => {
           viewport={{ once: true }}
           className="text-center mb-16 px-6"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Research Arsenal</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground" style={{ textShadow: '0 0 20px hsl(var(--primary) / 0.5), 0 2px 4px rgba(0,0,0,0.8)' }}>
+            Research Arsenal
+          </h2>
+          <p className="text-xl text-foreground max-w-3xl mx-auto" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
             Advanced certifications and technical capabilities deployed in every mission
           </p>
         </motion.div>
@@ -183,12 +185,14 @@ const ArsenalTimeline = () => {
 
                   {/* Content */}
                   <div>
-                    <h3 className={`font-bold mb-2 ${
+                    <h3 className={`font-bold mb-2 text-foreground ${
                       tool.category === 'primary' ? 'text-xl' : 'text-lg'
-                    }`}>
+                    }`} style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
                       {tool.name}
                     </h3>
-                    <p className="text-sm text-muted-foreground">{tool.description}</p>
+                    <p className="text-sm text-foreground" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
+                      {tool.description}
+                    </p>
                   </div>
 
                   {/* Badge */}
@@ -228,7 +232,8 @@ const ArsenalTimeline = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-muted-foreground text-sm mt-8"
+          className="text-center text-foreground text-sm mt-8"
+          style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}
         >
           Scroll to explore more tools • Hover to interact
         </motion.p>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import journeyMilitary from '@/assets/research-hub/journey-military.jpg';
-import journeyTransition from '@/assets/research-hub/journey-transition.jpg';
-import journeyRecognition from '@/assets/research-hub/journey-recognition.jpg';
-import journeyProblem from '@/assets/research-hub/journey-problem.jpg';
-import journeyFuture from '@/assets/research-hub/journey-future.jpg';
+import journeyMilitary from '@/assets/research-hub/journey-military.webp';
+import journeyTransition from '@/assets/research-hub/journey-transition.webp';
+import journeyRecognition from '@/assets/research-hub/journey-recognition.webp';
+import journeyProblem from '@/assets/research-hub/journey-problem.webp';
+import journeyFuture from '@/assets/research-hub/journey-future.webp';
 
 interface JourneyStage {
   id: string;
@@ -140,12 +140,18 @@ const JourneyWormhole = () => {
               </motion.h2>
 
               {/* Subtitle */}
-              <motion.p className="text-xl md:text-2xl text-primary/90 font-semibold mb-6">
+              <motion.p 
+                className="text-xl md:text-2xl text-foreground font-semibold mb-6"
+                style={{ textShadow: '0 2px 4px rgba(0,0,0,0.9)' }}
+              >
                 {stage.subtitle}
               </motion.p>
 
               {/* Description */}
-              <motion.p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              <motion.p 
+                className="text-lg md:text-xl text-foreground max-w-3xl mx-auto leading-relaxed"
+                style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}
+              >
                 {stage.description}
               </motion.p>
 
@@ -167,7 +173,8 @@ const JourneyWormhole = () => {
 
               {/* Stage Counter */}
               <motion.div
-                className="mt-6 text-sm text-muted-foreground"
+                className="mt-6 text-sm text-foreground font-medium"
+                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}
               >
                 Stage {index + 1} of {stages.length}
               </motion.div>

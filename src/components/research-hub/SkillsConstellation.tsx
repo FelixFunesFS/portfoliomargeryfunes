@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import skillsConstellationBg from '@/assets/research-hub/skills-constellation-bg.jpg';
+import skillsConstellationBg from '@/assets/research-hub/skills-constellation-bg.webp';
 
 interface SkillNode {
   id: string;
@@ -73,8 +73,10 @@ const SkillsConstellation = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Skills Constellation</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground" style={{ textShadow: '0 0 20px hsl(var(--primary) / 0.5), 0 2px 4px rgba(0,0,0,0.8)' }}>
+            Skills Constellation
+          </h2>
+          <p className="text-xl text-foreground max-w-3xl mx-auto" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
             An interconnected galaxy of expertise spanning research, development, and innovation
           </p>
         </motion.div>
@@ -120,7 +122,17 @@ const SkillsConstellation = () => {
               whileHover={{ scale: 1.2 }}
               onHoverStart={() => setHoveredSkill(node.id)}
               onHoverEnd={() => setHoveredSkill(null)}
-              className="absolute cursor-pointer group"
+              onFocus={() => setHoveredSkill(node.id)}
+              onBlur={() => setHoveredSkill(null)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setHoveredSkill(hoveredSkill === node.id ? null : node.id);
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label={`${node.name} skill at ${node.proficiency}% proficiency`}
+              className="absolute cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
               style={{
                 left: `${node.x}%`,
                 top: `${node.y}%`,
@@ -185,16 +197,16 @@ const SkillsConstellation = () => {
           className="flex flex-wrap justify-center gap-6 mt-16"
         >
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full" style={{ background: 'hsl(var(--primary))' }} />
-            <span className="text-sm text-muted-foreground">UX Research & Design</span>
+            <div className="w-4 h-4 rounded-full" style={{ background: 'hsl(var(--primary))' }} aria-hidden="true" />
+            <span className="text-sm text-foreground font-medium">UX Research & Design</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full" style={{ background: 'hsl(var(--success))' }} />
-            <span className="text-sm text-muted-foreground">Full Stack Development</span>
+            <div className="w-4 h-4 rounded-full" style={{ background: 'hsl(var(--success))' }} aria-hidden="true" />
+            <span className="text-sm text-foreground font-medium">Full Stack Development</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full" style={{ background: 'hsl(var(--accent))' }} />
-            <span className="text-sm text-muted-foreground">AI & Automation</span>
+            <div className="w-4 h-4 rounded-full" style={{ background: 'hsl(var(--accent))' }} aria-hidden="true" />
+            <span className="text-sm text-foreground font-medium">AI & Automation</span>
           </div>
         </motion.div>
       </div>
