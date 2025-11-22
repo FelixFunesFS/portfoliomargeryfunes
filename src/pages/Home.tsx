@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import ResearchMethodologyAndProcess from '@/components/ResearchMethodologyAndProcess';
 import ResearchHero from '@/components/ResearchHero';
+import TrustBarCredentials from '@/components/TrustBarCredentials';
 import BrandMarquee from '@/components/BrandMarquee';
 import ScrollProgressIndicator from '@/components/ScrollProgressIndicator';
 import { ProcessStoryGrid } from '@/components/ProcessStoryGrid';
@@ -456,6 +457,12 @@ const Home = () => {
       
       {/* Research Hero Section */}
       <ResearchHero />
+
+      {/* Research Credentials Trust Bar */}
+      <TrustBarCredentials />
+
+      {/* Brand Marquee */}
+      <BrandMarquee />
 
       {/* Unified Impact Metrics */}
       <UnifiedImpactMetrics />
@@ -1169,9 +1176,6 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Brand Marquee */}
-      <BrandMarquee />
 
       {/* Mission Briefing CTA */}
       <section id="contact" className="section bg-background">
