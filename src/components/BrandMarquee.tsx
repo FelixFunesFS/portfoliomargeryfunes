@@ -36,11 +36,7 @@ const BrandMarquee = () => {
         <div className="relative">
           <div className="overflow-hidden">
             <motion.div 
-              className="flex gap-12 sm:gap-16 animate-marquee hover:[animation-play-state:paused]"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              className="flex gap-16 sm:gap-20 animate-marquee hover:[animation-play-state:paused]"
             >
               {/* First set of logos */}
               {brands.map((brand, index) => (
@@ -51,7 +47,7 @@ const BrandMarquee = () => {
                   <img
                     src={brand.logo}
                     alt={brand.name}
-                    className="h-10 sm:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                    className="h-20 sm:h-32 w-auto object-contain transition-all duration-300 opacity-100"
                   />
                 </div>
               ))}
@@ -65,7 +61,7 @@ const BrandMarquee = () => {
                   <img
                     src={brand.logo}
                     alt={brand.name}
-                    className="h-10 sm:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                    className="h-20 sm:h-32 w-auto object-contain transition-all duration-300 opacity-100"
                   />
                 </div>
               ))}
@@ -73,8 +69,8 @@ const BrandMarquee = () => {
           </div>
           
           {/* Gradient overlays for fade effect */}
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-card/30 to-transparent pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-card/30 to-transparent pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-card/30 to-transparent pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-card/30 to-transparent pointer-events-none" />
         </div>
       </div>
     </section>
