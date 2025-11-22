@@ -130,9 +130,14 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                             {phase.phase}
                           </h4>
                           
-                          <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                            <Clock className="w-3 h-3" />
-                            <span>{phase.duration}</span>
+                          <div className="flex flex-col items-center gap-1 text-xs text-muted-foreground">
+                            <div className="flex items-center gap-1">
+                              <Clock className="w-3 h-3" />
+                              <span>{phase.duration}</span>
+                            </div>
+                            <span className="text-[10px]">
+                              {phase.activities.length} activities • {phase.deliverables.length} deliverables
+                            </span>
                           </div>
                         </div>
                       </AccordionTrigger>
@@ -209,14 +214,19 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                   )}
                 >
                   <AccordionTrigger className="px-3 pt-3 pb-2 hover:no-underline">
-                    <div className="flex items-center justify-between w-full pr-2">
-                      <h4 className={cn("font-semibold", colors.text)}>
-                        {phase.phase}
-                      </h4>
-                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                        <Clock className="w-3 h-3" />
-                        <span>{phase.duration}</span>
+                    <div className="flex flex-col items-start gap-1 w-full pr-2">
+                      <div className="flex items-center justify-between w-full">
+                        <h4 className={cn("font-semibold", colors.text)}>
+                          {phase.phase}
+                        </h4>
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                          <Clock className="w-3 h-3" />
+                          <span>{phase.duration}</span>
+                        </div>
                       </div>
+                      <span className="text-[10px] text-muted-foreground">
+                        {phase.activities.length} activities • {phase.deliverables.length} deliverables
+                      </span>
                     </div>
                   </AccordionTrigger>
                   

@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 import { ProcessStoryCard } from "./ProcessStoryCard";
 import { caseStudiesData } from "@/data/caseStudies";
 import { CaseStudy } from "@/types/caseStudy";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
+import type { CarouselApi } from "@/components/ui/carousel";
 
 interface ProcessStoryGridProps {
   className?: string;
@@ -37,31 +41,71 @@ export const ProcessStoryGrid = ({ className, limit, featuredId }: ProcessStoryG
   // Apply limit if specified
   const displayedStudies = limit ? sortedStudies.slice(0, limit) : sortedStudies;
 
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
   return (
     <div className={className}>
-      <div className="space-y-8">
-        {displayedStudies.map((caseStudy, index) => {
-          const isFeatured = featuredId ? caseStudy.id === featuredId : index === 0;
-          
-          return (
-            <motion.div
-              key={caseStudy.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.6, 
-                delay: index * 0.15,
-                ease: "easeOut"
-              }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <ProcessStoryCard 
-                caseStudy={caseStudy} 
-                featured={isFeatured}
-              />
-            </motion.div>
-          );
-        })}
+      <Carousel
+        setApi={setApi}
+        opts={{
+          align: "start",
+          loop: true,
+          skipSnaps: false,
+          dragFree: false,
+        }}
+        className="w-full"
+      >
+        <CarouselContent>
+          {displayedStudies.map((caseStudy, index) => {
+            const isFeatured = featuredId ? caseStudy.id === featuredId : index === 0;
+            
+            return (
+              <CarouselItem key={caseStudy.id}>
+                <ProcessStoryCard 
+                  caseStudy={caseStudy} 
+                  featured={isFeatured}
+                  className="h-full"
+                />
+              </CarouselItem>
+            );
+          })}
+        </CarouselContent>
+        
+        <div className="hidden md:block">
+          <CarouselPrevious className="-left-12 h-12 w-12" />
+          <CarouselNext className="-right-12 h-12 w-12" />
+        </div>
+      </Carousel>
+
+      {/* Progress Indicators */}
+      <div className="flex justify-center gap-2 mt-8">
+        {Array.from({ length: count }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => api?.scrollTo(index)}
+            className={cn(
+              "h-2 rounded-full transition-all duration-300",
+              current === index 
+                ? "bg-primary w-8" 
+                : "bg-border hover:bg-border/80 w-2"
+            )}
+            aria-label={`Go to slide ${index + 1}`}
+            aria-current={current === index ? "true" : "false"}
+          />
+        ))}
       </div>
 
       {/* Show "View All Case Studies" button if limited */}
