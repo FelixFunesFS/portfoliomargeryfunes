@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { ProcessStoryCard } from "./ProcessStoryCard";
+import { CaseStudySummaryCard } from "./CaseStudySummaryCard";
+import { CaseStudyResearchPanel } from "./CaseStudyResearchPanel";
 import { caseStudiesData } from "@/data/caseStudies";
-import { CaseStudy } from "@/types/caseStudy";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -44,6 +44,7 @@ export const ProcessStoryGrid = ({ className, limit, featuredId }: ProcessStoryG
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const [expandedStudyId, setExpandedStudyId] = useState<number | null>(null);
 
   useEffect(() => {
     if (!api) return;
@@ -53,6 +54,8 @@ export const ProcessStoryGrid = ({ className, limit, featuredId }: ProcessStoryG
 
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap());
+      // Close panel when changing slides
+      setExpandedStudyId(null);
     });
   }, [api]);
 
@@ -74,9 +77,17 @@ export const ProcessStoryGrid = ({ className, limit, featuredId }: ProcessStoryG
             
             return (
               <CarouselItem key={caseStudy.id}>
-                <ProcessStoryCard 
+                <CaseStudySummaryCard 
                   caseStudy={caseStudy} 
                   featured={isFeatured}
+                  onExpandClick={() => {
+                    if (expandedStudyId === caseStudy.id) {
+                      setExpandedStudyId(null);
+                    } else {
+                      setExpandedStudyId(caseStudy.id);
+                    }
+                  }}
+                  isExpanded={expandedStudyId === caseStudy.id}
                   className="h-full"
                 />
               </CarouselItem>
@@ -89,6 +100,15 @@ export const ProcessStoryGrid = ({ className, limit, featuredId }: ProcessStoryG
           <CarouselNext className="-right-12 h-12 w-12" />
         </div>
       </Carousel>
+
+      {/* Research Detail Panel - Expands below carousel */}
+      {expandedStudyId && (
+        <CaseStudyResearchPanel
+          caseStudy={displayedStudies.find(s => s.id === expandedStudyId)!}
+          isOpen={true}
+          onClose={() => setExpandedStudyId(null)}
+        />
+      )}
 
       {/* Progress Indicators */}
       <div className="flex justify-center gap-2 mt-8">
