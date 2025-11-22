@@ -29,7 +29,16 @@ const ResearchHero = () => {
   };
 
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/20">
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+      {/* Animated gradient background */}
+      <div 
+        className="absolute inset-0 opacity-30"
+        style={{
+          background: 'linear-gradient(-45deg, hsl(var(--primary)), hsl(var(--primary-glow)), hsl(var(--accent)), hsl(var(--primary)))',
+          backgroundSize: '400% 400%',
+          animation: 'gradient-shift 15s ease infinite',
+        }}
+      />
       {/* Decorative Radar Circles Background with Parallax */}
       <motion.div 
         className="absolute inset-0 flex items-center justify-center pointer-events-none"

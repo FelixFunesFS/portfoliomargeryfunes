@@ -220,6 +220,27 @@
   .will-change-scroll {
     will-change: scroll-position;
   }
+  
+  /* Animated gradient utility classes */
+  .animate-gradient {
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+  }
+  
+  .animate-gradient-slow {
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+  
+  .animate-gradient-rotate {
+    background-size: 300% 300%;
+    animation: gradient-rotate 15s ease infinite;
+  }
+  
+  .animate-gradient-xy {
+    background-size: 400% 400%;
+    animation: gradient-xy 20s ease infinite;
+  }
 }
 
 html {

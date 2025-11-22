@@ -97,9 +97,18 @@ const FeaturedCard = ({ study, onNavigate, variants }: {
     >
       <TiltCard className="h-full">
         <Card 
-          className="h-full cursor-pointer group overflow-hidden relative border-2 border-primary/20 bg-gradient-to-br from-card/90 via-card/95 to-card backdrop-blur-xl hover:border-primary/40 transition-all duration-300"
+          className="h-full cursor-pointer group overflow-hidden relative border-2 border-primary/20 backdrop-blur-xl hover:border-primary/40 transition-all duration-300"
           onClick={() => onNavigate(study.id)}
         >
+          {/* Animated gradient background for featured card */}
+          <div 
+            className="absolute inset-0 opacity-20"
+            style={{
+              background: 'linear-gradient(-45deg, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.2), hsl(var(--primary-glow) / 0.3), hsl(var(--card)))',
+              backgroundSize: '400% 400%',
+              animation: 'gradient-shift 12s ease infinite',
+            }}
+          />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
           <CardContent className="p-8 relative z-10 flex flex-col h-full">
