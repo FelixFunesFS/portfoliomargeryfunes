@@ -2,7 +2,9 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Download, Target, BookOpen, Calendar } from 'lucide-react';
+import { Download, Target, BookOpen, Calendar, Users, TestTube, Map } from 'lucide-react';
+import { useInView } from '@/hooks/useInView';
+import { useCountUp } from '@/hooks/useCountUp';
 import heroTechLayer1 from '@/assets/hero-tech-layer-1.jpg';
 import heroTechLayer2 from '@/assets/hero-tech-layer-2.jpg';
 
@@ -121,6 +123,9 @@ const ResearchHero = () => {
           </p>
         </motion.div>
 
+        {/* Research Credentials Stats Bar */}
+        <ResearchCredentialsBar />
+
         {/* Bottom CTAs */}
         <motion.div
           className="flex flex-wrap items-center justify-center gap-3"
@@ -149,6 +154,81 @@ const ResearchHero = () => {
         </motion.div>
       </div>
     </section>
+  );
+};
+
+const ResearchCredentialsBar = () => {
+  const { ref, isInView } = useInView({ threshold: 0.3 });
+  
+  const interviewCount = useCountUp({ end: 50, duration: 2000, isInView });
+  const testCount = useCountUp({ end: 200, duration: 2000, isInView });
+  const journeyCount = useCountUp({ end: 25, duration: 2000, isInView });
+
+  const credentials = [
+    {
+      icon: Users,
+      count: interviewCount,
+      label: 'User Interviews',
+      description: 'Conducted'
+    },
+    {
+      icon: TestTube,
+      count: testCount,
+      label: 'Usability Tests',
+      description: 'Sessions'
+    },
+    {
+      icon: Map,
+      count: journeyCount,
+      label: 'Journey Maps',
+      description: 'Created'
+    }
+  ];
+
+  return (
+    <motion.div
+      ref={ref}
+      className="max-w-4xl mx-auto"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.5 }}
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {credentials.map((cred, index) => {
+          const Icon = cred.icon;
+          return (
+            <motion.div
+              key={cred.label}
+              className="relative group"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+            >
+              <div className="relative backdrop-blur-sm bg-card/30 border border-border/50 rounded-lg p-4 hover:bg-card/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                <div className="flex items-center gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-2xl font-bold text-foreground">
+                        {cred.count}+
+                      </span>
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      {cred.label}
+                    </p>
+                    <p className="text-xs text-muted-foreground/70">
+                      {cred.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </motion.div>
   );
 };
 
