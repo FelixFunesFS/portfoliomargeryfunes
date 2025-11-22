@@ -245,33 +245,7 @@ export const CaseStudySummaryCard = ({
 
               <CollapsibleContent className="pt-4">
                 <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-6">
-                  {/* LEFT COLUMN: Key Lesson (60% - larger) */}
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-primary">
-                      <Lightbulb className="w-4 h-4" />
-                      <h5 className="font-semibold text-xs uppercase tracking-wide">Key Lesson</h5>
-                    </div>
-                    <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
-                      <p className="text-sm text-foreground leading-relaxed">
-                        {caseStudy.reflection.lessonsLearned}
-                      </p>
-                    </div>
-                    
-                    {/* CTA Button - moved here, below Key Lesson */}
-                    <Button
-                      onClick={onExpandClick}
-                      className="w-full group"
-                      variant={isExpanded ? "default" : "outline"}
-                    >
-                      <span>{isExpanded ? "Hide" : "View"} Full Case Study</span>
-                      <ChevronDown className={cn(
-                        "w-4 h-4 ml-2 transition-transform duration-300",
-                        isExpanded && "rotate-180"
-                      )} />
-                    </Button>
-                  </div>
-
-                  {/* RIGHT COLUMN: What Worked Well + Future Optimizations (40%) */}
+                  {/* LEFT COLUMN: What Worked Well + Future Optimizations (60% - larger) */}
                   <div className="space-y-4">
                     {/* What Worked Well */}
                     {caseStudy.reflection.whatWorkedWell && caseStudy.reflection.whatWorkedWell.length > 0 && (
@@ -302,6 +276,32 @@ export const CaseStudySummaryCard = ({
                         </ul>
                       </div>
                     )}
+                  </div>
+
+                  {/* RIGHT COLUMN: Key Lesson + CTA Button (40%) */}
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-primary">
+                      <Lightbulb className="w-4 h-4" />
+                      <h5 className="font-semibold text-xs uppercase tracking-wide">Key Lesson</h5>
+                    </div>
+                    <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
+                      <p className="text-sm text-foreground leading-relaxed">
+                        {caseStudy.reflection.lessonsLearned}
+                      </p>
+                    </div>
+                    
+                    {/* CTA Button - moved here, below Key Lesson */}
+                    <Button
+                      onClick={onExpandClick}
+                      className="w-full group"
+                      variant={isExpanded ? "default" : "outline"}
+                    >
+                      <span>{isExpanded ? "Hide" : "View"} Full Case Study</span>
+                      <ChevronDown className={cn(
+                        "w-4 h-4 ml-2 transition-transform duration-300",
+                        isExpanded && "rotate-180"
+                      )} />
+                    </Button>
                   </div>
                 </div>
               </CollapsibleContent>
