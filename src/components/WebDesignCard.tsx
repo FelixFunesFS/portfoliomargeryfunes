@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, MapPin, TrendingUp } from 'lucide-react';
+import TiltCard from '@/components/TiltCard';
 
 interface WebDesignProject {
   title: string;
@@ -40,7 +41,8 @@ const WebDesignCard: React.FC<WebDesignCardProps> = ({ project, index }) => {
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.6 }}
     >
-      <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full overflow-hidden">
+      <TiltCard>
+        <Card className="glass border-none shadow-card hover:shadow-military transition-all duration-300 h-full overflow-hidden">
         {/* Project Image/Mockup */}
         <div 
           className={`h-[247px] sm:h-[279px] relative overflow-hidden bg-primary/10 ${project.link ? 'cursor-pointer group' : ''}`}
@@ -135,6 +137,7 @@ const WebDesignCard: React.FC<WebDesignCardProps> = ({ project, index }) => {
           </div>
         </CardHeader>
       </Card>
+      </TiltCard>
     </motion.div>
   );
 };

@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import ResearchMethodologyAndProcess from '@/components/ResearchMethodologyAndProcess';
 import ResearchHero from '@/components/ResearchHero';
 import BrandMarquee from '@/components/BrandMarquee';
+import ScrollProgressIndicator from '@/components/ScrollProgressIndicator';
 import OptimizedCaseStudySummary from '@/components/OptimizedCaseStudySummary';
 import { Target, Zap, TrendingUp, Users, BarChart3, Layers, GitBranch, RefreshCw, CheckCircle, ArrowRight, Radar, Settings, Database, Code, LineChart, Shield, Rocket, Brain, Clock, Award, ChevronDown, Eye, MapPin, ExternalLink, Globe, Monitor, Smartphone, Heart, Home as HomeIcon, Trophy, GraduationCap, Lightbulb, Search, TestTube, Download, Calendar } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -450,6 +451,9 @@ const Home = () => {
     link: "https://visionsofhope.ngo"
   }];
   return <div className="min-h-screen bg-background">
+      {/* Scroll Progress Indicator */}
+      <ScrollProgressIndicator />
+      
       {/* Research Hero Section */}
       <ResearchHero />
 

@@ -8,6 +8,7 @@ import { caseStudiesData } from '@/data/caseStudies';
 import { motion } from 'framer-motion';
 import { useInView } from '@/hooks/useInView';
 import { useCountUp } from '@/hooks/useCountUp';
+import TiltCard from '@/components/TiltCard';
 const OptimizedCaseStudySummary = () => {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -169,8 +170,9 @@ const OptimizedCaseStudySummary = () => {
 
               {/* Impact & Outcomes - Consolidated */}
               <div className="space-y-6">
-                <Card className="glass border-none">
-                  <CardContent className="p-6">
+                <TiltCard>
+                  <Card className="glass border-none">
+                    <CardContent className="p-6">
                     <h4 className="font-semibold text-lg mb-5 text-primary">IMPACT & OUTCOMES</h4>
                     
                     {/* Quantitative Metrics - Big Visual Cards with Animation */}
@@ -206,8 +208,10 @@ const OptimizedCaseStudySummary = () => {
                     </div>
                   </CardContent>
                 </Card>
+                </TiltCard>
 
-                <Card className="glass border-none">
+                <TiltCard>
+                  <Card className="glass border-none">
                   <CardContent className="p-6">
                     <h4 className="font-semibold text-lg mb-3 text-primary">UX IMPACT</h4>
                     <p className="text-base text-muted-foreground">
@@ -215,9 +219,11 @@ const OptimizedCaseStudySummary = () => {
                     </p>
                   </CardContent>
                 </Card>
+                </TiltCard>
 
                 {/* Reflection & Growth */}
-                {currentStudy.reflection && <Card className="glass border-none">
+                {currentStudy.reflection && <TiltCard>
+                    <Card className="glass border-none">
                     <CardContent className="p-6">
                       <h4 className="font-semibold text-lg mb-4 text-amber-600 dark:text-amber-400 flex items-center gap-2">
                         <span>GROWTH & REFLECTION</span>
@@ -252,7 +258,8 @@ const OptimizedCaseStudySummary = () => {
                           </div>}
                       </div>
                     </CardContent>
-                  </Card>}
+                  </Card>
+                  </TiltCard>}
               </div>
             </div>
 
