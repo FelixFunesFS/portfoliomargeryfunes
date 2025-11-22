@@ -52,6 +52,72 @@ export const caseStudy4: CaseStudy = {
     'Usability Testing',
     'Role-Based Testing'
   ],
+  researchProcess: [
+    {
+      phase: 'Discovery',
+      activities: [
+        'Conducted 23 cross-base user interviews to understand documentation pain points',
+        'Observed workflows and information-seeking behaviors across different roles',
+        'Analyzed existing fragmented systems and communication breakdowns',
+        'Mapped organizational hierarchy and information access needs'
+      ],
+      deliverables: [
+        'Cross-Base Research Report (23 locations)',
+        '4 Multi-Role User Personas (Leadership to Operators)',
+        'Current State Workflow Analysis',
+        'Pain Point Prioritization Matrix'
+      ],
+      duration: '2 weeks'
+    },
+    {
+      phase: 'Synthesis',
+      activities: [
+        'Identified role-based information needs across organizational levels',
+        'Created information architecture for modular workspace structure',
+        'Defined role-based access control requirements',
+        'Prioritized features based on cross-base feedback'
+      ],
+      deliverables: [
+        'Information Architecture Diagram',
+        'Role Permission Matrix',
+        'Feature Prioritization Framework',
+        'Modular Workspace Design Specifications'
+      ],
+      duration: '1 week'
+    },
+    {
+      phase: 'Design',
+      activities: [
+        'Designed role-filtered dashboard interfaces',
+        'Created document taxonomy and navigation structure',
+        'Prototyped CMS-driven content management system',
+        'Designed onboarding workflows for different user types'
+      ],
+      deliverables: [
+        'Role-Based Dashboard Mockups',
+        'Document Taxonomy Design',
+        'CMS Wireframes',
+        'Onboarding Flow Diagrams'
+      ],
+      duration: '2 weeks'
+    },
+    {
+      phase: 'Validation',
+      activities: [
+        'Conducted 15 task-based usability tests across 3 user roles',
+        'Tested document findability and navigation efficiency',
+        'Validated role-based access controls with real users',
+        'Iterated based on feedback before full deployment'
+      ],
+      deliverables: [
+        'Usability Test Report (15 users)',
+        'Navigation Performance Metrics',
+        'Access Control Validation Results',
+        'Final Design Recommendations'
+      ],
+      duration: '1 week'
+    }
+  ],
   researchScale: {
     interviews: 23,
     testSessions: 15,
