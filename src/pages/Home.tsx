@@ -469,17 +469,8 @@ const Home = () => {
       </section>
 
       {/* Case Studies - PRIMARY EXPERTISE */}
-      <section className="section relative py-12 sm:py-16 lg:py-20 border-t-4 border-primary/20 overflow-hidden">
-        {/* Animated gradient background */}
-        <div 
-          className="absolute inset-0 opacity-20"
-          style={{
-            background: 'linear-gradient(-45deg, hsl(var(--muted)), hsl(var(--background)), hsl(var(--accent) / 0.3), hsl(var(--primary) / 0.2))',
-            backgroundSize: '400% 400%',
-            animation: 'gradient-shift 12s ease infinite',
-          }}
-        />
-        <div className="container-custom px-3 sm:px-4 lg:px-6 relative z-10">
+      <section className="section bg-gradient-to-br from-muted/20 via-background to-accent/10 py-12 sm:py-16 lg:py-20 border-t-4 border-primary/20">
+        <div className="container-custom px-3 sm:px-4 lg:px-6">
           <motion.div initial={{
           opacity: 0,
           y: 30
@@ -521,17 +512,8 @@ const Home = () => {
       </section>
 
       {/* Technical Capabilities - SUPPORTING CAPABILITY */}
-      <section className="border-t-2 border-accent/20 relative overflow-hidden">
-        {/* Animated gradient background */}
-        <div 
-          className="absolute inset-0 opacity-15"
-          style={{
-            background: 'linear-gradient(135deg, hsl(var(--background)), hsl(var(--muted) / 0.5), hsl(var(--accent) / 0.2), hsl(var(--background)))',
-            backgroundSize: '300% 300%',
-            animation: 'gradient-rotate 18s ease infinite',
-          }}
-        />
-        <div className="container-custom py-16 lg:py-20 relative z-10">
+      <section className="border-t-2 border-accent/20 bg-gradient-to-br from-background via-muted/10 to-background">
+        <div className="container-custom py-16 lg:py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -553,17 +535,8 @@ const Home = () => {
       </section>
 
       {/* Journey: Bridging the Gap */}
-      <section id="about" className="section relative py-16 lg:py-20 overflow-hidden">
-        {/* Animated gradient background */}
-        <div 
-          className="absolute inset-0 opacity-25"
-          style={{
-            background: 'linear-gradient(60deg, hsl(var(--accent) / 0.4), hsl(var(--background)), hsl(var(--primary) / 0.3), hsl(var(--muted)))',
-            backgroundSize: '400% 400%',
-            animation: 'gradient-xy 20s ease infinite',
-          }}
-        />
-        <div className="container-custom relative z-10">
+      <section id="about" className="section bg-gradient-to-br from-accent/30 via-background to-muted/20 py-16 lg:py-20">
+        <div className="container-custom">
           {/* Header */}
           <motion.div initial={{
           opacity: 0,
@@ -953,17 +926,8 @@ const Home = () => {
       
 
       {/* Recent Work - SUPPORTING CAPABILITY */}
-      <section id="projects" className="section relative py-12 sm:py-16 lg:py-20 border-t-2 border-accent/20 overflow-hidden">
-        {/* Animated gradient background */}
-        <div 
-          className="absolute inset-0 opacity-15"
-          style={{
-            background: 'linear-gradient(-45deg, hsl(var(--background)), hsl(var(--accent) / 0.3), hsl(var(--primary) / 0.2), hsl(var(--background)))',
-            backgroundSize: '400% 400%',
-            animation: 'gradient-shift 14s ease infinite',
-          }}
-        />
-        <div className="container-custom px-3 sm:px-4 lg:px-6 relative z-10">
+      <section id="projects" className="section gradient-subtle py-12 sm:py-16 lg:py-20 border-t-2 border-accent/20">
+        <div className="container-custom px-3 sm:px-4 lg:px-6">
           <motion.div initial={{
           opacity: 0,
           y: 50
@@ -995,15 +959,8 @@ const Home = () => {
 
       {/* Enhanced Leadership Testimonial */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
-        {/* Animated gradient background */}
-        <div 
-          className="absolute inset-0 opacity-20"
-          style={{
-            background: 'linear-gradient(135deg, hsl(var(--background)), hsl(var(--primary) / 0.3), hsl(var(--systems-blue) / 0.4), hsl(var(--background)))',
-            backgroundSize: '300% 300%',
-            animation: 'gradient-rotate 16s ease infinite',
-          }}
-        />
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-systems-blue/10"></div>
         <div className="absolute inset-0">
           <motion.div className="absolute top-20 left-1/4 w-96 h-96 rounded-full bg-primary-glow/20 blur-3xl" animate={{
           scale: [1, 1.2, 1],
@@ -1217,17 +1174,8 @@ const Home = () => {
       </section>
 
       {/* Mission Briefing CTA */}
-      <section id="contact" className="section relative bg-background overflow-hidden">
-        {/* Animated gradient background */}
-        <div 
-          className="absolute inset-0 opacity-10"
-          style={{
-            background: 'linear-gradient(135deg, hsl(var(--primary) / 0.3), hsl(var(--background)), hsl(var(--primary-glow) / 0.4), hsl(var(--background)))',
-            backgroundSize: '300% 300%',
-            animation: 'gradient-rotate 18s ease infinite',
-          }}
-        />
-        <div className="container-custom relative z-10">
+      <section id="contact" className="section bg-background">
+        <div className="container-custom">
           <motion.div initial={{
           opacity: 0,
           y: 50
