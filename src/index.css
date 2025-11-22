@@ -27,7 +27,7 @@
 
     /* Secondary - Lighter blue variation */
     --secondary: 215 24% 26%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 38 92.126% 50.1961%;
 
     /* 10% - Accent Complementary Orange (pop color) */
     --accent: 210 40% 98%;
@@ -151,13 +151,13 @@
     --primary-foreground: 204 80% 15%;
     --primary-glow: 220 100% 70%;
 
-    --secondary: 212 26% 83%;
-    --secondary-foreground: 228 84% 4%;
+    --secondary: 210 20% 20%;
+    --secondary-foreground: 210 20% 90%;
 
-    --accent: 228 84% 4%;         /* Gold remains vibrant */
-    --accent-foreground: 215 20% 65%;
+    --accent: 210 30% 65%;         /* Gold remains vibrant */
+    --accent-foreground: 210 30% 8%;
 
-    --success: 160 84% 30%;       /* Brighter green for dark */
+    --success: 140 50% 55%;       /* Brighter green for dark */
     --success-foreground: 0 0% 98%;
 
     --agile-primary: 262 83% 65%; /* Brighter purple */
