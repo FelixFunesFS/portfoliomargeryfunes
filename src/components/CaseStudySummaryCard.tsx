@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Quote, TrendingUp, ChevronDown, Users, TestTube, FileText, CheckCircle2, RefreshCw, Lightbulb } from "lucide-react";
+import { Quote, TrendingUp, ChevronDown, Users, TestTube, FileText, CheckCircle2, RefreshCw, Lightbulb, ExternalLink, Microscope } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,23 +9,21 @@ import { cn } from "@/lib/utils";
 import { ResearchMethodsBadges } from "@/components/ResearchMethodsBadges";
 import { ResearchProcessTimeline } from "@/components/ResearchProcessTimeline";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface CaseStudySummaryCardProps {
   caseStudy: CaseStudy;
   featured?: boolean;
-  onExpandClick: () => void;
-  isExpanded: boolean;
   className?: string;
 }
 
 export const CaseStudySummaryCard = ({ 
   caseStudy, 
   featured = false, 
-  onExpandClick,
-  isExpanded,
   className 
 }: CaseStudySummaryCardProps) => {
-  const [isReflectionExpanded, setIsReflectionExpanded] = useState(false);
+  const navigate = useNavigate();
+  const [isProcessExpanded, setIsProcessExpanded] = useState(false);
   
   return (
     <motion.div
@@ -142,25 +140,65 @@ export const CaseStudySummaryCard = ({
               </div>
             </div>
 
-            {/* RIGHT COLUMN: Research Process Timeline + Methods/Results */}
+            {/* RIGHT COLUMN: Growth & Reflection + Methods/Results */}
             <div className="space-y-5">
-              {/* Research Process Timeline */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-primary">
-                  <div className="w-1 h-6 bg-primary rounded-full" />
-                  <h4 className="font-semibold text-sm uppercase tracking-wider">Research Process</h4>
-                </div>
-                
-                <div className="pl-4">
-                  {caseStudy.researchProcess && caseStudy.researchProcess.length > 0 ? (
-                    <ResearchProcessTimeline phases={caseStudy.researchProcess} />
-                  ) : (
-                    <p className="text-sm text-muted-foreground italic">No research process documented</p>
-                  )}
-                </div>
-              </div>
+              {/* GROWTH & REFLECTION */}
+              {caseStudy.reflection && (
+                <div className="space-y-5">
+                  <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400">
+                    <div className="w-1 h-6 bg-amber-600 dark:bg-amber-400 rounded-full" />
+                    <h4 className="font-semibold text-sm uppercase tracking-wider">Growth & Reflection</h4>
+                  </div>
 
-              {/* RESEARCH METHODS (Full Width) */}
+                  <div className="pl-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    {/* LEFT: What Worked Well + Future Optimizations */}
+                    <div className="space-y-4">
+                      {caseStudy.reflection.whatWorkedWell && caseStudy.reflection.whatWorkedWell.length > 0 && (
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
+                            <CheckCircle2 className="w-4 h-4" />
+                            <h5 className="font-semibold text-sm uppercase tracking-wide">What Worked Well</h5>
+                          </div>
+                          <ul className="space-y-1.5 pl-6 text-xs text-muted-foreground">
+                            {caseStudy.reflection.whatWorkedWell.slice(0, 2).map((item, index) => (
+                              <li key={index} className="list-disc">{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {caseStudy.reflection.wouldDoDifferently && caseStudy.reflection.wouldDoDifferently.length > 0 && (
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400">
+                            <RefreshCw className="w-4 h-4" />
+                            <h5 className="font-semibold text-sm uppercase tracking-wide">Future Optimizations</h5>
+                          </div>
+                          <ul className="space-y-1.5 pl-6 text-xs text-muted-foreground">
+                            {caseStudy.reflection.wouldDoDifferently.slice(0, 2).map((item, index) => (
+                              <li key={index} className="list-disc">{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* RIGHT: Key Lesson */}
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 text-primary">
+                        <Lightbulb className="w-4 h-4" />
+                        <h5 className="font-semibold text-sm uppercase tracking-wide">Key Lesson</h5>
+                      </div>
+                      <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
+                        <p className="text-sm text-foreground leading-relaxed">
+                          {caseStudy.reflection.lessonsLearned}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* RESEARCH METHODS */}
               {caseStudy.researchMethods && caseStudy.researchMethods.length > 0 && (
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 text-violet-600 dark:text-violet-400">
@@ -185,7 +223,7 @@ export const CaseStudySummaryCard = ({
                 </div>
               )}
 
-              {/* KEY RESULTS (Full Width with 50/50 Metric Cards) */}
+              {/* KEY RESULTS */}
               {caseStudy.metrics && caseStudy.metrics.length > 0 && (
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 text-teal-600 dark:text-teal-400">
@@ -220,90 +258,49 @@ export const CaseStudySummaryCard = ({
             </div>
           </div>
 
-          {/* BOTTOM SECTION: Expandable Growth & Reflection */}
-          {caseStudy.reflection && (
+          {/* BOTTOM SECTION: Expandable Research Process */}
+          {caseStudy.researchProcess && caseStudy.researchProcess.length > 0 && (
             <Collapsible
-              open={isReflectionExpanded}
-              onOpenChange={setIsReflectionExpanded}
-              className="border-t-2 border-amber-500/30 pt-4"
+              open={isProcessExpanded}
+              onOpenChange={setIsProcessExpanded}
+              className="border-t-2 border-primary/30 pt-4"
             >
               <CollapsibleTrigger className="w-full group">
-                <div className="flex items-center justify-between w-full hover:bg-amber-500/5 transition-colors rounded-lg p-3">
-                  <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400">
-                    <Lightbulb className="w-5 h-5" />
-                    <h4 className="font-semibold text-sm uppercase tracking-wider">Growth & Reflection</h4>
+                <div className="flex items-center justify-between w-full hover:bg-primary/5 transition-colors rounded-lg p-3">
+                  <div className="flex items-center gap-2 text-primary">
+                    <Microscope className="w-5 h-5" />
+                    <h4 className="font-semibold text-sm uppercase tracking-wider">Research Process & Methodology</h4>
                   </div>
                   <ChevronDown className={cn(
-                    "w-4 h-4 text-amber-600 dark:text-amber-400 transition-transform duration-300",
-                    isReflectionExpanded && "rotate-180"
+                    "w-4 h-4 text-primary transition-transform duration-300",
+                    isProcessExpanded && "rotate-180"
                   )} />
                 </div>
               </CollapsibleTrigger>
 
               <CollapsibleContent className="pt-4">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  {/* LEFT COLUMN: What Worked Well + Future Optimizations (50%) */}
-                  <div className="space-y-4">
-                    {/* What Worked Well */}
-                    {caseStudy.reflection.whatWorkedWell && caseStudy.reflection.whatWorkedWell.length > 0 && (
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
-                          <CheckCircle2 className="w-4 h-4" />
-                          <h5 className="font-semibold text-sm uppercase tracking-wide">What Worked Well</h5>
-                        </div>
-                        <ul className="space-y-1.5 pl-6 text-xs text-muted-foreground">
-                          {caseStudy.reflection.whatWorkedWell.slice(0, 2).map((item, index) => (
-                            <li key={index} className="list-disc">{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
-                    {/* Future Optimizations */}
-                    {caseStudy.reflection.wouldDoDifferently && caseStudy.reflection.wouldDoDifferently.length > 0 && (
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400">
-                          <RefreshCw className="w-4 h-4" />
-                          <h5 className="font-semibold text-sm uppercase tracking-wide">Future Optimizations</h5>
-                        </div>
-                        <ul className="space-y-1.5 pl-6 text-xs text-muted-foreground">
-                          {caseStudy.reflection.wouldDoDifferently.slice(0, 2).map((item, index) => (
-                            <li key={index} className="list-disc">{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* RIGHT COLUMN: Key Lesson + CTA Button (50%) */}
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-primary">
-                      <Lightbulb className="w-4 h-4" />
-                      <h5 className="font-semibold text-sm uppercase tracking-wide">Key Lesson</h5>
-                    </div>
-                    <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
-                      <p className="text-sm text-foreground leading-relaxed">
-                        {caseStudy.reflection.lessonsLearned}
-                      </p>
-                    </div>
-                    
-                    {/* CTA Button - moved here, below Key Lesson */}
-                    <Button
-                      onClick={onExpandClick}
-                      className="w-full group"
-                      variant={isExpanded ? "default" : "outline"}
-                    >
-                      <span>{isExpanded ? "Hide" : "View"} Full Case Study</span>
-                      <ChevronDown className={cn(
-                        "w-4 h-4 ml-2 transition-transform duration-300",
-                        isExpanded && "rotate-180"
-                      )} />
-                    </Button>
-                  </div>
+                <div className="pl-4">
+                  <ResearchProcessTimeline phases={caseStudy.researchProcess} />
                 </div>
               </CollapsibleContent>
             </Collapsible>
           )}
+
+          {/* View Full Case Study Button */}
+          <div className="pt-2">
+            <Button
+              onClick={() => {
+                navigate('/case-studies', { 
+                  state: { selectedStudyId: caseStudy.id } 
+                });
+              }}
+              className="w-full group"
+              variant="outline"
+            >
+              <span>View Full Case Study</span>
+              <ExternalLink className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </motion.div>
