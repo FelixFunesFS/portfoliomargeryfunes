@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ArrowRight, ExternalLink, Users, Map, FileText, FlaskConical, Workflow, FileSearch } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,16 @@ import { useInView } from '@/hooks/useInView';
 import { useCountUp } from '@/hooks/useCountUp';
 import TiltCard from '@/components/TiltCard';
 import type { CaseStudy } from '@/types/caseStudy';
+
+// Icon mapping for research artifacts
+const artifactIconMap = {
+  'journey-map': { icon: Map, label: 'Journey Map', color: 'text-blue-500' },
+  'persona': { icon: Users, label: 'User Personas', color: 'text-purple-500' },
+  'wireframe': { icon: FileText, label: 'Wireframes', color: 'text-green-500' },
+  'usability-test': { icon: FlaskConical, label: 'Usability Testing', color: 'text-orange-500' },
+  'flow-diagram': { icon: Workflow, label: 'Flow Diagrams', color: 'text-cyan-500' },
+  'research-report': { icon: FileSearch, label: 'Research Report', color: 'text-pink-500' }
+} as const;
 
 const BentoGridCaseStudies = () => {
   const navigate = useNavigate();
@@ -116,9 +126,35 @@ const FeaturedCard = ({ study, onNavigate, variants }: {
               {study.title}
             </h3>
 
+            {/* Research Artifacts - Priority Display */}
+            {study.artifacts && study.artifacts.length > 0 && (
+              <div className="mb-4">
+                <h4 className="text-xs font-semibold text-primary mb-2 uppercase tracking-wide flex items-center gap-2">
+                  <FlaskConical className="h-3.5 w-3.5" />
+                  Research Methods Used
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {study.artifacts.map((artifact, index) => {
+                    const artifactInfo = artifactIconMap[artifact.type];
+                    const Icon = artifactInfo?.icon || FileText;
+                    return (
+                      <Badge 
+                        key={index} 
+                        variant="outline" 
+                        className={`text-xs bg-accent/10 border-accent/30 ${artifactInfo?.color || 'text-accent'} flex items-center gap-1.5`}
+                      >
+                        <Icon className="h-3 w-3" />
+                        {artifactInfo?.label || artifact.type}
+                      </Badge>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             <div className="flex flex-wrap gap-2 mb-6">
               {study.tools.slice(0, 6).map((tool, index) => (
-                <Badge key={index} variant="secondary" className="text-xs">
+                <Badge key={index} variant="secondary" className="text-xs opacity-70">
                   {tool}
                 </Badge>
               ))}
@@ -213,6 +249,29 @@ const MediumCard = ({ study, onNavigate, variants }: {
               {study.title}
             </h3>
 
+            {/* Research Methods (Priority) + Tools (Secondary) */}
+            <div className="flex flex-wrap gap-2 mb-3">
+              {study.artifacts && study.artifacts.slice(0, 2).map((artifact, index) => {
+                const artifactInfo = artifactIconMap[artifact.type];
+                const Icon = artifactInfo?.icon || FileText;
+                return (
+                  <Badge 
+                    key={`artifact-${index}`}
+                    variant="outline" 
+                    className={`text-xs bg-accent/10 border-accent/30 ${artifactInfo?.color} flex items-center gap-1`}
+                  >
+                    <Icon className="h-3 w-3" />
+                    {artifactInfo?.label}
+                  </Badge>
+                );
+              })}
+              {study.tools.slice(0, 2).map((tool, index) => (
+                <Badge key={`tool-${index}`} variant="secondary" className="text-xs opacity-70">
+                  {tool}
+                </Badge>
+              ))}
+            </div>
+
             {/* Hero Metric */}
             <div ref={ref} className="text-center p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 border border-primary/20">
               <div className="text-3xl font-bold text-primary">
@@ -228,14 +287,6 @@ const MediumCard = ({ study, onNavigate, variants }: {
             <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-grow">
               {study.problem}
             </p>
-
-            <div className="flex flex-wrap gap-2">
-              {study.tools.slice(0, 4).map((tool, index) => (
-                <Badge key={index} variant="secondary" className="text-xs">
-                  {tool}
-                </Badge>
-              ))}
-            </div>
 
             <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
               <Button variant="outline" size="sm" className="w-full text-xs">
@@ -299,9 +350,24 @@ const WideCard = ({ study, onNavigate, variants }: {
                 </div>
               </div>
 
+              {/* Research Methods (Priority) + Tools */}
               <div className="flex flex-wrap gap-2 mt-auto">
-                {study.tools.slice(0, 5).map((tool, index) => (
-                  <Badge key={index} variant="secondary" className="text-xs">
+                {study.artifacts?.slice(0, 2).map((artifact, index) => {
+                  const artifactInfo = artifactIconMap[artifact.type];
+                  const Icon = artifactInfo?.icon || FileText;
+                  return (
+                    <Badge 
+                      key={`artifact-${index}`}
+                      variant="outline" 
+                      className={`text-xs bg-accent/10 border-accent/30 ${artifactInfo?.color} flex items-center gap-1`}
+                    >
+                      <Icon className="h-3 w-3" />
+                      {artifactInfo?.label}
+                    </Badge>
+                  );
+                })}
+                {study.tools.slice(0, 3).map((tool, index) => (
+                  <Badge key={`tool-${index}`} variant="secondary" className="text-xs opacity-70">
                     {tool}
                   </Badge>
                 ))}
