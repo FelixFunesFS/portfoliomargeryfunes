@@ -98,7 +98,11 @@ const BentoGridCaseStudies = () => {
   return (
     <div className="container-custom">
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(320px,auto)]"
+        className="grid gap-6 
+          grid-cols-1 auto-rows-auto
+          md:grid-cols-2 md:auto-rows-[minmax(320px,auto)]
+          lg:grid-cols-4 lg:auto-rows-[minmax(350px,auto)]
+          lg:[grid-template-areas:'featured_featured_medium1_medium2''featured_featured_wide_wide']"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -108,10 +112,10 @@ const BentoGridCaseStudies = () => {
         <FeaturedCard study={topFour[0]} onNavigate={handleNavigate} variants={cardVariants} />
         
         {/* Card 2 - Medium */}
-        <MediumCard study={topFour[1]} onNavigate={handleNavigate} variants={cardVariants} />
+        <MediumCard study={topFour[1]} onNavigate={handleNavigate} variants={cardVariants} gridArea="medium1" />
         
         {/* Card 3 - Medium */}
-        <MediumCard study={topFour[2]} onNavigate={handleNavigate} variants={cardVariants} />
+        <MediumCard study={topFour[2]} onNavigate={handleNavigate} variants={cardVariants} gridArea="medium2" />
         
         {/* Card 4 - Wide (2 cols x 1 row) */}
         <WideCard study={topFour[3]} onNavigate={handleNavigate} variants={cardVariants} />
@@ -133,7 +137,7 @@ const FeaturedCard = ({ study, onNavigate, variants }: {
   return (
     <motion.div
       variants={variants}
-      className="md:col-span-2 md:row-span-2"
+      className="md:col-span-2 md:row-span-2 lg:[grid-area:featured] min-h-[600px] md:min-h-[700px] lg:min-h-[720px] h-full"
     >
       <TiltCard className="h-full">
         <Card 
@@ -142,8 +146,10 @@ const FeaturedCard = ({ study, onNavigate, variants }: {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
-          <CardContent className="p-8 relative z-10 flex flex-col h-full">
-            <div className="flex items-start justify-between mb-4 flex-wrap gap-2">
+          <CardContent className="p-6 lg:p-8 relative z-10 flex flex-col h-full justify-between">
+            {/* Fixed Header Section */}
+            <div className="flex-shrink-0">
+              <div className="flex items-start justify-between mb-4 flex-wrap gap-2">
               <div className="flex gap-2 flex-wrap">
                 <Badge variant="outline" className="bg-primary/10 text-primary border-primary/30 font-semibold">
                   Featured Case Study
@@ -160,12 +166,15 @@ const FeaturedCard = ({ study, onNavigate, variants }: {
               </Badge>
             </div>
 
-            <h3 className="text-3xl font-bold mb-4 line-clamp-2 group-hover:text-primary transition-colors">
-              {study.title}
-            </h3>
+              <h3 className="text-2xl lg:text-3xl font-bold mb-4 line-clamp-2 group-hover:text-primary transition-colors">
+                {study.title}
+              </h3>
+            </div>
 
-            {/* Research Scale Metrics */}
-            {study.researchScale && (
+            {/* Flexible Content Section */}
+            <div className="flex-grow overflow-y-auto space-y-4">
+              {/* Research Scale Metrics */}
+              {study.researchScale && (
               <div className="mb-6 p-4 bg-primary/5 rounded-lg border border-primary/10">
                 <h4 className="text-xs font-semibold text-primary mb-3 uppercase tracking-wide">
                   Research Scale
@@ -196,18 +205,18 @@ const FeaturedCard = ({ study, onNavigate, variants }: {
                     </div>
                   )}
                 </div>
-              </div>
-            )}
+                </div>
+              )}
 
-            {/* Research Artifacts with Hover Preview */}
-            {study.artifacts && study.artifacts.length > 0 && (
-              <div className="mb-4">
-                <h4 className="text-xs font-semibold text-primary mb-2 uppercase tracking-wide flex items-center gap-2">
-                  <FlaskConical className="h-3.5 w-3.5" />
-                  Research Artifacts
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {study.artifacts.map((artifact, index) => {
+              {/* Research Artifacts with Hover Preview */}
+              {study.artifacts && study.artifacts.length > 0 && (
+                <div className="mb-4">
+                  <h4 className="text-xs font-semibold text-primary mb-2 uppercase tracking-wide flex items-center gap-2">
+                    <FlaskConical className="h-3.5 w-3.5" />
+                    Research Artifacts
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {study.artifacts.slice(0, 6).map((artifact, index) => {
                     const artifactInfo = artifactIconMap[artifact.type];
                     const Icon = artifactInfo?.icon || FileText;
                     return (
@@ -240,40 +249,44 @@ const FeaturedCard = ({ study, onNavigate, variants }: {
                           </div>
                         </HoverCardContent>
                       </HoverCard>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            <div className="flex flex-wrap gap-2 mb-6">
-              {study.tools.slice(0, 6).map((tool, index) => (
-                <Badge key={index} variant="secondary" className="text-xs opacity-70">
-                  {tool}
-                </Badge>
-              ))}
-            </div>
-
-            <div className="space-y-4 mb-6 flex-grow">
-              <div>
-                <h4 className="font-semibold text-sm text-primary mb-2 uppercase tracking-wide">The Challenge</h4>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  {study.problem}
-                </p>
-              </div>
-
-              {study.userVoice && (
-                <div className="p-4 bg-accent/10 border-l-4 border-accent rounded-r-lg">
-                  <p className="text-sm italic text-foreground leading-relaxed">
-                    "{study.userVoice}"
-                  </p>
-                  <span className="text-xs text-accent mt-2 block font-semibold">— User Interview Insight</span>
+                      );
+                    })}
+                  </div>
                 </div>
               )}
 
+              <div className="flex flex-wrap gap-2 mb-4">
+                {study.tools.slice(0, 4).map((tool, index) => (
+                  <Badge key={index} variant="secondary" className="text-[10px] opacity-50">
+                    {tool}
+                  </Badge>
+                ))}
+              </div>
+
+              <div className="space-y-3">
+                <div>
+                  <h4 className="font-semibold text-sm text-primary mb-2 uppercase tracking-wide">The Challenge</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                    {study.problem}
+                  </p>
+                </div>
+
+                {study.userVoice && (
+                  <div className="p-3 bg-accent/10 border-l-4 border-accent rounded-r-lg">
+                    <p className="text-sm italic text-foreground leading-relaxed line-clamp-2">
+                      "{study.userVoice}"
+                    </p>
+                    <span className="text-xs text-accent mt-2 block font-semibold">— User Interview Insight</span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Fixed Footer Section */}
+            <div className="flex-shrink-0 mt-auto pt-4 space-y-4">
               {study.metrics && study.metrics.length > 0 && (
-                <div ref={ref} className="grid grid-cols-2 gap-3 mt-6">
-                  {study.metrics.slice(0, 4).map((metric, index) => (
+                <div ref={ref} className="grid grid-cols-2 gap-3">
+                  {study.metrics.slice(0, 2).map((metric, index) => (
                     <AnimatedMetricCard 
                       key={index}
                       metric={metric} 
@@ -283,12 +296,12 @@ const FeaturedCard = ({ study, onNavigate, variants }: {
                   ))}
                 </div>
               )}
-            </div>
 
-            <Button className="w-full bg-primary hover:bg-primary/90 group-hover:shadow-lg transition-all">
-              View Full Case Study
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+              <Button className="w-full bg-primary hover:bg-primary/90 group-hover:shadow-lg transition-all">
+                View Full Case Study
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </TiltCard>
@@ -297,10 +310,11 @@ const FeaturedCard = ({ study, onNavigate, variants }: {
 };
 
 // Medium Card Component
-const MediumCard = ({ study, onNavigate, variants }: { 
+const MediumCard = ({ study, onNavigate, variants, gridArea }: { 
   study: CaseStudy; 
   onNavigate: (id: number) => void;
   variants: any;
+  gridArea: string;
 }) => {
   const { ref, isInView } = useInView({ threshold: 0.3 });
   const skillFocus = skillFocusMap[study.id];
@@ -330,112 +344,125 @@ const MediumCard = ({ study, onNavigate, variants }: {
   });
 
   return (
-    <motion.div variants={variants} className="md:col-span-1 md:row-span-1">
+    <motion.div 
+      variants={variants} 
+      className="md:col-span-1 md:row-span-1 min-h-[400px] md:min-h-[320px] lg:min-h-[350px] h-full"
+      style={{ gridArea: gridArea } as any}
+    >
       <TiltCard className="h-full">
         <Card 
           className="h-full cursor-pointer group overflow-hidden relative border border-border/50 bg-card/80 backdrop-blur-md hover:border-primary/30 hover:shadow-xl transition-all duration-300"
           onClick={() => onNavigate(study.id)}
         >
-          <CardContent className="p-6 relative z-10 flex flex-col h-full">
-            <div className="flex items-center justify-between mb-3 gap-2">
-              {skillFocus && (
-                <Badge variant="outline" className={`text-xs ${skillFocus.color} font-semibold flex items-center gap-1`}>
-                  <SkillIcon className="h-3 w-3" />
-                  {skillFocus.primary}
-                </Badge>
-              )}
-              <Badge variant="secondary" className="text-xs opacity-70">
-                {study.myRole.title}
-              </Badge>
-            </div>
-
-            <h3 className="text-xl font-bold mb-3 line-clamp-2 group-hover:text-primary transition-colors">
-              {study.title}
-            </h3>
-
-        {/* Research Scale Mini-Indicator */}
-        {study.researchScale && (
-          <div className="flex gap-3 mb-3 text-xs text-muted-foreground">
-            {study.researchScale.interviews && (
-              <span className="font-semibold text-primary">{study.researchScale.interviews}+ Interviews</span>
-            )}
-            {study.researchScale.testSessions && (
-              <span className="font-semibold text-primary">{study.researchScale.testSessions}+ Tests</span>
-            )}
-            {!study.researchScale.interviews && study.researchScale.participants && (
-              <span className="font-semibold text-primary">{study.researchScale.participants}+ Participants</span>
-            )}
-          </div>
-        )}
-
-        {/* Research Artifacts with Hover Preview */}
-        <div className="flex flex-wrap gap-2 mb-3">
-          {study.artifacts && study.artifacts.slice(0, 3).map((artifact, index) => {
-            const artifactInfo = artifactIconMap[artifact.type];
-            const Icon = artifactInfo?.icon || FileText;
-            return (
-              <HoverCard key={`artifact-${index}`}>
-                <HoverCardTrigger asChild>
-                  <Badge 
-                    variant="outline" 
-                    className={`text-xs bg-accent/10 border-accent/30 ${artifactInfo?.color} flex items-center gap-1 cursor-help hover:bg-accent/20 transition-colors`}
-                  >
-                    <Icon className="h-3 w-3" />
-                    {artifactInfo?.label}
+          <CardContent className="p-5 lg:p-6 relative z-10 flex flex-col h-full">
+            {/* Fixed Header Section */}
+            <div className="flex-shrink-0 space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                {skillFocus && (
+                  <Badge variant="outline" className={`text-xs ${skillFocus.color} font-semibold flex items-center gap-1`}>
+                    <SkillIcon className="h-3 w-3" />
+                    {skillFocus.primary}
                   </Badge>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-80 z-50" side="top">
-                  <div className="space-y-2">
-                    <div className="flex items-start gap-2">
-                      <Icon className={`h-5 w-5 ${artifactInfo?.color} flex-shrink-0 mt-0.5`} />
-                      <div>
-                        <h4 className="text-sm font-semibold mb-1">{artifact.title}</h4>
-                        <p className="text-xs text-muted-foreground leading-relaxed">
-                          {artifact.description}
-                        </p>
-                        {artifact.date && (
-                          <div className="text-xs text-primary mt-2 font-medium">
-                            Timeline: {artifact.date}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </HoverCardContent>
-              </HoverCard>
-            );
-          })}
-        </div>
-
-            {/* Hero Metric */}
-            <div ref={ref} className="text-center p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 border border-primary/20">
-              <div className="text-3xl font-bold text-primary">
-                {prefix && <span>{prefix}</span>}
-                {animatedNumber}
-                {suffix && <span>{suffix}</span>}
+                )}
+                <Badge variant="secondary" className="text-xs opacity-70">
+                  {study.myRole.title}
+                </Badge>
               </div>
-              <div className="text-xs text-muted-foreground mt-1 font-medium">
-                {heroMetric.label}
+
+              <h3 className="text-lg lg:text-xl font-bold line-clamp-2 group-hover:text-primary transition-colors">
+                {study.title}
+              </h3>
+
+              {/* Research Scale Mini-Indicator */}
+              {study.researchScale && (
+                <div className="flex gap-3 text-xs text-muted-foreground">
+                  {study.researchScale.interviews && (
+                    <span className="font-semibold text-primary">{study.researchScale.interviews}+ Interviews</span>
+                  )}
+                  {study.researchScale.testSessions && (
+                    <span className="font-semibold text-primary">{study.researchScale.testSessions}+ Tests</span>
+                  )}
+                  {!study.researchScale.interviews && study.researchScale.participants && (
+                    <span className="font-semibold text-primary">{study.researchScale.participants}+ Participants</span>
+                  )}
+                </div>
+              )}
+
+              {/* Research Artifacts with Hover Preview */}
+              <div className="flex flex-wrap gap-2">
+                {study.artifacts && study.artifacts.slice(0, 4).map((artifact, index) => {
+            const artifactInfo = artifactIconMap[artifact.type];
+                  const Icon = artifactInfo?.icon || FileText;
+                  return (
+                    <HoverCard key={`artifact-${index}`}>
+                      <HoverCardTrigger asChild>
+                        <Badge 
+                          variant="outline" 
+                          className={`text-xs bg-accent/10 border-accent/30 ${artifactInfo?.color} flex items-center gap-1 cursor-help hover:bg-accent/20 transition-colors`}
+                        >
+                          <Icon className="h-3 w-3" />
+                          {artifactInfo?.label}
+                        </Badge>
+                      </HoverCardTrigger>
+                      <HoverCardContent className="w-80 z-50" side="top">
+                        <div className="space-y-2">
+                          <div className="flex items-start gap-2">
+                            <Icon className={`h-5 w-5 ${artifactInfo?.color} flex-shrink-0 mt-0.5`} />
+                            <div>
+                              <h4 className="text-sm font-semibold mb-1">{artifact.title}</h4>
+                              <p className="text-xs text-muted-foreground leading-relaxed">
+                                {artifact.description}
+                              </p>
+                              {artifact.date && (
+                                <div className="text-xs text-primary mt-2 font-medium">
+                                  Timeline: {artifact.date}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </HoverCardContent>
+                    </HoverCard>
+                  );
+                })}
               </div>
             </div>
 
-            <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
-              {study.problem}
-            </p>
-
-            {/* User Voice Quote */}
-            {study.userVoice && (
-              <div className="mt-auto pt-3 border-t border-border/50">
-                <p className="text-xs text-muted-foreground italic line-clamp-2">
-                  "{study.userVoice}"
-                </p>
+            {/* Centered Hero Metric */}
+            <div className="flex-grow flex items-center justify-center my-4">
+              <div ref={ref} className="text-center p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-primary/20 w-full">
+                <div className="text-2xl lg:text-3xl font-bold text-primary">
+                  {prefix && <span>{prefix}</span>}
+                  {animatedNumber}
+                  {suffix && <span>{suffix}</span>}
+                </div>
+                <div className="text-xs text-muted-foreground mt-1 font-medium">
+                  {heroMetric.label}
+                </div>
               </div>
-            )}
+            </div>
 
-            <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-              <Button variant="outline" size="sm" className="w-full text-xs">
-                View Details <ExternalLink className="ml-1 h-3 w-3" />
-              </Button>
+            {/* Fixed Footer Section */}
+            <div className="flex-shrink-0 mt-auto space-y-3">
+              <p className="text-sm text-muted-foreground line-clamp-2">
+                {study.problem}
+              </p>
+
+              {/* User Voice Quote */}
+              {study.userVoice && (
+                <div className="p-3 bg-accent/10 border-l-4 border-accent rounded-r-lg">
+                  <p className="text-xs text-muted-foreground italic line-clamp-2">
+                    "{study.userVoice}"
+                  </p>
+                  <span className="text-xs text-accent mt-1 block font-semibold">— User Insight</span>
+                </div>
+              )}
+
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                <Button variant="outline" size="sm" className="w-full text-xs">
+                  View Details <ExternalLink className="ml-1 h-3 w-3" />
+                </Button>
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -457,15 +484,15 @@ const WideCard = ({ study, onNavigate, variants }: {
   };
 
   return (
-    <motion.div variants={variants} className="md:col-span-2 md:row-span-1">
+    <motion.div variants={variants} className="md:col-span-2 md:row-span-1 lg:[grid-area:wide] min-h-[400px] md:min-h-[320px] lg:min-h-[350px] h-full">
       <TiltCard className="h-full">
         <Card 
           className="h-full cursor-pointer group overflow-hidden relative border border-border/50 bg-card/80 backdrop-blur-md hover:border-accent/30 hover:shadow-xl transition-all duration-300"
           onClick={() => onNavigate(study.id)}
         >
-          <CardContent className="p-6 h-full flex flex-col md:flex-row gap-6">
+          <CardContent className="p-5 lg:p-6 h-full flex flex-col lg:flex-row gap-6 lg:gap-8">
             {/* Left side - Content */}
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col min-w-0">
               <div className="flex items-start justify-between mb-3 flex-wrap gap-2">
                 <div className="flex gap-2">
                   {skillFocus && (
@@ -568,7 +595,7 @@ const WideCard = ({ study, onNavigate, variants }: {
 
             {/* Right side - Key Outcome Callout */}
             {study.keyOutcomes.length > 0 && (
-              <div className="md:w-48 flex-shrink-0 p-4 bg-gradient-to-br from-accent/10 to-primary/10 rounded-lg border border-accent/20 flex items-center">
+              <div className="lg:w-56 flex-shrink-0 p-4 bg-gradient-to-br from-accent/10 to-primary/10 rounded-lg border border-accent/20 flex items-center">
                 <div className="text-center w-full">
                   <div className="text-xs uppercase tracking-wide text-muted-foreground mb-2 font-semibold">
                     Key Impact
