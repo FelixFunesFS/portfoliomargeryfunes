@@ -7,28 +7,25 @@ import { motion } from 'framer-motion';
 const UnifiedImpactMetrics = () => {
   const metrics = [
     {
-      icon: Users,
-      value: "200+",
-      label: "Users Interviewed",
-      description: "Across military and civilian contexts"
-    },
-    {
       icon: Clock,
       value: "26,000+",
       label: "Hours Saved Annually",
-      description: "Through automation and optimization"
+      description: "Through automation and optimization",
+      color: "text-systems-cyan"
     },
     {
       icon: TrendingUp,
       value: "90%",
       label: "Error Reduction",
-      description: "In data-intensive workflows"
+      description: "In data-intensive workflows",
+      color: "text-success"
     },
     {
       icon: Award,
       value: "5,200%",
       label: "Average ROI",
-      description: "From user-centered solutions"
+      description: "From user-centered solutions",
+      color: "text-accent"
     }
   ];
 
@@ -48,7 +45,7 @@ const UnifiedImpactMetrics = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {metrics.map((metric, index) => (
             <motion.div
               key={index}
@@ -60,11 +57,11 @@ const UnifiedImpactMetrics = () => {
               <Card className="glass border-none hover:shadow-lg transition-all duration-300 h-full">
                 <CardContent className="p-6 text-center">
                   <div className="flex justify-center mb-4">
-                    <div className="bg-primary/20 p-3 rounded-full">
-                      <metric.icon className="w-8 h-8 text-primary" />
+                    <div className={`${metric.color}/20 p-3 rounded-full`}>
+                      <metric.icon className={`w-8 h-8 ${metric.color}`} />
                     </div>
                   </div>
-                  <div className="text-3xl font-bold text-primary mb-2">
+                  <div className={`text-3xl font-bold ${metric.color} mb-2`}>
                     {metric.value}
                   </div>
                   <h3 className="text-lg font-semibold mb-2">
