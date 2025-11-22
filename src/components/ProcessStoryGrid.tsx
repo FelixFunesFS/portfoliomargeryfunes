@@ -68,6 +68,7 @@ export const ProcessStoryGrid = ({ className, limit, featuredId }: ProcessStoryG
           loop: true,
           skipSnaps: false,
           dragFree: false,
+          containScroll: "trimSnaps",
         }}
         className="w-full"
       >
@@ -111,16 +112,16 @@ export const ProcessStoryGrid = ({ className, limit, featuredId }: ProcessStoryG
       )}
 
       {/* Progress Indicators */}
-      <div className="flex justify-center gap-2 mt-8">
+      <div className="flex justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
         {Array.from({ length: count }).map((_, index) => (
           <button
             key={index}
             onClick={() => api?.scrollTo(index)}
             className={cn(
-              "h-2 rounded-full transition-all duration-300",
+              "h-2.5 sm:h-2 rounded-full transition-all duration-300",
               current === index 
-                ? "bg-primary w-8" 
-                : "bg-border hover:bg-border/80 w-2"
+                ? "bg-primary w-8 sm:w-8 min-w-[44px] sm:min-w-0" 
+                : "bg-border hover:bg-border/80 w-2.5 sm:w-2 min-w-[44px] sm:min-w-0"
             )}
             aria-label={`Go to slide ${index + 1}`}
             aria-current={current === index ? "true" : "false"}

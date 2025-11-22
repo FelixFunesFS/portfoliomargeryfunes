@@ -30,7 +30,7 @@ export const CaseStudySummaryCard = ({
       className={className}
     >
       <Card className={cn(
-        "overflow-hidden hover:shadow-2xl transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm h-[480px] flex flex-col",
+        "overflow-hidden hover:shadow-2xl transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm min-h-[400px] sm:min-h-[440px] md:min-h-[480px] lg:min-h-[500px] flex flex-col",
         featured && "border-primary/30"
       )}>
         <CardHeader className="space-y-4 pb-4">
@@ -53,7 +53,7 @@ export const CaseStudySummaryCard = ({
           </h3>
         </CardHeader>
 
-        <CardContent className="space-y-5 flex-1 flex flex-col">
+        <CardContent className="space-y-4 sm:space-y-5 flex-1 flex flex-col p-4 sm:p-5 md:p-6">
           {/* THE CHALLENGE */}
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-destructive">
@@ -62,14 +62,14 @@ export const CaseStudySummaryCard = ({
             </div>
             
             <div className="pl-4 space-y-3">
-              <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+              <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 sm:line-clamp-3">
                 {caseStudy.problem}
               </p>
               
               {caseStudy.userVoice && (
                 <div className="relative p-3 rounded-lg bg-destructive/10 border border-destructive/20">
                   <Quote className="absolute top-2 left-2 w-3.5 h-3.5 text-destructive/40" />
-                  <p className="text-xs italic text-foreground/90 pl-5 line-clamp-2">
+                  <p className="text-xs italic text-foreground/90 pl-5 line-clamp-1 sm:line-clamp-2">
                     "{caseStudy.userVoice}"
                   </p>
                 </div>
@@ -85,14 +85,14 @@ export const CaseStudySummaryCard = ({
             </div>
             
             <div className="pl-4 space-y-3">
-              <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+              <p className="text-sm text-muted-foreground leading-relaxed line-clamp-1 sm:line-clamp-2">
                 {caseStudy.solution}
               </p>
               
               {caseStudy.stakeholderQuote && (
                 <div className="relative p-3 rounded-lg bg-green-500/10 border border-green-500/20">
                   <Quote className="absolute top-2 left-2 w-3.5 h-3.5 text-green-500/40" />
-                  <p className="text-xs italic text-foreground/90 pl-5 line-clamp-2">
+                  <p className="text-xs italic text-foreground/90 pl-5 line-clamp-1 sm:line-clamp-2">
                     "{caseStudy.stakeholderQuote}"
                   </p>
                 </div>
@@ -109,7 +109,7 @@ export const CaseStudySummaryCard = ({
               </div>
               
               <div className="pl-4">
-                <div className="grid grid-cols-2 gap-2.5">
+                <div className="grid grid-cols-1 xs:grid-cols-2 gap-2.5">
                   {caseStudy.metrics.slice(0, 4).map((metric, index) => (
                     <motion.div
                       key={index}
