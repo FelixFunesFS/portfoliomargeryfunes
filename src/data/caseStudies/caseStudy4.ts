@@ -44,5 +44,37 @@ export const caseStudy4: CaseStudy = {
   },
   userVoice: "Before the workspace system, I wasted hours just trying to find the right document version. Now everything is instantly accessible.",
   stakeholderQuote: "This platform became the operational backbone for 23 bases. Best ROI we've seen on any SharePoint deployment. - IT Director",
-  userProblem: "Teams across 23 bases struggled with fragmented documentation and lack of visibility into tasks"
+  userProblem: "Teams across 23 bases struggled with fragmented documentation and lack of visibility into tasks",
+  artifacts: [
+    {
+      type: 'research-report',
+      title: 'Cross-Base User Research - 23 Locations',
+      description: 'Conducted interviews and workflow observations across all 23 bases to understand documentation fragmentation',
+      date: 'Week 1-2'
+    },
+    {
+      type: 'persona',
+      title: 'Multi-Role User Personas - Leadership to Operators',
+      description: 'Created 4 personas representing different role types and information needs across organizational hierarchy',
+      date: 'Week 2'
+    },
+    {
+      type: 'wireframe',
+      title: 'Role-Based Dashboard Mockups',
+      description: 'Interface mockups showing customized views for different user roles and permission levels',
+      date: 'Week 3'
+    },
+    {
+      type: 'flow-diagram',
+      title: 'Information Architecture - Document Taxonomy Design',
+      description: 'IA diagram showing modular workspace structure and role-filtered navigation',
+      date: 'Week 3'
+    },
+    {
+      type: 'usability-test',
+      title: 'Navigation & Search Testing - 15 Users',
+      description: 'Task-based usability testing across 3 user roles to validate findability',
+      date: 'Week 4'
+    }
+  ]
 };

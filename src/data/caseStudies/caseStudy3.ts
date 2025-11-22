@@ -44,5 +44,31 @@ export const caseStudy3: CaseStudy = {
   },
   userVoice: "Creating these slides every week felt like Groundhog Day. Same tedious process, different numbers. I dreaded Monday mornings.",
   stakeholderQuote: "We got 12 weeks of analyst time back per year. They're now focusing on strategic analysis instead of slide formatting. - Operations Lead",
-  userProblem: "Weekly slide deck creation consumed nearly 10 hours across the team with frequent formatting errors"
+  userProblem: "Weekly slide deck creation consumed nearly 10 hours across the team with frequent formatting errors",
+  artifacts: [
+    {
+      type: 'research-report',
+      title: 'Empathy Interview Analysis - 23 Base Coordinators',
+      description: 'Interviewed coordinators across all bases to understand slide creation pain points and decision fatigue patterns',
+      date: 'Week 1'
+    },
+    {
+      type: 'persona',
+      title: 'Base Coordinator - Weekly Reporting Role',
+      description: 'User persona representing analysts responsible for creating 23 weekly slide decks',
+      date: 'Week 1'
+    },
+    {
+      type: 'wireframe',
+      title: 'Form-Driven UI Prototype - Input Field Optimization',
+      description: 'Low-fidelity wireframes testing field organization to reduce decision fatigue',
+      date: 'Week 2'
+    },
+    {
+      type: 'usability-test',
+      title: 'Form Validation Testing - Error Prevention',
+      description: 'Task completion testing with 8 coordinators to validate data validation logic',
+      date: 'Week 3'
+    }
+  ]
 };

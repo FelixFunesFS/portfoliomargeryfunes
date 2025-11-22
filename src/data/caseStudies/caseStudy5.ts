@@ -45,5 +45,31 @@ export const caseStudy5: CaseStudy = {
   },
   userVoice: "By hour two of data entry, my brain feels like mush. I know I'm making mistakes, but the system requires perfect accuracy for flight safety.",
   stakeholderQuote: "The ROI was immediate. Our analysts went from data entry zombies to strategic thinkers overnight. - Engineering Manager, Boeing",
-  userProblem: "Data entry specialists faced exhaustion from repetitive 2.5-hour daily tasks leading to frequent errors"
+  userProblem: "Data entry specialists faced exhaustion from repetitive 2.5-hour daily tasks leading to frequent errors",
+  artifacts: [
+    {
+      type: 'persona',
+      title: 'Data Entry Specialist - High-Volume User',
+      description: 'Primary user persona representing 50+ analysts performing 2.5 hours of manual data entry daily',
+      date: 'Week 1'
+    },
+    {
+      type: 'journey-map',
+      title: 'Data Entry Workflow - Pain Point Analysis',
+      description: 'Mapped existing manual process across 50+ screens, identifying fatigue points and error patterns',
+      date: 'Week 1-2'
+    },
+    {
+      type: 'usability-test',
+      title: 'Excel Input Form - Task Completion Testing',
+      description: 'Tested form interface with 12 users to validate zero-learning-curve design',
+      date: 'Week 3'
+    },
+    {
+      type: 'flow-diagram',
+      title: 'VBA Automation Logic - HTML Parsing Workflow',
+      description: 'Technical flow showing SQL → VBA → HTML mapping → GUI interaction',
+      date: 'Week 3'
+    }
+  ]
 };
