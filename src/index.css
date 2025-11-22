@@ -342,6 +342,25 @@ body {
   100% { background-position: 200% 0; }
 }
 
+@keyframes glitch {
+  0%, 100% { 
+    text-shadow: 2px 2px 0 hsl(var(--primary)), -2px -2px 0 hsl(var(--accent));
+  }
+  25% { 
+    text-shadow: -2px 2px 0 hsl(var(--accent)), 2px -2px 0 hsl(var(--primary));
+  }
+  50% { 
+    text-shadow: 2px -2px 0 hsl(var(--primary)), -2px 2px 0 hsl(var(--accent));
+  }
+  75% { 
+    text-shadow: -2px -2px 0 hsl(var(--accent)), 2px 2px 0 hsl(var(--primary));
+  }
+}
+
+.glitch {
+  animation: glitch 5s infinite;
+}
+
 @layer base {
   * {
     @apply border-border;

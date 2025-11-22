@@ -60,12 +60,13 @@ const CommandNavigation: React.FC<CommandNavigationProps> = ({ scrollProgress })
                 onHoverEnd={() => setHoveredItem(null)}
                 whileHover={{ scale: 1.1, x: 5 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative group w-12 h-12 flex items-center justify-center rounded-xl border border-primary/20 hover:border-primary/60 transition-all"
+                aria-label={`Navigate to ${item.label}`}
+                className="relative group w-12 h-12 flex items-center justify-center rounded-xl border border-primary/20 hover:border-primary/60 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 style={{
                   background: hoveredItem === item.id ? 'rgba(var(--primary), 0.2)' : 'transparent',
                 }}
               >
-                {item.icon}
+                <span aria-hidden="true">{item.icon}</span>
                 
                 {/* Tooltip */}
                 <motion.div
@@ -122,10 +123,11 @@ const CommandNavigation: React.FC<CommandNavigationProps> = ({ scrollProgress })
                 key={item.id}
                 onClick={() => handleNavClick(item)}
                 whileTap={{ scale: 0.9 }}
-                className="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-primary/10 transition-colors"
+                aria-label={`Navigate to ${item.label}`}
+                className="flex flex-col items-center gap-1 p-2 min-h-[44px] min-w-[44px] rounded-lg hover:bg-primary/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
-                <div className="text-primary">{item.icon}</div>
-                <span className="text-xs text-muted-foreground">{item.label}</span>
+                <div className="text-primary" aria-hidden="true">{item.icon}</div>
+                <span className="text-xs text-foreground">{item.label}</span>
               </motion.button>
             ))}
           </div>
@@ -188,7 +190,8 @@ const CommandNavigation: React.FC<CommandNavigationProps> = ({ scrollProgress })
         onClick={() => navigate('/')}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed top-6 left-6 z-50 px-4 py-2 glass rounded-lg border border-primary/30 hover:border-primary/60 transition-all text-sm font-semibold text-primary"
+        aria-label="Switch to classic portfolio view"
+        className="fixed top-6 left-6 z-50 px-4 py-2 glass rounded-lg border border-primary/30 hover:border-primary/60 transition-all text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         style={{
           background: 'rgba(0, 0, 0, 0.7)',
           backdropFilter: 'blur(20px)',

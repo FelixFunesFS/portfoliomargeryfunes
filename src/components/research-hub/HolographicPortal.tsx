@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import heroPortalBg from '@/assets/research-hub/hero-portal-bg.jpg';
+import heroPortalBg from '@/assets/research-hub/hero-portal-bg.webp';
 import { useCountUp } from '@/hooks/useCountUp';
 import { useInView } from '@/hooks/useInView';
 
@@ -81,7 +81,8 @@ const HolographicPortal = () => {
             MARGERY FUNES
           </motion.h1>
           <motion.div
-            className="text-xl md:text-2xl text-primary/90 font-semibold mb-2"
+            className="text-xl md:text-2xl text-foreground font-semibold mb-2"
+            style={{ textShadow: '0 2px 4px rgba(0,0,0,0.9)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
@@ -92,14 +93,17 @@ const HolographicPortal = () => {
 
         {/* Value Proposition */}
         <motion.p
-          className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
+          className="text-lg md:text-xl text-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
+          style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.3, duration: 0.8 }}
         >
           Transforming Complex Systems Into Human-Centered Experiences
           <br />
-          <span className="text-primary font-semibold">Research-Driven Design • Military Precision • Innovation at Scale</span>
+          <span className="text-primary font-semibold" style={{ textShadow: '0 0 10px hsl(var(--primary) / 0.5)' }}>
+            Research-Driven Design • Military Precision • Innovation at Scale
+          </span>
         </motion.p>
 
         {/* Floating Metric Orbs */}
@@ -117,10 +121,12 @@ const HolographicPortal = () => {
                 backdropFilter: 'blur(10px)',
               }}
             >
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+              <div className="text-4xl md:text-5xl font-bold text-primary mb-2" style={{ textShadow: '0 0 20px hsl(var(--primary) / 0.5)' }}>
                 {metric.value}{metric.suffix}
               </div>
-              <div className="text-sm text-muted-foreground">{metric.label}</div>
+              <div className="text-sm text-foreground font-medium" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
+                {metric.label}
+              </div>
             </motion.div>
           ))}
         </div>
@@ -135,7 +141,8 @@ const HolographicPortal = () => {
             onClick={() => {
               document.getElementById('missions')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="group relative px-8 py-4 bg-primary/20 hover:bg-primary/30 border-2 border-primary rounded-lg text-primary font-semibold text-lg transition-all"
+            aria-label="Scroll to mission briefing section"
+            className="group relative px-8 py-4 bg-primary/20 hover:bg-primary/30 border-2 border-primary rounded-lg text-primary font-semibold text-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -165,9 +172,10 @@ const HolographicPortal = () => {
         </motion.div>
       </div>
 
-      {/* Particle Effect Overlay */}
-      <div className="absolute inset-0 z-[3] pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+      {/* Particle Effect Overlay - Reduced for performance */}
+      {isInView && (
+        <div className="absolute inset-0 z-[3] pointer-events-none">
+          {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-primary/40 rounded-full"
@@ -185,8 +193,9 @@ const HolographicPortal = () => {
               delay: Math.random() * 2,
             }}
           />
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
