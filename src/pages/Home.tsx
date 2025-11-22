@@ -492,7 +492,7 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <ProcessStoryGrid limit={4} featuredId={1} className="max-w-7xl mx-auto" />
+          <ProcessStoryGrid limit={4} featuredId={1} className="max-w-[1400px] mx-auto" />
         </div>
       </section>
 

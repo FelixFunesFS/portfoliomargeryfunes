@@ -36,7 +36,7 @@ export const CaseStudySummaryCard = ({
       className={className}
     >
       <Card className={cn(
-        "overflow-hidden hover:shadow-2xl transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm flex flex-col max-w-7xl mx-auto",
+        "overflow-hidden hover:shadow-2xl transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm flex flex-col max-w-[1400px] mx-auto",
         featured && "border-primary/30"
       )}>
         <CardHeader className="space-y-3 pb-3">
@@ -89,7 +89,7 @@ export const CaseStudySummaryCard = ({
           )}
         </CardHeader>
 
-        <CardContent className="flex-1 flex flex-col p-4 sm:p-5 md:p-6 space-y-6">
+        <CardContent className="flex-1 flex flex-col px-6 sm:px-8 md:px-10 lg:px-12 py-4 sm:py-5 md:py-6 space-y-6">
           {/* TOP SECTION: Challenge/Solution (40%) + Research Process Timeline (60%) */}
           <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-6">
             
@@ -244,8 +244,8 @@ export const CaseStudySummaryCard = ({
               </CollapsibleTrigger>
 
               <CollapsibleContent className="pt-4">
-                <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-6">
-                  {/* LEFT COLUMN: What Worked Well + Future Optimizations (60% - larger) */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* LEFT COLUMN: What Worked Well + Future Optimizations (50%) */}
                   <div className="space-y-4">
                     {/* What Worked Well */}
                     {caseStudy.reflection.whatWorkedWell && caseStudy.reflection.whatWorkedWell.length > 0 && (
@@ -278,7 +278,7 @@ export const CaseStudySummaryCard = ({
                     )}
                   </div>
 
-                  {/* RIGHT COLUMN: Key Lesson + CTA Button (40%) */}
+                  {/* RIGHT COLUMN: Key Lesson + CTA Button (50%) */}
                   <div className="space-y-3">
                     <div className="flex items-center gap-2 text-primary">
                       <Lightbulb className="w-4 h-4" />
