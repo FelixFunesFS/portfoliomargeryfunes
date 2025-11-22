@@ -47,6 +47,13 @@ export const caseStudy2: CaseStudy = {
   userVoice: "The manual process was mind-numbing. After entering data for hundreds of engines, you start questioning if you got the numbers right.",
   stakeholderQuote: "The automation eliminated our biggest source of data quality issues. Worth every penny of development time. - Program Manager",
   userProblem: "Manual data entry led to inaccuracies and delays in engine cycle tracking, affecting critical leasing agreements",
+  researchMethods: [
+    'User Interviews',
+    'Workflow Analysis',
+    'Edge Case Testing',
+    'User Acceptance Testing',
+    'Data Quality Analysis'
+  ],
   artifacts: [
     {
       type: 'flow-diagram',
