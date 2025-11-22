@@ -110,7 +110,7 @@ export const CaseStudySummaryCard = ({
                   {caseStudy.userVoice && (
                     <div className="relative p-3 rounded-lg bg-destructive/10 border border-destructive/20">
                       <Quote className="absolute top-2 left-2 w-3.5 h-3.5 text-destructive/40" />
-                      <p className="text-xs italic text-foreground/90 pl-5">
+                      <p className="text-sm italic text-foreground/90 pl-5">
                         "{caseStudy.userVoice}"
                       </p>
                     </div>
@@ -133,7 +133,7 @@ export const CaseStudySummaryCard = ({
                   {caseStudy.stakeholderQuote && (
                     <div className="relative p-3 rounded-lg bg-green-500/10 border border-green-500/20">
                       <Quote className="absolute top-2 left-2 w-3.5 h-3.5 text-green-500/40" />
-                      <p className="text-xs italic text-foreground/90 pl-5">
+                      <p className="text-sm italic text-foreground/90 pl-5">
                         "{caseStudy.stakeholderQuote}"
                       </p>
                     </div>
@@ -210,7 +210,7 @@ export const CaseStudySummaryCard = ({
                               {metric.value}
                             </span>
                           </div>
-                          <p className="text-[10px] text-muted-foreground line-clamp-1">{metric.label}</p>
+                          <p className="text-xs text-muted-foreground line-clamp-1">{metric.label}</p>
                         </motion.div>
                       ))}
                     </div>
@@ -249,7 +249,7 @@ export const CaseStudySummaryCard = ({
                       <div className="space-y-2">
                         <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
                           <CheckCircle2 className="w-4 h-4" />
-                          <h5 className="font-semibold text-xs uppercase tracking-wide">What Worked Well</h5>
+                          <h5 className="font-semibold text-sm uppercase tracking-wide">What Worked Well</h5>
                         </div>
                         <ul className="space-y-1.5 pl-6 text-xs text-muted-foreground">
                           {caseStudy.reflection.whatWorkedWell.slice(0, 2).map((item, index) => (
@@ -264,7 +264,7 @@ export const CaseStudySummaryCard = ({
                       <div className="space-y-2">
                         <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400">
                           <RefreshCw className="w-4 h-4" />
-                          <h5 className="font-semibold text-xs uppercase tracking-wide">Future Optimizations</h5>
+                          <h5 className="font-semibold text-sm uppercase tracking-wide">Future Optimizations</h5>
                         </div>
                         <ul className="space-y-1.5 pl-6 text-xs text-muted-foreground">
                           {caseStudy.reflection.wouldDoDifferently.slice(0, 2).map((item, index) => (
@@ -279,7 +279,7 @@ export const CaseStudySummaryCard = ({
                   <div className="space-y-3">
                     <div className="flex items-center gap-2 text-primary">
                       <Lightbulb className="w-4 h-4" />
-                      <h5 className="font-semibold text-xs uppercase tracking-wide">Key Lesson</h5>
+                      <h5 className="font-semibold text-sm uppercase tracking-wide">Key Lesson</h5>
                     </div>
                     <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
                       <p className="text-sm text-foreground leading-relaxed">
