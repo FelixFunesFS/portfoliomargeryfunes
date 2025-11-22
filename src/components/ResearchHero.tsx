@@ -33,7 +33,7 @@ const ResearchHero = () => {
   };
 
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/20">
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-background">
       {/* Parallax Tech Background Layers */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
