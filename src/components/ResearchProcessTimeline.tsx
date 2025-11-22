@@ -124,13 +124,13 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                         colors.bg, colors.border
                       )}
                     >
-                      <AccordionTrigger className="px-4 pt-4 pb-2 hover:no-underline [&[data-state=open]]:pb-2">
+                      <AccordionTrigger className="px-4 pt-4 pb-2 hover:no-underline [&[data-state=open]]:pb-2 min-h-[48px] sm:min-h-[44px]">
                         <div className="flex flex-col items-center gap-2 w-full">
-                          <h4 className={cn("font-semibold text-center", colors.text)}>
+                          <h4 className={cn("font-semibold text-center text-base sm:text-lg", colors.text)}>
                             {phase.phase}
                           </h4>
                           
-                          <div className="flex flex-col items-center gap-1.5 text-xs text-center">
+                          <div className="flex flex-col items-center gap-1.5 text-xs sm:text-sm text-center">
                             <p className="text-muted-foreground line-clamp-1 max-w-full">
                               {phase.activities[0]} {phase.activities.length > 1 && `+${phase.activities.length - 1} more`}
                             </p>
@@ -213,9 +213,9 @@ export const ResearchProcessTimeline = ({ phases, className }: ResearchProcessTi
                     colors.bg, colors.border
                   )}
                 >
-                  <AccordionTrigger className="px-3 pt-3 pb-2 hover:no-underline">
+                  <AccordionTrigger className="px-3 pt-3 pb-2 hover:no-underline min-h-[48px]">
                     <div className="flex flex-col items-start gap-2 w-full pr-2">
-                      <h4 className={cn("font-semibold", colors.text)}>
+                      <h4 className={cn("font-semibold text-base", colors.text)}>
                         {phase.phase}
                       </h4>
                       <p className="text-xs text-muted-foreground line-clamp-1 text-left">

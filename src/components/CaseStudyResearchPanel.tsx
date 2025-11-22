@@ -25,12 +25,19 @@ export const CaseStudyResearchPanel = ({
 
   useEffect(() => {
     if (isOpen && panelRef.current) {
+      // Prevent body scroll when panel is open
+      document.body.style.overflow = 'hidden';
+      
       setTimeout(() => {
         panelRef.current?.scrollIntoView({ 
           behavior: 'smooth', 
           block: 'start' 
         });
-      }, 100);
+      }, 400);
+      
+      return () => {
+        document.body.style.overflow = 'unset';
+      };
     }
   }, [isOpen]);
 
@@ -39,14 +46,14 @@ export const CaseStudyResearchPanel = ({
       {isOpen && (
         <motion.div
           ref={panelRef}
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "auto", opacity: 1 }}
-          exit={{ height: 0, opacity: 0 }}
+          initial={{ maxHeight: 0, opacity: 0 }}
+          animate={{ maxHeight: "2000px", opacity: 1 }}
+          exit={{ maxHeight: 0, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
           className="overflow-hidden"
         >
-          <Card className="border-border/50 bg-card/30 backdrop-blur-sm mt-6">
-            <CardContent className="p-6 lg:p-8 space-y-6">
+          <Card className="border-border/50 bg-card/30 backdrop-blur-sm mt-6 max-h-[calc(100vh-200px)] sm:max-h-[calc(100vh-150px)] lg:max-h-none">
+            <CardContent className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-5 lg:space-y-6 overflow-y-auto max-h-[calc(100vh-250px)] sm:max-h-[calc(100vh-200px)] lg:max-h-none">
               {/* Close Button */}
               <div className="flex items-center justify-between border-b border-border/50 pb-4">
                 <h3 className="text-lg font-semibold text-foreground">
@@ -56,7 +63,8 @@ export const CaseStudyResearchPanel = ({
                   variant="ghost"
                   size="sm"
                   onClick={onClose}
-                  className="h-8 w-8 p-0"
+                  className="h-10 w-10 sm:h-8 sm:w-8 p-0 relative before:content-[''] before:absolute before:inset-[-6px] before:sm:hidden"
+                  aria-label="Close research panel"
                 >
                   <X className="h-4 w-4" />
                 </Button>

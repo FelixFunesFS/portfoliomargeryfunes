@@ -164,9 +164,9 @@ export const ResearchMethodsBadges = ({
                 >
                   <Badge 
                     variant="secondary"
-                    className="px-3 py-1.5 gap-1.5 text-xs font-medium bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 hover:border-primary/30 transition-all duration-300 cursor-help"
+                    className="px-2 py-1 sm:px-3 sm:py-1.5 gap-1.5 text-[10px] sm:text-xs font-medium bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 hover:border-primary/30 transition-all duration-300 cursor-help"
                   >
-                    <Icon className="w-3.5 h-3.5" />
+                    <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     <span>{method}</span>
                     {count && (
                       <span className="ml-1 px-1.5 py-0.5 rounded-full bg-primary/20 text-[10px] font-bold">
