@@ -6,7 +6,7 @@ import ResearchMethodologyAndProcess from '@/components/ResearchMethodologyAndPr
 import ResearchHero from '@/components/ResearchHero';
 import BrandMarquee from '@/components/BrandMarquee';
 import ScrollProgressIndicator from '@/components/ScrollProgressIndicator';
-import OptimizedCaseStudySummary from '@/components/OptimizedCaseStudySummary';
+import BentoGridCaseStudies from '@/components/BentoGridCaseStudies';
 import { Target, Zap, TrendingUp, Users, BarChart3, Layers, GitBranch, RefreshCw, CheckCircle, ArrowRight, Radar, Settings, Database, Code, LineChart, Shield, Rocket, Brain, Clock, Award, ChevronDown, Eye, MapPin, ExternalLink, Globe, Monitor, Smartphone, Heart, Home as HomeIcon, Trophy, GraduationCap, Lightbulb, Search, TestTube, Download, Calendar } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -492,7 +492,7 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <OptimizedCaseStudySummary />
+          <BentoGridCaseStudies />
         </div>
       </section>
 
