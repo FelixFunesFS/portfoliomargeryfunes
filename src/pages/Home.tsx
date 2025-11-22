@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import ResearchMethodologyAndProcess from '@/components/ResearchMethodologyAndProcess';
@@ -16,35 +16,16 @@ import WebDesignCard from '@/components/WebDesignCard';
 
 import UnifiedImpactMetrics from '@/components/UnifiedImpactMetrics';
 import CareerProgression from '@/components/CareerProgression';
-import SkillItem from '@/components/SkillItem';
 import CoreCompetenciesGrid from '@/components/CoreCompetenciesGrid';
 import SoftSkillsShowcase from '@/components/SoftSkillsShowcase';
 import { TrainingCertifications } from '@/components/TrainingCertifications';
 import TechnicalSkillsMatrix from '@/components/TechnicalSkillsMatrix';
-import ResearchArtifactPreview from '@/components/ResearchArtifactPreview';
-import PortfolioDownload from '@/components/PortfolioDownload';
 import Footer from '@/components/Footer';
 import elSalvadorImage from '@/assets/el-salvador-tourism.png';
 import soulTrainHomepage from '@/assets/soul-train-homepage.png';
 import visionsOfHopeHero from '@/assets/visions-of-hope-hero.png';
 import bbvawHero from '@/assets/bbvaw-hero.png';
-
-// Import images
-import circuitBoard from '@/assets/circuit-board.jpg';
-import robotInnovation from '@/assets/robot-innovation.jpg';
-import researchDesk from '@/assets/research-desk.jpg';
-import abstractNight from '@/assets/abstract-night.jpg';
-import caseStudy1Dashboard from '@/assets/case-study-1-dashboard.jpg';
-import caseStudy5Automation from '@/assets/case-study-5-automation.jpg';
-import caseStudy3Slides from '@/assets/case-study-3-slides.jpg';
-import caseStudy4Workspace from '@/assets/case-study-4-workspace.jpg';
 const Home = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState<string>('All');
-  const heroRef = useRef(null);
-  const isHeroInView = useInView(heroRef, {
-    once: true
-  });
   const navigate = useNavigate();
   const handleViewCaseStudy = (projectTitle: string) => {
     // Map project titles to case study IDs
@@ -69,308 +50,150 @@ const Home = () => {
   useEffect(() => {
     document.title = "UX Researcher & Human-Centered Designer | Margery Funes";
     window.scrollTo(0, 0);
-    setIsLoaded(true);
   }, []);
 
-  // Animation variants
-  const containerVariants = {
-    hidden: {
-      opacity: 0
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        duration: 0.6
-      }
-    }
-  };
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-  const radarVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.8
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 1,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  // Research Stories Data
-  const researchStories = [{
-    title: "Engine Logistics Tracking System",
-    briefSummary: "Modernized tracking for F117 engines across 23 global bases with 45% faster reporting.",
-    visual: caseStudy1Dashboard,
-    userProblem: "Engine maintenance teams spent hours searching through multiple systems to track critical components",
-    userVoice: "I spend more time hunting for engine data than actually maintaining aircraft. It's frustrating when mission readiness depends on information I can't quickly find.",
-    stakeholderQuote: "This system transformed our global operations. We finally have real-time visibility into our most critical assets. - Operations Director, Boeing Defense",
-    challenge: "Engine maintenance teams across 23 bases struggled with manual tracking systems",
-    researchMethod: "Conducted 15+ user interviews and workflow observations across multiple sites",
-    keyInsight: "Users needed familiar interfaces with minimal training, not complex new systems",
-    solution: "Designed SharePoint CMS leveraging existing user mental models with Tableau dashboards",
-    userImpact: "Teams could find engine data in seconds instead of hours, reducing stress and improving accuracy",
-    metric: "45% faster reporting",
-    icon: Database,
-    tools: ["User Interviews", "Workflow Analysis", "SharePoint", "Tableau"],
-    artifacts: ["User Journey Maps", "Persona Documentation", "Usability Test Results"],
-    reflection: {
-      whatWorkedWell: ["User-centered design approach - shadowed 12 analysts to understand real workflows", "Iterative prototyping with weekly feedback loops kept stakeholders engaged", "Leveraging existing SharePoint infrastructure reduced training overhead"],
-      lessonsLearned: "Starting with the 'why' behind manual processes revealed hidden automation opportunities I initially missed. Users often work around broken systems rather than report them.",
-      wouldDoDifferently: ["Conduct cross-base user testing earlier to catch regional workflow variations", "Build in mobile-first design from day one - 40% of users needed field access", "Create video tutorials alongside rollout - would have reduced support tickets by ~60%"],
-      potentialImpact: "With mobile optimization and video training, could have achieved 60% faster adoption and saved an additional 200 hours in support time."
-    },
-    color: "systems",
-    caseStudyId: 1
-  }, {
-    title: "Data Entry Automation System",
-    briefSummary: "Automated DOD/Boeing GUI systems saving 26,000+ hours annually with 90% error reduction.",
-    visual: caseStudy5Automation,
-    userProblem: "Data entry specialists faced exhaustion from repetitive 2.5-hour daily tasks leading to frequent errors",
-    userVoice: "By hour two of data entry, my brain feels like mush. I know I'm making mistakes, but the system requires perfect accuracy for flight safety.",
-    stakeholderQuote: "The ROI was immediate. Our analysts went from data entry zombies to strategic thinkers overnight. - Engineering Manager, Boeing",
-    challenge: "Data entry specialists experienced fatigue and errors from repetitive 2.5-hour daily tasks",
-    researchMethod: "Empathy mapping, task analysis, and error pattern identification with 12 users",
-    keyInsight: "Errors occurred due to cognitive overload, not lack of skill or attention",
-    solution: "Built VBA automation tool that preserved user control while eliminating repetition",
-    userImpact: "Users shifted from monotonous data entry to strategic analysis work, boosting job satisfaction",
-    metric: "80% time reduction, 90% error reduction",
-    icon: Clock,
-    tools: ["Task Analysis", "Empathy Mapping", "VBA", "SQL"],
-    artifacts: ["Task Flow Diagrams", "Error Pattern Analysis", "User Satisfaction Surveys"],
-    reflection: {
-      whatWorkedWell: ["HTML parsing approach was resilient - worked across multiple GUI system updates without breaking", "SQL data integration eliminated 90% of manual typing by pre-filling common entries", "Simple Excel interface meant zero learning curve for 50+ non-technical users"],
-      lessonsLearned: "Understanding the psychology of repetitive work was critical. Users weren't just making mistakes - they were developing unhealthy coping mechanisms (copying data to sticky notes) that introduced more errors.",
-      wouldDoDifferently: ["Add batch processing for multiple records simultaneously - some users handled 10+ entries/day", "Build error recovery features for network interruptions during GUI interaction", "Create audit logs to track which entries were automated vs manual for quality control"],
-      potentialImpact: "Batch processing could save an additional 30 minutes/day per heavy user (~130 hours/year) and audit logs would provide compliance documentation worth ~$50K in audit costs."
-    },
-    color: "agile",
-    caseStudyId: 5
-  }, {
-    title: "Weekly Engine Removal Automation",
-    briefSummary: "Automated slide deck generation saving 12+ weeks per year with 98% faster process.",
-    visual: caseStudy3Slides,
-    userProblem: "Analysts spent entire afternoons creating repetitive slide decks instead of strategic analysis",
-    userVoice: "I became a PowerPoint expert when I should be an engine expert. Leadership needs these slides, but I'm not analyzing—I'm just formatting data.",
-    stakeholderQuote: "Our analysts now focus on insights, not formatting. Decision-making speed has improved dramatically. - Operations Director",
-    challenge: "Analysts spent 9.6 hours weekly creating repetitive slide decks, causing burnout",
-    researchMethod: "Journey mapping and pain point analysis with operations teams",
-    keyInsight: "Manual slide creation was a barrier to timely decision-making at leadership level",
-    solution: "Designed form-driven automation that maintained presentation quality while saving time",
-    userImpact: "Analysts could focus on analysis instead of formatting, improving strategic insights",
-    metric: "98% faster process",
-    icon: TrendingUp,
-    tools: ["Journey Mapping", "C#", "JavaScript", "VBA"],
-    artifacts: ["Process Journey Maps", "Pain Point Analysis", "Automation Workflows"],
-    reflection: {
-      whatWorkedWell: ["Form-driven UI made complex data entry feel simple - eliminated 23 fields of manual work", "Template-based approach ensured brand consistency across all 23 bases automatically", "Built-in data validation prevented formatting errors before they reached PowerPoint"],
-      lessonsLearned: "The biggest time-saver wasn't the automation itself - it was eliminating decision fatigue. Users spent 40% of their time just deciding which template to use and where to put data.",
-      wouldDoDifferently: ["Add a 'preview before generate' feature to catch mistakes earlier in the workflow", "Create preset configurations for common scenarios to reduce form fields by 60%", "Build version control into the tool - users often needed to regenerate previous weeks"],
-      potentialImpact: "Preview mode and presets could reduce the 5-minute process to under 2 minutes, saving an additional 90 hours/year across all analysts."
-    },
-    color: "success",
-    caseStudyId: 3
-  }, {
-    title: "SharePoint Workspace System",
-    briefSummary: "Scaled team collaboration across 23 bases with 90% faster document finding.",
-    visual: caseStudy4Workspace,
-    userProblem: "Team members across global bases couldn't find critical documents or coordinate effectively",
-    userVoice: "New team members spend their first week asking 'Where do I find this?' instead of contributing. It's chaos, and we're losing valuable time.",
-    stakeholderQuote: "Onboarding went from weeks to days. Our global teams finally work as one unit. - Program Manager",
-    challenge: "Growing teams faced communication breakdowns and document chaos",
-    researchMethod: "Organizational analysis and collaborative workflow studies",
-    keyInsight: "Information architecture needed to match team mental models and role hierarchies",
-    solution: "Created role-based SharePoint workspaces with intuitive navigation structures",
-    userImpact: "Team members could onboard faster and collaborate more effectively",
-    metric: "90% faster document finding, 70% faster onboarding",
-    icon: Users,
-    tools: ["Information Architecture", "SharePoint", "Power Automate"],
-    artifacts: ["IA Sitemaps", "Role-Based Workflows", "Collaboration Patterns"],
-    reflection: {
-      whatWorkedWell: ["Role-based access controls prevented information overload - users only saw what they needed", "CMS-driven architecture let non-technical staff update content without IT support", "Integrated dashboards eliminated need to switch between 5+ different tools"],
-      lessonsLearned: "Scalability isn't just about handling more users - it's about maintaining simplicity as complexity grows. The modular workspace design was crucial for this.",
-      wouldDoDifferently: ["Implement search functionality from day one - users still relied on folder navigation too much", "Add usage analytics to identify underutilized features and confusing workflows", "Create interactive onboarding tours instead of static documentation - would boost retention"],
-      potentialImpact: "Search functionality and analytics could reduce onboarding time to 2-3 days (from current 1 week) and identify 15-20 workflow improvements within the first month."
-    },
-    color: "accent",
-    caseStudyId: 4
-  }];
-
-  // Research-First Agile Toolkit
-  const researchToolkit = [{
-    phase: "Discovery Sprint",
-    methods: ["User Interviews", "Contextual Inquiry", "Stakeholder Mapping", "Journey Mapping"],
-    deliverables: ["User Personas", "Journey Maps", "Problem Definition", "Research Plan"],
-    duration: "1-2 weeks",
-    icon: Target,
-    insight: "Why are users struggling? What are their real needs vs. stated needs?"
-  }, {
-    phase: "Analysis Sprint",
-    methods: ["Affinity Mapping", "Behavioral Analysis", "Task Analysis", "Systems Thinking"],
-    deliverables: ["Insight Synthesis", "Opportunity Map", "Design Principles", "Requirements"],
-    duration: "1-2 weeks",
-    icon: BarChart3,
-    insight: "What patterns emerge? How do user needs connect to business goals?"
-  }, {
-    phase: "Solution Sprint",
-    methods: ["Co-design Sessions", "Rapid Prototyping", "Concept Testing", "Iterative Design"],
-    deliverables: ["Validated Concepts", "Interactive Prototypes", "Test Results", "Design System"],
-    duration: "2-4 weeks",
-    icon: Code,
-    insight: "Which solutions resonate? How do users actually interact with our ideas?"
-  }, {
-    phase: "Validation Sprint",
-    methods: ["Usability Testing", "A/B Testing", "Post-Launch Research", "Impact Measurement"],
-    deliverables: ["Usability Report", "Impact Metrics", "Iteration Plan", "Success Stories"],
-    duration: "1-2 weeks",
-    icon: CheckCircle,
-    insight: "Did we solve the right problem? What should we optimize next?"
-  }];
-
-  // Skills Arsenal with detailed breakdown and descriptions
-  const filterCategories = ['All', 'UX Research', 'Full Stack Development', 'AI Development & Automation'];
+  // Skills data for Technical Skills Matrix
   const skillCategories = {
-    'UX Research': [{
-      name: 'User Research & Testing',
-      level: 94,
-      proficiency: 'Expert',
-      description: 'Conducted 50+ user interviews, surveys, and usability testing sessions across military and civilian domains. Led journey mapping and persona development for enterprise systems.'
-    }, {
-      name: 'UX Design (Figma, Design Systems)',
-      level: 88,
-      proficiency: 'Advanced',
-      description: 'Created comprehensive design systems and user interfaces for enterprise applications and military tools'
-    }, {
-      name: 'Systems Analysis',
-      level: 98,
-      proficiency: 'Expert',
-      description: 'Architected enterprise solutions through systematic logical frameworks, mapping complex data relationships and user workflows for 10,000+ users'
-    }, {
-      name: 'Strategic Planning (Vision & Roadmaps)',
-      level: 95,
-      proficiency: 'Expert',
-      description: 'Developed multi-year roadmaps and vision documents for complex military and enterprise initiatives'
-    }, {
-      name: 'Agile Methodologies (Scrum, Kanban, Lean)',
-      level: 95,
-      proficiency: 'Expert',
-      description: 'Led Scrum ceremonies, sprint planning, and backlog grooming for cross-functional teams of 20+ members'
-    }, {
-      name: 'Process Optimization',
-      level: 95,
-      proficiency: 'Expert',
-      description: 'Applied structured logical analysis to streamline operations, creating decision trees and automated workflows that reduced task completion time by 40%'
-    }],
-    'Full Stack Development': [{
-      name: 'Prototyping (Interactive Flows, User Testing)',
-      level: 85,
-      proficiency: 'Advanced',
-      description: 'Built high-fidelity prototypes and conducted iterative testing with 200+ users across multiple domains'
-    }, {
-      name: 'HTML (Semantic & Accessible)',
-      level: 80,
-      proficiency: 'Foundational',
-      description: 'Built semantic, accessible web structures using modern HTML5 standards and ARIA guidelines for enterprise applications'
-    }, {
-      name: 'CSS & Modern Styling (Tailwind, Grid, Flexbox)',
-      level: 77,
-      proficiency: 'Foundational',
-      description: 'Crafted responsive layouts using CSS Grid, Flexbox, Tailwind utility-first approach, and modern CSS techniques including custom properties and animations'
-    }, {
-      name: 'JavaScript/React',
-      level: 75,
-      proficiency: 'Foundational',
-      description: 'Developed interactive web applications using modern JavaScript ES6+ and React component architecture for complex user interfaces'
-    }, {
-      name: 'SEO (Search Engine Optimization)',
-      level: 82,
-      proficiency: 'Advanced',
-      description: 'Implemented comprehensive SEO strategies including technical optimization, semantic HTML, meta tags, structured data, performance optimization, and analytics tracking to improve search visibility and user experience'
-    }, {
-      name: 'TypeScript',
-      level: 70,
-      proficiency: 'Foundational',
-      description: 'Enhanced JavaScript applications with TypeScript for improved code reliability, developer experience, and maintainable codebases'
-    }, {
-      name: 'Version Control/Git',
-      level: 78,
-      proficiency: 'Foundational',
-      description: 'Managed collaborative development workflows using Git branching strategies, code reviews, and deployment pipelines'
-    }, {
-      name: 'API Integration/REST',
-      level: 85,
-      proficiency: 'Advanced',
-      description: 'Connected frontend applications to backend services through RESTful APIs, including authentication, data management, and error handling'
-    }, {
-      name: 'SharePoint Development',
-      level: 90,
-      proficiency: 'Expert',
-      description: 'Built custom solutions, workflows, and integrations for enterprise environments serving thousands of users'
-    }],
-    'AI Development & Automation': [{
-      name: 'AI-Augmented Development (Prompting, Prototyping, Code Gen)',
-      level: 82,
-      proficiency: 'Advanced',
-      description: 'Leveraged AI tools like ChatGPT, Claude, and GitHub Copilot to accelerate development workflows, craft effective prompts for problem-solving, generate optimized code solutions, and rapidly prototype component variations'
-    }, {
-      name: 'No-Code/Low-Code Development',
-      level: 88,
-      proficiency: 'Advanced',
-      description: 'Built responsive websites and applications using Webflow, Wix, Squarespace, and Elementor for rapid deployment and client solutions'
-    }, {
-      name: 'Continuous Learning & Adaptation',
-      level: 90,
-      proficiency: 'Expert',
-      description: 'Actively exploring emerging technologies, staying current with AI advancements, and adapting development workflows to leverage cutting-edge tools'
-    }, {
-      name: 'VBA/Automation',
-      level: 88,
-      proficiency: 'Advanced',
-      description: 'Automated complex data processing tasks, reducing manual effort by 80% for financial and operational reporting'
-    }, {
-      name: 'SQL/Database',
-      level: 82,
-      proficiency: 'Advanced',
-      description: 'Designed and optimized database structures for mission-critical applications with complex data relationships'
-    }, {
-      name: 'Tableau/Analytics',
-      level: 80,
-      proficiency: 'Advanced',
-      description: 'Created executive dashboards and data visualizations supporting strategic decision-making for leadership teams'
-    }, {
-      name: 'Power Platform',
-      level: 85,
-      proficiency: 'Advanced',
-      description: 'Developed end-to-end business solutions using Power Apps, Power Automate, and Power BI for enterprise workflows'
-    }]
+    'UX Research': [
+      {
+        name: 'User Research & Testing',
+        level: 94,
+        proficiency: 'Expert' as const,
+        description: 'Conducted 50+ user interviews, surveys, and usability testing sessions across military and civilian domains. Led journey mapping and persona development for enterprise systems.'
+      },
+      {
+        name: 'Systems Analysis',
+        level: 98,
+        proficiency: 'Expert' as const,
+        description: 'Architected enterprise solutions through systematic logical frameworks, mapping complex data relationships and user workflows for 10,000+ users'
+      },
+      {
+        name: 'Strategic Planning (Vision & Roadmaps)',
+        level: 95,
+        proficiency: 'Expert' as const,
+        description: 'Developed multi-year roadmaps and vision documents for complex military and enterprise initiatives'
+      },
+      {
+        name: 'Agile Methodologies (Scrum, Kanban, Lean)',
+        level: 95,
+        proficiency: 'Expert' as const,
+        description: 'Led Scrum ceremonies, sprint planning, and backlog grooming for cross-functional teams of 20+ members'
+      },
+      {
+        name: 'Process Optimization',
+        level: 95,
+        proficiency: 'Expert' as const,
+        description: 'Applied structured logical analysis to streamline operations, creating decision trees and automated workflows that reduced task completion time by 40%'
+      }
+    ],
+    'Full Stack Development': [
+      {
+        name: 'Prototyping (Interactive Flows, User Testing)',
+        level: 85,
+        proficiency: 'Advanced' as const,
+        description: 'Built high-fidelity prototypes and conducted iterative testing with 200+ users across multiple domains'
+      },
+      {
+        name: 'HTML (Semantic & Accessible)',
+        level: 80,
+        proficiency: 'Foundational' as const,
+        description: 'Built semantic, accessible web structures using modern HTML5 standards and ARIA guidelines for enterprise applications'
+      },
+      {
+        name: 'CSS & Modern Styling (Tailwind, Grid, Flexbox)',
+        level: 77,
+        proficiency: 'Foundational' as const,
+        description: 'Crafted responsive layouts using CSS Grid, Flexbox, Tailwind utility-first approach, and modern CSS techniques including custom properties and animations'
+      },
+      {
+        name: 'JavaScript/React',
+        level: 75,
+        proficiency: 'Foundational' as const,
+        description: 'Developed interactive web applications using modern JavaScript ES6+ and React component architecture for complex user interfaces'
+      },
+      {
+        name: 'SEO (Search Engine Optimization)',
+        level: 82,
+        proficiency: 'Advanced' as const,
+        description: 'Implemented comprehensive SEO strategies including technical optimization, semantic HTML, meta tags, structured data, performance optimization, and analytics tracking to improve search visibility and user experience'
+      },
+      {
+        name: 'TypeScript',
+        level: 70,
+        proficiency: 'Foundational' as const,
+        description: 'Enhanced JavaScript applications with TypeScript for improved code reliability, developer experience, and maintainable codebases'
+      },
+      {
+        name: 'Version Control/Git',
+        level: 78,
+        proficiency: 'Foundational' as const,
+        description: 'Managed collaborative development workflows using Git branching strategies, code reviews, and deployment pipelines'
+      },
+      {
+        name: 'API Integration/REST',
+        level: 85,
+        proficiency: 'Advanced' as const,
+        description: 'Connected frontend applications to backend services through RESTful APIs, including authentication, data management, and error handling'
+      },
+      {
+        name: 'SharePoint Development',
+        level: 90,
+        proficiency: 'Expert' as const,
+        description: 'Built custom solutions, workflows, and integrations for enterprise environments serving thousands of users'
+      }
+    ],
+    'AI Development & Automation': [
+      {
+        name: 'AI-Augmented Development (Prompting, Prototyping, Code Gen)',
+        level: 82,
+        proficiency: 'Advanced' as const,
+        description: 'Leveraged AI tools like ChatGPT, Claude, and GitHub Copilot to accelerate development workflows, craft effective prompts for problem-solving, generate optimized code solutions, and rapidly prototype component variations'
+      },
+      {
+        name: 'No-Code/Low-Code Development',
+        level: 88,
+        proficiency: 'Advanced' as const,
+        description: 'Built responsive websites and applications using Webflow, Wix, Squarespace, and Elementor for rapid deployment and client solutions'
+      },
+      {
+        name: 'Continuous Learning & Adaptation',
+        level: 90,
+        proficiency: 'Expert' as const,
+        description: 'Actively exploring emerging technologies, staying current with AI advancements, and adapting development workflows to leverage cutting-edge tools'
+      },
+      {
+        name: 'VBA/Automation',
+        level: 88,
+        proficiency: 'Advanced' as const,
+        description: 'Automated complex data processing tasks, reducing manual effort by 80% for financial and operational reporting'
+      },
+      {
+        name: 'SQL/Database',
+        level: 82,
+        proficiency: 'Advanced' as const,
+        description: 'Designed and optimized database structures for mission-critical applications with complex data relationships'
+      },
+      {
+        name: 'Tableau/Analytics',
+        level: 80,
+        proficiency: 'Advanced' as const,
+        description: 'Created executive dashboards and data visualizations supporting strategic decision-making for leadership teams'
+      },
+      {
+        name: 'Power Platform',
+        level: 85,
+        proficiency: 'Advanced' as const,
+        description: 'Developed end-to-end business solutions using Power Apps, Power Automate, and Power BI for enterprise workflows'
+      }
+    ]
   };
 
-  // Flatten skills for filtering
-  const allSkills = Object.entries(skillCategories).flatMap(([category, skills]) => skills.map(skill => ({
-    ...skill,
-    category,
-    proficiency: skill.proficiency as 'Expert' | 'Advanced' | 'Foundational'
-  })));
-  const filteredSkillCategories = selectedFilter === 'All' ? skillCategories : {
-    [selectedFilter]: skillCategories[selectedFilter as keyof typeof skillCategories]
-  };
+  const allSkills = Object.entries(skillCategories).flatMap(([category, skills]) => 
+    skills.map(skill => ({
+      ...skill,
+      category
+    }))
+  );
 
   // Web Design Portfolio Data
   const webDesigns = [{
