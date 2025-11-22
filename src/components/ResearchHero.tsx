@@ -35,14 +35,14 @@ const ResearchHero = () => {
   };
 
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-background">
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/20">
       {/* Parallax Tech Background Layers */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{ y: layer1Y }}
       >
         <div 
-          className="absolute inset-0 opacity-30 bg-cover bg-center mix-blend-luminosity"
+          className="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-luminosity"
           style={{ backgroundImage: `url(${heroTechLayer1})` }}
         />
       </motion.div>
@@ -52,7 +52,7 @@ const ResearchHero = () => {
         style={{ y: layer2Y }}
       >
         <div 
-          className="absolute inset-0 opacity-25 bg-cover bg-center mix-blend-screen"
+          className="absolute inset-0 opacity-15 bg-cover bg-center mix-blend-screen"
           style={{ backgroundImage: `url(${heroTechLayer2})` }}
         />
       </motion.div>
@@ -109,7 +109,7 @@ const ResearchHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight [text-shadow:_0_2px_8px_rgb(0_0_0_/_0.8)]">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
             I solve{' '}
             <span className="text-primary">user problems</span>{' '}
             through systematic UX research, bridging{' '}
@@ -118,7 +118,7 @@ const ResearchHero = () => {
             <span className="text-accent">human needs</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto [text-shadow:_0_2px_4px_rgb(0_0_0_/_0.6)]">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Military precision meets human empathy. I transform complex systems into intuitive experiences through rigorous research, strategic design, and technical execution.
           </p>
         </motion.div>
