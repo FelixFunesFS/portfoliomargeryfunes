@@ -42,13 +42,15 @@ const BrandMarquee = () => {
               {brands.map((brand, index) => (
                 <div
                   key={`brand-1-${index}`}
-                  className="flex-shrink-0 flex items-center justify-center"
+                  className="flex-shrink-0"
                 >
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="h-20 sm:h-32 w-auto object-contain transition-all duration-300 opacity-100"
-                  />
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-card/50 backdrop-blur-sm border border-border/30 flex items-center justify-center p-4 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+                    <img
+                      src={brand.logo}
+                      alt={brand.name}
+                      className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
                 </div>
               ))}
               
@@ -56,13 +58,15 @@ const BrandMarquee = () => {
               {brands.map((brand, index) => (
                 <div
                   key={`brand-2-${index}`}
-                  className="flex-shrink-0 flex items-center justify-center"
+                  className="flex-shrink-0"
                 >
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="h-20 sm:h-32 w-auto object-contain transition-all duration-300 opacity-100"
-                  />
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-card/50 backdrop-blur-sm border border-border/30 flex items-center justify-center p-4 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+                    <img
+                      src={brand.logo}
+                      alt={brand.name}
+                      className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
                 </div>
               ))}
             </motion.div>

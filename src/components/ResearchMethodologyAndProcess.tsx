@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Users, TestTube, MapPin, BarChart3, Search, Brain, PenTool, Rocket, RotateCcw, Clock } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@/components/ui/collapsible';
+import { Users, TestTube, MapPin, BarChart3, Search, Brain, PenTool, Rocket, RotateCcw, Clock, ChevronDown } from 'lucide-react';
 
 const ResearchMethodologyAndProcess = () => {
   // Part 1: Research Toolkit
@@ -179,87 +181,97 @@ const ResearchMethodologyAndProcess = () => {
         </div>
 
         {/* Part 2: End-to-End Design Process */}
-        <div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10"
-          >
-            <h3 className="text-2xl font-bold text-foreground mb-3">
-              End-to-End Design Process
-            </h3>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              From discovery to ongoing measurement, a complete research-driven workflow
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="glass border-none h-full hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center ${step.color}`}>
-                        {step.icon}
-                      </div>
-                      <Badge variant="outline" className="text-xs">
-                        {step.phase}
-                      </Badge>
-                    </div>
-                    
-                    <div className="flex items-center justify-between mb-3">
-                      <h4 className="text-lg sm:text-xl font-semibold text-foreground">{step.title}</h4>
-                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                        <Clock className="w-3 h-3" />
-                        {step.timeline}
-                      </div>
-                    </div>
-                    <p className="text-muted-foreground mb-4 text-xs sm:text-sm">{step.description}</p>
-                    
-                    {step.keyQuestion && (
-                      <div className="mb-4 p-3 rounded-lg bg-muted/30 border-l-4 border-primary">
-                        <p className="text-xs sm:text-sm font-medium text-foreground italic">
-                          💡 Key Question: <span className="text-primary">{step.keyQuestion}</span>
-                        </p>
-                      </div>
-                    )}
-                    
-                    <div className="space-y-3">
-                      <div>
-                        <h5 className="font-medium text-xs sm:text-sm text-foreground mb-2">Research Methods:</h5>
-                        <div className="flex flex-wrap gap-1">
-                          {step.methods.map((method, idx) => (
-                            <Badge key={idx} variant="outline" className="text-xs">
-                              {method}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                      <div>
-                        <h5 className="font-medium text-xs sm:text-sm text-foreground mb-2">Key Deliverables:</h5>
-                        <div className="flex flex-wrap gap-1">
-                          {step.deliverables.map((deliverable, idx) => (
-                            <Badge key={idx} variant="secondary" className="text-xs">
-                              {deliverable}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+        <Collapsible defaultOpen={false}>
+          <div className="flex items-center justify-between mb-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center flex-1"
+            >
+              <h3 className="text-2xl font-bold text-foreground mb-3">
+                End-to-End Design Process
+              </h3>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                From discovery to ongoing measurement, a complete research-driven workflow
+              </p>
+            </motion.div>
+            <CollapsibleTrigger asChild>
+              <Button variant="outline" size="sm" className="ml-4">
+                <ChevronDown className="w-4 h-4 mr-2" />
+                View Full Process
+              </Button>
+            </CollapsibleTrigger>
           </div>
-        </div>
+
+          <CollapsibleContent>
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
+              {processSteps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <Card className="glass border-none h-full hover:shadow-lg transition-all duration-300">
+                    <CardContent className="p-4 sm:p-6">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center ${step.color}`}>
+                          {step.icon}
+                        </div>
+                        <Badge variant="outline" className="text-xs">
+                          {step.phase}
+                        </Badge>
+                      </div>
+                      
+                      <div className="flex items-center justify-between mb-3">
+                        <h4 className="text-lg sm:text-xl font-semibold text-foreground">{step.title}</h4>
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                          <Clock className="w-3 h-3" />
+                          {step.timeline}
+                        </div>
+                      </div>
+                      <p className="text-muted-foreground mb-4 text-xs sm:text-sm">{step.description}</p>
+                      
+                      {step.keyQuestion && (
+                        <div className="mb-4 p-3 rounded-lg bg-muted/30 border-l-4 border-primary">
+                          <p className="text-xs sm:text-sm font-medium text-foreground italic">
+                            💡 Key Question: <span className="text-primary">{step.keyQuestion}</span>
+                          </p>
+                        </div>
+                      )}
+                      
+                      <div className="space-y-3">
+                        <div>
+                          <h5 className="font-medium text-xs sm:text-sm text-foreground mb-2">Research Methods:</h5>
+                          <div className="flex flex-wrap gap-1">
+                            {step.methods.map((method, idx) => (
+                              <Badge key={idx} variant="outline" className="text-xs">
+                                {method}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-xs sm:text-sm text-foreground mb-2">Key Deliverables:</h5>
+                          <div className="flex flex-wrap gap-1">
+                            {step.deliverables.map((deliverable, idx) => (
+                              <Badge key={idx} variant="secondary" className="text-xs">
+                                {deliverable}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </CollapsibleContent>
+        </Collapsible>
       </div>
     </section>
   );

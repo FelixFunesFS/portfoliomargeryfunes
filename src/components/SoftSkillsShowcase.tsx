@@ -22,7 +22,6 @@ interface SoftSkill {
 }
 
 const softSkills: SoftSkill[] = [
-  // Leadership & Communication Column
   {
     category: 'Leadership',
     name: 'Military Leadership',
@@ -48,43 +47,6 @@ const softSkills: SoftSkill[] = [
     ]
   },
   {
-    category: 'Collaboration',
-    name: 'Cross-functional Collaboration',
-    icon: Users,
-    metric: '10+ projects',
-    description: 'Unite diverse teams toward shared goals through empathy and coordination',
-    examples: [
-      'Coordinated research initiatives across 5 departments',
-      'Built consensus among stakeholders with competing priorities',
-      'Established collaborative workflows reducing friction by 35%'
-    ]
-  },
-  {
-    category: 'Leadership',
-    name: 'Mentorship & Training',
-    icon: Lightbulb,
-    metric: '20+ mentees',
-    description: 'Develop talent and build capability through structured guidance',
-    examples: [
-      'Mentored 20+ junior researchers and designers',
-      'Created onboarding programs reducing ramp-up time by 50%',
-      'Developed training materials used by 100+ team members'
-    ]
-  },
-  // Problem-Solving & Adaptability Column
-  {
-    category: 'Problem-Solving',
-    name: 'Critical Thinking',
-    icon: Brain,
-    metric: 'Expert',
-    description: 'Apply systematic analysis to break down complex challenges',
-    examples: [
-      'Decomposed enterprise problems into actionable components',
-      'Identified root causes through structured analysis',
-      'Developed frameworks adopted across multiple projects'
-    ]
-  },
-  {
     category: 'Problem-Solving',
     name: 'Systems Thinking',
     icon: GitBranch,
@@ -97,27 +59,15 @@ const softSkills: SoftSkill[] = [
     ]
   },
   {
-    category: 'Problem-Solving',
-    name: 'Agile Mindset',
-    icon: Zap,
-    metric: '5+ years',
-    description: 'Embrace iteration and respond effectively to changing requirements',
+    category: 'Collaboration',
+    name: 'Cross-functional Collaboration',
+    icon: Users,
+    metric: '10+ projects',
+    description: 'Unite diverse teams toward shared goals through empathy and coordination',
     examples: [
-      'Led agile transformation initiatives',
-      'Facilitated rapid prototyping and testing cycles',
-      'Adapted research methods to evolving project needs'
-    ]
-  },
-  {
-    category: 'Communication',
-    name: 'Technical Translation',
-    icon: Target,
-    metric: '100+ sessions',
-    description: 'Convert complex technical concepts into accessible insights',
-    examples: [
-      'Translated API specifications into user requirements',
-      'Explained research methodologies to business stakeholders',
-      'Created documentation bridging technical and business teams'
+      'Coordinated research initiatives across 5 departments',
+      'Built consensus among stakeholders with competing priorities',
+      'Established collaborative workflows reducing friction by 35%'
     ]
   }
 ];
@@ -164,10 +114,10 @@ export default function SoftSkillsShowcase() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            Soft Skills & Leadership
+            Core Soft Skills
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Human-centered capabilities that enable effective collaboration, communication, and problem-solving
+            Essential human-centered capabilities for effective leadership and collaboration
           </p>
         </motion.div>
 
