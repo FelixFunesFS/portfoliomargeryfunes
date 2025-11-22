@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
-import { Quote, TrendingUp, ChevronDown, Users, TestTube, FileText } from "lucide-react";
+import { Quote, TrendingUp, ChevronDown, Users, TestTube, FileText, CheckCircle2, RefreshCw, Lightbulb } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { CaseStudy } from "@/types/caseStudy";
 import { cn } from "@/lib/utils";
 import { ResearchMethodsBadges } from "@/components/ResearchMethodsBadges";
+import { ResearchProcessTimeline } from "@/components/ResearchProcessTimeline";
+import { useState } from "react";
 
 interface CaseStudySummaryCardProps {
   caseStudy: CaseStudy;
@@ -22,6 +25,8 @@ export const CaseStudySummaryCard = ({
   isExpanded,
   className 
 }: CaseStudySummaryCardProps) => {
+  const [isReflectionExpanded, setIsReflectionExpanded] = useState(false);
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -31,7 +36,7 @@ export const CaseStudySummaryCard = ({
       className={className}
     >
       <Card className={cn(
-        "overflow-hidden hover:shadow-2xl transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm flex flex-col",
+        "overflow-hidden hover:shadow-2xl transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm flex flex-col max-w-7xl mx-auto",
         featured && "border-primary/30"
       )}>
         <CardHeader className="space-y-3 pb-3">
@@ -84,9 +89,9 @@ export const CaseStudySummaryCard = ({
           )}
         </CardHeader>
 
-        <CardContent className="flex-1 flex flex-col p-4 sm:p-5 md:p-6">
-          {/* Two Column Layout: 55/45 on desktop, single column on mobile */}
-          <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-6 flex-1">
+        <CardContent className="flex-1 flex flex-col p-4 sm:p-5 md:p-6 space-y-6">
+          {/* TOP SECTION: Challenge/Solution (40%) + Research Process Timeline (60%) */}
+          <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-6">
             
             {/* LEFT COLUMN: Challenge + Solution */}
             <div className="space-y-5 flex flex-col">
@@ -98,14 +103,14 @@ export const CaseStudySummaryCard = ({
                 </div>
                 
                 <div className="pl-4 space-y-3">
-                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {caseStudy.problem}
                   </p>
                   
                   {caseStudy.userVoice && (
                     <div className="relative p-3 rounded-lg bg-destructive/10 border border-destructive/20">
                       <Quote className="absolute top-2 left-2 w-3.5 h-3.5 text-destructive/40" />
-                      <p className="text-xs italic text-foreground/90 pl-5 line-clamp-2">
+                      <p className="text-xs italic text-foreground/90 pl-5">
                         "{caseStudy.userVoice}"
                       </p>
                     </div>
@@ -121,14 +126,14 @@ export const CaseStudySummaryCard = ({
                 </div>
                 
                 <div className="pl-4 space-y-3">
-                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {caseStudy.solution}
                   </p>
                   
                   {caseStudy.stakeholderQuote && (
                     <div className="relative p-3 rounded-lg bg-green-500/10 border border-green-500/20">
                       <Quote className="absolute top-2 left-2 w-3.5 h-3.5 text-green-500/40" />
-                      <p className="text-xs italic text-foreground/90 pl-5 line-clamp-2">
+                      <p className="text-xs italic text-foreground/90 pl-5">
                         "{caseStudy.stakeholderQuote}"
                       </p>
                     </div>
@@ -137,76 +142,164 @@ export const CaseStudySummaryCard = ({
               </div>
             </div>
 
-            {/* RIGHT COLUMN: Key Results + Research Methods */}
-            <div className="space-y-5 flex flex-col">
-              {/* KEY RESULTS */}
-              {caseStudy.metrics && caseStudy.metrics.length > 0 && (
-                <div className="space-y-3 flex-1">
-                  <div className="flex items-center gap-2 text-teal-600 dark:text-teal-400">
-                    <div className="w-1 h-6 bg-teal-600 dark:bg-teal-400 rounded-full" />
-                    <h4 className="font-semibold text-sm uppercase tracking-wider">Key Results</h4>
-                  </div>
-                  
-                  <div className="pl-4">
-                    <div className="grid grid-cols-1 xs:grid-cols-2 gap-2.5">
-                      {caseStudy.metrics.slice(0, 4).map((metric, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: index * 0.1 }}
-                          viewport={{ once: true }}
-                          className="p-2.5 rounded-lg bg-teal-500/10 border border-teal-500/20"
-                        >
-                          <div className="flex items-center gap-1.5 mb-1">
-                            <TrendingUp className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-                            <span className="text-lg font-bold text-teal-600 dark:text-teal-400">
-                              {metric.value}
-                            </span>
-                          </div>
-                          <p className="text-[10px] text-muted-foreground line-clamp-1">{metric.label}</p>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* RESEARCH METHODS */}
-              {caseStudy.researchMethods && caseStudy.researchMethods.length > 0 && (
-                <div className="space-y-3 flex-1">
-                  <div className="flex items-center gap-2 text-violet-600 dark:text-violet-400">
-                    <div className="w-1 h-6 bg-violet-600 dark:bg-violet-400 rounded-full" />
-                    <h4 className="font-semibold text-sm uppercase tracking-wider">Research Methods</h4>
-                  </div>
-                  
-                  <div className="pl-4">
-                    <ResearchMethodsBadges 
-                      methods={caseStudy.researchMethods.slice(0, 5)}
-                      className="flex-wrap gap-2"
-                    />
-                    {caseStudy.researchMethods.length > 5 && (
-                      <Badge 
-                        variant="outline" 
-                        className="mt-2 text-xs bg-muted/50 border-muted-foreground/20"
-                      >
-                        +{caseStudy.researchMethods.length - 5} more
-                      </Badge>
-                    )}
-                  </div>
-                </div>
-              )}
+            {/* RIGHT COLUMN: Research Process Timeline */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-primary">
+                <div className="w-1 h-6 bg-primary rounded-full" />
+                <h4 className="font-semibold text-sm uppercase tracking-wider">Research Process</h4>
+              </div>
+              
+              <div className="pl-4">
+                {caseStudy.researchProcess && caseStudy.researchProcess.length > 0 ? (
+                  <ResearchProcessTimeline phases={caseStudy.researchProcess} />
+                ) : (
+                  <p className="text-sm text-muted-foreground italic">No research process documented</p>
+                )}
+              </div>
             </div>
           </div>
 
+          {/* MIDDLE SECTION: Research Methods (50%) + Key Results (50%) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-border/30 pt-6">
+            {/* RESEARCH METHODS */}
+            {caseStudy.researchMethods && caseStudy.researchMethods.length > 0 && (
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-violet-600 dark:text-violet-400">
+                  <div className="w-1 h-6 bg-violet-600 dark:bg-violet-400 rounded-full" />
+                  <h4 className="font-semibold text-sm uppercase tracking-wider">Research Methods</h4>
+                </div>
+                
+                <div className="pl-4">
+                  <ResearchMethodsBadges 
+                    methods={caseStudy.researchMethods.slice(0, 5)}
+                    className="flex-wrap gap-2"
+                  />
+                  {caseStudy.researchMethods.length > 5 && (
+                    <Badge 
+                      variant="outline" 
+                      className="mt-2 text-xs bg-muted/50 border-muted-foreground/20"
+                    >
+                      +{caseStudy.researchMethods.length - 5} more
+                    </Badge>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* KEY RESULTS */}
+            {caseStudy.metrics && caseStudy.metrics.length > 0 && (
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-teal-600 dark:text-teal-400">
+                  <div className="w-1 h-6 bg-teal-600 dark:bg-teal-400 rounded-full" />
+                  <h4 className="font-semibold text-sm uppercase tracking-wider">Key Results</h4>
+                </div>
+                
+                <div className="pl-4">
+                  <div className="grid grid-cols-2 gap-2.5">
+                    {caseStudy.metrics.slice(0, 4).map((metric, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        className="p-2.5 rounded-lg bg-teal-500/10 border border-teal-500/20"
+                      >
+                        <div className="flex items-center gap-1.5 mb-1">
+                          <TrendingUp className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+                          <span className="text-lg font-bold text-teal-600 dark:text-teal-400">
+                            {metric.value}
+                          </span>
+                        </div>
+                        <p className="text-[10px] text-muted-foreground line-clamp-1">{metric.label}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* BOTTOM SECTION: Expandable Growth & Reflection */}
+          {caseStudy.reflection && (
+            <Collapsible
+              open={isReflectionExpanded}
+              onOpenChange={setIsReflectionExpanded}
+              className="border-t-2 border-amber-500/30 pt-4"
+            >
+              <CollapsibleTrigger className="w-full group">
+                <div className="flex items-center justify-between w-full hover:bg-amber-500/5 transition-colors rounded-lg p-3">
+                  <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400">
+                    <Lightbulb className="w-5 h-5" />
+                    <h4 className="font-semibold text-sm uppercase tracking-wider">Growth & Reflection</h4>
+                  </div>
+                  <ChevronDown className={cn(
+                    "w-4 h-4 text-amber-600 dark:text-amber-400 transition-transform duration-300",
+                    isReflectionExpanded && "rotate-180"
+                  )} />
+                </div>
+              </CollapsibleTrigger>
+
+              <CollapsibleContent className="pt-4">
+                <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-6">
+                  {/* LEFT COLUMN: What Worked Well + Future Optimizations */}
+                  <div className="space-y-4">
+                    {/* What Worked Well */}
+                    {caseStudy.reflection.whatWorkedWell && caseStudy.reflection.whatWorkedWell.length > 0 && (
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
+                          <CheckCircle2 className="w-4 h-4" />
+                          <h5 className="font-semibold text-xs uppercase tracking-wide">What Worked Well</h5>
+                        </div>
+                        <ul className="space-y-1.5 pl-6 text-xs text-muted-foreground">
+                          {caseStudy.reflection.whatWorkedWell.slice(0, 2).map((item, index) => (
+                            <li key={index} className="list-disc">{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Future Optimizations */}
+                    {caseStudy.reflection.wouldDoDifferently && caseStudy.reflection.wouldDoDifferently.length > 0 && (
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400">
+                          <RefreshCw className="w-4 h-4" />
+                          <h5 className="font-semibold text-xs uppercase tracking-wide">Future Optimizations</h5>
+                        </div>
+                        <ul className="space-y-1.5 pl-6 text-xs text-muted-foreground">
+                          {caseStudy.reflection.wouldDoDifferently.slice(0, 2).map((item, index) => (
+                            <li key={index} className="list-disc">{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* RIGHT COLUMN: Key Lesson (larger) */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-primary">
+                      <Lightbulb className="w-4 h-4" />
+                      <h5 className="font-semibold text-xs uppercase tracking-wide">Key Lesson</h5>
+                    </div>
+                    <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
+                      <p className="text-sm text-foreground leading-relaxed">
+                        {caseStudy.reflection.lessonsLearned}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+          )}
+
           {/* CTA Button */}
-          <div className="pt-5 mt-auto border-t border-border/30">
+          <div className="pt-4 border-t border-border/30">
             <Button
               onClick={onExpandClick}
               className="w-full group"
               variant={isExpanded ? "default" : "outline"}
             >
-              <span>{isExpanded ? "Hide" : "View"} Research Process</span>
+              <span>{isExpanded ? "Hide" : "View"} Full Case Study</span>
               <ChevronDown className={cn(
                 "w-4 h-4 ml-2 transition-transform duration-300",
                 isExpanded && "rotate-180"
