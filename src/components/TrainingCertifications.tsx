@@ -125,7 +125,7 @@ export const TrainingCertifications = () => {
             Continuous Learning
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-            Training & Professional Certifications
+            <span className="text-primary">Training</span> & <span className="text-success">Professional Certifications</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
             Formal education backing research expertise and technical implementation capabilities

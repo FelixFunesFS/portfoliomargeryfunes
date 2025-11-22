@@ -40,7 +40,7 @@ const UnifiedImpactMetrics = () => {
             Measurable Impact
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
-            Research-Driven Results
+            <span className="bg-gradient-to-r from-primary via-systems-cyan to-accent bg-clip-text text-transparent">Impact-Driven</span> Results
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
             Delivering quantifiable business impact through systematic UX research 

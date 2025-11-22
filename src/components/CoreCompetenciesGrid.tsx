@@ -115,7 +115,7 @@ export default function CoreCompetenciesGrid() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            Core Competencies
+            <span className="text-primary">Core</span> <span className="text-systems-blue">Competencies</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Top capabilities that drive measurable impact across research, design, and development
