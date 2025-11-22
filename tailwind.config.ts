@@ -157,7 +157,7 @@ export default {
 				'fade-in-delay-2': 'fade-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards',
 				'fade-in-delay-3': 'fade-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards',
 				'fade-in-delay-4': 'fade-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards',
-				'marquee': 'marquee 50s linear infinite',
+				'marquee': 'marquee 15s linear infinite',
 			},
 			fontFamily: {
 				'sans': ['Inter', 'sans-serif']

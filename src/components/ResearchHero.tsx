@@ -1,10 +1,15 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Download, Target, BookOpen, Calendar } from 'lucide-react';
 
 const ResearchHero = () => {
+  // Parallax effect for radar circles
+  const { scrollY } = useScroll();
+  const radarY = useTransform(scrollY, [0, 500], [0, -150]);
+  const radarOpacity = useTransform(scrollY, [0, 300], [1, 0]);
+
   const handleDownloadResume = () => {
     window.open('/resume.pdf', '_blank');
   };
@@ -25,8 +30,11 @@ const ResearchHero = () => {
 
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/20">
-      {/* Decorative Radar Circles Background */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      {/* Decorative Radar Circles Background with Parallax */}
+      <motion.div 
+        className="absolute inset-0 flex items-center justify-center pointer-events-none"
+        style={{ y: radarY, opacity: radarOpacity }}
+      >
         {[1, 2, 3, 4].map((circle) => (
           <motion.div
             key={circle}
@@ -62,7 +70,7 @@ const ResearchHero = () => {
             ease: "linear",
           }}
         />
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="relative z-10 container-custom px-6 py-16 space-y-8">
