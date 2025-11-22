@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Quote, TrendingUp, Lightbulb, Award } from "lucide-react";
+import { ArrowRight, Quote, TrendingUp, Lightbulb, Award, RefreshCw } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -194,6 +194,20 @@ export const ProcessStoryCard = ({ caseStudy, featured = false, className }: Pro
                     <p className="text-xs text-muted-foreground ml-6 line-clamp-3">
                       {caseStudy.reflection.lessonsLearned}
                     </p>
+                  </div>
+                )}
+                
+                {caseStudy.reflection.wouldDoDifferently && caseStudy.reflection.wouldDoDifferently.length > 0 && (
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <RefreshCw className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                      <p className="text-xs font-semibold text-foreground/80">Future Optimizations:</p>
+                    </div>
+                    <ul className="space-y-1 text-xs text-muted-foreground ml-6">
+                      {caseStudy.reflection.wouldDoDifferently.slice(0, 2).map((item, i) => (
+                        <li key={i} className="line-clamp-2">• {item}</li>
+                      ))}
+                    </ul>
                   </div>
                 )}
               </div>
