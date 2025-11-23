@@ -5,18 +5,8 @@ import { Badge } from '@/components/ui/badge';
 import { Download, Target, BookOpen, Calendar, Users, TestTube, Map } from 'lucide-react';
 import { useInView } from '@/hooks/useInView';
 import { useCountUp } from '@/hooks/useCountUp';
-import heroTechLayer1 from '@/assets/hero-tech-layer-1.jpg';
-import heroTechLayer2 from '@/assets/hero-tech-layer-2.jpg';
-import heroTechLayer3 from '@/assets/hero-tech-layer-3.jpg';
 
 const ResearchHero = () => {
-  // Parallax effect for background layers
-  const { scrollY } = useScroll();
-  
-  // Parallax for tech background layers (slower movement for depth)
-  const layer1Y = useTransform(scrollY, [0, 500], [0, -80]);
-  const layer2Y = useTransform(scrollY, [0, 500], [0, -120]);
-  const layer3Y = useTransform(scrollY, [0, 500], [0, -160]);
 
   const handleDownloadResume = () => {
     window.open('/resume.pdf', '_blank');
@@ -38,37 +28,6 @@ const ResearchHero = () => {
 
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/20">
-      {/* Parallax Tech Background Layers */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{ y: layer1Y }}
-      >
-        <div 
-          className="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-luminosity"
-          style={{ backgroundImage: `url(${heroTechLayer1})` }}
-        />
-      </motion.div>
-      
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{ y: layer2Y }}
-      >
-        <div 
-          className="absolute inset-0 opacity-15 bg-cover bg-center mix-blend-screen"
-          style={{ backgroundImage: `url(${heroTechLayer2})` }}
-        />
-      </motion.div>
-
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{ y: layer3Y }}
-      >
-        <div 
-          className="absolute inset-0 opacity-10 bg-cover bg-center mix-blend-soft-light"
-          style={{ backgroundImage: `url(${heroTechLayer3})` }}
-        />
-      </motion.div>
-
       {/* Content */}
       <div className="relative z-10 container-custom px-6 py-16 space-y-8">
         {/* Top CTAs */}
