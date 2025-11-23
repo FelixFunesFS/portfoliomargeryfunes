@@ -347,6 +347,12 @@ const Home = () => {
         overlayGradient="from-primary/90 via-systems-cyan/50 to-accent/30"
       />
 
+      {/* Wave Divider - Competencies Transition */}
+      <WaveDivider 
+        topColor="hsl(var(--systems-cyan) / 0.3)" 
+        bottomColor="hsl(var(--background))" 
+      />
+
       {/* Core Competencies - PRIMARY EXPERTISE */}
       <section className="border-t-4 border-primary/20">
         <CoreCompetenciesGrid />
@@ -363,6 +369,12 @@ const Home = () => {
         alt="Professional training and certifications"
         height="sm"
         overlayGradient="from-primary/90 via-success/50 to-primary/30"
+      />
+
+      {/* Wave Divider - Certifications Transition */}
+      <WaveDivider 
+        topColor="hsl(var(--success) / 0.3)" 
+        bottomColor="hsl(var(--background))" 
       />
 
       {/* Training & Certifications - PRIMARY EXPERTISE */}
