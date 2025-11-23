@@ -5,6 +5,9 @@ import Navbar from '@/components/Navbar';
 import ResearchMethodologyAndProcess from '@/components/ResearchMethodologyAndProcess';
 import ResearchHero from '@/components/ResearchHero';
 import BrandMarquee from '@/components/BrandMarquee';
+import TechStackMarquee from '@/components/TechStackMarquee';
+import FullWidthImageSection from '@/components/FullWidthImageSection';
+import WaveDivider from '@/components/WaveDivider';
 import ScrollProgressIndicator from '@/components/ScrollProgressIndicator';
 import { ProcessStoryGrid } from '@/components/ProcessStoryGrid';
 import { Target, Zap, TrendingUp, Users, BarChart3, Layers, GitBranch, RefreshCw, CheckCircle, ArrowRight, Radar, Settings, Database, Code, LineChart, Shield, Rocket, Brain, Clock, Award, ChevronDown, Eye, MapPin, ExternalLink, Globe, Monitor, Smartphone, Heart, Home as HomeIcon, Trophy, GraduationCap, Lightbulb, Search, TestTube, Download, Calendar } from 'lucide-react';
@@ -25,6 +28,10 @@ import elSalvadorImage from '@/assets/el-salvador-tourism.png';
 import soulTrainHomepage from '@/assets/soul-train-homepage.png';
 import visionsOfHopeHero from '@/assets/visions-of-hope-hero.png';
 import bbvawHero from '@/assets/bbvaw-hero.png';
+import sectionBgResearch from '@/assets/section-bg-research.jpg';
+import sectionBgSkills from '@/assets/section-bg-skills.jpg';
+import sectionBgJourney from '@/assets/section-bg-journey.jpg';
+import sectionBgCta from '@/assets/section-bg-cta.jpg';
 const Home = () => {
   const navigate = useNavigate();
   const handleViewCaseStudy = (projectTitle: string) => {
@@ -280,8 +287,22 @@ const Home = () => {
       {/* Research Hero Section */}
       <ResearchHero />
 
+      {/* Brand Marquee - Early Trust Signal */}
+      <BrandMarquee />
+
+      {/* Wave Divider */}
+      <WaveDivider topColor="hsl(var(--background))" bottomColor="hsl(var(--muted))" />
+
       {/* Unified Impact Metrics */}
       <UnifiedImpactMetrics />
+
+      {/* Full-Width Research Background */}
+      <FullWidthImageSection 
+        imageSrc={sectionBgResearch} 
+        alt="Research collaboration environment"
+        height="sm"
+        overlayGradient="from-background/90 via-background/50 to-background/90"
+      />
 
       {/* Case Studies - PRIMARY EXPERTISE */}
       <section className="section bg-gradient-to-br from-muted/20 via-background to-accent/10 py-12 sm:py-16 lg:py-20 border-t-4 border-primary/20">
@@ -332,8 +353,13 @@ const Home = () => {
       </section>
 
       {/* Technical Capabilities - SUPPORTING CAPABILITY */}
-      <section className="border-t-2 border-accent/20 bg-gradient-to-br from-background via-muted/10 to-background">
-        <div className="container-custom py-16 lg:py-20">
+      <section className="border-t-2 border-accent/20 bg-gradient-to-br from-background via-muted/10 to-background relative overflow-hidden">
+        {/* Tech Stack Marquee Background */}
+        <div className="absolute inset-0 opacity-30 pointer-events-none">
+          <TechStackMarquee />
+        </div>
+        
+        <div className="container-custom py-16 lg:py-20 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -354,9 +380,33 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Full-Width Skills Background with Wave */}
+      <FullWidthImageSection 
+        imageSrc={sectionBgSkills} 
+        alt="Developer coding workspace"
+        height="md"
+        overlayGradient="from-background via-primary/10 to-background"
+      />
+      
+      <WaveDivider topColor="hsl(var(--primary) / 0.2)" bottomColor="hsl(var(--accent) / 0.3)" />
+
+      {/* Full-Width Journey Background */}
+      <FullWidthImageSection 
+        imageSrc={sectionBgJourney} 
+        alt="Military to user-centered design transition"
+        height="md"
+        overlayGradient="from-background/95 via-accent/20 to-background/95"
+      />
+
       {/* Journey: Bridging the Gap */}
-      <section id="about" className="section bg-gradient-to-br from-accent/30 via-background to-muted/20 py-16 lg:py-20">
-        <div className="container-custom">
+      <section id="about" className="section bg-gradient-to-br from-accent/30 via-background to-muted/20 py-16 lg:py-20 relative">
+        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{
+          backgroundImage: `url(${sectionBgJourney})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }} />
+        <div className="container-custom relative z-10">
           {/* Header */}
           <motion.div initial={{
           opacity: 0,
@@ -993,8 +1043,37 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Brand Marquee */}
-      <BrandMarquee />
+      {/* Wave Divider */}
+      <WaveDivider topColor="hsl(var(--accent) / 0.3)" bottomColor="hsl(var(--background))" flip />
+
+      {/* Full-Width CTA Background */}
+      <FullWidthImageSection 
+        imageSrc={sectionBgCta} 
+        alt="Professional consultation environment"
+        height="lg"
+        overlayGradient="from-background/90 via-background/60 to-background/90"
+      >
+        <div className="text-center text-foreground">
+          <motion.h3 
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Let's Build Something <span className="text-primary">Meaningful</span>
+          </motion.h3>
+          <motion.p 
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            User-centered solutions backed by systematic research
+          </motion.p>
+        </div>
+      </FullWidthImageSection>
 
       {/* Mission Briefing CTA */}
       <section id="contact" className="section bg-background">
