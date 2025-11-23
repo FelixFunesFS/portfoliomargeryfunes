@@ -95,13 +95,33 @@ const Home = () => {
         description: 'Applied structured logical analysis to streamline operations, creating decision trees and automated workflows that reduced task completion time by 40%'
       }
     ],
-    'Full Stack Development': [
+    'UX Design': [
       {
-        name: 'Prototyping (Interactive Flows, User Testing)',
+        name: 'Prototyping (Figma, Adobe XD)',
+        level: 90,
+        proficiency: 'Expert' as const,
+        description: 'High-fidelity interactive prototypes and design systems using Figma and Adobe XD for usability testing and design validation with 200+ users'
+      },
+      {
+        name: 'Visual Design & UI',
         level: 85,
         proficiency: 'Advanced' as const,
-        description: 'Built high-fidelity prototypes and conducted iterative testing with 200+ users across multiple domains'
+        description: 'Color theory, typography, layout composition, and visual hierarchy for intuitive user interfaces across web and mobile platforms'
       },
+      {
+        name: 'Interaction Design',
+        level: 82,
+        proficiency: 'Advanced' as const,
+        description: 'Microinteractions, animation design, state management, and user flow optimization for engaging digital experiences'
+      },
+      {
+        name: 'Design Systems',
+        level: 80,
+        proficiency: 'Advanced' as const,
+        description: 'Component libraries, design tokens, and pattern documentation for scalable, consistent user interfaces across products'
+      }
+    ],
+    'Full Stack Development': [
       {
         name: 'HTML (Semantic & Accessible)',
         level: 80,
@@ -152,6 +172,12 @@ const Home = () => {
       }
     ],
     'AI Development & Automation': [
+      {
+        name: 'Python & Scripting',
+        level: 85,
+        proficiency: 'Advanced' as const,
+        description: 'Data analysis, automation scripting, API integrations, and analytics workflows using Python, pandas, and automation libraries'
+      },
       {
         name: 'AI-Augmented Development (Prompting, Prototyping, Code Gen)',
         level: 82,
