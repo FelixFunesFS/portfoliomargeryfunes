@@ -18,18 +18,21 @@ interface TechnicalSkillsMatrixProps {
 
 const CATEGORY_ORDER = [
   'UX Research',
+  'UX Design',
   'Full Stack Development',
   'AI Development & Automation'
 ];
 
 const CATEGORY_COLORS = {
   'UX Research': 'hsl(var(--primary))',
-  'Full Stack Development': 'hsl(var(--chart-2))',
+  'UX Design': 'hsl(var(--accent))',
+  'Full Stack Development': 'hsl(var(--systems-cyan))',
   'AI Development & Automation': 'hsl(var(--success))'
 };
 
 const CATEGORY_ICONS: Record<string, string> = {
   'UX Research': '🔬',
+  'UX Design': '🎨',
   'Full Stack Development': '💻',
   'AI Development & Automation': '🤖'
 };
@@ -169,27 +172,46 @@ export default function TechnicalSkillsMatrix({ skills }: TechnicalSkillsMatrixP
         </div>
 
         <Tabs defaultValue="UX Research" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 h-auto p-1 mb-8 bg-muted/50">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 h-auto p-1 mb-8 bg-muted/50 gap-1">
             <TabsTrigger 
               value="UX Research" 
-              className="gap-2 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary"
+              className="gap-1.5 sm:gap-2 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary"
             >
               <span className="text-base sm:text-lg">🔬</span>
-              <span className="text-xs sm:text-sm font-medium">UX Research</span>
+              <span className="text-xs sm:text-sm font-medium">
+                <span className="hidden sm:inline">UX Research</span>
+                <span className="sm:hidden">Research</span>
+              </span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="UX Design" 
+              className="gap-1.5 sm:gap-2 py-3 data-[state=active]:bg-accent/10 data-[state=active]:text-accent"
+            >
+              <span className="text-base sm:text-lg">🎨</span>
+              <span className="text-xs sm:text-sm font-medium">
+                <span className="hidden sm:inline">UX Design</span>
+                <span className="sm:hidden">Design</span>
+              </span>
             </TabsTrigger>
             <TabsTrigger 
               value="Full Stack Development" 
-              className="gap-2 py-3 data-[state=active]:bg-chart-2/10 data-[state=active]:text-chart-2"
+              className="gap-1.5 sm:gap-2 py-3 data-[state=active]:bg-systems-cyan/10 data-[state=active]:text-systems-cyan"
             >
               <span className="text-base sm:text-lg">💻</span>
-              <span className="text-xs sm:text-sm font-medium">Full Stack Dev</span>
+              <span className="text-xs sm:text-sm font-medium">
+                <span className="hidden sm:inline">Full Stack Dev</span>
+                <span className="sm:hidden">Dev</span>
+              </span>
             </TabsTrigger>
             <TabsTrigger 
               value="AI Development & Automation" 
-              className="gap-2 py-3 data-[state=active]:bg-success/10 data-[state=active]:text-success"
+              className="gap-1.5 sm:gap-2 py-3 data-[state=active]:bg-success/10 data-[state=active]:text-success"
             >
               <span className="text-base sm:text-lg">🤖</span>
-              <span className="text-xs sm:text-sm font-medium">AI/Automation</span>
+              <span className="text-xs sm:text-sm font-medium">
+                <span className="hidden sm:inline">AI/Automation</span>
+                <span className="sm:hidden">AI/Auto</span>
+              </span>
             </TabsTrigger>
           </TabsList>
 
