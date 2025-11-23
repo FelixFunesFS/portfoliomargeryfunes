@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/components/ui/hover-card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Download } from 'lucide-react';
 
 interface Skill {
@@ -147,28 +148,51 @@ export default function TechnicalSkillsMatrix({ skills }: TechnicalSkillsMatrixP
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
           <div>
-            <h2 className="text-3xl font-bold text-foreground mb-2">
-              Technical Skills
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
+              <span className="text-foreground">Technical </span>
+              <span className="bg-gradient-to-r from-primary via-systems-cyan to-accent bg-clip-text text-transparent">
+                Capabilities
+              </span>
+              <span className="text-foreground"> & Implementation</span>
             </h2>
-            <p className="text-sm text-muted-foreground">
-              Hover to learn more
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl">
+              Comprehensive technical skills refined through 20+ years of hands-on experience across research, development, and systems optimization.
             </p>
           </div>
-          <Button variant="ghost" size="sm" onClick={handleExport} className="gap-2">
+          <Button variant="ghost" size="sm" onClick={handleExport} className="gap-2 self-start sm:self-auto">
             <Download className="w-4 h-4" />
-            <span className="hidden sm:inline">Export</span>
+            <span className="hidden sm:inline">Export Skills</span>
+            <span className="sm:hidden">Export</span>
           </Button>
         </div>
 
-        <motion.div 
-          className="space-y-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+        <Tabs defaultValue="UX Research" className="w-full">
+          <TabsList className="grid w-full grid-cols-3 h-auto p-1 mb-8 bg-muted/50">
+            <TabsTrigger 
+              value="UX Research" 
+              className="gap-2 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary"
+            >
+              <span className="text-base sm:text-lg">🔬</span>
+              <span className="text-xs sm:text-sm font-medium">UX Research</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="Full Stack Development" 
+              className="gap-2 py-3 data-[state=active]:bg-chart-2/10 data-[state=active]:text-chart-2"
+            >
+              <span className="text-base sm:text-lg">💻</span>
+              <span className="text-xs sm:text-sm font-medium">Full Stack Dev</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="AI Development & Automation" 
+              className="gap-2 py-3 data-[state=active]:bg-success/10 data-[state=active]:text-success"
+            >
+              <span className="text-base sm:text-lg">🤖</span>
+              <span className="text-xs sm:text-sm font-medium">AI/Automation</span>
+            </TabsTrigger>
+          </TabsList>
+
           {Object.entries(groupedSkills).map(([category, categorySkills]) => {
             const categoryIcon = CATEGORY_ICONS[category as keyof typeof CATEGORY_ICONS];
             const categoryColor = CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS];
@@ -180,23 +204,16 @@ export default function TechnicalSkillsMatrix({ skills }: TechnicalSkillsMatrixP
             });
 
             return (
-              <div key={category} className="space-y-5">
-                {/* Category Header with Icon + Gradient Underline */}
-                <div className="relative pb-3">
-                  <h3 className="text-2xl font-bold text-foreground flex items-center gap-3 tracking-tight">
-                    <span className="text-3xl">{categoryIcon}</span>
-                    {category}
-                  </h3>
-                  <div 
-                    className="absolute bottom-0 left-0 h-0.5 w-full opacity-30"
-                    style={{
-                      background: `linear-gradient(90deg, ${categoryColor} 0%, transparent 100%)`
-                    }}
-                  />
-                </div>
-
-                {/* Glassmorphic Skill Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <TabsContent key={category} value={category} className="mt-0">
+                <motion.div 
+                  className="space-y-5"
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                >
+                  {/* Glassmorphic Skill Cards Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-in">
                   {sortedSkills.map((skill) => {
                     const proficiencyGradient = PROFICIENCY_GRADIENTS[skill.proficiency];
                     const proficiencyIcon = PROFICIENCY_ICONS[skill.proficiency];
@@ -278,11 +295,12 @@ export default function TechnicalSkillsMatrix({ skills }: TechnicalSkillsMatrixP
                       </motion.div>
                     );
                   })}
-                </div>
-              </div>
+                  </div>
+                </motion.div>
+              </TabsContent>
             );
           })}
-        </motion.div>
+        </Tabs>
       </div>
     </section>
   );
