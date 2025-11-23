@@ -425,7 +425,7 @@ const Home = () => {
         imageSrc={sectionBgJourney} 
         alt="Military to user-centered design transition"
         height="md"
-        overlayGradient="from-background/95 via-accent/20 to-background/95"
+        overlayGradient="from-primary/90 via-accent/50 to-primary/30"
       />
 
       {/* Journey: Bridging the Gap */}
