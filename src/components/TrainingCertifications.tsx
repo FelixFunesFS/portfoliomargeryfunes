@@ -112,6 +112,17 @@ const getCategoryColor = (category?: string) => {
   }
 };
 
+const getOrganizationLogo = (organization: string) => {
+  switch (organization) {
+    case "Google":
+      return googleLogo;
+    case "IBM":
+      return ibmLogo;
+    default:
+      return null;
+  }
+};
+
 export const TrainingCertifications = () => {
   return (
     <section className="container-custom py-12 sm:py-16">
@@ -157,9 +168,19 @@ export const TrainingCertifications = () => {
                       <div className="p-2 rounded-lg bg-primary/10">
                         <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                       </div>
-                      <Badge variant="outline" className="text-xs">
-                        {cert.organization}
-                      </Badge>
+                      {getOrganizationLogo(cert.organization) ? (
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-card border border-primary/20 flex items-center justify-center p-1.5">
+                          <img
+                            src={getOrganizationLogo(cert.organization)!}
+                            alt={cert.organization}
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                      ) : (
+                        <Badge variant="outline" className="text-xs">
+                          {cert.organization}
+                        </Badge>
+                      )}
                     </div>
                     <CardTitle className="text-lg sm:text-xl">{cert.name}</CardTitle>
                   </CardHeader>
@@ -177,49 +198,6 @@ export const TrainingCertifications = () => {
           </div>
         </motion.div>
 
-        {/* Certification Providers Marquee */}
-        <motion.div 
-          variants={itemVariants}
-          className="py-6 sm:py-8 my-8 sm:my-10 bg-muted/20 rounded-xl overflow-hidden"
-        >
-          <div className="relative">
-            <div className="overflow-hidden">
-              <motion.div 
-                className="flex gap-12 sm:gap-16 animate-marquee hover:[animation-play-state:paused]"
-                aria-label="Certification providers"
-              >
-                {/* Duplicate logo pairs 4 times for seamless loop */}
-                {[...Array(4)].map((_, setIndex) => (
-                  <div key={setIndex} className="flex gap-12 sm:gap-16 flex-shrink-0">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-card/50 backdrop-blur-sm border border-primary/30 shadow-inner flex items-center justify-center p-3 sm:p-4 hover:shadow-lg hover:border-primary/50 hover:scale-110 transition-all duration-300">
-                        <img
-                          src={googleLogo}
-                          alt="Google"
-                          className="max-w-full max-h-full object-contain"
-                        />
-                      </div>
-                    </div>
-                    
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-card/50 backdrop-blur-sm border border-accent/30 shadow-inner flex items-center justify-center p-3 sm:p-4 hover:shadow-lg hover:border-accent/50 hover:scale-110 transition-all duration-300">
-                        <img
-                          src={ibmLogo}
-                          alt="IBM"
-                          className="max-w-full max-h-full object-contain"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-            
-            {/* Gradient overlays for fade effect */}
-            <div className="absolute inset-y-0 left-0 w-20 sm:w-24 bg-gradient-to-r from-muted/20 to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-20 sm:w-24 bg-gradient-to-l from-muted/20 to-transparent pointer-events-none" />
-          </div>
-        </motion.div>
 
         {/* Supporting Technical Credentials */}
         <motion.div variants={itemVariants}>
@@ -242,9 +220,19 @@ export const TrainingCertifications = () => {
                   <CardHeader className="pb-2">
                     <div className="flex items-center gap-2 mb-2">
                       <Award className="w-4 h-4 text-accent" />
-                      <Badge variant="outline" className="text-xs">
-                        {cert.organization}
-                      </Badge>
+                      {getOrganizationLogo(cert.organization) ? (
+                        <div className="w-6 h-6 sm:w-7 sm:h-7 rounded bg-card border border-accent/20 flex items-center justify-center p-1">
+                          <img
+                            src={getOrganizationLogo(cert.organization)!}
+                            alt={cert.organization}
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                      ) : (
+                        <Badge variant="outline" className="text-xs">
+                          {cert.organization}
+                        </Badge>
+                      )}
                     </div>
                     <CardTitle className="text-base sm:text-lg leading-snug">
                       {cert.name}
