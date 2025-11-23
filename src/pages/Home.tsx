@@ -32,6 +32,8 @@ import sectionBgResearch from '@/assets/section-bg-research.jpg';
 import sectionBgSkills from '@/assets/section-bg-skills.jpg';
 import sectionBgJourney from '@/assets/section-bg-journey.jpg';
 import sectionBgCta from '@/assets/section-bg-cta.jpg';
+import sectionBgCompetencies from '@/assets/section-bg-competencies.jpg';
+import sectionBgCertifications from '@/assets/section-bg-certifications.jpg';
 const Home = () => {
   const navigate = useNavigate();
   const handleViewCaseStudy = (projectTitle: string) => {
@@ -337,6 +339,14 @@ const Home = () => {
         <ResearchMethodologyAndProcess />
       </section>
 
+      {/* Full-Width Image: Core Competencies */}
+      <FullWidthImageSection 
+        imageSrc={sectionBgCompetencies} 
+        alt="Core competencies and capabilities visualization"
+        height="sm"
+        overlayGradient="from-primary/90 via-systems-cyan/50 to-accent/30"
+      />
+
       {/* Core Competencies - PRIMARY EXPERTISE */}
       <section className="border-t-4 border-primary/20">
         <CoreCompetenciesGrid />
@@ -346,6 +356,14 @@ const Home = () => {
       <section className="border-t-4 border-primary/20">
         <SoftSkillsShowcase />
       </section>
+
+      {/* Full-Width Image: Training & Certifications */}
+      <FullWidthImageSection 
+        imageSrc={sectionBgCertifications} 
+        alt="Professional training and certifications"
+        height="sm"
+        overlayGradient="from-primary/90 via-success/50 to-primary/30"
+      />
 
       {/* Training & Certifications - PRIMARY EXPERTISE */}
       <section className="border-t-4 border-primary/20">
