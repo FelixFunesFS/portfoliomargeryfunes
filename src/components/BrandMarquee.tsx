@@ -28,7 +28,7 @@ const BrandMarquee = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-lg font-semibold text-muted-foreground mb-8"
+          className="text-center text-lg font-semibold bg-gradient-to-r from-primary via-accent to-systems-cyan bg-clip-text text-transparent mb-8"
         >
           Trusted By
         </motion.h2>
@@ -44,11 +44,11 @@ const BrandMarquee = () => {
                   key={`brand-1-${index}`}
                   className="flex-shrink-0"
                 >
-                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-card/50 backdrop-blur-sm border border-border/30 flex items-center justify-center p-4 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-card/50 backdrop-blur-sm border border-border/50 shadow-inner flex items-center justify-center p-4 hover:shadow-lg hover:border-primary/50 transition-all duration-300">
                     <img
                       src={brand.logo}
                       alt={brand.name}
-                      className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                      className="max-w-full max-h-full object-contain hover:scale-110 transition-all duration-300"
                     />
                   </div>
                 </div>
@@ -60,11 +60,11 @@ const BrandMarquee = () => {
                   key={`brand-2-${index}`}
                   className="flex-shrink-0"
                 >
-                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-card/50 backdrop-blur-sm border border-border/30 flex items-center justify-center p-4 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-card/50 backdrop-blur-sm border border-border/50 shadow-inner flex items-center justify-center p-4 hover:shadow-lg hover:border-primary/50 transition-all duration-300">
                     <img
                       src={brand.logo}
                       alt={brand.name}
-                      className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                      className="max-w-full max-h-full object-contain hover:scale-110 transition-all duration-300"
                     />
                   </div>
                 </div>
