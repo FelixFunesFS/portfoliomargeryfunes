@@ -48,13 +48,6 @@ export const CaseStudySummaryCard = ({
             )}
           </div>
 
-          {/* Title */}
-          <h3 className={cn(
-            "font-bold leading-tight text-foreground",
-            featured ? "text-2xl lg:text-3xl" : "text-xl lg:text-2xl"
-          )}>
-            {caseStudy.title}
-          </h3>
 
           {/* Research Scale Showcase */}
           {caseStudy.researchScale && (
@@ -91,8 +84,15 @@ export const CaseStudySummaryCard = ({
           {/* TOP SECTION: Challenge/Solution (50%) + Key Results/Methods (50%) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="lg:border-r lg:border-border/30 lg:pr-6">
-            {/* LEFT COLUMN: Challenge + Solution */}
+            {/* LEFT COLUMN: Title + Challenge + Solution */}
             <div className="space-y-5 flex flex-col">
+              {/* Title */}
+              <h3 className={cn(
+                "font-bold leading-tight text-foreground break-words",
+                featured ? "text-2xl lg:text-3xl" : "text-xl lg:text-2xl"
+              )}>
+                {caseStudy.title}
+              </h3>
               {/* THE CHALLENGE */}
               <div className="space-y-3 flex-[1.2]">
                 <div className="flex items-center gap-2 text-destructive">
