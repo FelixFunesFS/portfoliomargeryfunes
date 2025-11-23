@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { GraduationCap, Award } from 'lucide-react';
+import googleLogo from '@/assets/brands/google-logo.png';
+import ibmLogo from '@/assets/brands/ibm-logo.png';
 
 interface Certification {
   name: string;
@@ -172,6 +174,50 @@ export const TrainingCertifications = () => {
                 </Card>
               </motion.div>
             ))}
+          </div>
+        </motion.div>
+
+        {/* Certification Providers Marquee */}
+        <motion.div 
+          variants={itemVariants}
+          className="py-6 sm:py-8 my-8 sm:my-10 bg-muted/20 rounded-xl overflow-hidden"
+        >
+          <div className="relative">
+            <div className="overflow-hidden">
+              <motion.div 
+                className="flex gap-12 sm:gap-16 animate-marquee hover:[animation-play-state:paused]"
+                aria-label="Certification providers"
+              >
+                {/* Duplicate logo pairs 4 times for seamless loop */}
+                {[...Array(4)].map((_, setIndex) => (
+                  <div key={setIndex} className="flex gap-12 sm:gap-16 flex-shrink-0">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-card/50 backdrop-blur-sm border border-primary/30 shadow-inner flex items-center justify-center p-3 sm:p-4 hover:shadow-lg hover:border-primary/50 hover:scale-110 transition-all duration-300">
+                        <img
+                          src={googleLogo}
+                          alt="Google"
+                          className="max-w-full max-h-full object-contain"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-card/50 backdrop-blur-sm border border-accent/30 shadow-inner flex items-center justify-center p-3 sm:p-4 hover:shadow-lg hover:border-accent/50 hover:scale-110 transition-all duration-300">
+                        <img
+                          src={ibmLogo}
+                          alt="IBM"
+                          className="max-w-full max-h-full object-contain"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+            
+            {/* Gradient overlays for fade effect */}
+            <div className="absolute inset-y-0 left-0 w-20 sm:w-24 bg-gradient-to-r from-muted/20 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-20 sm:w-24 bg-gradient-to-l from-muted/20 to-transparent pointer-events-none" />
           </div>
         </motion.div>
 
