@@ -817,6 +817,47 @@ export const caseStudy6: CaseStudy = {
     }
   ],
 
-  // Placeholder for future videos
-  videos: []
+  // Video Walkthroughs
+  videos: [
+    {
+      title: "Customer Quote Request Flow",
+      description: "Complete walkthrough of the 6-step quote wizard from a customer's perspective. Shows mobile-first design, form validation, and confirmation experience.",
+      url: "", // Add your Loom/YouTube URL here
+      thumbnail: "", // Optional: add a thumbnail image path
+      duration: "2:30",
+      type: "demo" as const
+    },
+    {
+      title: "Admin Dashboard Overview",
+      description: "Tour of the admin dashboard showing event management, quote review process, estimate creation, and payment tracking features.",
+      url: "", // Add your Loom/YouTube URL here
+      thumbnail: "",
+      duration: "4:15",
+      type: "walkthrough" as const
+    },
+    {
+      title: "Customer Portal Experience",
+      description: "Demonstration of the customer portal where clients review estimates, accept terms, and process payments through Stripe integration.",
+      url: "", // Add your Loom/YouTube URL here
+      thumbnail: "",
+      duration: "3:00",
+      type: "demo" as const
+    },
+    {
+      title: "Staff Schedule View",
+      description: "Mobile-first staff dashboard showing upcoming events, assignment details, and calendar integration for on-site catering teams.",
+      url: "", // Add your Loom/YouTube URL here
+      thumbnail: "",
+      duration: "1:45",
+      type: "walkthrough" as const
+    },
+    {
+      title: "Payment Flow & Stripe Integration",
+      description: "End-to-end payment process showing milestone structure, Stripe checkout, webhook handling, and confirmation emails.",
+      url: "", // Add your Loom/YouTube URL here
+      thumbnail: "",
+      duration: "2:15",
+      type: "tutorial" as const
+    }
+  ]
 };

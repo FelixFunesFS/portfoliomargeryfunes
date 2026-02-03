@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ExternalLink, Users, GitBranch, Zap, TrendingUp, Quote, Lightbulb, CheckCircle2, RefreshCw } from "lucide-react";
+import { ArrowLeft, ExternalLink, Users, GitBranch, Zap, TrendingUp, Quote, Lightbulb, CheckCircle2, RefreshCw, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,6 +12,7 @@ import { UserFlowStepper } from "@/components/UserFlowStepper";
 import { MermaidDiagram } from "@/components/MermaidDiagram";
 import { SystemTouchpointsMatrix } from "@/components/SystemTouchpointsMatrix";
 import { AutomatedWorkflowsTimeline } from "@/components/AutomatedWorkflowsTimeline";
+import { VideoShowcase } from "@/components/VideoShowcase";
 import ResearchArtifactGallery from "@/components/ResearchArtifactGallery";
 import { ResearchProcessTimeline } from "@/components/ResearchProcessTimeline";
 import { caseStudy6 } from "@/data/caseStudies/caseStudy6";
@@ -450,7 +451,41 @@ const SoulTrainsCaseStudy = () => {
         </section>
       )}
 
-      {/* CTA Section */}
+      {/* Video Walkthroughs Section */}
+      {caseStudy.videos && caseStudy.videos.length > 0 && (
+        <section className="py-16 px-4 md:px-8 lg:px-16 bg-muted/30">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-8"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-lg bg-purple-500/10">
+                  <Video className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                </div>
+                <Badge variant="outline" className="bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/30">
+                  Video Demos
+                </Badge>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                Video Walkthroughs
+              </h2>
+              <p className="text-muted-foreground mt-2">
+                See the application in action with these recorded demonstrations
+              </p>
+            </motion.div>
+
+            <VideoShowcase videos={caseStudy.videos.filter(v => v.url)} />
+            
+            {/* Show placeholder if no videos have URLs yet */}
+            {caseStudy.videos.every(v => !v.url) && (
+              <VideoShowcase videos={[]} />
+            )}
+          </div>
+        </section>
+      )}
       <section className="py-16 px-4 md:px-8 lg:px-16">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
