@@ -301,14 +301,19 @@ export const CaseStudySummaryCard = ({
           <div className="pt-2 border-t border-border/20">
             <Button
               onClick={() => {
-                navigate('/case-studies', { 
-                  state: { selectedStudyId: caseStudy.id } 
-                });
+                // Soul Train's Eatery (ID 6) has a dedicated deep dive page
+                if (caseStudy.id === 6) {
+                  navigate('/case-studies/soul-trains-eatery');
+                } else {
+                  navigate('/case-studies', { 
+                    state: { selectedStudyId: caseStudy.id } 
+                  });
+                }
               }}
               className="w-full group mt-4"
               variant="outline"
             >
-              <span>View Full Case Study</span>
+              <span>{caseStudy.id === 6 ? 'View Deep Dive Case Study' : 'View Full Case Study'}</span>
               <ExternalLink className="w-4 h-4 ml-2" />
             </Button>
           </div>
