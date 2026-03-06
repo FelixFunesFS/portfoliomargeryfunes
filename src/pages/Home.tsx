@@ -681,7 +681,7 @@ const Home = () => {
                       </div>
                       <h4 className="text-lg font-semibold text-primary">The Realization</h4>
                     </div>
-                    <p className="text-base text-muted-foreground leading-relaxed mb-4">
+                    <p className="text-base text-foreground/80 leading-relaxed mb-4">
                       The key insight was that successful technology solutions required someone who could understand both worlds — the technical possibilities and the human reality. Most users couldn't clearly express their needs in technical terms, and development teams didn't always have access to the full context of daily operations.
                     </p>
                     <div className="bg-accent/10 p-4 rounded-lg border-l-4 border-accent">
