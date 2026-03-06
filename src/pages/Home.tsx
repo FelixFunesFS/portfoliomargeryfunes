@@ -456,7 +456,7 @@ const Home = () => {
 
       {/* Journey: Bridging the Gap */}
       <section id="about" className="section bg-gradient-to-br from-accent/30 via-background to-muted/20 py-16 lg:py-20 relative">
-        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
           backgroundImage: `url(${sectionBgJourney})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -481,19 +481,17 @@ const Home = () => {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
               From Military Precision to <span className="text-gradient bg-gradient-to-r from-military-primary via-systems-blue to-agile-primary bg-clip-text text-transparent">User-Centered Innovation</span>
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-4 sm:px-0">My Journey bridging the gap between technical complexity and human needs.</p>
+            <p className="text-base sm:text-lg lg:text-xl text-foreground/70 max-w-4xl mx-auto px-4 sm:px-0">My Journey bridging the gap between technical complexity and human needs.</p>
           </motion.div>
 
           {/* Two Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Column - Journey Steps Timeline */}
-            <div className="relative">
+            <div className="relative bg-background/70 backdrop-blur-sm rounded-xl p-6">
               <h3 className="text-xl font-semibold mb-6 text-primary">Journey Steps</h3>
               
               {/* Timeline Container */}
               <div className="relative pl-8">
-                {/* Continuous vertical line */}
-                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30"></div>
                 
                 {/* Timeline Items */}
                 <div className="space-y-3">
@@ -522,7 +520,7 @@ const Home = () => {
                           U.S. Air Force & Boeing
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
+                      <p className="text-base text-foreground/80 leading-relaxed">
                         Noticed systems didn't align with how people actually worked. Applications were clunky, workflows inefficient.
                       </p>
                     </div>
@@ -553,7 +551,7 @@ const Home = () => {
                           Learning & Building
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
+                      <p className="text-base text-foreground/80 leading-relaxed">
                         Began learning automation, programming, and systems analysis to improve processes and bridge the user-technology gap.
                       </p>
                     </div>
@@ -584,7 +582,7 @@ const Home = () => {
                           Continuous Improvement
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">Recognizing the value of my technical skills and user perspective, my superiors began rotating me into new roles to assess, modernize, and automate core systems.</p>
+                      <p className="text-base text-foreground/80 leading-relaxed">Recognizing the value of my technical skills and user perspective, my superiors began rotating me into new roles to assess, modernize, and automate core systems.</p>
                       <div className="mt-2 bg-accent/10 p-3 rounded-lg border-l-4 border-accent">
                          <p className="text-base text-primary font-medium leading-relaxed italic">
                            "Known for making the seemingly impossible impossible!"
@@ -618,7 +616,7 @@ const Home = () => {
                           Communication & Alignment
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
+                      <p className="text-base text-foreground/80 leading-relaxed">
                         Discovered the gap between users who couldn't express technical needs and developers lacking operational context.
                       </p>
                     </div>
@@ -649,7 +647,7 @@ const Home = () => {
                           User Research & Experience Design
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
+                      <p className="text-base text-foreground/80 leading-relaxed">
                         Earned certifications, refined design practice, and expanded into full stack development.
                       </p>
                     </div>
@@ -683,7 +681,7 @@ const Home = () => {
                       </div>
                       <h4 className="text-lg font-semibold text-primary">The Realization</h4>
                     </div>
-                    <p className="text-base text-muted-foreground leading-relaxed mb-4">
+                    <p className="text-base text-foreground/80 leading-relaxed mb-4">
                       The key insight was that successful technology solutions required someone who could understand both worlds — the technical possibilities and the human reality. Most users couldn't clearly express their needs in technical terms, and development teams didn't always have access to the full context of daily operations.
                     </p>
                     <div className="bg-accent/10 p-4 rounded-lg border-l-4 border-accent">
@@ -716,7 +714,7 @@ const Home = () => {
                       </div>
                       <h4 className="font-semibold text-primary">Today's Mission</h4>
                     </div>
-                    <p className="text-base text-muted-foreground leading-relaxed mb-3">
+                    <p className="text-base text-foreground/80 leading-relaxed mb-3">
                       I create research-driven, human-centered solutions that help teams build the right 
                       products — the first time. My military background brings systematic rigor to UX research, 
                       while my technical skills ensure feasible, implementable solutions.
