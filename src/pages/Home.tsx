@@ -520,7 +520,7 @@ const Home = () => {
                           U.S. Air Force & Boeing
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
+                      <p className="text-base text-foreground/80 leading-relaxed">
                         Noticed systems didn't align with how people actually worked. Applications were clunky, workflows inefficient.
                       </p>
                     </div>
