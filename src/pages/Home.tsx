@@ -714,7 +714,7 @@ const Home = () => {
                       </div>
                       <h4 className="font-semibold text-primary">Today's Mission</h4>
                     </div>
-                    <p className="text-base text-muted-foreground leading-relaxed mb-3">
+                    <p className="text-base text-foreground/80 leading-relaxed mb-3">
                       I create research-driven, human-centered solutions that help teams build the right 
                       products — the first time. My military background brings systematic rigor to UX research, 
                       while my technical skills ensure feasible, implementable solutions.
