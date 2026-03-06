@@ -647,7 +647,7 @@ const Home = () => {
                           User Research & Experience Design
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
+                      <p className="text-base text-foreground/80 leading-relaxed">
                         Earned certifications, refined design practice, and expanded into full stack development.
                       </p>
                     </div>
