@@ -582,7 +582,7 @@ const Home = () => {
                           Continuous Improvement
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">Recognizing the value of my technical skills and user perspective, my superiors began rotating me into new roles to assess, modernize, and automate core systems.</p>
+                      <p className="text-base text-foreground/80 leading-relaxed">Recognizing the value of my technical skills and user perspective, my superiors began rotating me into new roles to assess, modernize, and automate core systems.</p>
                       <div className="mt-2 bg-accent/10 p-3 rounded-lg border-l-4 border-accent">
                          <p className="text-base text-primary font-medium leading-relaxed italic">
                            "Known for making the seemingly impossible impossible!"
