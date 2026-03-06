@@ -551,7 +551,7 @@ const Home = () => {
                           Learning & Building
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
+                      <p className="text-base text-foreground/80 leading-relaxed">
                         Began learning automation, programming, and systems analysis to improve processes and bridge the user-technology gap.
                       </p>
                     </div>
