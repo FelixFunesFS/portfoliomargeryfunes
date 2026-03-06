@@ -456,7 +456,7 @@ const Home = () => {
 
       {/* Journey: Bridging the Gap */}
       <section id="about" className="section bg-gradient-to-br from-accent/30 via-background to-muted/20 py-16 lg:py-20 relative">
-        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
           backgroundImage: `url(${sectionBgJourney})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
