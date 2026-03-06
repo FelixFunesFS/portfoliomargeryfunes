@@ -616,7 +616,7 @@ const Home = () => {
                           Communication & Alignment
                         </Badge>
                       </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
+                      <p className="text-base text-foreground/80 leading-relaxed">
                         Discovered the gap between users who couldn't express technical needs and developers lacking operational context.
                       </p>
                     </div>
