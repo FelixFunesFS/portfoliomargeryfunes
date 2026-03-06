@@ -487,13 +487,11 @@ const Home = () => {
           {/* Two Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Column - Journey Steps Timeline */}
-            <div className="relative">
+            <div className="relative bg-background/70 backdrop-blur-sm rounded-xl p-6">
               <h3 className="text-xl font-semibold mb-6 text-primary">Journey Steps</h3>
               
               {/* Timeline Container */}
               <div className="relative pl-8">
-                {/* Continuous vertical line */}
-                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30"></div>
                 
                 {/* Timeline Items */}
                 <div className="space-y-3">
