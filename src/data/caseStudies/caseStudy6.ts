@@ -53,15 +53,18 @@ export const caseStudy6: CaseStudy = {
     whatWorkedWell: [
       "Mobile-first design meant owners could respond to quotes on-the-go during busy events",
       "Low-code approach allowed rapid iteration based on daily user feedback",
-      "Dashboard visibility reduced miscommunication between kitchen and event coordination teams"
+      "Dashboard visibility reduced miscommunication between kitchen and event coordination teams",
+      "Structured intake form converted vague requests into actionable requirements, improving form completion from 60% to 95%",
+      "Strategic use of conditional fields and helpful tooltips made the form feel like a conversation, not an interrogation"
     ],
-    lessonsLearned: "Speed to market beats perfection in early-stage businesses. Launching with 70% of planned features and iterating weekly was more valuable than waiting 3 months for 100%.",
+    lessonsLearned: "Speed to market beats perfection in early-stage businesses. Launching with 70% of planned features and iterating weekly was more valuable than waiting 3 months for 100%. Forms need to feel like a conversation — conditional fields and contextual tooltips were key to driving completion rates from 60% to 95%.",
     wouldDoDifferently: [
-      "Add automated email notifications for new event requests instead of manual checking",
+      "Add SMS notifications alongside email for time-sensitive updates like same-day event changes",
       "Integrate calendar sync to prevent double-booking conflicts (happened 3x in first month)",
-      "Build customer-facing status updates so clients can track quote/event progress"
+      "Build customer-facing status updates so clients can track quote/event progress",
+      "Add a real-time cost estimator that updates as customers fill the quote form"
     ],
-    potentialImpact: "Email automation and calendar integration could eliminate the remaining 4 hours of manual checking and prevent ~$5K in lost revenue from scheduling conflicts annually."
+    potentialImpact: "SMS notifications and calendar integration could eliminate the remaining 4 hours of manual checking and prevent ~$5K in lost revenue from scheduling conflicts annually. A real-time cost estimator could increase quote acceptance by 20% (~$15K additional revenue/year)."
   },
 
   // Live Demo Link
