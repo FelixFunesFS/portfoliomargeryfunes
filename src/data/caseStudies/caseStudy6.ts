@@ -24,6 +24,9 @@ export const caseStudy6: CaseStudy = {
   assumptions: "App needed to work on mobile with low technical overhead",
   limitations: "No budget for a fully custom system; needed fast turnaround",
   uxImpact: "Improved customer satisfaction, faster response times, better internal coordination.",
+  userVoice: "I used to spend my whole morning calling caterers and waiting on hold. Now I submit a form from the parking lot at soccer practice and get a quote before pickup.",
+  stakeholderQuote: "We went from losing 3-4 leads a week to capturing every single one. The app paid for itself in the first month. - Owner, Soul Train's Eatery",
+  userProblem: "Event requests arrived via phone, text, email, and social media with no central system, causing missed leads, forgotten details, and double-booked dates",
   metrics: [
     { label: "Response Time", value: "83% faster", percentage: 83 },
     { label: "Lead Conversion", value: "40% improvement", percentage: 40 },
