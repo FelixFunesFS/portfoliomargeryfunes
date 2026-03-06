@@ -6,7 +6,6 @@ import { caseStudy3 } from './caseStudy3';
 import { caseStudy4 } from './caseStudy4';
 import { caseStudy5 } from './caseStudy5';
 import { caseStudy6 } from './caseStudy6';
-import { caseStudy7 } from './caseStudy7';
 
 export const caseStudiesData: CaseStudy[] = [
   caseStudy1,
@@ -14,6 +13,5 @@ export const caseStudiesData: CaseStudy[] = [
   caseStudy3,
   caseStudy4,
   caseStudy5,
-  caseStudy6,
-  caseStudy7
+  caseStudy6
 ];
