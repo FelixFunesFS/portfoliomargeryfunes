@@ -9,6 +9,7 @@ import Insights from "./pages/Insights";
 import DeveloperPortfolio from "./pages/DeveloperPortfolio";
 import SoulTrainsCaseStudy from "./pages/SoulTrainsCaseStudy";
 import CapabilitiesDeck from "./pages/CapabilitiesDeck";
+import Servicios from "./pages/Servicios";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
