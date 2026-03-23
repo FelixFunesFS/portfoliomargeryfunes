@@ -31,7 +31,9 @@ const coreCompetencies: CoreCompetency[] = [
     impactStatement: 'Led 50+ user studies across military and civilian domains',
     yearsExperience: 8,
     highlightMetric: '15+ studies',
-    color: 'hsl(var(--primary))'
+    color: 'hsl(var(--primary))',
+    subtitle: 'Uncovering user needs through structured interviews, testing, and behavioral analysis',
+    methods: ['User Interviews', 'Usability Testing', 'Journey Mapping']
   },
   {
     name: 'Systems Analysis',
@@ -40,7 +42,9 @@ const coreCompetencies: CoreCompetency[] = [
     impactStatement: 'Architected enterprise solutions for 10,000+ users',
     yearsExperience: 10,
     highlightMetric: '10k+ users',
-    color: 'hsl(var(--systems-blue))'
+    color: 'hsl(var(--systems-blue))',
+    subtitle: 'Mapping complex workflows to find inefficiencies and design better processes',
+    methods: ['Workflow Analysis', 'Requirements Gathering', 'Process Mapping']
   },
   {
     name: 'UI/UX Design',
@@ -49,7 +53,9 @@ const coreCompetencies: CoreCompetency[] = [
     impactStatement: 'Created design systems tested with 200+ users',
     yearsExperience: 6,
     highlightMetric: '8+ apps designed',
-    color: 'hsl(var(--accent))'
+    color: 'hsl(var(--accent))',
+    subtitle: 'Translating research insights into intuitive interfaces people actually want to use',
+    methods: ['Wireframing', 'Prototyping', 'Design Systems']
   },
   {
     name: 'Data Analysis',
@@ -58,7 +64,9 @@ const coreCompetencies: CoreCompetency[] = [
     impactStatement: 'Analyzed 500+ hours of user behavior data',
     yearsExperience: 8,
     highlightMetric: '500+ hours',
-    color: 'hsl(var(--military-accent))'
+    color: 'hsl(var(--military-accent))',
+    subtitle: 'Turning raw user behavior data into actionable insights that drive decisions',
+    methods: ['Behavioral Analytics', 'Pattern Recognition', 'Statistical Analysis']
   },
   {
     name: 'Strategic Planning',
@@ -67,7 +75,9 @@ const coreCompetencies: CoreCompetency[] = [
     impactStatement: 'Developed multi-year roadmaps for enterprise initiatives',
     yearsExperience: 10,
     highlightMetric: 'Multi-year roadmaps',
-    color: 'hsl(var(--agile-primary))'
+    color: 'hsl(var(--agile-primary))',
+    subtitle: 'Aligning product roadmaps with business goals and user needs across teams',
+    methods: ['Roadmap Development', 'Stakeholder Alignment', 'OKR Frameworks']
   },
   {
     name: 'Leadership',
@@ -76,7 +86,9 @@ const coreCompetencies: CoreCompetency[] = [
     impactStatement: 'Led cross-functional teams of 20+ members',
     yearsExperience: 12,
     highlightMetric: '50+ personnel',
-    color: 'hsl(var(--accent))'
+    color: 'hsl(var(--accent))',
+    subtitle: 'Building and guiding cross-functional teams through ambiguity to deliver results',
+    methods: ['Team Building', 'Mentorship', 'Cross-functional Coordination']
   }
 ];
 
