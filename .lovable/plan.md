@@ -1,53 +1,66 @@
 
 
-# Adding Detail to Core Competencies
+# Capabilities Deck — Responsiveness & Font Audit
 
-## The Problem
+## Current State
 
-Right now each competency shows: name, years, one vague metric ("15+ studies", "10k+ users"). A recruiter or collaborator sees "Systems Analysis — 10 years" and thinks "so what?" There is no explanation of **what you actually did**, **what methods you used**, or **why it matters to them**.
+The deck uses a **correct scaling approach**: all slides render at a fixed 1920x1080 and scale via CSS `transform: scale()` to fit any viewport. This means responsiveness is handled — content won't break at different screen sizes. However, there are font-related issues.
 
-## How to Think About This
+## Issues Found
 
-Each competency card should answer three questions in under 5 seconds of reading:
+### 1. No explicit font-family on slides
+The `slide-content` class wrapper exists in `SlideLayout.tsx` but has **zero CSS rules**. Slides inherit whatever Tailwind's base sets, which may not match the intended presentation look. Inter is imported in `index.css` but not explicitly applied to slides.
 
-1. **What is this?** — A plain-language subtitle (not jargon)
-2. **What did you actually do?** — 2-3 concrete activities/methods as small tags
-3. **Why should I care?** — The impact statement (already exists, but needs sharpening)
+### 2. Font sizes too small on several slides
+At 1920x1080, some text is already small — and when scaled down to a 1110px viewport (current preview), these become nearly unreadable:
 
-The key insight: competencies are not skills — they are **value propositions**. "UX Research" means nothing. "I talk to your users, find where they get stuck, and fix it before you waste dev cycles" means everything.
+| Slide | Element | Current Size | Problem |
+|-------|---------|-------------|---------|
+| Competencies | Method tags | **11px** | Unreadable when scaled |
+| Competencies | Subtitle | **13px** | Too small for presentation |
+| Competencies | Years text | **13px** | Barely visible |
+| CaseStudy | Metric labels | **14px** | Borderline |
+| WebPortfolio | "View live site" | **14px** | Borderline |
+| CaseStudy | Quote attribution | **14px** | Borderline |
 
-## Proposed Data Structure Changes
+### 3. Inconsistent heading hierarchy
+- Title slide: `80px` name
+- Impact slide: `56px` heading
+- Most other slides: `52px` heading
+- Case study: `44px` heading (noticeably smaller)
+- Closing: `64px` heading
 
-Add two new fields to each competency:
+### 4. No font-weight variation for readability
+All body text uses default weight. Presentation slides benefit from slightly heavier body text (weight 500) for projection/screen readability.
 
-- **`subtitle`**: One plain-English sentence explaining what this competency means in practice
-- **`methods`**: 2-3 short tags showing concrete activities (these act as proof points)
+## Plan
 
-### Example Data (both components + deck slide):
+### A. Add `.slide-content` CSS rules to `src/index.css`
+- Set `font-family: 'Inter', sans-serif` explicitly
+- Set minimum font floor: nothing below **14px** at 1920x1080
+- Set base `font-weight: 500` for better screen readability
+- Add `letter-spacing: 0.01em` for cleaner presentation text
+- Add `-webkit-font-smoothing: antialiased`
 
-| Competency | Subtitle | Methods |
-|---|---|---|
-| UX Research | "Uncovering user needs through structured interviews, testing, and behavioral analysis" | `User Interviews` · `Usability Testing` · `Journey Mapping` |
-| Systems Analysis | "Mapping complex workflows to find inefficiencies and design better processes" | `Workflow Analysis` · `Requirements Gathering` · `Process Mapping` |
-| UI/UX Design | "Translating research insights into intuitive interfaces people actually want to use" | `Wireframing` · `Prototyping` · `Design Systems` |
-| Data Analysis | "Turning raw user behavior data into actionable insights that drive decisions" | `Behavioral Analytics` · `Pattern Recognition` · `Statistical Analysis` |
-| Strategic Planning | "Aligning product roadmaps with business goals and user needs across teams" | `Roadmap Development` · `Stakeholder Alignment` · `OKR Frameworks` |
-| Leadership | "Building and guiding cross-functional teams through ambiguity to deliver results" | `Team Building` · `Mentorship` · `Cross-functional Coordination` |
+### B. Fix small font sizes across slides (6 files)
+Bump all sub-14px text to at least 14px, and adjust cramped elements:
 
-## Changes
+| File | Change |
+|------|--------|
+| `CompetenciesSlide.tsx` | Method tags: 11px → 13px, subtitle: 13px → 15px, years: 13px → 14px |
+| `CaseStudySlide.tsx` | Metric labels: 14px → 15px, quote attribution: 14px → 15px |
+| `WebPortfolioSlide.tsx` | "View live" text: 14px → 15px |
+| `CertificationsSlide.tsx` | Meta text: 15px → 16px |
 
-### 1. `src/components/CoreCompetenciesGrid.tsx` (Home page)
-- Add `subtitle` and `methods` fields to the data array
-- Render subtitle below the name (small muted text)
-- Render methods as small badges/tags below the impact statement
-- Keep the existing card layout — just add two lines of content per card
+### C. Standardize heading sizes
+- Section labels (uppercase): **20px** across all slides (already consistent)
+- Slide headings: **52px** standard, **44px** for case studies (keep — longer titles need smaller size), **80px** for title slide (keep), **64px** for closing (keep)
+- No changes needed here — the variance is intentional based on content length
 
-### 2. `src/components/deck/slides/CompetenciesSlide.tsx` (Deck)
-- Same data additions
-- Render subtitle as a one-liner under the competency name
-- Render methods as inline dot-separated text (compact for slide format)
-- Keep the existing 3x2 grid layout
-
-### 3. No new files needed
-Both components are self-contained. The data stays inline (matching existing pattern).
+### Files Modified
+- `src/index.css` — add `.slide-content` rules
+- `src/components/deck/slides/CompetenciesSlide.tsx` — bump small font sizes
+- `src/components/deck/slides/CaseStudySlide.tsx` — bump metric/quote sizes
+- `src/components/deck/slides/WebPortfolioSlide.tsx` — bump link text
+- `src/components/deck/slides/CertificationsSlide.tsx` — bump meta text
 
