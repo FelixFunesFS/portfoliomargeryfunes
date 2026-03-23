@@ -68,7 +68,7 @@ export default function CertificationsSlide() {
                   >
                     <div className="absolute -left-[22px] top-2 w-3 h-3 rounded-full bg-[hsl(215,85%,55%)] border-2 border-[hsl(217,91%,4%)]" />
                     <h4 className="text-[18px] font-semibold text-white">{c.role}</h4>
-                    <p className="text-[15px] text-white/50">{c.years} · {c.org}</p>
+                    <p className="text-[16px] text-white/50">{c.years} · {c.org}</p>
                   </motion.div>
                 ))}
               </div>

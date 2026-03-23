@@ -42,7 +42,7 @@ export default function WebPortfolioSlide() {
               <div className="p-6 flex justify-between items-center">
                 <div>
                   <h3 className="text-[20px] font-semibold text-white">{p.title}</h3>
-                  <p className="text-[14px] text-white/40 mt-1">View live site →</p>
+                  <p className="text-[15px] text-white/40 mt-1">View live site →</p>
                 </div>
                 <div className="text-[hsl(190,75%,45%)] text-[16px] font-semibold">{p.metric}</div>
               </div>
