@@ -21,6 +21,8 @@ interface CoreCompetency {
   yearsExperience: number;
   highlightMetric: string;
   color: string;
+  subtitle: string;
+  methods: string[];
 }
 
 const coreCompetencies: CoreCompetency[] = [
