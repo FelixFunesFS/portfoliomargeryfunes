@@ -53,7 +53,7 @@ export default function CaseStudySlide({
           {metrics.map((m) => (
             <div key={m.label} className="px-8 py-5 rounded-xl border border-white/10 bg-white/5 text-center flex-1">
               <div className="text-[36px] font-bold mb-1" style={{ color: accentColor }}>{m.value}</div>
-              <div className="text-[14px] text-white/50 uppercase tracking-wider">{m.label}</div>
+              <div className="text-[15px] text-white/50 uppercase tracking-wider">{m.label}</div>
             </div>
           ))}
         </motion.div>
@@ -69,7 +69,7 @@ export default function CaseStudySlide({
           >
             <p className="text-[18px] text-white/70 italic leading-relaxed">"{quote}"</p>
             {quoteAttribution && (
-              <p className="text-[14px] mt-2" style={{ color: accentColor }}>{quoteAttribution}</p>
+              <p className="text-[15px] mt-2" style={{ color: accentColor }}>{quoteAttribution}</p>
             )}
           </motion.div>
         )}

@@ -37,14 +37,14 @@ export default function CompetenciesSlide() {
               </div>
               <div className="min-w-0">
                 <h3 className="text-[20px] font-semibold text-white mb-0.5">{c.name}</h3>
-                <p className="text-[13px] text-white/50 mb-2 leading-snug">{c.subtitle}</p>
+                <p className="text-[15px] text-white/50 mb-2 leading-snug">{c.subtitle}</p>
                 <div className="flex flex-wrap gap-1.5 mb-2">
                   {c.methods.map((m) => (
-                    <span key={m} className="text-[11px] px-2 py-0.5 rounded-full border border-white/10 text-white/60">{m}</span>
+                    <span key={m} className="text-[13px] px-2 py-0.5 rounded-full border border-white/10 text-white/60">{m}</span>
                   ))}
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[13px] text-white/35">{c.years}+ yrs</span>
+                  <span className="text-[14px] text-white/35">{c.years}+ yrs</span>
                   <span className="text-[14px] font-medium" style={{ color: c.color }}>{c.metric}</span>
                 </div>
               </div>

@@ -222,6 +222,15 @@
   }
 }
 
+/* Slide deck typography */
+.slide-content {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 html {
   scroll-behavior: smooth;
 }
