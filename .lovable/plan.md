@@ -1,48 +1,53 @@
 
 
-# Spanish-Language Services Landing Page (`/es` or `/servicios`)
+# Adding Detail to Core Competencies
 
-## Strategic Thinking
+## The Problem
 
-This is not just a translation — it's a **market positioning tool** for the Latin American and US Hispanic professional market. The best way to think about this:
+Right now each competency shows: name, years, one vague metric ("15+ studies", "10k+ users"). A recruiter or collaborator sees "Systems Analysis — 10 years" and thinks "so what?" There is no explanation of **what you actually did**, **what methods you used**, or **why it matters to them**.
 
-1. **Audience**: Spanish-speaking business owners, startups, NGOs (like the El Salvador and veteran orgs you've already served) who need UX research, web development, or digital transformation services
-2. **Framing**: Position as a bilingual consultant who understands both US enterprise standards and Latin American business culture — this is a competitive advantage most UX researchers don't have
-3. **Content**: Services-first (not portfolio-first). Lead with what you can do for them, then prove it with select case studies they'd relate to (El Salvador tourism, Soul Train's, Visions of Hope)
-4. **Standalone page**: Not a full site translation — a focused landing page at `/servicios` with its own navbar, hero, services grid, social proof, and CTA
+## How to Think About This
 
-## Page Structure
+Each competency card should answer three questions in under 5 seconds of reading:
 
-| Section | Content |
-|---------|---------|
-| **Hero** | "Diseño Centrado en el Usuario & Desarrollo Web" — bilingual value prop, professional headshot area, CTA button |
-| **Services Grid** | 4-6 service cards: Investigación UX, Diseño de Interfaces, Desarrollo Web, Automatización de Procesos, Consultoría Digital, Estrategia de Producto |
-| **Why Work With Me** | 3 differentiators: Bilingüe, Military precision methodology, Measurable ROI (with stats) |
-| **Selected Projects** | 3-4 relevant case studies with Spanish descriptions (El Salvador, Soul Train's, Visions of Hope, BBVAW) |
-| **Certifications** | Google UX, IBM badges — universal credibility |
-| **CTA / Contact** | "Hablemos" section with email, scheduling link |
-| **Footer** | Simplified Spanish footer |
+1. **What is this?** — A plain-language subtitle (not jargon)
+2. **What did you actually do?** — 2-3 concrete activities/methods as small tags
+3. **Why should I care?** — The impact statement (already exists, but needs sharpening)
 
-## Technical Implementation
+The key insight: competencies are not skills — they are **value propositions**. "UX Research" means nothing. "I talk to your users, find where they get stuck, and fix it before you waste dev cycles" means everything.
 
-### New Files
-| File | Purpose |
-|------|---------|
-| `src/pages/Servicios.tsx` | Main Spanish services landing page — standalone scrollable page (not deck format) |
-| `src/components/servicios/ServiciosHero.tsx` | Hero section with Spanish copy |
-| `src/components/servicios/ServiciosGrid.tsx` | Services offering cards |
-| `src/components/servicios/ServiciosProjects.tsx` | Selected project showcases |
-| `src/components/servicios/ServiciosNavbar.tsx` | Simplified navbar with Spanish labels + language toggle link back to English site |
+## Proposed Data Structure Changes
 
-### Modified Files
-| File | Change |
-|------|--------|
-| `src/App.tsx` | Add `/servicios` route |
+Add two new fields to each competency:
 
-### Design Approach
-- Same dark premium aesthetic as the capabilities deck for brand consistency
-- All copy in Spanish — no auto-translation, hand-crafted professional copy
-- Responsive scrollable page (not slide deck) — better for SEO and mobile sharing
-- Language toggle in navbar linking between `/` (English) and `/servicios` (Spanish)
-- Reuse existing project images and brand assets
+- **`subtitle`**: One plain-English sentence explaining what this competency means in practice
+- **`methods`**: 2-3 short tags showing concrete activities (these act as proof points)
+
+### Example Data (both components + deck slide):
+
+| Competency | Subtitle | Methods |
+|---|---|---|
+| UX Research | "Uncovering user needs through structured interviews, testing, and behavioral analysis" | `User Interviews` · `Usability Testing` · `Journey Mapping` |
+| Systems Analysis | "Mapping complex workflows to find inefficiencies and design better processes" | `Workflow Analysis` · `Requirements Gathering` · `Process Mapping` |
+| UI/UX Design | "Translating research insights into intuitive interfaces people actually want to use" | `Wireframing` · `Prototyping` · `Design Systems` |
+| Data Analysis | "Turning raw user behavior data into actionable insights that drive decisions" | `Behavioral Analytics` · `Pattern Recognition` · `Statistical Analysis` |
+| Strategic Planning | "Aligning product roadmaps with business goals and user needs across teams" | `Roadmap Development` · `Stakeholder Alignment` · `OKR Frameworks` |
+| Leadership | "Building and guiding cross-functional teams through ambiguity to deliver results" | `Team Building` · `Mentorship` · `Cross-functional Coordination` |
+
+## Changes
+
+### 1. `src/components/CoreCompetenciesGrid.tsx` (Home page)
+- Add `subtitle` and `methods` fields to the data array
+- Render subtitle below the name (small muted text)
+- Render methods as small badges/tags below the impact statement
+- Keep the existing card layout — just add two lines of content per card
+
+### 2. `src/components/deck/slides/CompetenciesSlide.tsx` (Deck)
+- Same data additions
+- Render subtitle as a one-liner under the competency name
+- Render methods as inline dot-separated text (compact for slide format)
+- Keep the existing 3x2 grid layout
+
+### 3. No new files needed
+Both components are self-contained. The data stays inline (matching existing pattern).
 
