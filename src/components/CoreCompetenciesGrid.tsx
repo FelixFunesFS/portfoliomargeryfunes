@@ -169,13 +169,28 @@ export default function CoreCompetenciesGrid() {
                       </Badge>
                     </div>
 
-                    <h3 className="text-lg font-semibold text-foreground mb-2">
+                    <h3 className="text-lg font-semibold text-foreground mb-1">
                       {competency.name}
                     </h3>
 
-                    <p className="text-sm text-muted-foreground mb-3">
+                    <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
+                      {competency.subtitle}
+                    </p>
+
+                    <p className="text-sm text-foreground/80 mb-3">
                       {competency.impactStatement}
                     </p>
+
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {competency.methods.map((method) => (
+                        <span
+                          key={method}
+                          className="text-[10px] px-2 py-0.5 rounded-full border border-border/50 text-muted-foreground bg-muted/30"
+                        >
+                          {method}
+                        </span>
+                      ))}
+                    </div>
 
                     <div className="flex items-center justify-between text-xs">
                       <span className="text-muted-foreground">
