@@ -1,66 +1,38 @@
 
 
-# Capabilities Deck — Responsiveness & Font Audit
+# Generate Downloadable PDF — Portfolio Capabilities Summary
 
-## Current State
+## Overview
 
-The deck uses a **correct scaling approach**: all slides render at a fixed 1920x1080 and scale via CSS `transform: scale()` to fit any viewport. This means responsiveness is handled — content won't break at different screen sizes. However, there are font-related issues.
+Generate a comprehensive PDF document that consolidates your capabilities, case study summaries, and technical skills matrix into a polished, downloadable file. This is a **script-based artifact generation task** — not a UI feature.
 
-## Issues Found
+## Content Structure (6-8 pages)
 
-### 1. No explicit font-family on slides
-The `slide-content` class wrapper exists in `SlideLayout.tsx` but has **zero CSS rules**. Slides inherit whatever Tailwind's base sets, which may not match the intended presentation look. Inter is imported in `index.css` but not explicitly applied to slides.
+| Page | Content |
+|------|---------|
+| **1. Cover** | Name, title, tagline, contact info |
+| **2. Impact Overview** | 3 hero metrics (26,000+ hrs saved, 90% error reduction, 5,200% ROI), core competencies grid with subtitles and methods |
+| **3. Technical Skills Matrix** | 4 categories (UX Research, UX Design, Full Stack Dev, AI/Automation) with skill names, proficiency levels, percentages |
+| **4-5. Case Study Summaries** | All 6 case studies: title, role, problem, solution, key outcomes, metrics |
+| **6. Certifications & Career** | Google UX Certificate, IBM badges, career progression highlights |
 
-### 2. Font sizes too small on several slides
-At 1920x1080, some text is already small — and when scaled down to a 1110px viewport (current preview), these become nearly unreadable:
+## Technical Approach
 
-| Slide | Element | Current Size | Problem |
-|-------|---------|-------------|---------|
-| Competencies | Method tags | **11px** | Unreadable when scaled |
-| Competencies | Subtitle | **13px** | Too small for presentation |
-| Competencies | Years text | **13px** | Barely visible |
-| CaseStudy | Metric labels | **14px** | Borderline |
-| WebPortfolio | "View live site" | **14px** | Borderline |
-| CaseStudy | Quote attribution | **14px** | Borderline |
+- Use **ReportLab** (Python) to generate the PDF directly via `code--exec`
+- Pull content by reading the existing TypeScript data files and hardcoding the extracted values into the generation script
+- Apply the portfolio's dark premium aesthetic: dark headers, accent colors matching the theme
+- Output to `/mnt/documents/Margery_Funes_Capabilities_Summary.pdf`
+- Visual QA via `pdftoppm` before delivery
 
-### 3. Inconsistent heading hierarchy
-- Title slide: `80px` name
-- Impact slide: `56px` heading
-- Most other slides: `52px` heading
-- Case study: `44px` heading (noticeably smaller)
-- Closing: `64px` heading
+## Design
 
-### 4. No font-weight variation for readability
-All body text uses default weight. Presentation slides benefit from slightly heavier body text (weight 500) for projection/screen readability.
+- US Letter (8.5x11)
+- Color palette: Navy/dark slate headers, primary accent for highlights, clean white body
+- Professional typography: section headers bold, body 11pt
+- Each case study as a compact card-style block with metrics callouts
+- Skills shown as horizontal bar indicators or percentage listings by category
 
-## Plan
+## Files
 
-### A. Add `.slide-content` CSS rules to `src/index.css`
-- Set `font-family: 'Inter', sans-serif` explicitly
-- Set minimum font floor: nothing below **14px** at 1920x1080
-- Set base `font-weight: 500` for better screen readability
-- Add `letter-spacing: 0.01em` for cleaner presentation text
-- Add `-webkit-font-smoothing: antialiased`
-
-### B. Fix small font sizes across slides (6 files)
-Bump all sub-14px text to at least 14px, and adjust cramped elements:
-
-| File | Change |
-|------|--------|
-| `CompetenciesSlide.tsx` | Method tags: 11px → 13px, subtitle: 13px → 15px, years: 13px → 14px |
-| `CaseStudySlide.tsx` | Metric labels: 14px → 15px, quote attribution: 14px → 15px |
-| `WebPortfolioSlide.tsx` | "View live" text: 14px → 15px |
-| `CertificationsSlide.tsx` | Meta text: 15px → 16px |
-
-### C. Standardize heading sizes
-- Section labels (uppercase): **20px** across all slides (already consistent)
-- Slide headings: **52px** standard, **44px** for case studies (keep — longer titles need smaller size), **80px** for title slide (keep), **64px** for closing (keep)
-- No changes needed here — the variance is intentional based on content length
-
-### Files Modified
-- `src/index.css` — add `.slide-content` rules
-- `src/components/deck/slides/CompetenciesSlide.tsx` — bump small font sizes
-- `src/components/deck/slides/CaseStudySlide.tsx` — bump metric/quote sizes
-- `src/components/deck/slides/WebPortfolioSlide.tsx` — bump link text
-- `src/components/deck/slides/CertificationsSlide.tsx` — bump meta text
+No project files modified — this is a standalone script execution task. The PDF is generated and placed in `/mnt/documents/`.
 
